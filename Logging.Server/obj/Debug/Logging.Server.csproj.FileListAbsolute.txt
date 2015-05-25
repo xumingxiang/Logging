@@ -1,0 +1,5 @@
+E:\WorkStudio\Logging\Logging.Server\bin\Debug\Logging.Server.dll
+E:\WorkStudio\Logging\Logging.Server\bin\Debug\Logging.Server.pdb
+E:\WorkStudio\Logging\Logging.Server\obj\Debug\Logging.Server.dll
+E:\WorkStudio\Logging\Logging.Server\obj\Debug\Logging.Server.pdb
+E:\WorkStudio\Logging\Logging.Server\obj\Debug\Logging.Server.csprojResolveAssemblyReference.cache

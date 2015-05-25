@@ -1,0 +1,5 @@
+C:\Users\Administrator\Downloads\thrift-0.9.2\thrift-0.9.2\lib\csharp\src\bin\Debug\Thrift.dll
+C:\Users\Administrator\Downloads\thrift-0.9.2\thrift-0.9.2\lib\csharp\src\bin\Debug\Thrift.pdb
+C:\Users\Administrator\Downloads\thrift-0.9.2\thrift-0.9.2\lib\csharp\src\obj\Debug\Thrift.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Downloads\thrift-0.9.2\thrift-0.9.2\lib\csharp\src\obj\Debug\Thrift.dll
+C:\Users\Administrator\Downloads\thrift-0.9.2\thrift-0.9.2\lib\csharp\src\obj\Debug\Thrift.pdb

@@ -1,0 +1,8 @@
+E:\WorkStudio\Logging\Logging.Client.TestSite\obj\Release\Logging.Client.TestSite.csprojResolveAssemblyReference.cache
+E:\WorkStudio\Logging\Logging.Client.TestSite\bin\Logging.Client.TestSite.dll.config
+E:\WorkStudio\Logging\Logging.Client.TestSite\bin\Logging.Client.TestSite.dll
+E:\WorkStudio\Logging\Logging.Client.TestSite\bin\Logging.Client.TestSite.pdb
+E:\WorkStudio\Logging\Logging.Client.TestSite\bin\Logging.Client.dll
+E:\WorkStudio\Logging\Logging.Client.TestSite\bin\Logging.Client.pdb
+E:\WorkStudio\Logging\Logging.Client.TestSite\obj\Release\Logging.Client.TestSite.dll
+E:\WorkStudio\Logging\Logging.Client.TestSite\obj\Release\Logging.Client.TestSite.pdb

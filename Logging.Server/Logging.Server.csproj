@@ -48,6 +48,8 @@
     <Compile Include="LogProcessor.cs" />
     <Compile Include="LogReciver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThriftContract\LogEntity.cs" />
+    <Compile Include="ThriftContract\LogTransferService.cs" />
     <Compile Include="Thrift\Collections\TCollections.cs" />
     <Compile Include="Thrift\Collections\THashSet.cs" />
     <Compile Include="Thrift\Protocol\TAbstractBase.cs" />
@@ -96,6 +98,9 @@
     <Compile Include="Thrift\Transport\TTransport.cs" />
     <Compile Include="Thrift\Transport\TTransportException.cs" />
     <Compile Include="Thrift\Transport\TTransportFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ThriftContract\log.thrift" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

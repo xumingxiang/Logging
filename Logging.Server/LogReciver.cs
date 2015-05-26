@@ -6,10 +6,14 @@ using System.Text;
 
 namespace Logging.Server
 {
-    internal class LogReciver
+    public class LogReciver : LogTransferService.Iface
     {
 
         private static BlockingActionQueue<IList<LogEntity>> queue;
+
+        public LogReciver() { 
+        
+        }
 
         static LogReciver()
         {
@@ -26,6 +30,22 @@ namespace Logging.Server
             // write log to db
             var logProcessor = LogProcessorManager.GetLogProcessor();
             logProcessor.Process(LogEntities);
+        }
+
+        public void Log(List<global::LogEntity> logEntities)
+        {
+            IList<LogEntity> _logEntities = new List<LogEntity>();
+            foreach (var item in logEntities)
+            {
+                LogEntity _log = new LogEntity();
+                _log.IP = item.IP;
+                _log.Level = item.Level;
+                _log.Message = item.Message;
+                _log.Tags = item.Tags;
+                _log.Title = item.Title;
+                _logEntities.Add(_log);
+            }
+            queue.Enqueue(_logEntities);
         }
     }
 }

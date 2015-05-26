@@ -6,15 +6,9 @@ using System.Threading.Tasks;
 
 namespace Logging.Client
 {
-    /// <summary>
-    /// 发送消息
-    /// </summary>
-    internal class LogSender
+    public abstract class LogSender
     {
-        //private static readonly Freeway.Logging.ILog _logger = Freeway.Logging.LogManager.GetLogger(typeof(T));
-        public void Send(IList<LogEntity> LogEntities) 
-        {
-             
-        }
+        protected int SENDER_TIMEOUT = 5000;
+        public abstract void Send(IList<LogEntity> LogEntities);
     }
 }

@@ -13,9 +13,14 @@ namespace Logging.Client
 
         public string IP { get; set; }
 
-        public int Level { get; set; }
+        /// <summary>
+        /// 日志等级：1，error；2，warm；3，info；4：debug
+        /// </summary>
+        public sbyte Level { get; set; }
 
-        public Dictionary<string,string> Tags { get; set; }
+        public Dictionary<string, string> Tags { get; set; }
+
+        public long Time { get; set; }
 
     }
 }

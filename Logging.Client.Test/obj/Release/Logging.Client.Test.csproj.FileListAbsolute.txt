@@ -1,0 +1,16 @@
+D:\WorkStudio\Logging-master\Logging.Client.Test\bin\Release\Logging.Client.Test.exe.config
+D:\WorkStudio\Logging-master\Logging.Client.Test\bin\Release\Logging.Client.Test.exe
+D:\WorkStudio\Logging-master\Logging.Client.Test\bin\Release\Logging.Client.Test.pdb
+D:\WorkStudio\Logging-master\Logging.Client.Test\bin\Release\Logging.Client.dll
+D:\WorkStudio\Logging-master\Logging.Client.Test\bin\Release\Logging.Client.pdb
+D:\WorkStudio\Logging-master\Logging.Client.Test\obj\Release\Logging.Client.Test.csprojResolveAssemblyReference.cache
+D:\WorkStudio\Logging-master\Logging.Client.Test\obj\Release\Logging.Client.Test.exe
+D:\WorkStudio\Logging-master\Logging.Client.Test\obj\Release\Logging.Client.Test.pdb
+E:\WorkStudio\Logging\Logging.Client.Test\bin\Release\Logging.Client.Test.exe.config
+E:\WorkStudio\Logging\Logging.Client.Test\obj\Release\Logging.Client.Test.exe
+E:\WorkStudio\Logging\Logging.Client.Test\obj\Release\Logging.Client.Test.pdb
+E:\WorkStudio\Logging\Logging.Client.Test\bin\Release\Logging.Client.Test.exe
+E:\WorkStudio\Logging\Logging.Client.Test\bin\Release\Logging.Client.Test.pdb
+E:\WorkStudio\Logging\Logging.Client.Test\bin\Release\Logging.Client.dll
+E:\WorkStudio\Logging\Logging.Client.Test\bin\Release\Logging.Client.pdb
+E:\WorkStudio\Logging\Logging.Client.Test\obj\Release\Logging.Client.Test.csprojResolveAssemblyReference.cache

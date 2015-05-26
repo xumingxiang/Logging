@@ -1,5 +1,5 @@
-E:\WorkStudio\Logging\Logging.Client\bin\Debug\Logging.Client.dll
-E:\WorkStudio\Logging\Logging.Client\bin\Debug\Logging.Client.pdb
-E:\WorkStudio\Logging\Logging.Client\obj\Debug\Logging.Client.csprojResolveAssemblyReference.cache
-E:\WorkStudio\Logging\Logging.Client\obj\Debug\Logging.Client.dll
-E:\WorkStudio\Logging\Logging.Client\obj\Debug\Logging.Client.pdb
+D:\WorkStudio\Logging-master\Logging.Client\bin\Debug\Logging.Client.dll
+D:\WorkStudio\Logging-master\Logging.Client\bin\Debug\Logging.Client.pdb
+D:\WorkStudio\Logging-master\Logging.Client\obj\Debug\Logging.Client.csprojResolveAssemblyReference.cache
+D:\WorkStudio\Logging-master\Logging.Client\obj\Debug\Logging.Client.dll
+D:\WorkStudio\Logging-master\Logging.Client\obj\Debug\Logging.Client.pdb

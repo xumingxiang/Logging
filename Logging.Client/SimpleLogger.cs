@@ -92,18 +92,17 @@ namespace Logging.Client
             }
             log.Tags.Add("Source", this.Source);
 
-            b.Enqueue(log);
+            block.Enqueue(log);
 
         }
-        static TimerBatchBlock<LogEntity> b;
+        static TimerBatchBlock<LogEntity> block;
         static SimpleLogger()
         {
-            b = new TimerBatchBlock<LogEntity>(1, (batch) =>
+            block = new TimerBatchBlock<LogEntity>(1, (batch) =>
              {
                  LogSender sender = new HttpLogSender();
                  sender.Send(batch);
-
-             }, 1000, 10, 100);
+             }, 1000, 50, 100);
         }
 
 

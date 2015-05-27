@@ -12,7 +12,7 @@ namespace Logging.Client
     /// 多线程消费队列。将输入元素打包输出。
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class TimerBatchBlock<T>
+    internal class TimerBatchBlock<T>
     {
         /// <summary>
         /// 当前队列长度
@@ -96,24 +96,31 @@ namespace Logging.Client
         {
             while (true)
             {
-                T item;
-                bool hasItem = s_Queue.TryDequeue(out item);
-                if (hasItem)
+                try
                 {
-                    this.Batch.Add(item);
-                }
-                else
-                {
-                    Thread.Sleep(100);
-                }
+                    T item;
+                    bool hasItem = s_Queue.TryDequeue(out item);
+                    if (hasItem)
+                    {
+                        this.Batch.Add(item);
+                    }
+                    else
+                    {
+                        Thread.Sleep(100);
+                    }
 
-                var _now = DateTime.Now;
-                var elapsed = (_now - this.LastActionTime).TotalMilliseconds;
-                if (this.Batch.Count > 0 && (this.Batch.Count >= this.BatchSize || elapsed > this.BlockElapsed))
+                    var _now = DateTime.Now;
+                    var elapsed = (_now - this.LastActionTime).TotalMilliseconds;
+                    if (this.Batch.Count > 0 && (this.Batch.Count >= this.BatchSize || elapsed > this.BlockElapsed))
+                    {
+                        this.Action(this.Batch.ToList());
+                        this.Batch = new ConcurrentBag<T>();
+                        this.LastActionTime = DateTime.Now;
+                    }
+                }
+                catch (Exception ex) 
                 {
-                    this.Action(this.Batch.ToList());
-                    this.Batch = new ConcurrentBag<T>();
-                    this.LastActionTime = DateTime.Now;
+                    //do exception...
                 }
             }
         }

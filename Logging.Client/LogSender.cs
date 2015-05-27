@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logging.Client
 {
-    public abstract class LogSender
+    internal abstract class LogSender
     {
         protected int SENDER_TIMEOUT = 5000;
         public abstract void Send(IList<LogEntity> LogEntities);

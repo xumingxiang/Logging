@@ -11,7 +11,7 @@ namespace Logging.Client
     /// <summary>
     /// 发送消息
     /// </summary>
-    public class HttpLogSender : LogSender
+    internal class HttpLogSender : LogSender
     {
 
         //private static readonly Freeway.Logging.ILog _logger = Freeway.Logging.LogManager.GetLogger(typeof(T));
@@ -24,11 +24,13 @@ namespace Logging.Client
             //var transport = new Thrift.Transport.("http://localhost:99");
             //   var protocol = new Thrift.Protocol(transport);
             //  var client = new UserStorageClient(protocol);
+            var loggingServerUrl = System.Configuration.ConfigurationManager.AppSettings["LoggingServerUrl"];
 
-            var uri = new Uri("http://localhost:37665/Reciver.ashx");
-            
+
+            var uri = new Uri(loggingServerUrl);
+
             var httpClient = new THttpClient(uri);
-            
+
             httpClient.ConnectTimeout = SENDER_TIMEOUT;
             var protocol = new TBinaryProtocol(httpClient);
             httpClient.Open();
@@ -39,7 +41,7 @@ namespace Logging.Client
             {
                 global::LogEntity _log = new global::LogEntity();
                 _log.IP = item.IP;
-                _log.Level = item.Level;
+                _log.Level = (sbyte)item.Level;
                 _log.Message = item.Message;
                 _log.Tags = item.Tags;
                 _log.Title = item.Title;
@@ -47,10 +49,6 @@ namespace Logging.Client
             }
             client.Log(_logEntities);
 
-          
-
-          //  client.recv_Log();
-           // client.Log(_logEntities);
             httpClient.Close();
         }
 

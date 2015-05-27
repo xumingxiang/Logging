@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Logging.Client
 {
-    public class LogEntity
+    internal class LogEntity
     {
         public string Title { get; set; }
 
@@ -14,9 +14,9 @@ namespace Logging.Client
         public string IP { get; set; }
 
         /// <summary>
-        /// 日志等级：1，error；2，warm；3，info；4：debug
+        /// 日志等级：4，error；3，warm；2，info；1：debug
         /// </summary>
-        public sbyte Level { get; set; }
+        public LogLevel Level { get; set; }
 
         public Dictionary<string, string> Tags { get; set; }
 

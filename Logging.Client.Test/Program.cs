@@ -11,31 +11,31 @@ namespace Logging.Client.Test
     {
         static void Main(string[] args)
         {
-            TimerBatchBlockTest();
+            //TimerBatchBlockTest();
 
             Console.ReadLine();
         }
 
-        static void TimerBatchBlockTest()
-        {
-            TimerBatchBlock<int> b = new TimerBatchBlock<int>(1, (batch) =>
-            {
-                string txt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + ":";
-                foreach (var item in batch)
-                {
-                    txt += item + ",";
-                }
+        //static void TimerBatchBlockTest()
+        //{
+        //    TimerBatchBlock<int> b = new TimerBatchBlock<int>(1, (batch) =>
+        //    {
+        //        string txt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + ":";
+        //        foreach (var item in batch)
+        //        {
+        //            txt += item + ",";
+        //        }
 
-                Console.WriteLine(txt);
+        //        Console.WriteLine(txt);
 
-            }, 1000, 10, 100);
+        //    }, 1000, 10, 100);
 
-            int i = 0;
-            while (i < 105)
-            {
-                i++;
-                b.Enqueue(i);
-            }
-        }
+        //    int i = 0;
+        //    while (i < 105)
+        //    {
+        //        i++;
+        //        b.Enqueue(i);
+        //    }
+        //}
     }
 }

@@ -11,10 +11,14 @@ namespace Logging.Client.TestSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            HttpLogSender logsender = new HttpLogSender();
-            List<LogEntity> logs = new List<LogEntity>();
-            logs.Add(new LogEntity { IP="192.168.1.1", Level=1, Message="test_message", Title= "test_title" });
-            logsender.Send(logs);
+            ILog logger = Logging.Client.LogManager.GetLogger(typeof(Default));
+
+            logger.Debug("test");
+            logger.Info("test","test");
+            logger.Warm("test", "test",null);
+            Dictionary<string,string> tags=new Dictionary<string,string>();
+            tags.Add("a","a");
+            logger.Error("test","test",tags);
         }
     }
 }

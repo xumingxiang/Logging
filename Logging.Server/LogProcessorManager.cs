@@ -5,8 +5,11 @@ using System.Text;
 
 namespace Logging.Server
 {
-    internal class LogProcessorManager
+    internal sealed class LogProcessorManager
     {
+        private LogProcessorManager()
+        { }
+
         public static ILogProcessor GetLogProcessor()
         {
             return new LogProcessor();

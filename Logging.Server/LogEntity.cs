@@ -13,7 +13,7 @@ namespace Logging.Server
 
         public string IP { get; set; }
 
-        public int Level { get; set; }
+        public LogLevel Level { get; set; }
 
         public Dictionary<string,string> Tags { get; set; }
 

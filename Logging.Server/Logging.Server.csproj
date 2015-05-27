@@ -44,6 +44,7 @@
     <Compile Include="BlockingActionQueue.cs" />
     <Compile Include="ILogProcessor.cs" />
     <Compile Include="LogEntity.cs" />
+    <Compile Include="LogLevel.cs" />
     <Compile Include="LogProcessorManager.cs" />
     <Compile Include="LogProcessor.cs" />
     <Compile Include="LogReciver.cs" />

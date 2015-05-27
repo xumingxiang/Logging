@@ -39,7 +39,7 @@ namespace Logging.Server
             {
                 LogEntity _log = new LogEntity();
                 _log.IP = item.IP;
-                _log.Level = item.Level;
+                _log.Level = (LogLevel)item.Level;
                 _log.Message = item.Message;
                 _log.Tags = item.Tags;
                 _log.Title = item.Title;

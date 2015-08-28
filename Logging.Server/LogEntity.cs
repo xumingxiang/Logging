@@ -15,7 +15,15 @@ namespace Logging.Server
 
         public LogLevel Level { get; set; }
 
-        public Dictionary<string,string> Tags { get; set; }
+        public int AppId { get; set; }
+
+        public long TimeSpan { get; set; }
+
+        public string Source { get; set; }
+
+        public int Thread { get; set; }
+
+        public Dictionary<string, string> Tags { get; set; }
 
     }
 }

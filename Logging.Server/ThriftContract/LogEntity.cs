@@ -26,6 +26,9 @@ public partial class LogEntity : TBase
   private sbyte _Level;
   private long _Time;
   private string _IP;
+  private int _AppId;
+  private string _Source;
+  private int _Thread;
   private Dictionary<string, string> _Tags;
 
   public string Title
@@ -93,6 +96,45 @@ public partial class LogEntity : TBase
     }
   }
 
+  public int AppId
+  {
+    get
+    {
+      return _AppId;
+    }
+    set
+    {
+      __isset.AppId = true;
+      this._AppId = value;
+    }
+  }
+
+  public string Source
+  {
+    get
+    {
+      return _Source;
+    }
+    set
+    {
+      __isset.Source = true;
+      this._Source = value;
+    }
+  }
+
+  public int Thread
+  {
+    get
+    {
+      return _Thread;
+    }
+    set
+    {
+      __isset.Thread = true;
+      this._Thread = value;
+    }
+  }
+
   public Dictionary<string, string> Tags
   {
     get
@@ -117,6 +159,9 @@ public partial class LogEntity : TBase
     public bool Level;
     public bool Time;
     public bool IP;
+    public bool AppId;
+    public bool Source;
+    public bool Thread;
     public bool Tags;
   }
 
@@ -171,6 +216,27 @@ public partial class LogEntity : TBase
           }
           break;
         case 6:
+          if (field.Type == TType.I32) {
+            AppId = iprot.ReadI32();
+          } else { 
+            TProtocolUtil.Skip(iprot, field.Type);
+          }
+          break;
+        case 7:
+          if (field.Type == TType.String) {
+            Source = iprot.ReadString();
+          } else { 
+            TProtocolUtil.Skip(iprot, field.Type);
+          }
+          break;
+        case 8:
+          if (field.Type == TType.I32) {
+            Thread = iprot.ReadI32();
+          } else { 
+            TProtocolUtil.Skip(iprot, field.Type);
+          }
+          break;
+        case 9:
           if (field.Type == TType.Map) {
             {
               Tags = new Dictionary<string, string>();
@@ -242,10 +308,34 @@ public partial class LogEntity : TBase
       oprot.WriteString(IP);
       oprot.WriteFieldEnd();
     }
+    if (__isset.AppId) {
+      field.Name = "AppId";
+      field.Type = TType.I32;
+      field.ID = 6;
+      oprot.WriteFieldBegin(field);
+      oprot.WriteI32(AppId);
+      oprot.WriteFieldEnd();
+    }
+    if (Source != null && __isset.Source) {
+      field.Name = "Source";
+      field.Type = TType.String;
+      field.ID = 7;
+      oprot.WriteFieldBegin(field);
+      oprot.WriteString(Source);
+      oprot.WriteFieldEnd();
+    }
+    if (__isset.Thread) {
+      field.Name = "Thread";
+      field.Type = TType.I32;
+      field.ID = 8;
+      oprot.WriteFieldBegin(field);
+      oprot.WriteI32(Thread);
+      oprot.WriteFieldEnd();
+    }
     if (Tags != null && __isset.Tags) {
       field.Name = "Tags";
       field.Type = TType.Map;
-      field.ID = 6;
+      field.ID = 9;
       oprot.WriteFieldBegin(field);
       {
         oprot.WriteMapBegin(new TMap(TType.String, TType.String, Tags.Count));
@@ -294,6 +384,24 @@ public partial class LogEntity : TBase
       __first = false;
       __sb.Append("IP: ");
       __sb.Append(IP);
+    }
+    if (__isset.AppId) {
+      if(!__first) { __sb.Append(", "); }
+      __first = false;
+      __sb.Append("AppId: ");
+      __sb.Append(AppId);
+    }
+    if (Source != null && __isset.Source) {
+      if(!__first) { __sb.Append(", "); }
+      __first = false;
+      __sb.Append("Source: ");
+      __sb.Append(Source);
+    }
+    if (__isset.Thread) {
+      if(!__first) { __sb.Append(", "); }
+      __first = false;
+      __sb.Append("Thread: ");
+      __sb.Append(Thread);
     }
     if (Tags != null && __isset.Tags) {
       if(!__first) { __sb.Append(", "); }

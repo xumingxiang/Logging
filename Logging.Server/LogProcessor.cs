@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logging.Server.Writer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,11 @@ namespace Logging.Server
     /// </summary>
     internal class LogProcessor : ILogProcessor
     {
-        public void Process(IList<LogEntity> LogEntities)
+        public void Process(List<LogEntity> logs)
         {
-            throw new NotImplementedException();
+
+            MongoDbWriter.WriteLog(logs);
+
         }
     }
 }

@@ -1,5 +1,3 @@
-
-#ÃüÁî thrift-0.9.2.exe -gen csharp:cob_style log.thrift
 namespace java com.javabloger.gen.code   #  ×¢ÊÍ1
 
 struct LogEntity {   #  ×¢ÊÍ2 
@@ -8,7 +6,10 @@ struct LogEntity {   #  ×¢ÊÍ2
     3: byte   Level 
     4: i64    Time 
     5: string IP
-    6: map<string,string> Tags
+	6: i32    AppId
+	7: string    Source
+	8: i32       Thread
+    9: map<string,string> Tags
   }
 
 
@@ -16,4 +17,3 @@ service LogTransferService {  #  ×¢ÊÍ3
    
    void Log(1:list<LogEntity > logEntities)  
 }
-

@@ -6,7 +6,10 @@ struct LogEntity {   #  ×¢ÊÍ2
     3: byte   Level 
     4: i64    Time 
     5: string IP
-    6: map<string,string> Tags
+	6: i32    AppId
+	7: string    Source
+	8: i32       Thread
+    9: map<string,string> Tags
   }
 
 

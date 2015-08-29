@@ -19,8 +19,6 @@ namespace Logging.Server
         {
             queue = new BlockingActionQueue<IList<LogEntity>>(3, (LogEntities) =>
             {
-                //Thread.Sleep(10);//假设处理逻辑花了10毫秒
-                // Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss.ffff"));
                 ProcessLog(LogEntities);
             }, 2000);
         }
@@ -43,6 +41,8 @@ namespace Logging.Server
                 _log.Message = item.Message;
                 _log.Tags = item.Tags;
                 _log.Title = item.Title;
+                _log.Source = item.Source;
+                _log.Thread = item.Thread;
                 _logEntities.Add(_log);
             }
             queue.Enqueue(_logEntities);

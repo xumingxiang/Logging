@@ -118,7 +118,12 @@ namespace Logging.Client
                         this.LastActionTime = DateTime.Now;
                     }
                 }
-                catch (Exception ex) 
+                catch (ThreadAbortException)
+                {
+                    Thread.ResetAbort();
+                    //do exception...
+                }
+                catch (Exception ex)  
                 {
                     //do exception...
                 }

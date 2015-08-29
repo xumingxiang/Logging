@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Logging.Server
@@ -74,9 +75,21 @@ namespace Logging.Server
         {
             while (true)
             {
-                T item = s_Queue.Take();
-                this.Action(item);
-                //  Console.WriteLine("again");
+                try
+                {
+                    T item = s_Queue.Take();
+                    this.Action(item);
+                    //  Console.WriteLine("again");
+                }
+                catch (ThreadAbortException)
+                {
+                    Thread.ResetAbort();
+                    //do exception...
+                }
+                catch (Exception ex) 
+                {
+
+                }
             }
         }
     }

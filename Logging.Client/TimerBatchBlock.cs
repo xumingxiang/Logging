@@ -2,7 +2,6 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -30,7 +29,6 @@ namespace Logging.Client
         /// </summary>
         private int QueueMaxLength { get; set; }
 
-
         private ConcurrentBag<T> Batch { get; set; }
 
         /// <summary>
@@ -41,10 +39,9 @@ namespace Logging.Client
         /// <summary>
         /// 上一次打包处理的时间
         /// </summary>
-        DateTime LastActionTime { get; set; }
+        private DateTime LastActionTime { get; set; }
 
-        int BlockElapsed { get; set; }
-
+        private int BlockElapsed { get; set; }
 
         /// <summary>
         /// 多线程消费队列
@@ -123,7 +120,7 @@ namespace Logging.Client
                     Thread.ResetAbort();
                     //do exception...
                 }
-                catch (Exception ex)  
+                catch (Exception ex)
                 {
                     //do exception...
                 }

@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Server", "Logging.Server\Logging.Server.csproj", "{C53C8137-4145-4853-87F8-A47CCCFBB24B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Client", "Logging.Client\Logging.Client.csproj", "{99B33ED8-E7E2-4447-97EF-EE27AFD22B50}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Client.Test", "Logging.Client.Test\Logging.Client.Test.csproj", "{1BE0BDCF-C5DD-45B0-B49B-7E61A2B22135}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Server.Site", "Logging.Server.Site\Logging.Server.Site.csproj", "{858EF4D4-4557-47F4-8E78-283A7E49ED29}"
 EndProject
@@ -27,10 +25,6 @@ Global
 		{99B33ED8-E7E2-4447-97EF-EE27AFD22B50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99B33ED8-E7E2-4447-97EF-EE27AFD22B50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99B33ED8-E7E2-4447-97EF-EE27AFD22B50}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1BE0BDCF-C5DD-45B0-B49B-7E61A2B22135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1BE0BDCF-C5DD-45B0-B49B-7E61A2B22135}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1BE0BDCF-C5DD-45B0-B49B-7E61A2B22135}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1BE0BDCF-C5DD-45B0-B49B-7E61A2B22135}.Release|Any CPU.Build.0 = Release|Any CPU
 		{858EF4D4-4557-47F4-8E78-283A7E49ED29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{858EF4D4-4557-47F4-8E78-283A7E49ED29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{858EF4D4-4557-47F4-8E78-283A7E49ED29}.Release|Any CPU.ActiveCfg = Release|Any CPU

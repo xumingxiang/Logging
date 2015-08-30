@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,7 +11,7 @@ namespace Logging.Server
     /// <typeparam name="T"></typeparam>
     internal class BlockingActionQueue<T>
     {
-      
+
         /// <summary>
         /// 当前队列长度
         /// </summary>
@@ -31,7 +28,7 @@ namespace Logging.Server
         /// </summary>
         private int QueueMaxLength { get; set; }
 
-      
+
         /// <summary>
         /// 多线程消费队列
         /// </summary>
@@ -40,6 +37,9 @@ namespace Logging.Server
         /// <param name="queueMaxLength">设置队列最大长度</param>
         public BlockingActionQueue(int taskNum, Action<T> action, int queueMaxLength)
         {
+            if (taskNum <= 0) { taskNum = 1; }
+            if (queueMaxLength <= 0) { queueMaxLength = int.MaxValue; }
+
             s_Queue = new BlockingCollection<T>(new ConcurrentQueue<T>(), queueMaxLength);
             this.Action = action;
             this.QueueMaxLength = queueMaxLength;
@@ -86,7 +86,7 @@ namespace Logging.Server
                     Thread.ResetAbort();
                     //do exception...
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
 
                 }

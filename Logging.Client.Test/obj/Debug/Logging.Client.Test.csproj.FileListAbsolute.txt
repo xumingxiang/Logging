@@ -1,8 +1,0 @@
-D:\WorkStudio\Logging-master\Logging.Client.Test\bin\Debug\Logging.Client.Test.exe.config
-D:\WorkStudio\Logging-master\Logging.Client.Test\bin\Debug\Logging.Client.Test.exe
-D:\WorkStudio\Logging-master\Logging.Client.Test\bin\Debug\Logging.Client.Test.pdb
-D:\WorkStudio\Logging-master\Logging.Client.Test\bin\Debug\Logging.Client.dll
-D:\WorkStudio\Logging-master\Logging.Client.Test\bin\Debug\Logging.Client.pdb
-D:\WorkStudio\Logging-master\Logging.Client.Test\obj\Debug\Logging.Client.Test.csprojResolveAssemblyReference.cache
-D:\WorkStudio\Logging-master\Logging.Client.Test\obj\Debug\Logging.Client.Test.exe
-D:\WorkStudio\Logging-master\Logging.Client.Test\obj\Debug\Logging.Client.Test.pdb

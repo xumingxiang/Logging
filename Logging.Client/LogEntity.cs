@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Logging.Client
 {
@@ -13,14 +10,16 @@ namespace Logging.Client
 
         public string IP { get; set; }
 
-        /// <summary>
-        /// 日志等级：4，error；3，warm；2，info；1：debug
-        /// </summary>
         public LogLevel Level { get; set; }
 
-        public Dictionary<string, string> Tags { get; set; }
+        public int AppId { get; set; }
 
         public long Time { get; set; }
 
+        public string Source { get; set; }
+
+        public int Thread { get; set; }
+
+        public Dictionary<string, string> Tags { get; set; }
     }
 }

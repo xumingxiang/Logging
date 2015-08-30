@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/logviewer.css" rel="stylesheet" />
+    <link href="jQuery/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="jQuery/css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Settings</a></li>
+            <li role="presentation"><a href="#">Help</a></li>
+        </ul>
+
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">AppId</span>
+                    <input type="text" id="appid" class="form-control" aria-label="...">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">源</span>
+                    <input type="text" id="source" class="form-control" aria-label="...">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-addon">标题</span>
+                    <input type="text" id="title" class="form-control" aria-label="...">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">内容</span>
+                    <input type="text" id="msg" class="form-control" aria-label="...">
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </div>
+        <div class="row mt-2">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Start</span>
+                    <input type="text" id="start" class="form-control" aria-label="...">
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">End</span>
+                    <input type="text" id="end" class="form-control" aria-label="...">
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Host</span>
+                    <input type="text" id="ip" class="form-control" aria-label="...">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="input-group h-34">
+                    <span class="input-group-addon" id="basic-addon1">级别</span>
+                    <div id="level-warp" class="ml-20 mt-4">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox1" value="1"><strong>Debug</strong> 
+                        </label>
+                        <label class=" checkbox-inline text-info">
+                            <input type="checkbox" id="inlineCheckbox2" value="2"> <strong>Info</strong> 
+                        </label>
+                        <label class=" checkbox-inline text-warning">
+                            <input type="checkbox" id="inlineCheckbox3" value="3"> <strong>Warming</strong> 
+                        </label>
+                        <label class=" checkbox-inline text-danger">
+                            <input type="checkbox" id="inlineCheckbox3" checked="checked" value="4"> <strong>Error</strong> 
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-6">
+
+            </div>
+            <div class="col-lg-6">
+                <div class="input-group fr">
+
+                    <input type="button" id="btn_query" class="btn btn-info btn-lg btn-block" value="&nbsp;&nbsp;查 询&nbsp;&nbsp;" />
+
+                </div>
+            </div>
+        </div>
+        <ul class="list-group mt-10" id="log_warp"></ul>
+        <div class="row" id="empty" style=" display:none"><p class="col-lg-12 text-center bg-success pt-10 pb-10"  >没有找到相关信息，请更改条件重新查询！</p></div>
+        <div class=" row ">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-5  text-right">
+                <p id="record" class="pt-5" style="display:none">
+                    查询到<span id="record_num">0</span>条相关信息
+                </p>
+            </div>
+            <div class="col-md-1 fr">
+                <button type="button" id="more_query" style="display:none" class="btn btn-info  btn-sm">&nbsp;&nbsp;更&nbsp;&nbsp;多&nbsp;&nbsp;</button>
+                <!--<a id="more_query" style="display:none" class="btn btn-default btn-sm">更多</a>-->
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">All rights reserved</p>
+        </div>
+    </footer>
+    <script src="jQuery/jquery.min.js"></script>
+    <script src="jQuery/jquery-ui.js"></script>
+    <script src="jQuery/jquery-ui-timepicker-addon.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="Content/logviewer.js"></script>
+
+    <script type="text/template" id="log_item_temp">
+
+        <li class="list-group-item mt-4 {level_class}">
+            <div class="row"><p class="col-lg-12 fs-16"><b> Title：{title}</b></p></div>
+            <div class="row"><p class="col-lg-12">Message：{msg}</p></div>
+            <div class="row fs-13">
+                <div class="col-md-5">
+                    <span>Source：{source}</span>
+                </div>
+                <div class="col-md-2 text-right">
+                    <span>Host：{ip}</span>
+                </div>
+                <div class="col-md-2 text-right">
+                    <span>Thread：{thread}</span>
+                </div>
+                <div class="col-md-3 text-right">
+                    <span>Time：{time}</span>
+                </div>
+                <!--<div class="col-md-2">
+                    <a>展开</a>
+                    <a>收起</a>
+                </div>-->
+
+            </div>
+        </li>
+
+    </script>
+</body>
+</html>

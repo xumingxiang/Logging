@@ -1,12 +1,14 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Logging.Server
 {
-    internal class LogEntity
+    public  class LogEntity
     {
+        public ObjectId _id { get; set; }
+
         public string Title { get; set; }
 
         public string Message { get; set; }
@@ -17,13 +19,16 @@ namespace Logging.Server
 
         public int AppId { get; set; }
 
-        public long TimeSpan { get; set; }
+        public long Time { get; set; }
 
         public string Source { get; set; }
 
         public int Thread { get; set; }
 
         public Dictionary<string, string> Tags { get; set; }
+
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        public DateTime CreateTime { get; set; }
 
     }
 }

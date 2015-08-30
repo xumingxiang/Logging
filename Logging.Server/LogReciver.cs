@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using Logging.Server.Processor;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Configuration;
 
 namespace Logging.Server
 {
@@ -11,23 +10,32 @@ namespace Logging.Server
 
         private static BlockingActionQueue<IList<LogEntity>> queue;
 
-        public LogReciver() { 
-        
+        public LogReciver()
+        {
+
         }
 
         static LogReciver()
         {
-            queue = new BlockingActionQueue<IList<LogEntity>>(3, (LogEntities) =>
+            int processTaskNum = Convert.ToInt32(ConfigurationManager.AppSettings["ProcessTaskNum"]);
+            int blockingQueueLength = Convert.ToInt32(ConfigurationManager.AppSettings["BlockingQueueLength"]);
+
+            queue = new BlockingActionQueue<IList<LogEntity>>(processTaskNum, (LogEntities) =>
             {
                 ProcessLog(LogEntities);
-            }, 2000);
+            }, blockingQueueLength);
         }
 
-        private static void ProcessLog(IList<LogEntity> LogEntities)
+        private static void ProcessLog(IList<LogEntity> logs)
         {
+            for (int i = 0; i < logs.Count; i++)
+            {
+                logs[i].CreateTime = DateTime.Now;
+            }
+
             // write log to db
             var logProcessor = LogProcessorManager.GetLogProcessor();
-            logProcessor.Process(LogEntities);
+            logProcessor.Process(logs);
         }
 
         public void Log(List<global::LogEntity> logEntities)
@@ -43,6 +51,8 @@ namespace Logging.Server
                 _log.Title = item.Title;
                 _log.Source = item.Source;
                 _log.Thread = item.Thread;
+                _log.Time = item.Time;
+                _log.AppId = item.AppId;
                 _logEntities.Add(_log);
             }
             queue.Enqueue(_logEntities);

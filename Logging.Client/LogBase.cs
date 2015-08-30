@@ -78,7 +78,7 @@ namespace Logging.Client
             log.Level = level;
             log.Message = message;
             log.Tags = tags;
-            log.Time = GetTimeStamp(DateTime.Now);
+            log.Time = Utils.GetTimeStamp(DateTime.Now);
             log.Title = title;
             log.Source = source;
             log.Thread = Thread.CurrentThread.ManagedThreadId;
@@ -104,16 +104,7 @@ namespace Logging.Client
 
         protected abstract void Log(string title, string message, Dictionary<string, string> tags, LogLevel level);
 
-        /// <summary>
-        /// DateTime时间格式转换为Unix时间戳格式
-        /// </summary>
-        /// <param name=”time”></param>
-        /// <returns></returns>
-        private static long GetTimeStamp(DateTime time)
-        {
-            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
-            return (long)(time - startTime).Ticks / 10000;
-        }
+      
 
         ///// <summary>
         ///// 获取客户端IP

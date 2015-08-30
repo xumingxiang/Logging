@@ -4,9 +4,6 @@ namespace Logging.Client
 {
     public sealed class LogManager
     {
-        //private static Dictionary<string, ILog> _logs = new Dictionary<string, ILog>();
-        //private static object lockObject = new object();
-
         private LogManager()
         { }
 

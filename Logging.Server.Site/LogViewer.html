@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>Bootstrap 101 Template</title>
+    <title>LogViewer</title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -142,25 +142,40 @@
     <script type="text/template" id="log_item_temp">
 
         <li class="list-group-item mt-4 {level_class}">
-            <div class="row"><p class="col-lg-12 fs-16"><b> Title：{title}</b></p></div>
-            <div class="row"><p class="col-lg-12">Message：{msg}</p></div>
+            <div class="row"><p class="col-lg-12 fs-16"><b>{title}</b></p></div>
+            <div class="row"><p class="col-lg-12">{msg}</p></div>
             <div class="row fs-13">
-                <div class="col-md-5">
+                <div class="col-md-12">
                     <span>Source：{source}</span>
                 </div>
-                <div class="col-md-2 text-right">
-                    <span>Host：{ip}</span>
-                </div>
-                <div class="col-md-2 text-right">
-                    <span>Thread：{thread}</span>
-                </div>
-                <div class="col-md-3 text-right">
-                    <span>Time：{time}</span>
-                </div>
+
+               
                 <!--<div class="col-md-2">
                     <a>展开</a>
                     <a>收起</a>
                 </div>-->
+
+            </div>
+
+            <div class="row fs-13 mt-4">
+               
+                <div class="col-md-2">
+                    <span>AppId：{appid}</span>
+                </div>
+
+                <div class="col-md-2">
+                    <span>Host：{ip}</span>
+                </div>
+                <div class="col-md-2">
+                    <span>Thread：{thread}</span>
+                </div>
+                <div class="col-md-3">
+                    <span>Time：{time}</span>
+                </div>
+                <!--<div class="col-md-2">
+            <a>展开</a>
+            <a>收起</a>
+        </div>-->
 
             </div>
         </li>

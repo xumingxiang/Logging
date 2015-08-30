@@ -114,15 +114,18 @@ namespace Logging.Client
                         this.Batch = new ConcurrentBag<T>();
                         this.LastActionTime = DateTime.Now;
                     }
+                    throw new Exception("text except");
                 }
-                catch (ThreadAbortException)
+                catch (ThreadAbortException tae)
                 {
                     Thread.ResetAbort();
+                    LogExceptionHandller.WriteLog(tae);
                     //do exception...
                 }
                 catch (Exception ex)
                 {
                     //do exception...
+                    LogExceptionHandller.WriteLog(ex);
                 }
             }
         }

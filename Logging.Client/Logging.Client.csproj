@@ -106,6 +106,7 @@
     <Compile Include="Thrift\Transport\TTransportException.cs" />
     <Compile Include="Thrift\Transport\TTransportFactory.cs" />
     <Compile Include="TimerBatchBlock.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ThriftContract\log.thrift" />

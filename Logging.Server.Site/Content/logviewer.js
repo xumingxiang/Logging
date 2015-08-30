@@ -89,6 +89,7 @@ $(function () {
                  .replace("{msg}", log.Message)
                  .replace("{source}", log.Source)
                  .replace("{ip}", log.IP)
+                 .replace("{appid}", log.AppId)
                  .replace("{thread}", log.Thread)
                  .replace("{time}", new Date(log.CreateTime).Format("yyyy-MM-dd hh:mm:ss.S"))
                  .replace("{level_class}", level_class);

@@ -18,7 +18,11 @@ namespace Logging.Server.LogViewer
 
             if (level != null & level.Length > 0)
             {
-                filter = filter & filterBuilder.In<int>("Level", level);
+                Array.Sort(level);
+                if (string.Join(",", level) != "1,2,3,4")
+                {
+                    filter = filter & filterBuilder.In<int>("Level", level);
+                }
             }
 
             if (appId > 0)

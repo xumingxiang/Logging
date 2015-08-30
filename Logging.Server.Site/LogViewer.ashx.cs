@@ -22,6 +22,10 @@ namespace Logging.Server.Site
             int appId = Convert.ToInt32(context.Request["appId"]);
 
             string level_str = context.Request["level"];
+            if (string.IsNullOrWhiteSpace(level_str))
+            {
+                level_str = "1,2,3,4";
+            }
             int[] level = Array.ConvertAll<string, int>(level_str.Split(','), x => Convert.ToInt32(x));
 
             string title = context.Request["title"];

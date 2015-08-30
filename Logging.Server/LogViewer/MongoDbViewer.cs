@@ -4,9 +4,9 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 
-namespace Logging.Server.LogViewer
+namespace Logging.Server.Viewer
 {
-    public class MongoDbViewer : ILogViewer
+    internal class MongoDbViewer : ILogViewer
     {
         public List<LogEntity> GetLogs(DateTime start, DateTime end, int appId, int[] level, string title, string msg, string source, string ip, int limit = 100)
         {

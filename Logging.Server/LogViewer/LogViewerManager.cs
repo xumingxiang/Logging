@@ -1,28 +1,28 @@
 ﻿using System;
 using System.Configuration;
 
-namespace Logging.Server.Writer
+namespace Logging.Server.Viewer
 {
-    internal sealed class LogWriterManager
+    public sealed class LogViewerManager
     {
-        private LogWriterManager()
+        private LogViewerManager()
         { }
 
-        public static ILogWriter GetLogWriter()
+        public static ILogViewer GetLogViewer()
         {
             string LoggingStorage = ConfigurationManager.AppSettings["LoggingStorage"];
 
             if (LoggingStorage.Equals("mongodb", StringComparison.OrdinalIgnoreCase))
             {
-                return new MongoDbWriter();
+                return new MongoDbViewer();
             }
             else if (LoggingStorage.Equals("hbase", StringComparison.OrdinalIgnoreCase))
             {
-                return new HBaseWriter();
+                return new HBaseViewer();
             }
             else
             {
-                return new MongoDbWriter();
+                return new MongoDbViewer();
             }
         }
     }

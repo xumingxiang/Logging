@@ -114,7 +114,6 @@ namespace Logging.Client
                         this.Batch = new ConcurrentBag<T>();
                         this.LastActionTime = DateTime.Now;
                     }
-                    throw new Exception("text except");
                 }
                 catch (ThreadAbortException tae)
                 {

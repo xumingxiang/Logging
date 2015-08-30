@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Logging.Client
 {
@@ -27,5 +28,7 @@ namespace Logging.Client
         void Error(string title, string message);
 
         void Error(string title, string message, Dictionary<string, string> tags);
+
+        void Error(Exception ex);
     }
 }

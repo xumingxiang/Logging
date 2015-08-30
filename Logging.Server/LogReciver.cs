@@ -33,9 +33,8 @@ namespace Logging.Server
                 logs[i].CreateTime = DateTime.Now;
             }
 
-            // write log to db
-            var logProcessor = LogProcessorManager.GetLogProcessor();
-            logProcessor.Process(logs);
+            var processor = LogProcessorManager.GetLogProcessor();
+            processor.Process(logs);
         }
 
         public void Log(List<global::LogEntity> logEntities)

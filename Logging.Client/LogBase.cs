@@ -71,6 +71,11 @@ namespace Logging.Client
             Log(title, message, tags, LogLevel.Error);
         }
 
+        public void Error(Exception ex)
+        {
+            this.Error(ex.Message,ex.ToString());
+        }
+
         protected LogEntity CreateLog(string source, string title, string message, Dictionary<string, string> tags, LogLevel level)
         {
             LogEntity log = new LogEntity();
@@ -174,5 +179,7 @@ namespace Logging.Client
             }
             return str;
         }
+
+      
     }
 }

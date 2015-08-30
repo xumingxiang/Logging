@@ -15,6 +15,19 @@ namespace Logging.Client.TestSite
             Dictionary<string,string> tags=new Dictionary<string,string>();
             tags.Add("a","a");
             logger.Error("test","test",tags);
+
+
+            try
+            {
+                throw new Exception("test exception");
+            }
+            catch(Exception ex)
+            {
+                logger.Error(ex);
+            }
+          
+
+            
         }
     }
 }

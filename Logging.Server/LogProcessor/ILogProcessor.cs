@@ -7,6 +7,6 @@ namespace Logging.Server.Processor
     /// </summary>
     internal interface ILogProcessor
     {
-        void Process(IList<LogEntity> LogEntities);
+        void Process(IList<LogEntity> logs);
     }
 }

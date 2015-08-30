@@ -69,6 +69,8 @@
     <Compile Include="LogProcessor\DefaultLogProcessor.cs" />
     <Compile Include="LogReciver.cs" />
     <Compile Include="LogViewer\ILogView.cs" />
+    <Compile Include="LogViewer\HBaseViewer.cs" />
+    <Compile Include="LogViewer\LogViewerManager.cs" />
     <Compile Include="LogViewer\MongoDbViewer.cs" />
     <Compile Include="LogWriter\HBaseWriter.cs" />
     <Compile Include="LogWriter\ILogWriter.cs" />
@@ -129,9 +131,7 @@
   <ItemGroup>
     <None Include="ThriftContract\log.thrift" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="LogWriter\ReadisWriter\Lib\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

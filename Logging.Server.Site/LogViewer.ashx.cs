@@ -1,4 +1,4 @@
-﻿using Logging.Server.LogViewer;
+﻿using Logging.Server.Viewer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +35,7 @@ namespace Logging.Server.Site
             int limit = Convert.ToInt32(context.Request["limit"]);
 
 
-            MongoDbViewer viewer = new MongoDbViewer();
+            var viewer = LogViewerManager.GetLogViewer();
 
             dynamic result = new LogSearchVM();
 

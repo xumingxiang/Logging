@@ -8,13 +8,13 @@ namespace Logging.Server.Viewer
 {
     internal class MongoDbViewer : ILogViewer
     {
-        public List<LogEntity> GetLogs(DateTime start, DateTime end, int appId, int[] level, string title, string msg, string source, string ip, int limit = 100)
+        public List<LogEntity> GetLogs(long start, long end, int appId, int[] level, string title, string msg, string source, int ip, int limit = 100)
         {
             if (limit <= 0) { limit = 100; }
 
             var filterBuilder = Builders<LogEntity>.Filter;
-            var filter = filterBuilder.Gte("CreateTime", start) &
-            filterBuilder.Lt("CreateTime", end);
+            var filter = filterBuilder.Gte("Time", start) &
+            filterBuilder.Lt("Time", end);
 
             if (level != null & level.Length > 0)
             {
@@ -30,7 +30,7 @@ namespace Logging.Server.Viewer
                 filter = filter & filterBuilder.Eq("AppId", appId);
             }
 
-            if (!string.IsNullOrWhiteSpace(ip))
+            if (ip > 0)
             {
                 filter = filter & filterBuilder.Eq("IP", ip);
             }

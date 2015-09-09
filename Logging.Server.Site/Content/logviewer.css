@@ -54,3 +54,7 @@
 .container .text-muted {
     margin: 20px 0;
 }
+.break-word {
+        word-wrap: break-word;
+        word-break:break-all;
+}

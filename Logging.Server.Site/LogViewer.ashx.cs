@@ -33,13 +33,14 @@ namespace Logging.Server.Site
             string ip = context.Request["ip"];
             string source = context.Request["source"];
             int limit = Convert.ToInt32(context.Request["limit"]);
-
-
+          
             var viewer = LogViewerManager.GetLogViewer();
 
             dynamic result = new LogSearchVM();
 
-            var lst = viewer.GetLogs(start, end, appId, level, title, msg, source, ip, limit);
+            long ipNum = Utils.IPToNumber(ip);
+
+            var lst = viewer.GetLogs(Utils.GetTimeStamp(start),Utils.GetTimeStamp( end), appId, level, title, msg, source, (int)ipNum, limit);
 
             result.List = lst;
             result.Start = start;

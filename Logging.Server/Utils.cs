@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Logging.Client
+namespace Logging.Server
 {
-    internal static class Utils
+    public static class Utils
     {
         /// <summary>
         /// DateTime时间格式转换为Unix时间戳格式

@@ -79,7 +79,7 @@ namespace Logging.Client
         protected LogEntity CreateLog(string source, string title, string message, Dictionary<string, string> tags, LogLevel level)
         {
             LogEntity log = new LogEntity();
-            log.IP = ServerIP;
+            log.IP = ServerIPNum;
             log.Level = level;
             log.Message = message;
             log.Tags = tags;
@@ -133,17 +133,18 @@ namespace Logging.Client
         //    return str;
         //}
 
-        private static string serverIP;
+        private static long serverIPNum;
 
-        private static string ServerIP
+        private static long ServerIPNum
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(serverIP))
+                if (serverIPNum<=0)
                 {
-                    serverIP = GetServerIP();
+                   string serverIP = GetServerIP();
+                    serverIPNum = Utils.IPToNumber(serverIP);
                 }
-                return serverIP;
+                return serverIPNum;
             }
         }
 
@@ -153,28 +154,35 @@ namespace Logging.Client
         /// <returns></returns>
         private static string GetServerIP()
         {
-            string str = "Did not get to the server IP";
-            if (HttpContext.Current != null)
+            string str = "127.0.0.1";
+            //if (HttpContext.Current != null)
+            //{
+            //    str = HttpContext.Current.Request.ServerVariables.Get("Local_Addr");
+            //}
+            //else
+            //{
+            try
             {
-                str = HttpContext.Current.Request.ServerVariables.Get("Local_Addr");
-            }
-            else
-            {
-                try
-                {
-                    string hostName = Dns.GetHostName();
-                    var ipAddress = Dns.GetHostEntry(hostName)
-                        .AddressList
-                        .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
 
-                    if (ipAddress != null)
-                    {
-                        str = ipAddress.ToString();
-                    }
-                    return string.Empty;
+                // System.Net.IPAddress addr;
+                // 获得本机局域网IP地址 
+                //addr = new System.Net.IPAddress(Dns.GetHostByName(Dns.GetHostName()).AddressList[0].Address);
+                //return addr.ToString() + System.Net.Dns.GetHostName();
+
+
+                string hostName = Dns.GetHostName();
+                var hostEntity = Dns.GetHostEntry(hostName);
+                var ipAddressList = hostEntity.AddressList;
+                var ipAddress = ipAddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
+
+                if (ipAddress != null)
+                {
+                    str = ipAddress.ToString();
                 }
-                catch (Exception) { }
+                return str;
             }
+            catch (Exception) { str = string.Empty; }
+            //}
             return str;
         }
     }

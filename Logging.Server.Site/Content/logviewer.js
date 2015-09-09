@@ -20,6 +20,16 @@ $(function () {
 
     var query_url = "logviewer.ashx";
 
+
+    function numberToIp(number) {
+        if (number <= 0) { return ""; }
+
+        return (Math.floor(number / (256 * 256 * 256))) + "." +
+        (Math.floor(number % (256 * 256 * 256) / (256 * 256))) + "." +
+        (Math.floor(number % (256 * 256) / 256)) + "." +
+        (Math.floor(number % 256));
+    }
+
     function getlogs(clear, start) {
 
         var appid = $("#appid").val() || 0;
@@ -88,10 +98,10 @@ $(function () {
                  .replace("{title}", log.Title)
                  .replace("{msg}", log.Message)
                  .replace("{source}", log.Source)
-                 .replace("{ip}", log.IP)
+                 .replace("{ip}", numberToIp(log.IP))
                  .replace("{appid}", log.AppId)
                  .replace("{thread}", log.Thread)
-                 .replace("{time}", new Date(log.CreateTime).Format("yyyy-MM-dd hh:mm:ss.S"))
+                 .replace("{time}", new Date(log.Time).Format("yyyy-MM-dd hh:mm:ss.S"))
                  .replace("{level_class}", level_class);
                 $("#log_warp").append(item_html);
             }

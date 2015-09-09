@@ -25,7 +25,7 @@ public partial class LogEntity : TBase
   private string _Message;
   private sbyte _Level;
   private long _Time;
-  private string _IP;
+  private long _IP;
   private int _AppId;
   private string _Source;
   private int _Thread;
@@ -83,7 +83,7 @@ public partial class LogEntity : TBase
     }
   }
 
-  public string IP
+  public long IP
   {
     get
     {
@@ -209,8 +209,8 @@ public partial class LogEntity : TBase
           }
           break;
         case 5:
-          if (field.Type == TType.String) {
-            IP = iprot.ReadString();
+          if (field.Type == TType.I64) {
+            IP = iprot.ReadI64();
           } else { 
             TProtocolUtil.Skip(iprot, field.Type);
           }
@@ -300,12 +300,12 @@ public partial class LogEntity : TBase
       oprot.WriteI64(Time);
       oprot.WriteFieldEnd();
     }
-    if (IP != null && __isset.IP) {
+    if (__isset.IP) {
       field.Name = "IP";
-      field.Type = TType.String;
+      field.Type = TType.I64;
       field.ID = 5;
       oprot.WriteFieldBegin(field);
-      oprot.WriteString(IP);
+      oprot.WriteI64(IP);
       oprot.WriteFieldEnd();
     }
     if (__isset.AppId) {
@@ -379,7 +379,7 @@ public partial class LogEntity : TBase
       __sb.Append("Time: ");
       __sb.Append(Time);
     }
-    if (IP != null && __isset.IP) {
+    if (__isset.IP) {
       if(!__first) { __sb.Append(", "); }
       __first = false;
       __sb.Append("IP: ");

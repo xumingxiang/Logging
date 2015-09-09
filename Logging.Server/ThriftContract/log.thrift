@@ -5,7 +5,7 @@ struct LogEntity {   #  ×¢ÊÍ2
     2: string Message 
     3: byte   Level 
     4: i64    Time 
-    5: string IP
+    5: i64		IP
 	6: i32    AppId
 	7: string    Source
 	8: i32       Thread

@@ -127,6 +127,7 @@
     <Compile Include="Thrift\Transport\TTransport.cs" />
     <Compile Include="Thrift\Transport\TTransportException.cs" />
     <Compile Include="Thrift\Transport\TTransportFactory.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ThriftContract\log.thrift" />

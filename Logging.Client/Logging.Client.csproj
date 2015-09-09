@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LogBase.cs" />
+    <Compile Include="BaseLogger.cs" />
     <Compile Include="LogExceptionHandller.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SimpleLogger.cs" />

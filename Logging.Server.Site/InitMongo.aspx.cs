@@ -24,7 +24,7 @@ namespace Logging.Server.Site
             var indexDefinition2 = new IndexKeysDefinitionBuilder<LogEntity>().Ascending(field2);
             MongoDataBase.GetCollection<LogEntity>().Indexes.CreateOneAsync(indexDefinition2, options);
 
-            var field3 = new StringFieldDefinition<LogEntity>("CreateTime");
+            var field3 = new StringFieldDefinition<LogEntity>("Time");
             var indexDefinition3 = new IndexKeysDefinitionBuilder<LogEntity>().Descending(field3);
             MongoDataBase.GetCollection<LogEntity>().Indexes.CreateOneAsync(indexDefinition3, options);
 

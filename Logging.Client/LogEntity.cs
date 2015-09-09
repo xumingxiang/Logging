@@ -8,7 +8,7 @@ namespace Logging.Client
 
         public string Message { get; set; }
 
-        public string IP { get; set; }
+        public long IP { get; set; }
 
         public LogLevel Level { get; set; }
 

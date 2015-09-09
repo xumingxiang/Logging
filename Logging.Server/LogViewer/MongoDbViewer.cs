@@ -18,10 +18,17 @@ namespace Logging.Server.Viewer
 
             if (level != null & level.Length > 0)
             {
-                Array.Sort(level);
-                if (string.Join(",", level) != "1,2,3,4")
+                if (level.Length == 1)
                 {
-                    filter = filter & filterBuilder.In<int>("Level", level);
+                    filter = filter & filterBuilder.Eq("Level", level);
+                }
+                else
+                {
+                    Array.Sort(level);
+                    if (string.Join(",", level) != "1,2,3,4")
+                    {
+                        filter = filter & filterBuilder.In<int>("Level", level);
+                    }
                 }
             }
 

@@ -1,0 +1,9 @@
+D:\WorkStudio\Logging\Logging.Server\bin\Debug\Logging.Server.dll
+D:\WorkStudio\Logging\Logging.Server\bin\Debug\Logging.Server.pdb
+D:\WorkStudio\Logging\Logging.Server\bin\Debug\MongoDB.Bson.dll
+D:\WorkStudio\Logging\Logging.Server\bin\Debug\MongoDB.Driver.Core.dll
+D:\WorkStudio\Logging\Logging.Server\bin\Debug\MongoDB.Driver.dll
+D:\WorkStudio\Logging\Logging.Server\bin\Debug\MongoDB.Driver.Legacy.dll
+D:\WorkStudio\Logging\Logging.Server\obj\Debug\Logging.Server.dll
+D:\WorkStudio\Logging\Logging.Server\obj\Debug\Logging.Server.pdb
+D:\WorkStudio\Logging\Logging.Server\obj\Debug\Logging.Server.csprojResolveAssemblyReference.cache

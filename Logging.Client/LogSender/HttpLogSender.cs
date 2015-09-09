@@ -11,18 +11,9 @@ namespace Logging.Client
     /// </summary>
     internal class HttpLogSender : LogSenderBase
     {
-        //private static readonly Freeway.Logging.ILog _logger = Freeway.Logging.LogManager.GetLogger(typeof(T));
         public override void Send(IList<LogEntity> logEntities)
         {
             if (logEntities == null || logEntities.Count <= 0) { return; }
-
-            //TTransport transport = new Thrift.Transport.THttpHandler("localhost", 9090);
-            //TProtocol protocol = new TBinaryProtocol(transport);
-            //Calculator.Client client = new Calculator.Client(protocol);
-
-            //var transport = new Thrift.Transport.("http://localhost:99");
-            //   var protocol = new Thrift.Protocol(transport);
-            //  var client = new UserStorageClient(protocol);
 
             string loggingServerHost = ConfigurationManager.AppSettings["LoggingServerHost"] ?? Settings.LoggingServerHost;
 

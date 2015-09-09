@@ -73,7 +73,7 @@ namespace Logging.Client
 
         public void Error(Exception ex)
         {
-            this.Error(ex.Message,ex.ToString());
+            this.Error(ex.Message, ex.ToString());
         }
 
         protected LogEntity CreateLog(string source, string title, string message, Dictionary<string, string> tags, LogLevel level)
@@ -108,8 +108,6 @@ namespace Logging.Client
         }
 
         protected abstract void Log(string title, string message, Dictionary<string, string> tags, LogLevel level);
-
-      
 
         ///// <summary>
         ///// 获取客户端IP
@@ -179,7 +177,5 @@ namespace Logging.Client
             }
             return str;
         }
-
-      
     }
 }

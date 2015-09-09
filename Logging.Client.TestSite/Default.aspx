@@ -12,6 +12,12 @@
     <div>
       Hello I am Client
     </div>
+     <%--   <script type="text/javascript">
+            window.setInterval(function () {
+                history.go(0);
+            },200);
+
+        </script>--%>
     </form>
 </body>
 </html>

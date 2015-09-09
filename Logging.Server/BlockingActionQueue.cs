@@ -64,6 +64,7 @@ namespace Logging.Server
                 {
                     this.s_Queue.Take();
                 }
+
             }
             this.s_Queue.Add(item);
         }

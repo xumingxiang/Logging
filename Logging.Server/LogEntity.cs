@@ -31,4 +31,17 @@ namespace Logging.Server
         public DateTime CreateTime { get; set; }
 
     }
+
+    public class LogTag 
+    {
+        public ObjectId _id { get; set; }
+
+        public ObjectId LogId { get; set; }
+
+        public string TagName { get; set; }
+
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        public DateTime CreateTime { get; set; }
+    }
+
 }

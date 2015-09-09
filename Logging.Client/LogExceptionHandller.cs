@@ -7,7 +7,7 @@ namespace Logging.Client
     /// </summary>
     internal class LogExceptionHandller
     {
-       static ILog logger = LogManager.GetLogger(typeof(LogExceptionHandller));
+        private static ILog logger = LogManager.GetLogger(typeof(LogExceptionHandller));
 
         public static void WriteLog(Exception ex)
         {

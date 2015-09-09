@@ -20,7 +20,7 @@ namespace Logging.Server.Viewer
             {
                 if (level.Length == 1)
                 {
-                    filter = filter & filterBuilder.Eq("Level", level);
+                    filter = filter & filterBuilder.Eq("Level", level[0]);
                 }
                 else
                 {

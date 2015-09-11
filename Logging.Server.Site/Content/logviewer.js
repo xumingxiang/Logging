@@ -56,7 +56,7 @@ $(function () {
             title: title,
             msg: msg,
             start: start,
-            end, end,
+            end: end,
             ip: ip,
             level: level
         }, function (result) {

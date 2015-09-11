@@ -33,14 +33,18 @@ namespace Logging.Server.Site
             string ip = context.Request["ip"];
             string source = context.Request["source"];
             int limit = Convert.ToInt32(context.Request["limit"]);
-          
+
             var viewer = LogViewerManager.GetLogViewer();
 
-            dynamic result = new LogSearchVM();
+            var result = new LogSearchVM();
 
             long ipNum = Utils.IPToNumber(ip);
 
-            var lst = viewer.GetLogs(Utils.GetTimeStamp(start),Utils.GetTimeStamp( end), appId, level, title, msg, source, (int)ipNum, limit);
+            long start_num = Utils.GetTimeStamp(start);
+
+            long end_num = Utils.GetTimeStamp(end);
+
+            var lst = viewer.GetLogs(start_num, end_num, appId, level, title, msg, source, (int)ipNum, limit);
 
             result.List = lst;
             result.Start = start;
@@ -48,7 +52,7 @@ namespace Logging.Server.Site
             var last = lst.LastOrDefault();
             if (last != null)
             {
-                result.Cursor = lst.Last().CreateTime;
+                result.Cursor = Utils.GetDateTime(lst.Last().Time);
             }
             var json_result = Newtonsoft.Json.JsonConvert.SerializeObject(result);
 

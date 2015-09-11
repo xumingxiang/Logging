@@ -32,13 +32,13 @@ namespace Logging.Client
 
             int LoggingBlockElapsed = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingBlockElapsed"] ?? Settings.LoggingBlockElapsed.ToString());
 
-            if (LoggingTaskNum <= 0) { LoggingTaskNum = 1; }
+            if (LoggingTaskNum <= 0) { LoggingTaskNum = Settings.DefaultLoggingTaskNum; }
 
-            if (LoggingQueueLength <= 0) { LoggingQueueLength = 1000; }
+            if (LoggingQueueLength <= 0) { LoggingQueueLength = Settings.DefaultLoggingQueueLength; }
 
-            if (LoggingBatchSize <= 0) { LoggingBatchSize = 50; }
+            if (LoggingBatchSize <= 0) { LoggingBatchSize = Settings.DefaultLoggingBatchSize; }
 
-            if (LoggingBlockElapsed <= 0) { LoggingBlockElapsed = 3000; }
+            if (LoggingBlockElapsed <= 0) { LoggingBlockElapsed = Settings.DefaultLoggingBlockElapsed; }
 
             block = new TimerBatchBlock<LogEntity>(LoggingTaskNum, (batch) =>
                  {

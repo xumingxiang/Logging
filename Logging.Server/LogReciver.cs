@@ -28,10 +28,10 @@ namespace Logging.Server
 
         private static void ProcessLog(IList<LogEntity> logs)
         {
-            for (int i = 0; i < logs.Count; i++)
-            {
-                logs[i].CreateTime = DateTime.Now;
-            }
+            //for (int i = 0; i < logs.Count; i++)
+            //{
+            //    logs[i].CreateTime = DateTime.Now;
+            //}
 
             var processor = LogProcessorManager.GetLogProcessor();
             processor.Process(logs);

@@ -27,8 +27,8 @@ namespace Logging.Server
 
         public Dictionary<string, string> Tags { get; set; }
 
-        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
-        public DateTime CreateTime { get; set; }
+        //[BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        //public DateTime CreateTime { get; set; }
 
     }
 
@@ -36,7 +36,7 @@ namespace Logging.Server
     {
         public ObjectId _id { get; set; }
 
-        public ObjectId LogId { get; set; }
+        //public ObjectId LogId { get; set; }
 
         public string TagName { get; set; }
 

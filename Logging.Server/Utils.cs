@@ -16,6 +16,14 @@ namespace Logging.Server
         }
 
 
+        public static DateTime GetDateTime(double timestamp)
+        {
+            DateTime converted = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            DateTime newDateTime = converted.AddMilliseconds(timestamp);
+            return newDateTime.ToLocalTime();
+        }  
+
+
         /// <summary>
         /// 将IPv4格式的字符串转换为int型表示
         /// </summary>

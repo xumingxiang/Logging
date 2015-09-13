@@ -22,6 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -60,6 +61,156 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Logging.ThriftContract\LogTransferService.cs">
+      <Link>ThriftContract\LogTransferService.cs</Link>
+    </Compile>
+    <Compile Include="..\Logging.ThriftContract\TLogEntity.cs">
+      <Link>ThriftContract\TLogEntity.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\collections\TCollections.cs">
+      <Link>Thrift\Collections\TCollections.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\collections\THashSet.cs">
+      <Link>Thrift\Collections\THashSet.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TAbstractBase.cs">
+      <Link>Thrift\Protocol\TAbstractBase.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TBase.cs">
+      <Link>Thrift\Protocol\TBase.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TBase64Utils.cs">
+      <Link>Thrift\Protocol\TBase64Utils.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TBinaryProtocol.cs">
+      <Link>Thrift\Protocol\TBinaryProtocol.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TCompactProtocol.cs">
+      <Link>Thrift\Protocol\TCompactProtocol.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TField.cs">
+      <Link>Thrift\Protocol\TField.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TJSONProtocol.cs">
+      <Link>Thrift\Protocol\TJSONProtocol.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TList.cs">
+      <Link>Thrift\Protocol\TList.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TMap.cs">
+      <Link>Thrift\Protocol\TMap.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TMessage.cs">
+      <Link>Thrift\Protocol\TMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TMessageType.cs">
+      <Link>Thrift\Protocol\TMessageType.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TMultiplexedProcessor.cs">
+      <Link>Thrift\Protocol\TMultiplexedProcessor.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TMultiplexedProtocol.cs">
+      <Link>Thrift\Protocol\TMultiplexedProtocol.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TProtocol.cs">
+      <Link>Thrift\Protocol\TProtocol.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TProtocolDecorator.cs">
+      <Link>Thrift\Protocol\TProtocolDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TProtocolException.cs">
+      <Link>Thrift\Protocol\TProtocolException.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TProtocolFactory.cs">
+      <Link>Thrift\Protocol\TProtocolFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TProtocolUtil.cs">
+      <Link>Thrift\Protocol\TProtocolUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TSet.cs">
+      <Link>Thrift\Protocol\TSet.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TStruct.cs">
+      <Link>Thrift\Protocol\TStruct.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\protocol\TType.cs">
+      <Link>Thrift\Protocol\TType.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\server\TServer.cs">
+      <Link>Thrift\Server\TServer.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\server\TServerEventHandler.cs">
+      <Link>Thrift\Server\TServerEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\server\TSimpleServer.cs">
+      <Link>Thrift\Server\TSimpleServer.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\server\TThreadedServer.cs">
+      <Link>Thrift\Server\TThreadedServer.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\server\TThreadPoolServer.cs">
+      <Link>Thrift\Server\TThreadPoolServer.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\TApplicationException.cs">
+      <Link>Thrift\TApplicationException.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\TException.cs">
+      <Link>Thrift\TException.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\TProcessor.cs">
+      <Link>Thrift\TProcessor.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TBufferedTransport.cs">
+      <Link>Thrift\Transport\TBufferedTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TFramedTransport.cs">
+      <Link>Thrift\Transport\TFramedTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\THttpClient.cs">
+      <Link>Thrift\Transport\THttpClient.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\THttpHandler.cs">
+      <Link>Thrift\Transport\THttpHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TMemoryBuffer.cs">
+      <Link>Thrift\Transport\TMemoryBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TNamedPipeClientTransport.cs">
+      <Link>Thrift\Transport\TNamedPipeClientTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TNamedPipeServerTransport.cs">
+      <Link>Thrift\Transport\TNamedPipeServerTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TServerSocket.cs">
+      <Link>Thrift\Transport\TServerSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TServerTransport.cs">
+      <Link>Thrift\Transport\TServerTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TSilverlightSocket.cs">
+      <Link>Thrift\Transport\TSilverlightSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TSocket.cs">
+      <Link>Thrift\Transport\TSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TStreamTransport.cs">
+      <Link>Thrift\Transport\TStreamTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TTLSServerSocket.cs">
+      <Link>Thrift\Transport\TTLSServerSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TTLSSocket.cs">
+      <Link>Thrift\Transport\TTLSSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TTransport.cs">
+      <Link>Thrift\Transport\TTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TTransportException.cs">
+      <Link>Thrift\Transport\TTransportException.cs</Link>
+    </Compile>
+    <Compile Include="..\thrift\thrift\transport\TTransportFactory.cs">
+      <Link>Thrift\Transport\TTransportFactory.cs</Link>
+    </Compile>
     <Compile Include="BlockingActionQueue.cs" />
     <Compile Include="DB\MongoDataBase.cs" />
     <Compile Include="LogProcessor\ILogProcessor.cs" />
@@ -78,62 +229,13 @@
     <Compile Include="LogWriter\LogWriterManager.cs" />
     <Compile Include="LogWriter\MongoDbWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThriftContract\LogEntity.cs" />
-    <Compile Include="ThriftContract\LogTransferService.cs" />
-    <Compile Include="Thrift\Collections\TCollections.cs" />
-    <Compile Include="Thrift\Collections\THashSet.cs" />
-    <Compile Include="Thrift\Protocol\TAbstractBase.cs" />
-    <Compile Include="Thrift\Protocol\TBase.cs" />
-    <Compile Include="Thrift\Protocol\TBase64Utils.cs" />
-    <Compile Include="Thrift\Protocol\TBinaryProtocol.cs" />
-    <Compile Include="Thrift\Protocol\TCompactProtocol.cs" />
-    <Compile Include="Thrift\Protocol\TField.cs" />
-    <Compile Include="Thrift\Protocol\TJSONProtocol.cs" />
-    <Compile Include="Thrift\Protocol\TList.cs" />
-    <Compile Include="Thrift\Protocol\TMap.cs" />
-    <Compile Include="Thrift\Protocol\TMessage.cs" />
-    <Compile Include="Thrift\Protocol\TMessageType.cs" />
-    <Compile Include="Thrift\Protocol\TMultiplexedProcessor.cs" />
-    <Compile Include="Thrift\Protocol\TMultiplexedProtocol.cs" />
-    <Compile Include="Thrift\Protocol\TProtocol.cs" />
-    <Compile Include="Thrift\Protocol\TProtocolDecorator.cs" />
-    <Compile Include="Thrift\Protocol\TProtocolException.cs" />
-    <Compile Include="Thrift\Protocol\TProtocolFactory.cs" />
-    <Compile Include="Thrift\Protocol\TProtocolUtil.cs" />
-    <Compile Include="Thrift\Protocol\TSet.cs" />
-    <Compile Include="Thrift\Protocol\TStruct.cs" />
-    <Compile Include="Thrift\Protocol\TType.cs" />
-    <Compile Include="Thrift\Server\TServer.cs" />
-    <Compile Include="Thrift\Server\TServerEventHandler.cs" />
-    <Compile Include="Thrift\Server\TSimpleServer.cs" />
-    <Compile Include="Thrift\Server\TThreadedServer.cs" />
-    <Compile Include="Thrift\Server\TThreadPoolServer.cs" />
-    <Compile Include="Thrift\TApplicationException.cs" />
-    <Compile Include="Thrift\TException.cs" />
-    <Compile Include="Thrift\TProcessor.cs" />
-    <Compile Include="Thrift\Transport\TBufferedTransport.cs" />
-    <Compile Include="Thrift\Transport\TFramedTransport.cs" />
-    <Compile Include="Thrift\Transport\THttpClient.cs" />
-    <Compile Include="Thrift\Transport\THttpHandler.cs" />
-    <Compile Include="Thrift\Transport\TMemoryBuffer.cs" />
-    <Compile Include="Thrift\Transport\TNamedPipeClientTransport.cs" />
-    <Compile Include="Thrift\Transport\TNamedPipeServerTransport.cs" />
-    <Compile Include="Thrift\Transport\TServerSocket.cs" />
-    <Compile Include="Thrift\Transport\TServerTransport.cs" />
-    <Compile Include="Thrift\Transport\TSilverlightSocket.cs" />
-    <Compile Include="Thrift\Transport\TSocket.cs" />
-    <Compile Include="Thrift\Transport\TStreamTransport.cs" />
-    <Compile Include="Thrift\Transport\TTLSServerSocket.cs" />
-    <Compile Include="Thrift\Transport\TTLSSocket.cs" />
-    <Compile Include="Thrift\Transport\TTransport.cs" />
-    <Compile Include="Thrift\Transport\TTransportException.cs" />
-    <Compile Include="Thrift\Transport\TTransportFactory.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ThriftContract\log.thrift" />
+    <None Include="..\Logging.ThriftContract\log.thrift">
+      <Link>ThriftContract\log.thrift</Link>
+    </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

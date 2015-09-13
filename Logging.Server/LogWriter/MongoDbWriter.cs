@@ -23,7 +23,12 @@ namespace Logging.Server.Writer
                 {
                     foreach (var tag in log.Tags)
                     {
-                        tags.Add(new LogTag { _id = log._id, TagName = tag.Key + "=" + tag.Value, CreateTime = DateTime.Now });
+                        tags.Add(new LogTag
+                        {
+                            LogId = log._id,
+                            Tag = Utils.BKDRHash(tag),
+                            Time = log.Time
+                        });
                     }
                 }
             }
@@ -32,13 +37,18 @@ namespace Logging.Server.Writer
             {
                 var tag_collection = MongoDataBase.GetCollection<LogTag>();
                 tag_collection.InsertManyAsync(tags);
+
+                //foreach (var item in tags)
+                //{
+                //    var result = tag_collection.InsertOneAsync(item);
+                //}
             }
             #endregion
 
 
             List<LogStatistics> lss = new List<LogStatistics>();
             var app_grp = from a in logs group a by a.AppId into g select g;
-
+            long statisticsTime = Utils.GetTimeStamp(DateTime.Now);
             foreach (var grp in app_grp)
             {
                 int debug = grp.Count(x => x.Level == LogLevel.Debug);
@@ -52,6 +62,7 @@ namespace Logging.Server.Writer
                 ls.Info = info;
                 ls.Warm = warm;
                 ls.Error = error;
+                ls.Time = statisticsTime;
                 lss.Add(ls);
             }
 

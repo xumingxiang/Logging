@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using Logging.ThriftContract;
+using MongoDB.Bson;
 
 namespace Logging.Server
 {
@@ -28,30 +30,36 @@ namespace Logging.Server
 
         private static void ProcessLog(IList<LogEntity> logs)
         {
-            //for (int i = 0; i < logs.Count; i++)
-            //{
-            //    logs[i].CreateTime = DateTime.Now;
-            //}
-
             var processor = LogProcessorManager.GetLogProcessor();
             processor.Process(logs);
         }
 
-        public void Log(List<global::LogEntity> logEntities)
+        public void Log(List<TLogEntity> logEntities)
         {
             IList<LogEntity> _logEntities = new List<LogEntity>();
             foreach (var item in logEntities)
             {
+                List<string> tags = new List<string>();
+
+                if (item.Tags != null && item.Tags.Count > 0)
+                {
+                    foreach (var tag in item.Tags)
+                    {
+                        tags.Add(tag.Key.Replace("=", string.Empty) + "=" + tag.Value);
+                    }
+                }
+
                 LogEntity _log = new LogEntity();
                 _log.IP = item.IP;
                 _log.Level = (LogLevel)item.Level;
                 _log.Message = item.Message;
-                _log.Tags = item.Tags;
+                _log.Tags = tags;
                 _log.Title = item.Title;
                 _log.Source = item.Source;
                 _log.Thread = item.Thread;
                 _log.Time = item.Time;
                 _log.AppId = item.AppId;
+                //_log._id = _log.CreateObjectId();
                 _logEntities.Add(_log);
             }
             queue.Enqueue(_logEntities);

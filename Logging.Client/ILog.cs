@@ -30,5 +30,7 @@ namespace Logging.Client
         void Error(string title, string message, Dictionary<string, string> tags);
 
         void Error(Exception ex);
+
+
     }
 }

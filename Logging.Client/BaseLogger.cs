@@ -87,7 +87,7 @@ namespace Logging.Client
             log.Title = title;
             log.Source = source;
             log.Thread = Thread.CurrentThread.ManagedThreadId;
-            log.AppId = Convert.ToInt32(ConfigurationManager.AppSettings["AppId"] ?? "0");
+            log.AppId = Settings.AppId;
             if (log.Tags == null)
             {
                 log.Tags = new Dictionary<string, string>();
@@ -139,9 +139,9 @@ namespace Logging.Client
         {
             get
             {
-                if (serverIPNum<=0)
+                if (serverIPNum <= 0)
                 {
-                   string serverIP = GetServerIP();
+                    string serverIP = GetServerIP();
                     serverIPNum = Utils.IPToNumber(serverIP);
                 }
                 return serverIPNum;

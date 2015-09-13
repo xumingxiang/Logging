@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Thrift.Transport;
+using Logging.ThriftContract;
 
 namespace Logging.Server.Site
 {

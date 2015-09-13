@@ -1,4 +1,17 @@
-﻿.mt-2 {
+﻿.left {
+    width: 350px;
+    position: absolute;
+    *position: relative;
+    float: left;
+    /*margin: 0;*/
+}
+
+.right {
+    margin-left: 350px;
+    position: relative;
+}
+
+.mt-2 {
     margin-top: 2px;
 }
 
@@ -14,8 +27,20 @@
     margin-top: 10px;
 }
 
+.ml-2 {
+    margin-left: 2px;
+}
+
+.ml-10 {
+    margin-left: 10px;
+}
+
 .ml-20 {
     margin-left: 20px;
+}
+
+.mr-10 {
+    margin-right: 10px;
 }
 
 .h-34 {
@@ -29,19 +54,31 @@
 .fs-13 {
     font-size: 13px;
 }
+
 .fs-16 {
     font-size: 16px;
 }
 
 .pb-10 {
-  padding-bottom: 10px;
+    padding-bottom: 10px;
 }
+
 .pt-5 {
-  padding-top: 5px;
+    padding-top: 5px;
 }
+
 .pt-10 {
-  padding-top: 10px;
+    padding-top: 10px;
 }
+
+.pl-5 {
+    padding-left: 5px;
+}
+
+.pr-5 {
+    padding-right: 5px;
+}
+
 .footer {
     margin-top: 10px;
     bottom: 0;
@@ -54,7 +91,82 @@
 .container .text-muted {
     margin: 20px 0;
 }
+
 .break-word {
-        word-wrap: break-word;
-        word-break:break-all;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.toggler {
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-background-clip: padding-box;
+    box-shadow: 1px 0px 8px rgba(0, 0, 0, .175);
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .15);
+    width: 20px;
+    height: 48px;
+    position: relative;
+    top: 45%;
+    cursor: pointer;
+    float: right;
+    margin-right: 10px;
+}
+
+    .toggler > span {
+        margin: 15px 2px;
+    }
+
+.statistics_warp {
+    width: 310px;
+    float: left;
+}
+
+.remove-tag {
+    cursor: pointer;
+}
+
+.badge-info {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #31708f;
+    border-radius: 10px;
+}
+
+.badge-warning {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #8a6d3b;
+    border-radius: 10px;
+}
+.badge-danger {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #a94442;
+    border-radius: 10px;
 }

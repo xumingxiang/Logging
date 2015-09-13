@@ -79,6 +79,7 @@ namespace Logging.Server
                 try
                 {
                     T item = s_Queue.Take();
+                 
                     this.Action(item);
                     //  Console.WriteLine("again");
                 }

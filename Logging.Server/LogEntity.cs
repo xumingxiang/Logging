@@ -5,8 +5,13 @@ using System.Collections.Generic;
 
 namespace Logging.Server
 {
-    public  class LogEntity
+    public class LogEntity
     {
+
+
+
+        //public ObjectId _id { get; set; }
+
         public ObjectId _id { get; set; }
 
         public string Title { get; set; }
@@ -25,23 +30,37 @@ namespace Logging.Server
 
         public int Thread { get; set; }
 
-        public Dictionary<string, string> Tags { get; set; }
+        public List<string> Tags { get; set; }
 
-        //[BsonDateTimeOptions(Kind = DateTimeKind.Local)]
-        //public DateTime CreateTime { get; set; }
+
+        //const int MaxIncrement = 16777216;
+
+        //public ObjectId CreateObjectId()
+        //{
+
+        //    int machine = Convert.ToInt32(this.Time.ToString().ToString().Substring(10,4));
+
+        //    short pid = Convert.ToInt16(this.Time.ToString().ToString().Substring(14, 3));
+
+        //    int increment = Convert.ToInt32(this.Time.ToString().Substring(9, 8)) % MaxIncrement;
+
+        //    return new ObjectId(Utils.GetDateTime(this.Time), machine, pid, increment);
+
+        //    //return ObjectId.GenerateNewId(new DateTime(this.Time));
+        //}
 
     }
 
-    public class LogTag 
+    public class LogTag
     {
         public ObjectId _id { get; set; }
 
-        //public ObjectId LogId { get; set; }
+        public ObjectId LogId { get; set; }
 
-        public string TagName { get; set; }
+        public long Tag { get; set; }
 
-        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
-        public DateTime CreateTime { get; set; }
+
+        public long Time { get; set; }
     }
 
 }

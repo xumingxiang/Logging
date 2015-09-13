@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logging.ThriftContract;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using Thrift.Protocol;
@@ -19,15 +20,17 @@ namespace Logging.Client
 
             var uri = new Uri(loggingServerHost + "/Reciver.ashx");
             var httpClient = new THttpClient(uri);
-            httpClient.ConnectTimeout = SENDER_TIMEOUT;
+            httpClient.ConnectTimeout = SENDER_TIMEOUT;           
             var protocol = new TBinaryProtocol(httpClient);
+           
             httpClient.Open();
             var client = new LogTransferService.Client(protocol);
+           
 
-            List<global::LogEntity> _logEntities = new List<global::LogEntity>();
+            var _logEntities = new List<TLogEntity>();
             foreach (var item in logEntities)
             {
-                global::LogEntity _log = new global::LogEntity();
+                var _log = new TLogEntity();
                 _log.IP = item.IP;
                 _log.Level = (sbyte)item.Level;
                 _log.Message = item.Message;

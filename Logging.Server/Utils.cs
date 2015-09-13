@@ -1,27 +1,29 @@
 ﻿using System;
 
+
 namespace Logging.Server
 {
     public static class Utils
     {
+        readonly static DateTime START_TIME = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
+
         /// <summary>
-        /// DateTime时间格式转换为Unix时间戳格式
+        /// DateTime时间格式转换为Unix时间戳格式。精确到17位,即100纳秒
         /// </summary>
         /// <param name=”time”></param>
         /// <returns></returns>
         public static long GetTimeStamp(DateTime time)
         {
-            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
-            return (long)(time - startTime).Ticks / 10000;
+            return (long)(time - START_TIME).Ticks;
         }
 
 
-        public static DateTime GetDateTime(double timestamp)
+        public static DateTime GetDateTime(long timestamp)
         {
             DateTime converted = new DateTime(1970, 1, 1, 0, 0, 0, 0);
-            DateTime newDateTime = converted.AddMilliseconds(timestamp);
+            DateTime newDateTime = converted.AddTicks(timestamp);
             return newDateTime.ToLocalTime();
-        }  
+        }
 
 
         /// <summary>
@@ -83,6 +85,31 @@ namespace Logging.Server
             }
             string strIPAddress = s1.ToString() + "." + s2.ToString() + "." + s3.ToString() + "." + s4.ToString();
             return strIPAddress;
+        }
+
+        const int BKDRHashSeed = 131;
+        // BKDR Hash Function
+        public static long BKDRHash(string str)
+        {
+            //int seed = 131; // 31 131 1313 13131 131313 etc..
+            long hash = 0;
+            int len = str.Length;
+            for (int i = 0; i < len; i++)
+            {
+                hash = hash * BKDRHashSeed + (str[i]);
+            }
+            return (hash & 0x7FFFFFFF);
+        }
+
+        public static long Time33(string str)
+        {
+            long hash = 0;
+            int len = str.Length;
+            for (int i = 0; i < len; i++)
+            {
+                hash = ((hash << 5) + hash) + (long)str[i];
+            }
+            return hash;
         }
 
     }

@@ -104,37 +104,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bootstrap\css\bootstrap-theme.css" />
-    <Content Include="bootstrap\css\bootstrap-theme.min.css" />
-    <Content Include="bootstrap\css\bootstrap.css" />
-    <Content Include="bootstrap\css\bootstrap.min.css" />
-    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="bootstrap\js\bootstrap.js" />
-    <Content Include="bootstrap\js\bootstrap.min.js" />
-    <Content Include="bootstrap\js\npm.js" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\bootstrap\js\npm.js" />
     <Content Include="Content\logviewer.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="jQuery\css\jquery-ui-timepicker-addon.css" />
-    <Content Include="jQuery\css\jquery-ui.min.css" />
-    <Content Include="jQuery\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="jQuery\css\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="jQuery\css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="jQuery\css\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="jQuery\css\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="jQuery\css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="jQuery\css\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="jQuery\css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="jQuery\css\images\ui-icons_222222_256x240.png" />
-    <Content Include="jQuery\css\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="jQuery\css\images\ui-icons_454545_256x240.png" />
-    <Content Include="jQuery\css\images\ui-icons_888888_256x240.png" />
-    <Content Include="jQuery\css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jQuery\css\jquery-ui-timepicker-addon.css" />
+    <Content Include="Content\jQuery\css\jquery-ui.min.css" />
+    <Content Include="Content\jQuery\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jQuery\css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\jQuery\css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\jQuery\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\jQuery\css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\jQuery\css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\jQuery\css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jQuery\css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\jQuery\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\jQuery\css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jQuery\css\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\jQuery\css\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\jQuery\css\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Index.html" />
-    <Content Include="InitMongo.aspx" />
-    <Content Include="jQuery\jquery-ui-timepicker-addon.js" />
-    <Content Include="jQuery\jquery-ui.js" />
-    <Content Include="jQuery\jquery.min.js" />
+    <Content Include="MongoTools.aspx" />
+    <Content Include="Content\jQuery\jquery-ui-timepicker-addon.js" />
+    <Content Include="Content\jQuery\jquery-ui.js" />
+    <Content Include="Content\jQuery\jquery.min.js" />
     <Content Include="LogViewer.html" />
     <Content Include="Reciver.ashx" />
     <Content Include="Content\logviewer.js" />
@@ -143,13 +143,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LogViewer.ashx" />
-    <Content Include="bootstrap\css\bootstrap-theme.css.map" />
-    <Content Include="bootstrap\css\bootstrap.css.map" />
-    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\release.server.logging.plu.cn.pubxml" />
+    <Content Include="StatisticsViewer.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -161,12 +162,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="InitMongo.aspx.cs">
-      <DependentUpon>InitMongo.aspx</DependentUpon>
+    <Compile Include="MongoTools.aspx.cs">
+      <DependentUpon>MongoTools.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="InitMongo.aspx.designer.cs">
-      <DependentUpon>InitMongo.aspx</DependentUpon>
+    <Compile Include="MongoTools.aspx.designer.cs">
+      <DependentUpon>MongoTools.aspx</DependentUpon>
     </Compile>
     <Compile Include="LogViewer.ashx.cs">
       <DependentUpon>LogViewer.ashx</DependentUpon>
@@ -181,6 +182,9 @@
     </Compile>
     <Compile Include="Settings.aspx.designer.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StatisticsViewer.ashx.cs">
+      <DependentUpon>StatisticsViewer.ashx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

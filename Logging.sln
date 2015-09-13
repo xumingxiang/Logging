@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Server", "Logging.Server\Logging.Server.csproj", "{C53C8137-4145-4853-87F8-A47CCCFBB24B}"
 EndProject
@@ -10,6 +10,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Server.Site", "Logging.Server.Site\Logging.Server.Site.csproj", "{858EF4D4-4557-47F4-8E78-283A7E49ED29}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Client.TestSite", "Logging.Client.TestSite\Logging.Client.TestSite.csproj", "{75D2F2FB-2E14-411D-831D-F47F167CC21D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thrift", "Thrift\Thrift.csproj", "{04581F78-BC60-49C0-B279-72E525174F0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.ThriftContract", "Logging.ThriftContract\Logging.ThriftContract.csproj", "{9CF113F2-C0A6-4267-8878-1FADEAB1A5BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.Test", "Logging.Test\Logging.Test.csproj", "{257B5778-30EC-4EF3-8580-C29090F6515A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{75D2F2FB-2E14-411D-831D-F47F167CC21D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75D2F2FB-2E14-411D-831D-F47F167CC21D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75D2F2FB-2E14-411D-831D-F47F167CC21D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04581F78-BC60-49C0-B279-72E525174F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04581F78-BC60-49C0-B279-72E525174F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04581F78-BC60-49C0-B279-72E525174F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04581F78-BC60-49C0-B279-72E525174F0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CF113F2-C0A6-4267-8878-1FADEAB1A5BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF113F2-C0A6-4267-8878-1FADEAB1A5BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF113F2-C0A6-4267-8878-1FADEAB1A5BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF113F2-C0A6-4267-8878-1FADEAB1A5BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{257B5778-30EC-4EF3-8580-C29090F6515A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{257B5778-30EC-4EF3-8580-C29090F6515A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{257B5778-30EC-4EF3-8580-C29090F6515A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{257B5778-30EC-4EF3-8580-C29090F6515A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

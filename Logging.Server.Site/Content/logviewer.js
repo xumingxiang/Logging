@@ -18,9 +18,6 @@ Date.prototype.Format = function (fmt, utc) {
 
 $(function () {
 
-    var query_url = "logviewer.ashx";
-
-
     function numberToIp(number) {
         if (number <= 0) { return ""; }
 
@@ -30,25 +27,52 @@ $(function () {
         (Math.floor(number % 256));
     }
 
-    function getlogs(clear, start) {
-
+    function getLogs(start, end, clear) {
+        var query_url = "logviewer.ashx";
         var appid = $("#appid").val() || 0;
         var source = $("#source").val() || "";
         var title = $("#title").val() || "";
         var msg = $("#msg").val() || "";
 
         if (!start) {
-            start = $("#start").val() || "2015-08-29 16:16:16";
+            start = $("#start").val() || "0000-00-00";
+            start = (new Date(start)).valueOf() * 10000;
         }
-        var end = $("#end").val() || new Date().Format("yyyy-MM-dd hh:mm:ss", false);
+        if (!end) {
+            end = $("#end").val() || new Date().Format("yyyy-MM-dd hh:mm:ss", false);
+            end = (new Date(end)).valueOf() * 10000;
+        }
+
+      
+      
 
         var ip = $("#ip").val() || "";
+
         var level_cb = $('#level-warp').find(":checked");
         var level = "";
-
-        level_cb.each(function () { level = level + $(this).val() + ","; });
+        level_cb.each(function () {
+            var level_val = $(this).val();
+            if (level_val != "") {
+                level = level + $(this).val() + ",";
+            }
+        });
         level = level.substr(0, level.length - 1);
+
+
+        var tags_inputs = $("#tag_warp").find(":text");
+        var tags = "";
+        tags_inputs.each(function () {
+            var tag_val = $(this).val();
+            if (tag_val != "") {
+                tags = tags + $(this).val() + ",";
+            }
+        });
+        tags = tags.substr(0, tags.length - 1);
+
+
+
         var item_temp = $("#log_item_temp").html();
+
 
         $.get(query_url, {
             appid: appid,
@@ -58,9 +82,10 @@ $(function () {
             start: start,
             end: end,
             ip: ip,
-            level: level
+            level: level,
+            tags: tags
         }, function (result) {
-            var log_json = eval("(" + result + ")")
+            var log_json = eval("(" + result + ")");
             var log_length = log_json.List.length;
             var log_cursor = log_json.Cursor;
             var log_end = log_json.End;
@@ -101,24 +126,116 @@ $(function () {
                  .replace("{ip}", numberToIp(log.IP))
                  .replace("{appid}", log.AppId)
                  .replace("{thread}", log.Thread)
-                 .replace("{time}", new Date(log.Time).Format("yyyy-MM-dd hh:mm:ss.S"))
+                 .replace("{time}", new Date(log.Time / 10000).Format("yyyy-MM-dd hh:mm:ss.S"))
                  .replace("{level_class}", level_class);
                 $("#log_warp").append(item_html);
             }
         });
     }
 
+    function getStatistics(start, end, appId) {
+        var query_url = "StatisticsViewer.ashx";
+        $.get(query_url, {
+            start: start,
+            end: end,
+            appId: appId
+        }, function (result) {
+            var s_json = eval("(" + result + ")");
+            var s_length = s_json.length;
+            if (s_length <= 0) { return; }
+            $("#statistics_warp").empty();
+            var s_item_temp = $("#s_item_temp").html();
+            for (var i = 0; i < s_length; i++) {
+                var s = s_json[i];
+
+                var debug_num = s.Debug;
+                var info_num = s.Info;
+                var warm_num = s.Warm;
+                var error_num = s.Error;
+
+                if (debug_num >= 100000) {
+                    debug_num = (Math.round(debug_num / 100) / 100) + "w";
+                } else if (debug_num >= 10000) {
+                    debug_num = (Math.round(debug_num / 10) / 100) + "k";
+                }
+
+                if (info_num >= 10000) {
+                    info_num = (Math.round(info_num / 100) / 100) + "w";
+                } else if (info_num >= 10000) {
+                    info_num = (Math.round(info_num / 10) / 100) + "k";
+                }
+
+                if (warm_num >= 10000) {
+                    warm_num = (Math.round(warm_num / 100) / 100) + "w";
+                } else if (warm_num >= 10000) {
+                    warm_num = (Math.round(warm_num / 10) / 100) + "k";
+                }
+
+                if (error_num >= 100000) {
+                    error_num = (Math.round(error_num / 100) / 100) + "k";
+                } else if (error_num >= 10000) {
+                    error_num = (Math.round(error_num / 10) / 100) + "k";
+                }
+
+
+                var s_item_html = s_item_temp
+              .replace("{appId}", s.AppId)
+              .replace("{debug_num}", debug_num)
+              .replace("{info_num}", info_num)
+              .replace("{warm_num}", warm_num)
+              .replace("{error_num}", error_num);
+
+                $("#statistics_warp").append(s_item_html);
+            }
+        });
+    }
+
+    function addTag() {
+        var tag_warp = $("#tag_warp");
+        var tag_rows = tag_warp.find(".tag_row");
+        if (tag_rows.length == 0) {
+            tag_warp.append("<div class=\"tag_row row mt-2\"></div>");
+        }
+        var last_row = tag_warp.find(".tag_row").last();
+        var last_row_cols = last_row.find(".col-lg-6");
+        if (last_row_cols.length <= 1) {
+            last_row.append($("#tag_item_temp").html());
+        } else {
+            tag_warp.append("<div class=\"tag_row row mt-2\">" + $("#tag_item_temp").html() + "</div>");
+        }
+    }
+
     $("#btn_query").click(function () {
-        getlogs(true);
+        getLogs(null, null, true);
     });
     $("#more_query").click(function () {
         var cursor = $("#more_query").attr("cursor");
-        getlogs(false, cursor);
+        getLogs(null, cursor, false);
     });
+
+    $("#addTag").click(function () {
+        addTag();
+    });
+
+    $("#tag_warp").delegate(".remove-tag", "click", function () {
+        var row = $(this).parent().parent().parent();
+        $(this).parent().parent().remove();
+
+        if (row.find(".col-lg-6").length == 0) {
+            row.remove();
+        }
+    });
+
+
+
+    //$('.left').BootSideMenu({ side: "left", autoClose: false });
 
     var now = new Date();
     var default_start_time = new Date((now.setHours(now.getHours() - 1))).Format("yyyy-MM-dd hh:mm:ss");
     var default_end_time = new Date().Format("yyyy-MM-dd hh:mm:ss");
+
+    var default_start_timestamp = (new Date(default_start_time)).valueOf() * 10000;
+    var default_end_timestamp = (new Date(default_end_time)).valueOf() * 10000;
 
     $("#start")
        .val(default_start_time)
@@ -142,5 +259,6 @@ $(function () {
             closeText: '确定'
         });
 
-
+    getStatistics(default_start_timestamp, default_end_timestamp);
+    getLogs(null, null, true);
 });

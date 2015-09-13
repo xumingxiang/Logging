@@ -1,7 +1,12 @@
-﻿namespace Logging.Client
+﻿using System;
+using System.Configuration;
+
+namespace Logging.Client
 {
     public static class Settings
     {
+    
+
         /// <summary>
         /// 设置日志服务器
         /// </summary>
@@ -32,28 +37,29 @@
         /// </summary>
         public static bool LoggingDisabled { get; set; }
 
-
-      
         /// <summary>
-        /// Default设置日志发送线程数。默认为1
+        /// 默认设置日志发送线程数：1
         /// </summary>
-        public static int DefaultLoggingTaskNum { get { return 1; } }
+        public readonly static int DefaultLoggingTaskNum = 1;
 
         /// <summary>
-        /// Default设置日志队列最大长度。默认为10000
+        /// 应用号
         /// </summary>
-        public static int DefaultLoggingQueueLength { get { return 10000; } }
+        public readonly static int AppId = Convert.ToInt32(ConfigurationManager.AppSettings["AppId"] ?? "0");
 
         /// <summary>
-        /// Default设置日志打包大小。默认为100
+        /// 默认设置日志队列最大长度：10000
         /// </summary>
-        public static int DefaultLoggingBatchSize { get { return 100; } }
+        public readonly static int DefaultLoggingQueueLength = 10000;
 
         /// <summary>
-        /// Default设置日志发送阻塞时间。单位:毫秒,。默认为10000,即10秒
+        /// 默认设置日志打包大小：100
         /// </summary>
-        public static int DefaultLoggingBlockElapsed { get { return 10000; } }
+        public readonly static int DefaultLoggingBatchSize = 100;
 
-
+        /// <summary>
+        /// 默认设置日志发送阻塞时间。单位:毫秒。10000,即10秒
+        /// </summary>
+        public readonly static int DefaultLoggingBlockElapsed = 10000;
     }
 }

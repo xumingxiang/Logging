@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Logging.Server
 {
-    internal class LogStatistics
+    public class LogStatistics
     {
 
         public ObjectId _id { get; set; }

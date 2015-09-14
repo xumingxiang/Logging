@@ -43,7 +43,7 @@ namespace Logging.Client
                 _logEntities.Add(_log);
             }
             client.Log(_logEntities);
-
+          
             httpClient.Close();
         }
     }

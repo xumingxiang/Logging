@@ -36,7 +36,7 @@ namespace Logging.Server.Site
             string tags_str = context.Request["tags"];
             var viewer = LogViewerManager.GetLogViewer();
 
-            var result = new LogSearchVM();
+            var result = new LogVM();
 
             long ipNum = Utils.IPToNumber(ip);
 
@@ -47,13 +47,13 @@ namespace Logging.Server.Site
             List<string> tags = new List<string>();
             if (!string.IsNullOrWhiteSpace(tags_str))
             {
-                tags= tags_str.Split(',').Distinct().ToList();
-               
+                tags = tags_str.Split(',').Distinct().ToList();
+
             }
 
             //tags.Add("a=a");
 
-            var lst = viewer.GetLogs(start, end, appId, level, title, msg, source, (int)ipNum, tags,limit);
+            var lst = viewer.GetLogs(start, end, appId, level, title, msg, source, (int)ipNum, tags, limit);
 
             result.List = lst;
             result.Start = start;
@@ -84,7 +84,7 @@ namespace Logging.Server.Site
         }
     }
 
-    internal class LogSearchVM
+    public class LogVM
     {
         public long Start { get; set; }
 

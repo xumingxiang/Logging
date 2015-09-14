@@ -220,6 +220,7 @@
     <Compile Include="LogProcessor\DefaultLogProcessor.cs" />
     <Compile Include="LogReciver.cs" />
     <Compile Include="LogStatistics.cs" />
+    <Compile Include="LogTag.cs" />
     <Compile Include="LogViewer\ILogView.cs" />
     <Compile Include="LogViewer\HBaseViewer.cs" />
     <Compile Include="LogViewer\LogViewerManager.cs" />

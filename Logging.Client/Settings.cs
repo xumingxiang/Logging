@@ -38,7 +38,7 @@ namespace Logging.Client
         public static bool LoggingDisabled { get; set; }
 
         /// <summary>
-        /// 默认设置日志发送线程数：1
+        /// 默认日志发送线程数：1
         /// </summary>
         public readonly static int DefaultLoggingTaskNum = 1;
 
@@ -48,17 +48,17 @@ namespace Logging.Client
         public readonly static int AppId = Convert.ToInt32(ConfigurationManager.AppSettings["AppId"] ?? "0");
 
         /// <summary>
-        /// 默认设置日志队列最大长度：10000
+        /// 默认日志队列最大长度：10000
         /// </summary>
         public readonly static int DefaultLoggingQueueLength = 10000;
 
         /// <summary>
-        /// 默认设置日志打包大小：100
+        /// 默认日志打包大小：100
         /// </summary>
         public readonly static int DefaultLoggingBatchSize = 100;
 
         /// <summary>
-        /// 默认设置日志发送阻塞时间。单位:毫秒。10000,即10秒
+        /// 默认发送阻塞时间。单位:毫秒。10000,即10秒
         /// </summary>
         public readonly static int DefaultLoggingBlockElapsed = 10000;
     }

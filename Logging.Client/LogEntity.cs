@@ -2,7 +2,8 @@
 
 namespace Logging.Client
 {
-    internal class LogEntity
+    
+    public class LogEntity
     {
         public string Title { get; set; }
 
@@ -22,4 +23,6 @@ namespace Logging.Client
 
         public Dictionary<string, string> Tags { get; set; }
     }
+
+   
 }

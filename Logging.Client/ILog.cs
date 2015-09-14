@@ -31,6 +31,21 @@ namespace Logging.Client
 
         void Error(Exception ex);
 
-
+        /// <summary>
+        /// 获取日志。
+        /// 本方法为了不引入第三方序列化框架，请客户程序自行返回结果反序列化
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="appId"></param>
+        /// <param name="level"></param>
+        /// <param name="title"></param>
+        /// <param name="msg"></param>
+        /// <param name="source"></param>
+        /// <param name="ip"></param>
+        /// <param name="tags"></param>
+        /// <param name="limit"></param>
+        /// <returns></returns>
+        string GetLogs(long start, long end, int appId, int[] level = null, string title = "", string msg = "", string source = "", string ip = "", Dictionary<string, string> tags = null, int limit = 100);
     }
 }

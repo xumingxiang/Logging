@@ -4,8 +4,8 @@ using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Threading;
-using System.Web;
 
 namespace Logging.Client
 {
@@ -163,12 +163,10 @@ namespace Logging.Client
             //{
             try
             {
-
                 // System.Net.IPAddress addr;
-                // 获得本机局域网IP地址 
+                // 获得本机局域网IP地址
                 //addr = new System.Net.IPAddress(Dns.GetHostByName(Dns.GetHostName()).AddressList[0].Address);
                 //return addr.ToString() + System.Net.Dns.GetHostName();
-
 
                 string hostName = Dns.GetHostName();
                 var hostEntity = Dns.GetHostEntry(hostName);
@@ -184,6 +182,56 @@ namespace Logging.Client
             catch (Exception) { str = string.Empty; }
             //}
             return str;
+        }
+
+        public string GetLogs(long start, long end, int appId, int[] level = null, string title = "", string msg = "", string source = "", string ip = "", Dictionary<string, string> tags = null, int limit = 100)
+        {
+            string loggingServerHost = ConfigurationManager.AppSettings["LoggingServerHost"];
+            string url = loggingServerHost + "/LogViewer.ashx";
+
+            StringBuilder query = new StringBuilder(url);
+            query.Append("?start =" + start);
+            query.Append("&");
+            query.Append("end=" + end);
+            query.Append("&");
+            query.Append("appId=" + appId);
+            if (level != null && level.Length > 0)
+            {
+                query.Append("&");
+                query.Append("level=" + string.Join(",", level));
+            }
+            query.Append("&");
+            query.Append("title=" + title);
+            query.Append("&");
+            query.Append("msg=" + msg);
+            query.Append("&");
+            query.Append("source=" + source);
+            query.Append("&");
+            query.Append("ip=" + ip);
+
+            if (tags != null && tags.Count > 0)
+            {
+                string tags_str = string.Empty;
+                foreach (var item in tags)
+                {
+                    tags_str += item.Key + "=" + item.Value;
+                    tags_str += ",";
+                }
+                tags_str = tags_str.TrimEnd(',');
+                query.Append("&");
+                query.Append("tag=" + tags_str);
+            }
+
+            query.Append("&");
+            query.Append("limit=" + limit);
+
+            WebClient _client = new WebClient();
+
+            //DownloadData的使用方法
+            byte[] resp_byte = _client.DownloadData(query.ToString());
+            string resp = Encoding.UTF8.GetString(resp_byte);
+
+            return resp;
         }
     }
 }

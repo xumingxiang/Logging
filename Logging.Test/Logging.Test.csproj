@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +52,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logging.Client\Logging.Client.csproj">
+      <Project>{99b33ed8-e7e2-4447-97ef-ee27afd22b50}</Project>
+      <Name>Logging.Client</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logging.Server\Logging.Server.csproj">
       <Project>{c53c8137-4145-4853-87f8-a47cccfbb24b}</Project>
       <Name>Logging.Server</Name>

@@ -6,45 +6,48 @@ namespace Logging.Client
 {
     internal class SimpleLogger : BaseLogger, ILog
     {
-        public string Source { get; set; }
+        //public string Source { get; set; }
 
-        public SimpleLogger(string source = "")
+        public SimpleLogger(string source) 
+            : base(source)
         {
-            this.Source = source;
+
         }
 
-        protected override void Log(string title, string message, Dictionary<string, string> tags, LogLevel level)
-        {
-            if (LoggingDisabled) { return; }
-            LogEntity log = base.CreateLog(Source, title, message, tags, level);
-            block.Enqueue(log);
-        }
+        
 
-        private static TimerBatchBlock<LogEntity> block;
+        //protected override void Log(string title, string message, Dictionary<string, string> tags, LogLevel level)
+        //{
+        //    if (LoggingDisabled) { return; }
+        //    LogEntity log = base.CreateLog(Source, title, message, tags, level);
+        //    block.Enqueue(log);
+        //}
 
-        static SimpleLogger()
-        {
-            int LoggingTaskNum = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingTaskNum"] ?? Settings.LoggingTaskNum.ToString());
+        //private static TimerBatchBlock<LogEntity> block;
 
-            int LoggingQueueLength = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingQueueLength"] ?? Settings.LoggingQueueLength.ToString());
+        //static SimpleLogger()
+        //{
+        //    int LoggingTaskNum = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingTaskNum"] ?? Settings.LoggingTaskNum.ToString());
 
-            int LoggingBatchSize = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingBatchSize"] ?? Settings.LoggingBatchSize.ToString());
+        //    int LoggingQueueLength = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingQueueLength"] ?? Settings.LoggingQueueLength.ToString());
 
-            int LoggingBlockElapsed = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingBlockElapsed"] ?? Settings.LoggingBlockElapsed.ToString());
+        //    int LoggingBatchSize = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingBatchSize"] ?? Settings.LoggingBatchSize.ToString());
 
-            if (LoggingTaskNum <= 0) { LoggingTaskNum = Settings.DefaultLoggingTaskNum; }
+        //    int LoggingBlockElapsed = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingBlockElapsed"] ?? Settings.LoggingBlockElapsed.ToString());
 
-            if (LoggingQueueLength <= 0) { LoggingQueueLength = Settings.DefaultLoggingQueueLength; }
+        //    if (LoggingTaskNum <= 0) { LoggingTaskNum = Settings.DefaultLoggingTaskNum; }
 
-            if (LoggingBatchSize <= 0) { LoggingBatchSize = Settings.DefaultLoggingBatchSize; }
+        //    if (LoggingQueueLength <= 0) { LoggingQueueLength = Settings.DefaultLoggingQueueLength; }
 
-            if (LoggingBlockElapsed <= 0) { LoggingBlockElapsed = Settings.DefaultLoggingBlockElapsed; }
+        //    if (LoggingBatchSize <= 0) { LoggingBatchSize = Settings.DefaultLoggingBatchSize; }
 
-            block = new TimerBatchBlock<LogEntity>(LoggingTaskNum, (batch) =>
-                 {
-                     LogSenderBase sender = new HttpLogSender();
-                     sender.Send(batch);
-                 }, LoggingQueueLength, LoggingBatchSize, LoggingBlockElapsed);
-        }
+        //    if (LoggingBlockElapsed <= 0) { LoggingBlockElapsed = Settings.DefaultLoggingBlockElapsed; }
+
+        //    block = new TimerBatchBlock<LogEntity>(LoggingTaskNum, (batch) =>
+        //         {
+        //             LogSenderBase sender = new HttpLogSender();
+        //             sender.Send(batch);
+        //         }, LoggingQueueLength, LoggingBatchSize, LoggingBlockElapsed);
+        //}
     }
 }

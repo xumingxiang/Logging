@@ -196,14 +196,16 @@
     </Compile>
     <Compile Include="BaseLogger.cs" />
     <Compile Include="LogExceptionHandller.cs" />
+    <Compile Include="LogSender\TSocketLogSender.cs" />
+    <Compile Include="LogSender\LogSenderManager.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SimpleLogger.cs" />
     <Compile Include="ILog.cs" />
     <Compile Include="LogEntity.cs" />
-    <Compile Include="LogSender\HttpLogSender.cs" />
+    <Compile Include="LogSender\THttpLogSender.cs" />
     <Compile Include="LogLevel.cs" />
     <Compile Include="LogManager.cs" />
-    <Compile Include="LogSender\LogSender.cs" />
+    <Compile Include="LogSender\LogSenderBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimerBatchBlock.cs" />
     <Compile Include="Utils.cs" />

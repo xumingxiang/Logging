@@ -6,6 +6,6 @@ namespace Logging.Client
     {
         protected int SENDER_TIMEOUT = 5000;
 
-        public abstract void Send(IList<LogEntity> LogEntities);
+        public abstract void Send(IList<LogEntity> logEntities);
     }
 }

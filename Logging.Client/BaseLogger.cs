@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logging.Client.LogSender;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -11,6 +12,39 @@ namespace Logging.Client
 {
     internal abstract class BaseLogger : ILog
     {
+
+        private string Source { get; set; }
+
+        public BaseLogger(string source = "")
+        {
+            this.Source = source;
+        }
+
+        static BaseLogger()
+        {
+            int LoggingTaskNum = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingTaskNum"] ?? Settings.LoggingTaskNum.ToString());
+
+            int LoggingQueueLength = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingQueueLength"] ?? Settings.LoggingQueueLength.ToString());
+
+            int LoggingBatchSize = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingBatchSize"] ?? Settings.LoggingBatchSize.ToString());
+
+            int LoggingBlockElapsed = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingBlockElapsed"] ?? Settings.LoggingBlockElapsed.ToString());
+
+            if (LoggingTaskNum <= 0) { LoggingTaskNum = Settings.DefaultLoggingTaskNum; }
+
+            if (LoggingQueueLength <= 0) { LoggingQueueLength = Settings.DefaultLoggingQueueLength; }
+
+            if (LoggingBatchSize <= 0) { LoggingBatchSize = Settings.DefaultLoggingBatchSize; }
+
+            if (LoggingBlockElapsed <= 0) { LoggingBlockElapsed = Settings.DefaultLoggingBlockElapsed; }
+
+            block = new TimerBatchBlock<LogEntity>(LoggingTaskNum, (batch) =>
+            {
+                LogSenderBase sender = LogSenderManager.GetLogSender();
+                sender.Send(batch);
+            }, LoggingQueueLength, LoggingBatchSize, LoggingBlockElapsed);
+        }
+
         public void Debug(string message)
         {
             Debug(string.Empty, message);
@@ -107,82 +141,15 @@ namespace Logging.Client
             }
         }
 
-        protected abstract void Log(string title, string message, Dictionary<string, string> tags, LogLevel level);
-
-        ///// <summary>
-        ///// 获取客户端IP
-        ///// </summary>
-        ///// <returns></returns>
-        //private static string GetClientIP()
-        //{
-        //    string str = string.Empty;
-        //    if (HttpContext.Current != null)
-        //    {
-        //        IPAddress address;
-        //        str = HttpContext.Current.Request.Headers["X-Forwarded-For"];
-        //        if (string.IsNullOrWhiteSpace(str))
-        //        {
-        //            return HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-        //        }
-        //        str = str.Trim().Split(new char[] { ',' })[0];
-        //        if (IPAddress.TryParse(str, out address))
-        //        {
-        //            str = string.Empty;
-        //        }
-        //    }
-        //    return str;
-        //}
-
-        private static long serverIPNum;
-
-        private static long ServerIPNum
+        protected virtual void Log(string title, string message, Dictionary<string, string> tags, LogLevel level)
         {
-            get
-            {
-                if (serverIPNum <= 0)
-                {
-                    string serverIP = GetServerIP();
-                    serverIPNum = Utils.IPToNumber(serverIP);
-                }
-                return serverIPNum;
-            }
+            if (LoggingDisabled) { return; }
+            LogEntity log = this.CreateLog(Source, title, message, tags, level);
+            block.Enqueue(log);
         }
 
-        /// <summary>
-        /// 获取服务器IP
-        /// </summary>
-        /// <returns></returns>
-        private static string GetServerIP()
-        {
-            string str = "127.0.0.1";
-            //if (HttpContext.Current != null)
-            //{
-            //    str = HttpContext.Current.Request.ServerVariables.Get("Local_Addr");
-            //}
-            //else
-            //{
-            try
-            {
-                // System.Net.IPAddress addr;
-                // 获得本机局域网IP地址
-                //addr = new System.Net.IPAddress(Dns.GetHostByName(Dns.GetHostName()).AddressList[0].Address);
-                //return addr.ToString() + System.Net.Dns.GetHostName();
+        private static TimerBatchBlock<LogEntity> block;
 
-                string hostName = Dns.GetHostName();
-                var hostEntity = Dns.GetHostEntry(hostName);
-                var ipAddressList = hostEntity.AddressList;
-                var ipAddress = ipAddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
-
-                if (ipAddress != null)
-                {
-                    str = ipAddress.ToString();
-                }
-                return str;
-            }
-            catch (Exception) { str = string.Empty; }
-            //}
-            return str;
-        }
 
         public string GetLogs(long start, long end, int appId, int[] level = null, string title = "", string msg = "", string source = "", string ip = "", Dictionary<string, string> tags = null, int limit = 100)
         {
@@ -233,5 +200,47 @@ namespace Logging.Client
 
             return resp;
         }
+
+        #region 私有成员
+
+        private static long serverIPNum;
+
+        private static long ServerIPNum
+        {
+            get
+            {
+                if (serverIPNum <= 0)
+                {
+                    string serverIP = GetServerIP();
+                    serverIPNum = Utils.IPToNumber(serverIP);
+                }
+                return serverIPNum;
+            }
+        }
+
+        /// <summary>
+        /// 获取服务器IP
+        /// </summary>
+        /// <returns></returns>
+        private static string GetServerIP()
+        {
+            string str = "127.0.0.1";
+            try
+            {
+                string hostName = Dns.GetHostName();
+                var hostEntity = Dns.GetHostEntry(hostName);
+                var ipAddressList = hostEntity.AddressList;
+                var ipAddress = ipAddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
+
+                if (ipAddress != null)
+                {
+                    str = ipAddress.ToString();
+                }
+                return str;
+            }
+            catch (Exception) { str = string.Empty; }
+            return str;
+        }
+        #endregion
     }
 }

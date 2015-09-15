@@ -8,9 +8,9 @@ using Thrift.Transport;
 namespace Logging.Client
 {
     /// <summary>
-    /// 发送消息
+    /// Thrift Http协议发送消息
     /// </summary>
-    internal class HttpLogSender : LogSenderBase
+    internal class THttpLogSender : LogSenderBase
     {
         public override void Send(IList<LogEntity> logEntities)
         {

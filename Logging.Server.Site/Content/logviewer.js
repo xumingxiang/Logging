@@ -43,8 +43,8 @@ $(function () {
             end = (new Date(end)).valueOf() * 10000;
         }
 
-      
-      
+
+
 
         var ip = $("#ip").val() || "";
 
@@ -119,6 +119,13 @@ $(function () {
                 } else if (log.Level == 4) {
                     level_class = "list-group-item-danger";
                 }
+
+                var tags_str = "";
+                for (var j = 0; j < log.Tags.length; j++) {
+                    tags_str += log.Tags[j] + ";";
+                }
+
+
                 var item_html = item_temp
                  .replace("{title}", log.Title)
                  .replace("{msg}", log.Message)
@@ -127,7 +134,11 @@ $(function () {
                  .replace("{appid}", log.AppId)
                  .replace("{thread}", log.Thread)
                  .replace("{time}", new Date(log.Time / 10000).Format("yyyy-MM-dd hh:mm:ss.S"))
-                 .replace("{level_class}", level_class);
+                 .replace("{level_class}", level_class)
+                 .replace("{tags}", tags_str)
+                ;
+
+
                 $("#log_warp").append(item_html);
             }
         });
@@ -140,10 +151,16 @@ $(function () {
             end: end,
             appId: appId
         }, function (result) {
+            $("#statistics_warp").empty();
             var s_json = eval("(" + result + ")");
             var s_length = s_json.length;
-            if (s_length <= 0) { return; }
-            $("#statistics_warp").empty();
+
+            if (s_length <= 0) {
+                var no_data_item_html="<li class=\"list-group-item\"><div class=\"row\"><div class=\"col-lg-12\">No Data</div></div></li>";
+                $("#statistics_warp").append(no_data_item_html);
+                return;
+            }
+          
             var s_item_temp = $("#s_item_temp").html();
             for (var i = 0; i < s_length; i++) {
                 var s = s_json[i];
@@ -190,6 +207,9 @@ $(function () {
         });
     }
 
+
+
+
     function addTag() {
         var tag_warp = $("#tag_warp");
         var tag_rows = tag_warp.find(".tag_row");
@@ -226,7 +246,36 @@ $(function () {
         }
     });
 
+    $("#s_drop_down").find("li").click(function () {
 
+        var time = $(this).text();
+        $("#s_time").text(time);
+        var now = new Date();
+        var start = now;
+        var end = now;
+        switch (time) {
+            case "5m":
+                start = start - (5 * 60 * 1000);
+                break;
+            case "30m":
+                start = start - (30 * 60 * 1000);
+                break;
+            case "1h":
+                start = start - (60 * 60 * 1000);
+                break;
+            case "1d":
+                start = start - (24 * 60 * 60 * 1000);
+                break;
+            case "1w":
+                start = start - (7 * 24 * 60 * 60 * 1000);
+                break;
+        }
+
+        start = start * 10000;
+        end = end * 10000;
+        getStatistics(start,end);
+
+    });
 
     //$('.left').BootSideMenu({ side: "left", autoClose: false });
 

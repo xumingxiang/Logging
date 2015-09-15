@@ -29,8 +29,29 @@
         </ul>
         <div class="row  mt-10" >
            
-                <div class="left  mt-2">
-                    <ul class="list-group  mr-10 ml-10" id="statistics_warp">
+                <div class="left mt-2">
+                    <div class="row ml-10 mr-10"><span>实时统计：</span>
+                        <div id="" class="btn-group">
+                            <button id="s_time" type="button" class="btn btn-default">1h</button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+
+
+
+                            <ul id="s_drop_down" class="dropdown-menu" style="min-width:inherit">
+                                <li><a href="#">5m</a></li>
+                                <li><a href="#">30m</a></li>
+                                <li><a href="#">1h</a></li>
+                                <li><a href="#">1d</a></li>
+                                <li><a href="#">1w</a></li>
+                                <!--<li role="separator" class="divider"></li>-->
+                            </ul>
+                        </div>
+
+                    </div>
+                    <ul class="list-group  mt-10  mr-10 ml-10" id="statistics_warp">
                         <!--<li class="list-group-item">
                             <div class="row">
                                 <div class="col-lg-4">
@@ -208,7 +229,11 @@
         </div>-->
 
             </div>
-        </li>
+            <div class="row fs-13 mt-4">
+                <span class="col-lg-12 break-word">{tags}</span>
+               
+            </div>
+</li>
 
     </script>
 

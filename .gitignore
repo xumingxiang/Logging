@@ -1,0 +1,11 @@
+/Logging.Client/obj
+/Logging.Client/bin
+/Logging.Client.TestSite/obj
+/Logging.Client.TestSite/bin
+/Logging.Server/obj
+/Logging.Server/bin
+/Logging.Server.Site/obj
+/Logging.Server.Site/bin
+/Logging.Test/obj
+/Logging.ThriftContract/obj
+/Thrift/obj

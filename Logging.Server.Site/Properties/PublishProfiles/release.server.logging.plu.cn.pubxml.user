@@ -13,10 +13,10 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="bin/Logging.Server.dll">
-      <publishTime>09/10/2015 12:59:26</publishTime>
+      <publishTime>09/17/2015 18:11:11</publishTime>
     </File>
     <File Include="bin/Logging.Server.Site.dll">
-      <publishTime>09/10/2015 12:59:26</publishTime>
+      <publishTime>09/17/2015 18:11:11</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -37,19 +37,19 @@
       <publishTime>07/08/2013 15:15:08</publishTime>
     </File>
     <File Include="bin/MongoDB.Bson.dll">
-      <publishTime>08/31/2015 10:02:27</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="bin/MongoDB.Driver.Core.dll">
-      <publishTime>08/31/2015 10:02:27</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="bin/MongoDB.Driver.dll">
-      <publishTime>08/31/2015 10:02:27</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="bin/MongoDB.Driver.Legacy.dll">
-      <publishTime>08/31/2015 10:02:27</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>08/31/2015 10:02:27</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -114,20 +114,116 @@
     <File Include="bootstrap/js/npm.js">
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
+    <File Include="Content/bootstrap/css/bootstrap-theme.css">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap/css/bootstrap-theme.css.map">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap/css/bootstrap-theme.min.css">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap/css/bootstrap.css">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap/css/bootstrap.css.map">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap/css/bootstrap.min.css">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap/js/bootstrap.js">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap/js/bootstrap.min.js">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/bootstrap/js/npm.js">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/images/ui-icons_222222_256x240.png">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/images/ui-icons_454545_256x240.png">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/images/ui-icons_888888_256x240.png">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/jquery-ui-timepicker-addon.css">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/css/jquery-ui.min.css">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/jquery-ui-timepicker-addon.js">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/jquery-ui.js">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="Content/jQuery/jquery.min.js">
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
     <File Include="Content/logviewer.css">
-      <publishTime>09/10/2015 09:07:35</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/logviewer.js">
-      <publishTime>09/10/2015 09:07:35</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>08/31/2015 10:02:27</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>06/01/2015 15:27:21</publishTime>
+      <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="Index.html">
-      <publishTime>08/31/2015 10:02:27</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="InitMongo.aspx">
       <publishTime>09/02/2015 11:56:12</publishTime>
@@ -190,22 +286,28 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="LogViewer.ashx">
-      <publishTime>08/31/2015 10:02:27</publishTime>
+      <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="LogViewer.html">
-      <publishTime>09/10/2015 09:07:35</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="MongoTools.aspx">
+      <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>06/01/2015 15:27:21</publishTime>
     </File>
     <File Include="Reciver.ashx">
-      <publishTime>06/01/2015 15:27:21</publishTime>
+      <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="Settings.aspx">
-      <publishTime>09/06/2015 15:37:46</publishTime>
+      <publishTime>09/17/2015 18:02:20</publishTime>
+    </File>
+    <File Include="StatisticsViewer.ashx">
+      <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/10/2015 13:01:49</publishTime>
+      <publishTime>09/17/2015 18:11:12</publishTime>
     </File>
   </ItemGroup>
 </Project>

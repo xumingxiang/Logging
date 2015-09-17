@@ -10,6 +10,7 @@ using System.Threading;
 
 namespace Logging.Client
 {
+
     internal abstract class BaseLogger : ILog
     {
 
@@ -20,8 +21,24 @@ namespace Logging.Client
             this.Source = source;
         }
 
+
+        /// <summary>
+        /// 是否启用日志
+        /// </summary>
+        protected static bool LoggingEnabled
+        {
+            get
+            {
+                bool LoggingDisabled = Convert.ToBoolean(ConfigurationManager.AppSettings["LoggingEnabled"] ?? Settings.LoggingEnabled.ToString());
+                return LoggingDisabled;
+            }
+        }
+
+
         static BaseLogger()
         {
+            if (!LoggingEnabled) { return; }
+
             int LoggingTaskNum = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingTaskNum"] ?? Settings.LoggingTaskNum.ToString());
 
             int LoggingQueueLength = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingQueueLength"] ?? Settings.LoggingQueueLength.ToString());
@@ -129,21 +146,11 @@ namespace Logging.Client
             return log;
         }
 
-        /// <summary>
-        /// 是否禁用日志
-        /// </summary>
-        protected bool LoggingDisabled
-        {
-            get
-            {
-                bool LoggingDisabled = Convert.ToBoolean(ConfigurationManager.AppSettings["LoggingDisabled"] ?? Settings.LoggingDisabled.ToString());
-                return LoggingDisabled;
-            }
-        }
+
 
         protected virtual void Log(string title, string message, Dictionary<string, string> tags, LogLevel level)
         {
-            if (LoggingDisabled) { return; }
+            if (!LoggingEnabled) { return; }
             LogEntity log = this.CreateLog(Source, title, message, tags, level);
             block.Enqueue(log);
         }
@@ -243,4 +250,5 @@ namespace Logging.Client
         }
         #endregion
     }
+
 }

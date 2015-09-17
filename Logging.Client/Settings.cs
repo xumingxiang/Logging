@@ -35,7 +35,7 @@ namespace Logging.Client
         /// <summary>
         /// 是否禁用日志
         /// </summary>
-        public static bool LoggingDisabled { get; set; }
+        public static bool LoggingEnabled { get; set; }
 
         /// <summary>
         /// 默认日志发送线程数：1

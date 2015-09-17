@@ -2,7 +2,7 @@
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
-
+using System.Linq;
 namespace Logging.Server
 {
     /// <summary>
@@ -60,11 +60,7 @@ namespace Logging.Server
             int queueLen = s_Queue.Count;
             if (queueLen >= this.QueueMaxLength)
             {
-                for (int i = 0; i < (queueLen - this.QueueMaxLength) + 1; i++)
-                {
-                    this.s_Queue.Take();
-                }
-
+                this.s_Queue.Take((queueLen - this.QueueMaxLength) + 1);//超过队列长度，扔掉
             }
             this.s_Queue.Add(item);
         }
@@ -79,7 +75,7 @@ namespace Logging.Server
                 try
                 {
                     T item = s_Queue.Take();
-                 
+
                     this.Action(item);
                     //  Console.WriteLine("again");
                 }

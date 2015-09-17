@@ -152,7 +152,15 @@ namespace Logging.Client
         {
             if (!LoggingEnabled) { return; }
             LogEntity log = this.CreateLog(Source, title, message, tags, level);
-            block.Enqueue(log);
+            int over_count = block.Enqueue(log);
+            if (over_count > 0)
+            {
+                string msg = "Logging_Client_Over溢出数量:" + over_count + " 。 建议增加 LoggingQueueLength 配置值";
+                var over_log_tags = new Dictionary<string, string>();
+                over_log_tags.Add("_title_", "Logging_Client_Over");
+                LogEntity over_log = this.CreateLog(Source, "Logging_Client_Over", msg, over_log_tags, LogLevel.Error);
+                block.Batch.Add(over_log);
+            }
         }
 
         private static TimerBatchBlock<LogEntity> block;

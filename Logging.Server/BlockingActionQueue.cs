@@ -55,14 +55,18 @@ namespace Logging.Server
         /// 入队处理
         /// </summary>
         /// <param name="item"></param>
-        public void Enqueue(T item)
+        public int Enqueue(T item)
         {
             int queueLen = s_Queue.Count;
+            int over_count = 0;
             if (queueLen >= this.QueueMaxLength)
             {
-                this.s_Queue.Take((queueLen - this.QueueMaxLength) + 1);//超过队列长度，扔掉
+                over_count = (queueLen - this.QueueMaxLength) + 1;
+                this.s_Queue.Take(over_count);//超过队列长度，扔掉
             }
+            // this.s_Queue.Enqueue(item);
             this.s_Queue.Add(item);
+            return over_count;
         }
 
         /// <summary>

@@ -27,24 +27,24 @@ namespace Logging.Client
         /// <summary>
         /// 最近一次异常报告时间
         /// </summary>
-        public DateTime LastExceptionReportTime { get; private set; }
+        private DateTime LastExceptionReportTime { get;  set; }
 
         /// <summary>
         /// 出现的异常数量
         /// </summary>
-        public int ExceptionCount { get; private set; }
+        private int ExceptionCount { get;  set; }
 
         /// <summary>
         /// 最近一次异常
         /// </summary>
-        public Exception LastException { get; private set; }
+        private Exception LastException { get;  set; }
 
         /// <summary>
         /// 阻塞队列的最大长度
         /// </summary>
         private int QueueMaxLength { get; set; }
 
-        private ConcurrentBag<T> Batch { get; set; }
+        public ConcurrentBag<T> Batch { get; set; }
 
         /// <summary>
         /// 元素包的大小
@@ -85,18 +85,21 @@ namespace Logging.Client
         }
 
         /// <summary>
-        /// 入队处理
+        /// 入队处理,并返回队列溢出的数量
         /// </summary>
         /// <param name="item"></param>
-        public void Enqueue(T item)
+        public int Enqueue(T item)
         {
             int queueLen = s_Queue.Count;
+            int over_count = 0;
             if (queueLen >= this.QueueMaxLength)
             {
-                this.s_Queue.Take((queueLen - this.QueueMaxLength) + 1);//超过队列长度，扔掉
+                 over_count = (queueLen - this.QueueMaxLength) + 1;
+                this.s_Queue.Take(over_count);//超过队列长度，扔掉
             }
             // this.s_Queue.Enqueue(item);
             this.s_Queue.Add(item);
+            return over_count;
         }
 
         /// <summary>
@@ -109,7 +112,15 @@ namespace Logging.Client
                 try
                 {
                     T item;
+
+                    System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
+                    watch.Start();
+
                     bool hasItem = s_Queue.TryTake(out item, 200);
+                    watch.Stop();
+
+                    long time = watch.ElapsedMilliseconds;
+
 
                     if (hasItem)
                     {
@@ -156,11 +167,13 @@ namespace Logging.Client
             var exceportElapsed = (_now - this.LastExceptionReportTime).TotalSeconds;
             if (exceportElapsed >= 60)
             {
-                LogExceptionHandller.WriteLog(this.LastException, this.ExceptionCount);
+                LoggingClientReport.ReportException(this.LastException, this.ExceptionCount);
                 this.ExceptionCount = 0;
                 this.LastException = null;
                 this.LastExceptionReportTime = DateTime.Now;
             }
         }
+
+       
     }
 }

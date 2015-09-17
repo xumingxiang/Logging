@@ -10,7 +10,7 @@ namespace Logging.Server
         /// <summary>
         /// DateTime时间格式转换为Unix时间戳格式。精确到17位,即100纳秒
         /// </summary>
-        /// <param name=”time”></param>
+        /// <param name="time"></param>
         /// <returns></returns>
         public static long GetTimeStamp(DateTime time)
         {

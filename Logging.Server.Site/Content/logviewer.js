@@ -176,20 +176,20 @@ $(function () {
                     debug_num = (Math.round(debug_num / 10) / 100) + "k";
                 }
 
-                if (info_num >= 10000) {
+                if (info_num >= 100000) {
                     info_num = (Math.round(info_num / 100) / 100) + "w";
                 } else if (info_num >= 10000) {
                     info_num = (Math.round(info_num / 10) / 100) + "k";
                 }
 
-                if (warm_num >= 10000) {
+                if (warm_num >= 100000) {
                     warm_num = (Math.round(warm_num / 100) / 100) + "w";
                 } else if (warm_num >= 10000) {
                     warm_num = (Math.round(warm_num / 10) / 100) + "k";
                 }
 
                 if (error_num >= 100000) {
-                    error_num = (Math.round(error_num / 100) / 100) + "k";
+                    error_num = (Math.round(error_num / 100) / 100) + "w";
                 } else if (error_num >= 10000) {
                     error_num = (Math.round(error_num / 10) / 100) + "k";
                 }

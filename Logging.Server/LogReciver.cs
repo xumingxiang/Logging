@@ -1,20 +1,23 @@
 ﻿using Logging.Server.Processor;
+using Logging.ThriftContract;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using Logging.ThriftContract;
-using MongoDB.Bson;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
 
 namespace Logging.Server
 {
     public class LogReciver : LogTransferService.Iface
     {
-
         private static BlockingActionQueue<IList<LogEntity>> queue;
+
+        private static int server_appId = Convert.ToInt32(ConfigurationManager.AppSettings["AppId"]);
 
         public LogReciver()
         {
-
         }
 
         static LogReciver()
@@ -36,7 +39,7 @@ namespace Logging.Server
 
         public void Log(List<TLogEntity> logEntities)
         {
-            IList<LogEntity> _logEntities = new List<LogEntity>();
+            var _logEntities = new List<LogEntity>();
             foreach (var item in logEntities)
             {
                 List<string> tags = new List<string>();
@@ -59,10 +62,77 @@ namespace Logging.Server
                 _log.Thread = item.Thread;
                 _log.Time = item.Time;
                 _log.AppId = item.AppId;
-                //_log._id = _log.CreateObjectId();
                 _logEntities.Add(_log);
             }
-            queue.Enqueue(_logEntities);
+            int over_count = queue.Enqueue(_logEntities);
+
+            #region 溢出处理
+          
+            if (over_count > 0)
+            {
+                string msg = "Logging_Server_Queue溢出数量:" + over_count + " 。 建议增加 BlockingQueueLength 配置值";
+                var over_log_tags = new List<string> { "_title_=Logging_Server_Over" };
+
+                LogEntity over_log = new LogEntity();
+                over_log.IP = ServerIPNum;
+                over_log.Level = LogLevel.Error;
+                over_log.Message = msg;
+                over_log.Tags = over_log_tags;
+                over_log.Title = "Logging_Server_Over";
+                over_log.Source = "Logging.Server.LogReciver";
+                over_log.Thread = Thread.CurrentThread.ManagedThreadId;
+                over_log.Time = Utils.GetTimeStamp(DateTime.Now);
+                over_log.AppId = server_appId;
+
+                List<LogEntity> over_logs = new List<LogEntity>();
+                over_logs.Add(over_log);
+                ProcessLog(over_logs);
+            }
+
+            #endregion 溢出处理
         }
+
+        #region 私有成员
+
+        private static long serverIPNum;
+
+        private static long ServerIPNum
+        {
+            get
+            {
+                if (serverIPNum <= 0)
+                {
+                    string serverIP = GetServerIP();
+                    serverIPNum = Utils.IPToNumber(serverIP);
+                }
+                return serverIPNum;
+            }
+        }
+
+        /// <summary>
+        /// 获取服务器IP
+        /// </summary>
+        /// <returns></returns>
+        private static string GetServerIP()
+        {
+            string str = "127.0.0.1";
+            try
+            {
+                string hostName = Dns.GetHostName();
+                var hostEntity = Dns.GetHostEntry(hostName);
+                var ipAddressList = hostEntity.AddressList;
+                var ipAddress = ipAddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
+
+                if (ipAddress != null)
+                {
+                    str = ipAddress.ToString();
+                }
+                return str;
+            }
+            catch (Exception) { str = string.Empty; }
+            return str;
+        }
+
+        #endregion 私有成员
     }
 }

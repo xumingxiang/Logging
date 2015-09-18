@@ -195,7 +195,7 @@
       <Link>Thrift\Transport\TTransportFactory.cs</Link>
     </Compile>
     <Compile Include="BaseLogger.cs" />
-    <Compile Include="LogExceptionHandller.cs" />
+    <Compile Include="LoggingClientReport.cs" />
     <Compile Include="LogSender\TSocketLogSender.cs" />
     <Compile Include="LogSender\LogSenderManager.cs" />
     <Compile Include="Settings.cs" />

@@ -13,10 +13,10 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="bin/Logging.Server.dll">
-      <publishTime>09/17/2015 18:11:11</publishTime>
+      <publishTime>09/18/2015 14:38:46</publishTime>
     </File>
     <File Include="bin/Logging.Server.Site.dll">
-      <publishTime>09/17/2015 18:11:11</publishTime>
+      <publishTime>09/18/2015 14:38:46</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -214,7 +214,7 @@
       <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/logviewer.js">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>09/18/2015 09:26:04</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>09/16/2015 09:44:42</publishTime>
@@ -289,7 +289,7 @@
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="LogViewer.html">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>09/17/2015 21:24:27</publishTime>
     </File>
     <File Include="MongoTools.aspx">
       <publishTime>09/17/2015 18:02:20</publishTime>
@@ -307,7 +307,7 @@
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/17/2015 18:11:12</publishTime>
+      <publishTime>09/18/2015 09:27:22</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -43,7 +43,7 @@ namespace Logging.Client
 
             int LoggingQueueLength = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingQueueLength"] ?? Settings.LoggingQueueLength.ToString());
 
-            int LoggingBatchSize = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingBatchSize"] ?? Settings.LoggingBatchSize.ToString());
+            int LoggingBufferSize = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingBufferSize"] ?? Settings.LoggingBufferSize.ToString());
 
             int LoggingBlockElapsed = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingBlockElapsed"] ?? Settings.LoggingBlockElapsed.ToString());
 
@@ -51,15 +51,17 @@ namespace Logging.Client
 
             if (LoggingQueueLength <= 0) { LoggingQueueLength = Settings.DefaultLoggingQueueLength; }
 
-            if (LoggingBatchSize <= 0) { LoggingBatchSize = Settings.DefaultLoggingBatchSize; }
+            if (LoggingBufferSize <= 0) { LoggingBufferSize = Settings.DefaultLoggingBufferSize; }
 
             if (LoggingBlockElapsed <= 0) { LoggingBlockElapsed = Settings.DefaultLoggingBlockElapsed; }
 
-            block = new TimerBatchBlock<LogEntity>(LoggingTaskNum, (batch) =>
+
+
+            block = new TimerBatchBlock<LogEntity>(LoggingTaskNum, (buffer) =>
             {
                 LogSenderBase sender = LogSenderManager.GetLogSender();
-                sender.Send(batch);
-            }, LoggingQueueLength, LoggingBatchSize, LoggingBlockElapsed);
+                sender.Send(buffer);
+            }, LoggingQueueLength, LoggingBufferSize, LoggingBlockElapsed);
         }
 
         public void Debug(string message)
@@ -152,15 +154,7 @@ namespace Logging.Client
         {
             if (!LoggingEnabled) { return; }
             LogEntity log = this.CreateLog(Source, title, message, tags, level);
-            int over_count = block.Enqueue(log);
-            if (over_count > 0)
-            {
-                string msg = "Logging_Client_Over溢出数量:" + over_count + " 。 建议增加 LoggingQueueLength 配置值";
-                var over_log_tags = new Dictionary<string, string>();
-                over_log_tags.Add("_title_", "Logging_Client_Over");
-                LogEntity over_log = this.CreateLog(Source, "Logging_Client_Over", msg, over_log_tags, LogLevel.Error);
-                block.Batch.Add(over_log);
-            }
+            block.Enqueue(log);
         }
 
         private static TimerBatchBlock<LogEntity> block;
@@ -207,12 +201,13 @@ namespace Logging.Client
             query.Append("&");
             query.Append("limit=" + limit);
 
-            WebClient _client = new WebClient();
 
-            //DownloadData的使用方法
-            byte[] resp_byte = _client.DownloadData(query.ToString());
-            string resp = Encoding.UTF8.GetString(resp_byte);
-
+            string resp = string.Empty;
+            using (WebClient _client = new WebClient())
+            {
+                byte[] resp_byte = _client.DownloadData(query.ToString());
+                resp = Encoding.UTF8.GetString(resp_byte);
+            }
             return resp;
         }
 

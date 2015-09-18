@@ -25,7 +25,7 @@ namespace Logging.Client
         /// <summary>
         /// 设置日志打包大小
         /// </summary>
-        public static int LoggingBatchSize { get; set; }
+        public static int LoggingBufferSize { get; set; }
 
         /// <summary>
         /// 设置日志发送阻塞时间。单位:毫秒
@@ -48,18 +48,18 @@ namespace Logging.Client
         public readonly static int AppId = Convert.ToInt32(ConfigurationManager.AppSettings["AppId"] ?? "0");
 
         /// <summary>
-        /// 默认日志队列最大长度：10000
+        /// 默认日志队列最大长度：100000
         /// </summary>
-        public readonly static int DefaultLoggingQueueLength = 10000;
+        public readonly static int DefaultLoggingQueueLength = 100000;
 
         /// <summary>
-        /// 默认日志打包大小：100
+        /// 默认日志打包大小：300
         /// </summary>
-        public readonly static int DefaultLoggingBatchSize = 100;
+        public readonly static int DefaultLoggingBufferSize = 300;
 
         /// <summary>
-        /// 默认发送阻塞时间。单位:毫秒。10000,即10秒
+        /// 默认发送阻塞时间。单位:毫秒。5000,即10秒
         /// </summary>
-        public readonly static int DefaultLoggingBlockElapsed = 10000;
+        public readonly static int DefaultLoggingBlockElapsed = 5000;
     }
 }

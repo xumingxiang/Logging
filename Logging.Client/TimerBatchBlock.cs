@@ -20,36 +20,44 @@ namespace Logging.Client
 
         private Task[] Tasks { get; set; }
 
-        private Action<List<T>> Action { get; set; }
+        public Action<List<T>> Action { get; set; }
 
         private BlockingCollection<T> s_Queue;
 
         /// <summary>
         /// 最近一次异常报告时间
         /// </summary>
-        private DateTime LastExceptionReportTime { get;  set; }
+        private DateTime LastReportTime { get; set; }
 
         /// <summary>
         /// 出现的异常数量
         /// </summary>
-        private int ExceptionCount { get;  set; }
+        private int ExceptionCount;
+
+        /// <summary>
+        /// 溢出数量
+        /// </summary>
+        private int OverCount = 0;
 
         /// <summary>
         /// 最近一次异常
         /// </summary>
-        private Exception LastException { get;  set; }
+        private Exception LastException { get; set; }
 
         /// <summary>
         /// 阻塞队列的最大长度
         /// </summary>
         private int QueueMaxLength { get; set; }
 
-        public ConcurrentBag<T> Batch { get; set; }
+        //     public ConcurrentBag<T> Batch { get; set; }
+
+
+        public ConcurrentStack<T> Buffer { get; set; }
 
         /// <summary>
         /// 元素包的大小
         /// </summary>
-        private int BatchSize { get; set; }
+        private int BufferSize { get; set; }
 
         /// <summary>
         /// 上一次打包处理的时间
@@ -64,15 +72,16 @@ namespace Logging.Client
         /// <param name="taskNum">处理队列出队的线程数量</param>
         /// <param name="action">处理委托</param>
         /// <param name="queueMaxLength">设置队列最大长度</param>
-        /// <param name="batchSize">元素包的大小</param>
+        /// <param name="bufferSize">元素包的大小</param>
         /// <param name="blockElapsed">阻塞的时间，达到该时间间隔，也会出队</param>
-        public TimerBatchBlock(int taskNum, Action<List<T>> action, int queueMaxLength, int batchSize, int blockElapsed)
+        public TimerBatchBlock(int taskNum, Action<List<T>> action, int queueMaxLength, int bufferSize, int blockElapsed)
         {
             s_Queue = new BlockingCollection<T>();
-            Batch = new ConcurrentBag<T>();
+            //  Batch = new ConcurrentBag<T>();
+            Buffer = new ConcurrentStack<T>();
             this.LastActionTime = DateTime.Now;
-            this.LastExceptionReportTime = DateTime.Now;
-            this.BatchSize = batchSize;
+            this.LastReportTime = DateTime.Now;
+            this.BufferSize = bufferSize;
             this.BlockElapsed = blockElapsed;
             this.Action = action;
             this.QueueMaxLength = queueMaxLength;
@@ -88,18 +97,20 @@ namespace Logging.Client
         /// 入队处理,并返回队列溢出的数量
         /// </summary>
         /// <param name="item"></param>
-        public int Enqueue(T item)
+        public void Enqueue(T item)
         {
             int queueLen = s_Queue.Count;
             int over_count = 0;
             if (queueLen >= this.QueueMaxLength)
             {
-                 over_count = (queueLen - this.QueueMaxLength) + 1;
-                this.s_Queue.Take(over_count);//超过队列长度，扔掉
+                over_count = (queueLen - this.QueueMaxLength) + 1;
+                for (int i = 0; i < over_count; i++)
+                {
+                    this.s_Queue.Take();//超过队列长度，扔掉
+                }
+                Interlocked.Add(ref this.OverCount, over_count);
             }
-            // this.s_Queue.Enqueue(item);
             this.s_Queue.Add(item);
-            return over_count;
         }
 
         /// <summary>
@@ -112,29 +123,18 @@ namespace Logging.Client
                 try
                 {
                     T item;
-
-                    System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
-                    watch.Start();
-
                     bool hasItem = s_Queue.TryTake(out item, 200);
-                    watch.Stop();
-
-                    long time = watch.ElapsedMilliseconds;
-
-
                     if (hasItem)
                     {
-                        this.Batch.Add(item);
+                        this.Buffer.Push(item);
                     }
 
-                    if (this.Batch.Count > 0)
+                    if (this.Buffer.Count > 0)
                     {
-                        var _now = DateTime.Now;
-                        var elapsed = (_now - this.LastActionTime).TotalMilliseconds;
-                        if ((this.Batch.Count >= this.BatchSize || elapsed > this.BlockElapsed))
+                        if ((this.Buffer.Count >= this.BufferSize || (DateTime.Now - this.LastActionTime).TotalMilliseconds > this.BlockElapsed))
                         {
-                            this.Action(this.Batch.ToList());
-                            this.Batch = new ConcurrentBag<T>();
+                            this.Action(this.Buffer.ToList());
+                            this.Buffer.Clear();
                             this.LastActionTime = DateTime.Now;
                         }
                     }
@@ -142,38 +142,45 @@ namespace Logging.Client
                 catch (ThreadAbortException tae)
                 {
                     Thread.ResetAbort();
-
-                    this.ExceptionCount += 1;
+                    Interlocked.Increment(ref this.ExceptionCount);
                     this.LastException = tae;
                 }
                 catch (Exception ex)
                 {
-                    this.ExceptionCount += 1;
+                    Interlocked.Increment(ref this.ExceptionCount);
                     this.LastException = ex;
                 }
                 finally
                 {
-                    this.ReportException();
+                    this.Report();
                 }
             }
         }
 
+
+        static object report_lock = new object();
+
         /// <summary>
         /// 报告Logging.Client自身异常
         /// </summary>
-        private void ReportException()
+        private void Report()
         {
             var _now = DateTime.Now;
-            var exceportElapsed = (_now - this.LastExceptionReportTime).TotalSeconds;
-            if (exceportElapsed >= 60)
+            var reportElapsed = (_now - this.LastReportTime).TotalSeconds;
+            if (reportElapsed >= 30)
             {
-                LoggingClientReport.ReportException(this.LastException, this.ExceptionCount);
-                this.ExceptionCount = 0;
-                this.LastException = null;
-                this.LastExceptionReportTime = DateTime.Now;
+                lock (report_lock)
+                {
+                    LoggingClientReport.ReportException(this.LastException, this.ExceptionCount);
+                    LoggingClientReport.ReportOver(this.OverCount, s_Queue.Count, this.QueueMaxLength);
+                    this.ExceptionCount = 0;
+                    this.LastException = null;
+                    this.OverCount = 0;
+                    this.LastReportTime = DateTime.Now;
+                }
             }
         }
 
-       
+
     }
 }

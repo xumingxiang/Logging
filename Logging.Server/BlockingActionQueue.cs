@@ -62,7 +62,10 @@ namespace Logging.Server
             if (queueLen >= this.QueueMaxLength)
             {
                 over_count = (queueLen - this.QueueMaxLength) + 1;
-                this.s_Queue.Take(over_count);//超过队列长度，扔掉
+                for (int i = 0; i < over_count; i++)
+                {
+                    this.s_Queue.Take();//超过队列长度，扔掉
+                }
             }
             // this.s_Queue.Enqueue(item);
             this.s_Queue.Add(item);
@@ -82,6 +85,7 @@ namespace Logging.Server
 
                     this.Action(item);
                     //  Console.WriteLine("again");
+
                 }
                 catch (ThreadAbortException)
                 {

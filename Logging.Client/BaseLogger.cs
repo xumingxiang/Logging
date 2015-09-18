@@ -10,9 +10,9 @@ using System.Threading;
 
 namespace Logging.Client
 {
-
     internal abstract class BaseLogger : ILog
     {
+        private static TimerBatchBlock<LogEntity> block;
 
         private string Source { get; set; }
 
@@ -20,7 +20,6 @@ namespace Logging.Client
         {
             this.Source = source;
         }
-
 
         /// <summary>
         /// 是否启用日志
@@ -33,7 +32,6 @@ namespace Logging.Client
                 return LoggingDisabled;
             }
         }
-
 
         static BaseLogger()
         {
@@ -55,11 +53,11 @@ namespace Logging.Client
 
             if (LoggingBlockElapsed <= 0) { LoggingBlockElapsed = Settings.DefaultLoggingBlockElapsed; }
 
-
+            LogSenderBase sender = LogSenderManager.GetLogSender();
 
             block = new TimerBatchBlock<LogEntity>(LoggingTaskNum, (buffer) =>
             {
-                LogSenderBase sender = LogSenderManager.GetLogSender();
+                //  if (sender == null) { sender = LogSenderManager.GetLogSender(); }
                 sender.Send(buffer);
             }, LoggingQueueLength, LoggingBufferSize, LoggingBlockElapsed);
         }
@@ -148,17 +146,12 @@ namespace Logging.Client
             return log;
         }
 
-
-
         protected virtual void Log(string title, string message, Dictionary<string, string> tags, LogLevel level)
         {
             if (!LoggingEnabled) { return; }
             LogEntity log = this.CreateLog(Source, title, message, tags, level);
             block.Enqueue(log);
         }
-
-        private static TimerBatchBlock<LogEntity> block;
-
 
         public string GetLogs(long start, long end, int appId, int[] level = null, string title = "", string msg = "", string source = "", string ip = "", Dictionary<string, string> tags = null, int limit = 100)
         {
@@ -200,7 +193,6 @@ namespace Logging.Client
 
             query.Append("&");
             query.Append("limit=" + limit);
-
 
             string resp = string.Empty;
             using (WebClient _client = new WebClient())
@@ -251,7 +243,7 @@ namespace Logging.Client
             catch (Exception) { str = string.Empty; }
             return str;
         }
-        #endregion
-    }
 
+        #endregion 私有成员
+    }
 }

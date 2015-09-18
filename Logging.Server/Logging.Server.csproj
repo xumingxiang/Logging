@@ -213,12 +213,13 @@
     </Compile>
     <Compile Include="BlockingActionQueue.cs" />
     <Compile Include="DB\MongoDataBase.cs" />
+    <Compile Include="LogReciver\HttpReciver.cs" />
     <Compile Include="LogProcessor\ILogProcessor.cs" />
     <Compile Include="LogEntity.cs" />
     <Compile Include="LogLevel.cs" />
     <Compile Include="LogProcessor\LogProcessorManager.cs" />
     <Compile Include="LogProcessor\DefaultLogProcessor.cs" />
-    <Compile Include="LogReciver.cs" />
+    <Compile Include="LogReciver\LogReciverBase.cs" />
     <Compile Include="LogStatistics.cs" />
     <Compile Include="LogTag.cs" />
     <Compile Include="LogViewer\ILogView.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="LogWriter\LogWriterManager.cs" />
     <Compile Include="LogWriter\MongoDbWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LogReciver\SocketReciver.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>

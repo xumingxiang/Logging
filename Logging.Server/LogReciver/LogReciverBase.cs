@@ -8,19 +8,19 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
-namespace Logging.Server
+namespace Logging.Server.LogReciver
 {
-    public class LogReciver : LogTransferService.Iface
+    public  class LogReciverBase : LogTransferService.Iface
     {
         private static BlockingActionQueue<IList<LogEntity>> queue;
 
         private static int server_appId = Convert.ToInt32(ConfigurationManager.AppSettings["AppId"]);
 
-        public LogReciver()
+        public LogReciverBase()
         {
         }
 
-        static LogReciver()
+        static LogReciverBase()
         {
             int processTaskNum = Convert.ToInt32(ConfigurationManager.AppSettings["ProcessTaskNum"]);
             int blockingQueueLength = Convert.ToInt32(ConfigurationManager.AppSettings["BlockingQueueLength"]);

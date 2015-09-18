@@ -39,7 +39,7 @@ namespace Thrift.Transport
         protected System.Text.Encoding encoding = System.Text.Encoding.UTF8;
 
         public THttpHandler(TProcessor processor)
-            : this(processor, new TBinaryProtocol.Factory())
+            : this(processor, new TCompactProtocol.Factory())
         {
 
         }

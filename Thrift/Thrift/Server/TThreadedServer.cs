@@ -43,7 +43,7 @@ namespace Thrift.Server
     public TThreadedServer(TProcessor processor, TServerTransport serverTransport)
       : this(processor, serverTransport,
          new TTransportFactory(), new TTransportFactory(),
-         new TBinaryProtocol.Factory(), new TBinaryProtocol.Factory(),
+         new TCompactProtocol.Factory(), new TCompactProtocol.Factory(),
          DEFAULT_MAX_THREADS, DefaultLogDelegate)
     {
     }
@@ -51,7 +51,7 @@ namespace Thrift.Server
     public TThreadedServer(TProcessor processor, TServerTransport serverTransport, LogDelegate logDelegate)
       : this(processor, serverTransport,
          new TTransportFactory(), new TTransportFactory(),
-         new TBinaryProtocol.Factory(), new TBinaryProtocol.Factory(),
+         new TCompactProtocol.Factory(), new TCompactProtocol.Factory(),
          DEFAULT_MAX_THREADS, logDelegate)
     {
     }

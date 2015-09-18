@@ -62,7 +62,7 @@ namespace Thrift.Transport {
 
         public static byte[] Serialize(TAbstractBase s) {
             var t = new TMemoryBuffer();
-            var p = new TBinaryProtocol(t);
+            var p = new TCompactProtocol(t);
 
             s.Write(p);
 
@@ -71,7 +71,7 @@ namespace Thrift.Transport {
 
         public static T DeSerialize<T>(byte[] buf) where T : TAbstractBase {
             var trans = new TMemoryBuffer(buf);
-            var p = new TBinaryProtocol(trans);
+            var p = new TCompactProtocol(trans);
             if (typeof (TBase).IsAssignableFrom(typeof (T))) {
                 var method = typeof (T).GetMethod("Read", BindingFlags.Instance | BindingFlags.Public);
                 var t = Activator.CreateInstance<T>();

@@ -65,14 +65,14 @@ namespace Thrift.Server
     //Construction
     public TServer(TProcessor processor,
               TServerTransport serverTransport)
-      : this(processor, serverTransport, new TTransportFactory(), new TTransportFactory(), new TBinaryProtocol.Factory(), new TBinaryProtocol.Factory(), DefaultLogDelegate)
+      : this(processor, serverTransport, new TTransportFactory(), new TTransportFactory(), new TCompactProtocol.Factory(), new TCompactProtocol.Factory(), DefaultLogDelegate)
     {
     }
 
     public TServer(TProcessor processor,
             TServerTransport serverTransport,
             LogDelegate logDelegate)
-      : this(processor, serverTransport, new TTransportFactory(), new TTransportFactory(), new TBinaryProtocol.Factory(), new TBinaryProtocol.Factory(), DefaultLogDelegate)
+      : this(processor, serverTransport, new TTransportFactory(), new TTransportFactory(), new TCompactProtocol.Factory(), new TCompactProtocol.Factory(), DefaultLogDelegate)
     {
     }
 
@@ -83,8 +83,8 @@ namespace Thrift.Server
          serverTransport,
          transportFactory,
          transportFactory,
-         new TBinaryProtocol.Factory(),
-         new TBinaryProtocol.Factory(),
+         new TCompactProtocol.Factory(),
+         new TCompactProtocol.Factory(),
          DefaultLogDelegate)
     {
     }

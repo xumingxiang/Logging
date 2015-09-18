@@ -12,20 +12,21 @@ namespace Logging.Client
     /// </summary>
     internal class THttpLogSender : LogSenderBase
     {
+
+        static string loggingServerHost = ConfigurationManager.AppSettings["LoggingServerHost"] ?? Settings.LoggingServerHost;
+        static Uri uri = new Uri(loggingServerHost + "/Reciver.ashx");
+
         public override void Send(IList<LogEntity> logEntities)
         {
             if (logEntities == null || logEntities.Count <= 0) { return; }
 
-            string loggingServerHost = ConfigurationManager.AppSettings["LoggingServerHost"] ?? Settings.LoggingServerHost;
-
-            var uri = new Uri(loggingServerHost + "/Reciver.ashx");
             var httpClient = new THttpClient(uri);
-            httpClient.ConnectTimeout = SENDER_TIMEOUT;           
-            var protocol = new TBinaryProtocol(httpClient);
-           
+            httpClient.ConnectTimeout = SENDER_TIMEOUT;
+            //var protocol = new TBinaryProtocol(httpClient);
+            var protocol = new TCompactProtocol(httpClient);
             httpClient.Open();
             var client = new LogTransferService.Client(protocol);
-           
+
 
             var _logEntities = new List<TLogEntity>();
             foreach (var item in logEntities)
@@ -43,8 +44,9 @@ namespace Logging.Client
                 _logEntities.Add(_log);
             }
             client.Log(_logEntities);
-          
+
             httpClient.Close();
+            httpClient.Dispose();
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace java com.javabloger.gen.code   #  ×¢ÊÍ1
+namespace csharp Logging.Client   #  ×¢ÊÍ1
 
 struct TLogEntity {   #  ×¢ÊÍ2 
     1: string Title 
@@ -15,5 +15,5 @@ struct TLogEntity {   #  ×¢ÊÍ2
 
 service LogTransferService {  #  ×¢ÊÍ3 
    
-   void Log(1:list<TLogEntity > logEntities)  
+   void Log(1:list<TLogEntity> logEntities)  
 }

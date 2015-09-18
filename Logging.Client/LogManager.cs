@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Concurrent;
 
 namespace Logging.Client
 {
     public sealed class LogManager
     {
+        static ConcurrentDictionary<string, ILog> _logs = new ConcurrentDictionary<string, ILog>();
+
+
         private LogManager()
         { }
 
@@ -31,7 +35,14 @@ namespace Logging.Client
         /// <returns>ILog instance</returns>
         public static ILog GetLogger(string name)
         {
-            return new SimpleLogger(name);
+            ILog log;
+            var has = _logs.TryGetValue(name, out log);
+            if (!has)
+            {
+                log = new SimpleLogger(name);
+                _logs.TryAdd(name, log);
+            }
+            return log;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Logging.Client
 
         private Task[] Tasks { get; set; }
 
-        public Action<List<T>> Action { get; set; }
+        private Action<List<T>> Action { get; set; }
 
         private BlockingCollection<T> s_Queue;
 
@@ -76,9 +76,9 @@ namespace Logging.Client
         /// <param name="blockElapsed">阻塞的时间，达到该时间间隔，也会出队</param>
         public TimerBatchBlock(int taskNum, Action<List<T>> action, int queueMaxLength, int bufferSize, int blockElapsed)
         {
-            s_Queue = new BlockingCollection<T>();
+            this.s_Queue = new BlockingCollection<T>();
             //  Batch = new ConcurrentBag<T>();
-            Buffer = new ConcurrentStack<T>();
+            this.Buffer = new ConcurrentStack<T>();
             this.LastActionTime = DateTime.Now;
             this.LastReportTime = DateTime.Now;
             this.BufferSize = bufferSize;
@@ -158,7 +158,7 @@ namespace Logging.Client
         }
 
 
-        static object report_lock = new object();
+        readonly static object report_lock = new object();
 
         /// <summary>
         /// 报告Logging.Client自身异常

@@ -11,12 +11,11 @@ namespace Logging.Client
         /// DateTime时间格式转换为Unix时间戳格式精确到17位。
         /// 
         /// </summary>
-        /// <param name=”time”></param>
+        /// <param name="time"></param>
         /// <returns></returns>
         public static long GetTimeStamp(DateTime time)
         {
-
-            return (long)(time - START_TIME).Ticks;
+            return (time - START_TIME).Ticks;
         }
 
 

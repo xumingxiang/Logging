@@ -67,6 +67,9 @@
     <Compile Include="..\Logging.ThriftContract\TLogEntity.cs">
       <Link>ThriftContract\TLogEntity.cs</Link>
     </Compile>
+    <Compile Include="..\Logging.ThriftContract\TLogPackage.cs">
+      <Link>ThriftContract\TLogPackage.cs</Link>
+    </Compile>
     <Compile Include="..\thrift\thrift\collections\TCollections.cs">
       <Link>Thrift\Collections\TCollections.cs</Link>
     </Compile>

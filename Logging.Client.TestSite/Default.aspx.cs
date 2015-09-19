@@ -32,6 +32,16 @@ namespace Logging.Client.TestSite
                 萨达大厦e2312313gdgdfgdgaweqwwrqwq付费方式是放松放
                 松放松放松放松eqweq打啊打多大的萨达大厦e2312313gdgdfgdg!@##$%");
             logger2.Error("test", "test", tags);
+
+            Exception ex1 = new Exception("Exception test 1");
+            Exception ex2 = new Exception("Exception test 2",ex1);
+            Exception ex3 = new Exception("Exception test 3",ex2);
+            Exception ex4 = new Exception("Exception test 4",ex3);
+            Exception ex5 = new Exception("Exception test 5",ex4);
+
+
+            logger2.Error(ex5);
+
             //}
 
 

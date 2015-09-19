@@ -37,8 +37,9 @@ namespace Logging.Server.LogReciver
             processor.Process(logs);
         }
 
-        public void Log(List<TLogEntity> logEntities)
+        public void Log(TLogPackage logPackage)
         {
+            List<TLogEntity> logEntities = logPackage.Items;
             var _logEntities = new List<LogEntity>();
             foreach (var item in logEntities)
             {
@@ -53,7 +54,7 @@ namespace Logging.Server.LogReciver
                 }
 
                 LogEntity _log = new LogEntity();
-                _log.IP = item.IP;
+                _log.IP = logPackage.IP;
                 _log.Level = (LogLevel)item.Level;
                 _log.Message = item.Message;
                 _log.Tags = tags;
@@ -61,7 +62,7 @@ namespace Logging.Server.LogReciver
                 _log.Source = item.Source;
                 _log.Thread = item.Thread;
                 _log.Time = item.Time;
-                _log.AppId = item.AppId;
+                _log.AppId = logPackage.AppId;
                 _logEntities.Add(_log);
             }
             int over_count = queue.Enqueue(_logEntities);
@@ -132,6 +133,7 @@ namespace Logging.Server.LogReciver
             catch (Exception) { str = string.Empty; }
             return str;
         }
+
 
         #endregion 私有成员
     }

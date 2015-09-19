@@ -9,11 +9,7 @@ namespace Logging.Client
 
         public string Message { get; set; }
 
-        public long IP { get; set; }
-
         public LogLevel Level { get; set; }
-
-        public int AppId { get; set; }
 
         public long Time { get; set; }
 

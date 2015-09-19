@@ -25,7 +25,7 @@ namespace Logging.Client
             foreach (var item in logEntities)
             {
                 var _log = new TLogEntity();
-                _log.IP = item.IP;
+               // _log.IP = item.IP;
                 _log.Level = (sbyte)item.Level;
                 _log.Message = item.Message;
                 _log.Tags = item.Tags;
@@ -33,10 +33,14 @@ namespace Logging.Client
                 _log.Source = item.Source;
                 _log.Thread = item.Thread;
                 _log.Time = item.Time;
-                _log.AppId = item.AppId;
+                //_log.AppId = item.AppId;
                 _logEntities.Add(_log);
             }
-            client.Log(_logEntities);
+            TLogPackage logPackage = new TLogPackage();
+            logPackage.AppId = Settings.AppId;
+            logPackage.IP = ServerIPNum;
+            logPackage.Items = _logEntities;
+            client.Log(logPackage);
             transport.Close();
            
         }

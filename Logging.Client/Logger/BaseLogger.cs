@@ -137,15 +137,27 @@ namespace Logging.Client
 
         public void Error(Exception ex)
         {
-            this.Error(ex.Message, ex.ToString());
+            this.Error(ex.Message, GetExceptionMessage(ex));
         }
+
+        private string GetExceptionMessage(Exception ex)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(ex.Message);
+            sb.AppendLine(ex.Source);
+            sb.AppendLine(ex.StackTrace);
+            if (ex.InnerException != null)
+            {
+                string msg = GetExceptionMessage(ex.InnerException);
+                sb.AppendLine(msg);
+            }
+            return sb.ToString();
+        }
+
 
         protected LogEntity CreateLog(string source, string title, string message, Dictionary<string, string> tags, LogLevel level)
         {
-           // Logger.Log("3：CreateLog" );
-
             LogEntity log = new LogEntity();
-            log.IP = ServerIPNum;
             log.Level = level;
             log.Message = message;
             log.Tags = tags;
@@ -153,11 +165,6 @@ namespace Logging.Client
             log.Title = title;
             log.Source = source;
             log.Thread = Thread.CurrentThread.ManagedThreadId;
-            log.AppId = Settings.AppId;
-            if (log.Tags == null)
-            {
-                log.Tags = new Dictionary<string, string>();
-            }
             return log;
         }
 
@@ -218,48 +225,6 @@ namespace Logging.Client
             return resp;
         }
 
-        #region 私有成员
 
-        private static long serverIPNum;
-
-
-        private static long ServerIPNum
-        {
-            get
-            {
-                if (serverIPNum <= 0)
-                {
-                    string serverIP = GetServerIP();
-                    serverIPNum = Utils.IPToNumber(serverIP);
-                }
-                return serverIPNum;
-            }
-        }
-
-        /// <summary>
-        /// 获取服务器IP
-        /// </summary>
-        /// <returns></returns>
-        private static string GetServerIP()
-        {
-            string str = "127.0.0.1";
-            try
-            {
-                string hostName = Dns.GetHostName();
-                var hostEntity = Dns.GetHostEntry(hostName);
-                var ipAddressList = hostEntity.AddressList;
-                var ipAddress = ipAddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
-
-                if (ipAddress != null)
-                {
-                    str = ipAddress.ToString();
-                }
-                return str;
-            }
-            catch (Exception) { str = string.Empty; }
-            return str;
-        }
-
-        #endregion 私有成员
     }
 }

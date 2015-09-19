@@ -10,10 +10,10 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Logging.Client.dll">
-      <publishTime>09/18/2015 16:36:16</publishTime>
+      <publishTime>09/20/2015 00:45:28</publishTime>
     </File>
     <File Include="bin/Logging.Client.TestSite.dll">
-      <publishTime>09/18/2015 16:36:16</publishTime>
+      <publishTime>09/20/2015 00:45:28</publishTime>
     </File>
     <File Include="Default.aspx">
       <publishTime>09/17/2015 18:02:20</publishTime>
@@ -22,7 +22,7 @@
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/18/2015 16:37:00</publishTime>
+      <publishTime>09/20/2015 00:45:33</publishTime>
     </File>
   </ItemGroup>
 </Project>

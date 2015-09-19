@@ -141,11 +141,14 @@ namespace Logging.Client
                     Thread.ResetAbort();
                     Interlocked.Increment(ref this.ExceptionCount);
                     this.LastException = tae;
+                   // Logger.Log(tae);
                 }
                 catch (Exception ex)
                 {
+                    //Logger.Log(ex);
                     Interlocked.Increment(ref this.ExceptionCount);
                     this.LastException = ex;
+                   
                 }
                 finally
                 {

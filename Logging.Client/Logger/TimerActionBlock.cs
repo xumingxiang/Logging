@@ -84,6 +84,9 @@ namespace Logging.Client
         /// <param name="item"></param>
         public void Enqueue(T item)
         {
+
+         
+
             int queueLen = s_Queue.Count;
             int over_count = 0;
             if (queueLen >= this.QueueMaxLength)
@@ -96,6 +99,7 @@ namespace Logging.Client
                 Interlocked.Add(ref this.OverCount, over_count);
             }
             this.s_Queue.Enqueue(item);
+          //  Logger.Log("00004.2：  this.s_Queue.Enqueue(item);");
         }
 
         /// <summary>
@@ -120,7 +124,7 @@ namespace Logging.Client
 
                     if (this.Buffer.Count > 0)
                     {
-                        if ((this.Buffer.Count >= this.BufferSize || (DateTime.Now - this.LastActionTime).TotalMilliseconds > this.BlockElapsed))
+                        if (this.Buffer.Count >= this.BufferSize || (DateTime.Now - this.LastActionTime).TotalMilliseconds > this.BlockElapsed)
                         {
                             this.Action(this.Buffer);
                             this.Buffer.Clear();
@@ -130,12 +134,14 @@ namespace Logging.Client
                 }
                 catch (ThreadAbortException tae)
                 {
+                   // Logger.Log(tae);
                     Thread.ResetAbort();
                     this.ExceptionCount += 1;
                     this.LastException = tae;
                 }
                 catch (Exception ex)
                 {
+                    //Logger.Log(ex);
                     this.ExceptionCount += 1;
                     this.LastException = ex;
                 }

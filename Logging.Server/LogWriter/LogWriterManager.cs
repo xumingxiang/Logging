@@ -5,13 +5,15 @@ namespace Logging.Server.Writer
 {
     internal sealed class LogWriterManager
     {
+
+      static  string LoggingStorage = ConfigurationManager.AppSettings["LoggingStorage"];
+
         private LogWriterManager()
         { }
 
         public static ILogWriter GetLogWriter()
         {
-            string LoggingStorage = ConfigurationManager.AppSettings["LoggingStorage"];
-
+        
             if (LoggingStorage.Equals("mongodb", StringComparison.OrdinalIgnoreCase))
             {
                 return new MongoDbWriter();

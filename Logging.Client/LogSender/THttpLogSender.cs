@@ -46,7 +46,7 @@ namespace Logging.Client
             client.Log(_logEntities);
 
             httpClient.Close();
-            httpClient.Dispose();
+          
         }
     }
 }

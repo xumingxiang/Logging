@@ -8,19 +8,19 @@ using System.Threading.Tasks;
 namespace Logging.Client
 {
     /// <summary>
-    /// 多线程消费队列。将输入元素打包输出。
+    /// 多线程消费队列。将输入元素打包输出。消费端可以有多个线程
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    internal class TimerBatchBlock<T>
+    internal class ThreadedTimerActionBlock<T> : ITimerActionBlock<T>
     {
-        /// <summary>
-        /// 当前队列长度
-        /// </summary>
-        private int QueueLength { get; set; }
+        ///// <summary>
+        ///// 当前队列长度
+        ///// </summary>
+        //private int QueueLength { get; set; }
 
         private Task[] Tasks { get; set; }
 
-        private Action<List<T>> Action { get; set; }
+        private Action<IList<T>> Action { get; set; }
 
         private BlockingCollection<T> s_Queue;
 
@@ -49,10 +49,7 @@ namespace Logging.Client
         /// </summary>
         private int QueueMaxLength { get; set; }
 
-        //     public ConcurrentBag<T> Batch { get; set; }
-
-
-        public ConcurrentStack<T> Buffer { get; set; }
+        private ConcurrentStack<T> Buffer { get; set; }
 
         /// <summary>
         /// 元素包的大小
@@ -67,14 +64,14 @@ namespace Logging.Client
         private int BlockElapsed { get; set; }
 
         /// <summary>
-        /// 多线程消费队列
+        /// 多线程消费队列。将输入元素打包输出。消费端可以有多个线程
         /// </summary>
         /// <param name="taskNum">处理队列出队的线程数量</param>
         /// <param name="action">处理委托</param>
         /// <param name="queueMaxLength">设置队列最大长度</param>
         /// <param name="bufferSize">元素包的大小</param>
         /// <param name="blockElapsed">阻塞的时间，达到该时间间隔，也会出队</param>
-        public TimerBatchBlock(int taskNum, Action<List<T>> action, int queueMaxLength, int bufferSize, int blockElapsed)
+        public ThreadedTimerActionBlock(int taskNum, Action<IList<T>> action, int queueMaxLength, int bufferSize, int blockElapsed)
         {
             this.s_Queue = new BlockingCollection<T>();
             //  Batch = new ConcurrentBag<T>();
@@ -94,7 +91,7 @@ namespace Logging.Client
         }
 
         /// <summary>
-        /// 入队处理,并返回队列溢出的数量
+        /// 入队处理
         /// </summary>
         /// <param name="item"></param>
         public void Enqueue(T item)
@@ -159,7 +156,7 @@ namespace Logging.Client
 
 
         readonly static object report_lock = new object();
-
+        readonly static int ReportElapsed = 30;//报告时间间隔
         /// <summary>
         /// 报告Logging.Client自身异常
         /// </summary>
@@ -167,7 +164,7 @@ namespace Logging.Client
         {
             var _now = DateTime.Now;
             var reportElapsed = (_now - this.LastReportTime).TotalSeconds;
-            if (reportElapsed >= 30)
+            if (reportElapsed >= ReportElapsed)
             {
                 lock (report_lock)
                 {

@@ -38,7 +38,7 @@ namespace Logging.Client
             }
             client.Log(_logEntities);
             transport.Close();
-            transport.Dispose();
+           
         }
     }
 }

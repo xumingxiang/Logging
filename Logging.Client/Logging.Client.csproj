@@ -194,20 +194,22 @@
     <Compile Include="..\Thrift\Thrift\Transport\TTransportFactory.cs">
       <Link>Thrift\Transport\TTransportFactory.cs</Link>
     </Compile>
-    <Compile Include="BaseLogger.cs" />
-    <Compile Include="LoggingClientReport.cs" />
+    <Compile Include="Logger\ITimerActionBlock.cs" />
+    <Compile Include="Logger\BaseLogger.cs" />
+    <Compile Include="Logger\LoggingClientReport.cs" />
     <Compile Include="LogSender\TSocketLogSender.cs" />
     <Compile Include="LogSender\LogSenderManager.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="SimpleLogger.cs" />
-    <Compile Include="ILog.cs" />
+    <Compile Include="Logger\SimpleLogger.cs" />
+    <Compile Include="Logger\ILog.cs" />
     <Compile Include="LogEntity.cs" />
     <Compile Include="LogSender\THttpLogSender.cs" />
     <Compile Include="LogLevel.cs" />
     <Compile Include="LogManager.cs" />
     <Compile Include="LogSender\LogSenderBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TimerBatchBlock.cs" />
+    <Compile Include="Logger\TimerActionBlock.cs" />
+    <Compile Include="Logger\ThreadedTimerActionBlock.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>

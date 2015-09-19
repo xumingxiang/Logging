@@ -14,15 +14,14 @@ namespace Logging.Server
         /// <returns></returns>
         public static long GetTimeStamp(DateTime time)
         {
-            return (long)(time - START_TIME).Ticks;
+            return (time - START_TIME).Ticks;
         }
 
 
         public static DateTime GetDateTime(long timestamp)
         {
-            DateTime converted = new DateTime(1970, 1, 1, 0, 0, 0, 0);
-            DateTime newDateTime = converted.AddTicks(timestamp);
-            return newDateTime.ToLocalTime();
+            DateTime newDateTime = START_TIME.AddTicks(timestamp);
+            return newDateTime;
         }
 
 

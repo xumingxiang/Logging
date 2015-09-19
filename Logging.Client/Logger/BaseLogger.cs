@@ -12,7 +12,7 @@ namespace Logging.Client
 {
     internal abstract class BaseLogger : ILog
     {
-        private static TimerBatchBlock<LogEntity> block;
+        private static ITimerActionBlock<LogEntity> block;
 
         private string Source { get; set; }
 
@@ -55,11 +55,20 @@ namespace Logging.Client
 
             LogSenderBase sender = LogSenderManager.GetLogSender();
 
-            block = new TimerBatchBlock<LogEntity>(LoggingTaskNum, (buffer) =>
+            if (LoggingTaskNum == 1)
             {
-                //  if (sender == null) { sender = LogSenderManager.GetLogSender(); }
-                sender.Send(buffer);
-            }, LoggingQueueLength, LoggingBufferSize, LoggingBlockElapsed);
+                block = new TimerActionBlock<LogEntity>((buffer) =>
+                {
+                    sender.Send(buffer);
+                }, LoggingQueueLength, LoggingBufferSize, LoggingBlockElapsed);
+            }
+            else
+            {
+                block = new ThreadedTimerActionBlock<LogEntity>(LoggingTaskNum, (buffer) =>
+                {
+                    sender.Send(buffer);
+                }, LoggingQueueLength, LoggingBufferSize, LoggingBlockElapsed);
+            }
         }
 
         public void Debug(string message)

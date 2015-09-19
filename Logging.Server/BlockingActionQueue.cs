@@ -12,10 +12,10 @@ namespace Logging.Server
     internal class BlockingActionQueue<T>
     {
 
-        /// <summary>
-        /// 当前队列长度
-        /// </summary>
-        public int QueueLength { get; private set; }
+        ///// <summary>
+        ///// 当前队列长度
+        ///// </summary>
+        //public int QueueLength { get; private set; }
 
         public Task[] Tasks { get; set; }
 

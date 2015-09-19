@@ -1,6 +1,6 @@
-namespace csharp Logging.Client   #  ×¢ÊÍ1
+namespace csharp Logging.ThriftContract   #  ×¢ÊÍ1
 
-struct TLogItem {   #  ×¢ÊÍ2 
+struct TLogEntity {   #  ×¢ÊÍ2 
     1: string Title 
     2: string Message 
     3: byte   Level 
@@ -10,10 +10,10 @@ struct TLogItem {   #  ×¢ÊÍ2
     7: map<string,string> Tags
   }
 
-  struct TLogEntity {   #  ×¢ÊÍ2 
+  struct TLogPackage {   #  ×¢ÊÍ2 
     1:i64		IP
 	2:i32    AppId
-	3:list<TLogItem> Items
+	3:list<TLogEntity> Items
   }
 
   
@@ -21,5 +21,5 @@ struct TLogItem {   #  ×¢ÊÍ2
 
 service LogTransferService {  #  ×¢ÊÍ3 
    
-   void Log(1:TLogEntity logEntity)  
+   void Log(1:TLogPackage logPackage)  
 }

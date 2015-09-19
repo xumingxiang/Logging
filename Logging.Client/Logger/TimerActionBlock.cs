@@ -1,23 +1,22 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Logging.Client
 {
-
     /// <summary>
     /// 单线程消费队列。将输入元素打包输出。消费端只有一个线程
     /// </summary>
     /// <typeparam name="T"></typeparam>
     internal class TimerActionBlock<T> : ITimerActionBlock<T>
     {
-
         private Task Task { get; set; }
 
         private Action<IList<T>> Action { get; set; }
 
-        private Queue<T> s_Queue;
+        private BlockingCollection<T> s_Queue;
 
         /// <summary>
         /// 最近一次异常报告时间
@@ -67,7 +66,7 @@ namespace Logging.Client
         /// <param name="blockElapsed">阻塞的时间，达到该时间间隔，也会出队</param>
         public TimerActionBlock(Action<IList<T>> action, int queueMaxLength, int bufferSize, int blockElapsed)
         {
-            this.s_Queue = new Queue<T>();
+            this.s_Queue = new BlockingCollection<T>();
             this.Buffer = new List<T>();
             this.LastActionTime = DateTime.Now;
             this.LastReportTime = DateTime.Now;
@@ -84,9 +83,6 @@ namespace Logging.Client
         /// <param name="item"></param>
         public void Enqueue(T item)
         {
-
-         
-
             int queueLen = s_Queue.Count;
             int over_count = 0;
             if (queueLen >= this.QueueMaxLength)
@@ -94,12 +90,11 @@ namespace Logging.Client
                 over_count = (queueLen - this.QueueMaxLength) + 1;
                 for (int i = 0; i < over_count; i++)
                 {
-                    this.s_Queue.Dequeue();//超过队列长度，扔掉
+                    this.s_Queue.Take();//超过队列长度，扔掉
                 }
-                Interlocked.Add(ref this.OverCount, over_count);
+                this.OverCount += over_count;
             }
-            this.s_Queue.Enqueue(item);
-          //  Logger.Log("00004.2：  this.s_Queue.Enqueue(item);");
+            this.s_Queue.Add(item);
         }
 
         /// <summary>
@@ -112,14 +107,10 @@ namespace Logging.Client
                 try
                 {
                     T item;
-                    if (s_Queue.Count > 0)
+                    bool hasItem = s_Queue.TryTake(out item, 200);
+                    if (hasItem)
                     {
-                        item = s_Queue.Dequeue();
                         this.Buffer.Add(item);
-                    }
-                    else
-                    {
-                        Thread.Sleep(200);
                     }
 
                     if (this.Buffer.Count > 0)
@@ -134,14 +125,12 @@ namespace Logging.Client
                 }
                 catch (ThreadAbortException tae)
                 {
-                   // Logger.Log(tae);
                     Thread.ResetAbort();
                     this.ExceptionCount += 1;
                     this.LastException = tae;
                 }
                 catch (Exception ex)
                 {
-                    //Logger.Log(ex);
                     this.ExceptionCount += 1;
                     this.LastException = ex;
                 }

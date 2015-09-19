@@ -36,7 +36,6 @@ namespace Logging.Client
         static BaseLogger()
         {
 
-           // Logger.Log("1：" + LoggingEnabled);
             if (!LoggingEnabled) { return; }
 
 
@@ -59,13 +58,11 @@ namespace Logging.Client
 
             LogSenderBase sender = LogSenderManager.GetLogSender();
 
-           // Logger.Log("2：" + LoggingTaskNum);
             if (LoggingTaskNum == 1)
             {
 
                 block = new TimerActionBlock<LogEntity>((buffer) =>
                 {
-                  //  Logger.Log("5：Send");
                     sender.Send(buffer);
                 }, LoggingQueueLength, LoggingBufferSize, LoggingBlockElapsed);
             }
@@ -166,10 +163,8 @@ namespace Logging.Client
 
         protected virtual void Log(string title, string message, Dictionary<string, string> tags, LogLevel level)
         {
-         //   Logger.Log("4：Log");
             if (!LoggingEnabled) { return; }
             LogEntity log = this.CreateLog(Source, title, message, tags, level);
-          //  Logger.Log("00004.1： block.Enqueue(log)");
             block.Enqueue(log);
         }
 
@@ -226,6 +221,7 @@ namespace Logging.Client
         #region 私有成员
 
         private static long serverIPNum;
+
 
         private static long ServerIPNum
         {

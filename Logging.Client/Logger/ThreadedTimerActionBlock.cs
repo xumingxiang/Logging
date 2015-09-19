@@ -13,10 +13,6 @@ namespace Logging.Client
     /// <typeparam name="T"></typeparam>
     internal class ThreadedTimerActionBlock<T> : ITimerActionBlock<T>
     {
-        ///// <summary>
-        ///// 当前队列长度
-        ///// </summary>
-        //private int QueueLength { get; set; }
 
         private Task[] Tasks { get; set; }
 
@@ -74,7 +70,6 @@ namespace Logging.Client
         public ThreadedTimerActionBlock(int taskNum, Action<IList<T>> action, int queueMaxLength, int bufferSize, int blockElapsed)
         {
             this.s_Queue = new BlockingCollection<T>();
-            //  Batch = new ConcurrentBag<T>();
             this.Buffer = new ConcurrentStack<T>();
             this.LastActionTime = DateTime.Now;
             this.LastReportTime = DateTime.Now;
@@ -141,11 +136,9 @@ namespace Logging.Client
                     Thread.ResetAbort();
                     Interlocked.Increment(ref this.ExceptionCount);
                     this.LastException = tae;
-                   // Logger.Log(tae);
                 }
                 catch (Exception ex)
                 {
-                    //Logger.Log(ex);
                     Interlocked.Increment(ref this.ExceptionCount);
                     this.LastException = ex;
                    

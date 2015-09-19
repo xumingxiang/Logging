@@ -40,7 +40,7 @@ namespace Logging.Server
             if (taskNum <= 0) { taskNum = 1; }
             if (queueMaxLength <= 0) { queueMaxLength = int.MaxValue; }
 
-            s_Queue = new BlockingCollection<T>(new ConcurrentQueue<T>(), queueMaxLength);
+            s_Queue = new BlockingCollection<T>();
             this.Action = action;
             this.QueueMaxLength = queueMaxLength;
             this.Tasks = new Task[taskNum];

@@ -11,23 +11,54 @@ namespace Logging.Client
 
         void Debug(string title, string message, Dictionary<string, string> tags);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="message"></param>
+        /// <param name="tags">key=val格式的字符串数组</param>
+        void DebugWithTags(string title, string message, string[] tags);
+
         void Info(string message);
 
         void Info(string title, string message);
 
         void Info(string title, string message, Dictionary<string, string> tags);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="message"></param>
+        /// <param name="tags">key=val格式的字符串数组</param>
+        void InfoWithTags(string title, string message, string[] tags);
+
         void Warm(string message);
 
         void Warm(string title, string message);
 
         void Warm(string title, string message, Dictionary<string, string> tags);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="message"></param>
+        /// <param name="tags">key=val格式的字符串数组</param>
+        void WarmWithTags(string title, string message, string[] tags);
 
         void Error(string message);
 
         void Error(string title, string message);
 
         void Error(string title, string message, Dictionary<string, string> tags);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="message"></param>
+        /// <param name="tags">key=val格式的字符串数组</param>
+        void ErrorWithTags(string title, string message, string[] tags);
 
         void Error(Exception ex);
 

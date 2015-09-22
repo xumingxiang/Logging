@@ -2,9 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Net;
-using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
@@ -35,10 +33,7 @@ namespace Logging.Client
 
         static BaseLogger()
         {
-
             if (!LoggingEnabled) { return; }
-
-
 
             int LoggingTaskNum = Convert.ToInt32(ConfigurationManager.AppSettings["LoggingTaskNum"] ?? Settings.LoggingTaskNum.ToString());
 
@@ -60,7 +55,6 @@ namespace Logging.Client
 
             if (LoggingTaskNum == 1)
             {
-
                 block = new TimerActionBlock<LogEntity>((buffer) =>
                 {
                     sender.Send(buffer);
@@ -154,7 +148,6 @@ namespace Logging.Client
             return sb.ToString();
         }
 
-
         protected LogEntity CreateLog(string source, string title, string message, Dictionary<string, string> tags, LogLevel level)
         {
             LogEntity log = new LogEntity();
@@ -225,6 +218,60 @@ namespace Logging.Client
             return resp;
         }
 
+        public void DebugWithTags(string title, string message, string[] tags)
+        {
+            var tags_dic = new Dictionary<string, string>();
 
+            foreach (var tag in tags)
+            {
+                string tag_key = tag.Split('=')[0];
+                string tag_val = tag.Substring(tag_key.Length, tag.Length - tag_key.Length);
+                tags_dic[tag_key] = tag_val;
+            }
+
+            this.Debug(title, message, tags_dic);
+        }
+
+        public void InfoWithTags(string title, string message, string[] tags)
+        {
+            var tags_dic = new Dictionary<string, string>();
+
+            foreach (var tag in tags)
+            {
+                string tag_key = tag.Split('=')[0];
+                string tag_val = tag.Substring(tag_key.Length, tag.Length - tag_key.Length);
+                tags_dic[tag_key] = tag_val;
+            }
+
+            this.Info(title, message, tags_dic);
+        }
+
+        public void WarmWithTags(string title, string message, string[] tags)
+        {
+            var tags_dic = new Dictionary<string, string>();
+
+            foreach (var tag in tags)
+            {
+                string tag_key = tag.Split('=')[0];
+                string tag_val = tag.Substring(tag_key.Length, tag.Length - tag_key.Length);
+                tags_dic[tag_key] = tag_val;
+            }
+
+            this.Warm(title, message, tags_dic);
+        }
+
+        public void ErrorWithTags(string title, string message, string[] tags)
+        {
+            var tags_dic = new Dictionary<string, string>();
+
+            foreach (var tag in tags)
+            {
+                string tag_key = tag.Split('=')[0];
+                string tag_val = tag.Substring(tag_key.Length, tag.Length - tag_key.Length);
+                tags_dic[tag_key] = tag_val;
+            }
+
+            this.Error(title, message, tags_dic);
+        }
     }
 }

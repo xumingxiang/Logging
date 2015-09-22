@@ -22,14 +22,8 @@ namespace Logging.Client
         /// <summary>
         /// 是否启用日志
         /// </summary>
-        protected static bool LoggingEnabled
-        {
-            get
-            {
-                bool LoggingDisabled = Convert.ToBoolean(ConfigurationManager.AppSettings["LoggingEnabled"] ?? Settings.LoggingEnabled.ToString());
-                return LoggingDisabled;
-            }
-        }
+        private readonly static bool LoggingEnabled = Convert.ToBoolean(ConfigurationManager.AppSettings["LoggingEnabled"] ?? Settings.LoggingEnabled.ToString());
+
 
         static BaseLogger()
         {

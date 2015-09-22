@@ -12,24 +12,17 @@ namespace Logging.Client
     /// </summary>
     internal class THttpLogSender : LogSenderBase
     {
-        private static string loggingServerHost = ConfigurationManager.AppSettings["LoggingServerHost"] ?? Settings.LoggingServerHost;
-        private static Uri uri = new Uri(loggingServerHost + "/Reciver.ashx");
+        private readonly static string loggingServerHost = ConfigurationManager.AppSettings["LoggingServerHost"] ?? Settings.LoggingServerHost;
+        private readonly static Uri uri = new Uri(loggingServerHost + "/Reciver.ashx");
 
         public override void Send(IList<LogEntity> logEntities)
         {
             if (logEntities == null || logEntities.Count <= 0) { return; }
 
-            THttpClient httpClient = new THttpClient(uri);
-            httpClient.ConnectTimeout = SENDER_TIMEOUT;
-            //var protocol = new TBinaryProtocol(httpClient);
-            var protocol = new TCompactProtocol(httpClient);
-            httpClient.Open();
-            var client = new LogTransferService.Client(protocol);
             var _logEntities = new List<TLogEntity>();
             foreach (var item in logEntities)
             {
                 var _log = new TLogEntity();
-               // _log.IP = item.IP;
                 _log.Level = (sbyte)item.Level;
                 _log.Message = item.Message;
                 _log.Tags = item.Tags;
@@ -37,14 +30,20 @@ namespace Logging.Client
                 _log.Source = item.Source;
                 _log.Thread = item.Thread;
                 _log.Time = item.Time;
-                //_log.AppId = item.AppId;
                 _logEntities.Add(_log);
             }
 
-            TLogPackage logPackage = new TLogPackage();
+            var logPackage = new TLogPackage();
             logPackage.AppId = Settings.AppId;
             logPackage.IP = ServerIPNum;
             logPackage.Items = _logEntities;
+
+            var httpClient = new THttpClient(uri);
+            httpClient.ConnectTimeout = SENDER_TIMEOUT;
+            //var protocol = new TBinaryProtocol(httpClient);
+            var protocol = new TCompactProtocol(httpClient);
+            httpClient.Open();
+            var client = new LogTransferService.Client(protocol);
             client.Log(logPackage);
             httpClient.Close();
         }

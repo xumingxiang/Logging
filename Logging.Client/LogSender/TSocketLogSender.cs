@@ -14,18 +14,11 @@ namespace Logging.Client
     {
         public override void Send(IList<LogEntity> logEntities)
         {
-            var socket = new TSocket("localhost", 9813);
-            socket.Timeout = SENDER_TIMEOUT;
-            var transport = new TFramedTransport(socket);
-            var protocol = new TCompactProtocol(transport);
-            var client = new LogTransferService.Client(protocol);
-            transport.Open();
-
+            if (logEntities == null || logEntities.Count <= 0) { return; }
             var _logEntities = new List<TLogEntity>();
             foreach (var item in logEntities)
             {
                 var _log = new TLogEntity();
-               // _log.IP = item.IP;
                 _log.Level = (sbyte)item.Level;
                 _log.Message = item.Message;
                 _log.Tags = item.Tags;
@@ -33,13 +26,19 @@ namespace Logging.Client
                 _log.Source = item.Source;
                 _log.Thread = item.Thread;
                 _log.Time = item.Time;
-                //_log.AppId = item.AppId;
                 _logEntities.Add(_log);
             }
             TLogPackage logPackage = new TLogPackage();
             logPackage.AppId = Settings.AppId;
             logPackage.IP = ServerIPNum;
             logPackage.Items = _logEntities;
+
+            var socket = new TSocket("localhost", 9813);
+            socket.Timeout = SENDER_TIMEOUT;
+            var transport = new TFramedTransport(socket);
+            var protocol = new TCompactProtocol(transport);
+            var client = new LogTransferService.Client(protocol);
+            transport.Open();
             client.Log(logPackage);
             transport.Close();
            

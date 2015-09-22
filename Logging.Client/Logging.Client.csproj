@@ -197,7 +197,7 @@
     <Compile Include="..\Thrift\Thrift\Transport\TTransportFactory.cs">
       <Link>Thrift\Transport\TTransportFactory.cs</Link>
     </Compile>
-    <Compile Include="Logger.cs" />
+    <Compile Include="FileLogger.cs" />
     <Compile Include="Logger\ITimerActionBlock.cs" />
     <Compile Include="Logger\BaseLogger.cs" />
     <Compile Include="Logger\LoggingClientReport.cs" />

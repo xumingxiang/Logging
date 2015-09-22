@@ -75,7 +75,24 @@ namespace Logging.Client
             this.Action = action;
             this.QueueMaxLength = queueMaxLength;
             this.Task = Task.Factory.StartNew(this.DequeueProcess);
+           
         }
+
+        ///// <summary>
+        ///// 创建并启动任务
+        ///// </summary>
+        //private void StartTask()
+        //{
+        //    if (this.Task == null)
+        //    {
+        //        this.Task = Task.Factory.StartNew(this.DequeueProcess);
+        //    }
+        //    else if (this.Task.Status != TaskStatus.Running)
+        //    {
+        //        this.Task.Dispose();
+        //        this.Task = Task.Factory.StartNew(this.DequeueProcess);
+        //    }
+        //}
 
         /// <summary>
         /// 入队处理
@@ -141,7 +158,7 @@ namespace Logging.Client
             }
         }
 
-        private static readonly int ReportElapsed = 30;//报告时间间隔
+        private static readonly int ReportElapsed = 30;//报告时间间隔。单位：秒
 
         /// <summary>
         /// 报告Logging.Client自身异常

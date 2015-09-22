@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Logging.Client
 {
-    public static class Logger
+    public static class FileLogger
     {
         static ConcurrentQueue<string> _queue = new ConcurrentQueue<string>();
         static DateTime _lastTime = DateTime.MinValue;

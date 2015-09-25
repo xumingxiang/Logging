@@ -65,13 +65,13 @@ namespace Logging.Client.Widgets
             Interlocked.Increment(ref this.ErrorCount);
             if (this.ErrorCount >= this.ReportCount || (DateTime.Now - LastReportTime).Seconds >= this.ReportElapsed)
             {
-                foreach (var item in this.ErrorCollection)
+                foreach (var err in this.ErrorCollection)
                 {
                     Dictionary<string, string> tags = new Dictionary<string, string>();
-                    tags.Add("url", item.Key); 
-                    tags.Add("count", item.Value.Item1.ToString());
+                    tags.Add("url", err.Key); 
+                    tags.Add("count", err.Value.Item1.ToString());
                     tags.Add("Widgets", "HttpUnhandledExceptionAggregater");
-                    logger.Error(item.Value.Item2.Message + "(" + item.Value.Item1.ToString() + ")", item.Value.Item2, tags);
+                    logger.Error(err.Value.Item2.Message + "(" + err.Value.Item1.ToString() + ")", err.Value.Item2, tags);
                 }
                 this.ErrorCollection.Clear();
                 Interlocked.Add(ref this.ErrorCount, -this.ErrorCount);

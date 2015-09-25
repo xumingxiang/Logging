@@ -58,7 +58,7 @@ namespace Logging.Client
         public readonly static int DefaultLoggingBufferSize = 300;
 
         /// <summary>
-        /// 默认发送阻塞时间。单位:毫秒。5000,即10秒
+        /// 默认发送阻塞时间。单位:毫秒。5000,即5秒
         /// </summary>
         public readonly static int DefaultLoggingBlockElapsed = 5000;
     }

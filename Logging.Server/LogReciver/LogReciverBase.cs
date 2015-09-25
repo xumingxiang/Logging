@@ -70,6 +70,7 @@ namespace Logging.Server.Reciver
 
         private static void ProcessMetric(TLogPackage logPackage)
         {
+            if (logPackage.MetricItems == null || logPackage.MetricItems.Count == 0) { return; }
             string appId = logPackage.AppId.ToString();
             string ip = Utils.NumberToIP(logPackage.IP);
             List<MetricEntity> metrics = new List<MetricEntity>();

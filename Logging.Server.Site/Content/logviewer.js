@@ -73,7 +73,7 @@ $(function () {
 
         var item_temp = $("#log_item_temp").html();
 
-
+        
         $.get(query_url, {
             appid: appid,
             source: source,
@@ -122,7 +122,9 @@ $(function () {
 
                 var tags_str = "";
                 for (var j = 0; j < log.Tags.length; j++) {
-                    tags_str += log.Tags[j] + ";";
+                    tags_str += "<span class=\"mr-20\">";
+                    tags_str += log.Tags[j];
+                    tags_str += "</span>";
                 }
 
 

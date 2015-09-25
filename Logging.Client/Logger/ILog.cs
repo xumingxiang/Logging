@@ -62,6 +62,10 @@ namespace Logging.Client
 
         void Error(Exception ex);
 
+        void Error(Exception ex, Dictionary<string, string> tags);
+
+        void Error(string title, Exception ex, Dictionary<string, string> tags);
+
         /// <summary>
         /// 获取日志。
         /// 本方法为了不引入第三方序列化框架，请客户程序自行返回结果反序列化

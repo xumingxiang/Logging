@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logging.Client.Widgets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,10 +11,11 @@ namespace Logging.Client.TestSite
     public class Global : System.Web.HttpApplication
     {
 
+        AppErrorAggregater AppErrorAggregater = new Widgets.AppErrorAggregater(100, 5);
+
         protected void Application_Start(object sender, EventArgs e)
         {
             Logging.Client.Settings.LoggingBlockElapsed = 1000 * 10;
-            //Logging.Client.Settings.LoggingDisabled = true;
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -25,13 +27,25 @@ namespace Logging.Client.TestSite
         {
 
         }
+        protected void Application_EndRequest(object sender, EventArgs e)
+        {
+
+        }
+
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
 
         }
 
+
+
         protected void Application_Error(object sender, EventArgs e)
+        {
+            AppErrorAggregater.Aggregate();
+        }
+
+        protected void Global_Error(object sender, EventArgs e)
         {
 
         }

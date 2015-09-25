@@ -125,7 +125,18 @@ namespace Logging.Client
 
         public void Error(Exception ex)
         {
-            this.Error(ex.Message, GetExceptionMessage(ex));
+            this.Error(ex, null);
+        }
+
+        public void Error(Exception ex, Dictionary<string, string> tags)
+        {
+            this.Error(ex.Message, GetExceptionMessage(ex), tags);
+        }
+
+
+        public void Error(string title,Exception ex, Dictionary<string, string> tags)
+        {
+            this.Error(title, GetExceptionMessage(ex), tags);
         }
 
         private string GetExceptionMessage(Exception ex)
@@ -134,6 +145,10 @@ namespace Logging.Client
             sb.AppendLine(ex.Message);
             sb.AppendLine(ex.Source);
             sb.AppendLine(ex.StackTrace);
+            if (ex.TargetSite != null)
+            {
+                sb.AppendLine(ex.TargetSite.Name);
+            }
             if (ex.InnerException != null)
             {
                 string msg = GetExceptionMessage(ex.InnerException);
@@ -141,6 +156,9 @@ namespace Logging.Client
             }
             return sb.ToString();
         }
+
+
+
 
         protected LogEntity CreateLog(string source, string title, string message, Dictionary<string, string> tags, LogLevel level)
         {

@@ -215,6 +215,8 @@
     <Compile Include="Logger\TimerActionBlock.cs" />
     <Compile Include="Logger\ThreadedTimerActionBlock.cs" />
     <Compile Include="Utils.cs" />
+    <Compile Include="Widgets\AppErrorAggregater.cs" />
+    <Compile Include="Widgets\IWidget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Logging.ThriftContract\log.thrift">

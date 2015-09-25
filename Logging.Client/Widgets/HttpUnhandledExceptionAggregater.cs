@@ -12,9 +12,9 @@ namespace Logging.Client.Widgets
     /// <summary>
     /// 聚合未捕获异常
     /// </summary>
-    public class AppErrorAggregater
+    public class HttpUnhandledExceptionAggregater
     {
-        readonly static ILog logger = LogManager.GetLogger(typeof(AppErrorAggregater));
+        readonly static ILog logger = LogManager.GetLogger(typeof(HttpUnhandledExceptionAggregater));
 
         private int ReportCount { get;  set; }
 
@@ -27,7 +27,7 @@ namespace Logging.Client.Widgets
         /// </summary>
         /// <param name="reportCount">一次上报的数量</param>
         /// <param name="reportElapsed">上报间隔时间。单位：秒</param>
-        public AppErrorAggregater(int reportCount, int reportElapsed)
+        public HttpUnhandledExceptionAggregater(int reportCount, int reportElapsed)
         {
             this.ReportCount = reportCount;
             this.ReportElapsed = reportElapsed;
@@ -36,7 +36,7 @@ namespace Logging.Client.Widgets
             this.LastReportTime = DateTime.Now;
         }
 
-        private AppErrorAggregater() { }
+        private HttpUnhandledExceptionAggregater() { }
 
         private int ErrorCount;
 
@@ -70,7 +70,7 @@ namespace Logging.Client.Widgets
                     Dictionary<string, string> tags = new Dictionary<string, string>();
                     tags.Add("url", item.Key); 
                     tags.Add("count", item.Value.Item1.ToString());
-                    tags.Add("Logging.Client.Widgets", "AppErrorAggregater");
+                    tags.Add("Widgets", "HttpUnhandledExceptionAggregater");
                     logger.Error(item.Value.Item2.Message + "(" + item.Value.Item1.ToString() + ")", item.Value.Item2, tags);
                 }
                 this.ErrorCollection.Clear();

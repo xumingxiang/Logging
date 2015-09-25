@@ -145,10 +145,10 @@ namespace Logging.Client
             sb.AppendLine(ex.Message);
             sb.AppendLine(ex.Source);
             sb.AppendLine(ex.StackTrace);
-            if (ex.TargetSite != null)
-            {
-                sb.AppendLine(ex.TargetSite.Name);
-            }
+            //if (ex.TargetSite != null)
+            //{
+            //    sb.AppendLine(ex.TargetSite.Name);
+            //}
             if (ex.InnerException != null)
             {
                 string msg = GetExceptionMessage(ex.InnerException);

@@ -11,7 +11,7 @@ namespace Logging.Client.TestSite
     public class Global : System.Web.HttpApplication
     {
 
-        AppErrorAggregater AppErrorAggregater = new Widgets.AppErrorAggregater(100, 5);
+        HttpUnhandledExceptionAggregater AppErrorAggregater = new Widgets.HttpUnhandledExceptionAggregater(100, 5);
 
         protected void Application_Start(object sender, EventArgs e)
         {

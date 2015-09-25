@@ -101,6 +101,8 @@
     word-break: break-all;
 }
 
+
+
 .toggler {
     -webkit-border-top-right-radius: 4px;
     -webkit-border-bottom-right-radius: 4px;
@@ -173,4 +175,20 @@
     vertical-align: middle;
     background-color: #a94442;
     border-radius: 10px;
+}
+
+.pre-log {
+
+
+    display: block;
+    margin: 0 0 10px;
+    font-size: 13px;
+    /* line-height: 1.42857143; */
+   color: inherit;
+     word-break: break-all; 
+     word-wrap: break-word; 
+    background-color: inherit; 
+     border:none; 
+     border-radius:0; 
+
 }

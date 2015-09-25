@@ -25,7 +25,8 @@ namespace Logging.ThriftContract
   {
     private long _IP;
     private int _AppId;
-    private List<TLogEntity> _Items;
+    private List<TLogEntity> _LogItems;
+    private List<TMetricEntity> _MetricItems;
 
     public long IP
     {
@@ -53,16 +54,29 @@ namespace Logging.ThriftContract
       }
     }
 
-    public List<TLogEntity> Items
+    public List<TLogEntity> LogItems
     {
       get
       {
-        return _Items;
+        return _LogItems;
       }
       set
       {
-        __isset.Items = true;
-        this._Items = value;
+        __isset.LogItems = true;
+        this._LogItems = value;
+      }
+    }
+
+    public List<TMetricEntity> MetricItems
+    {
+      get
+      {
+        return _MetricItems;
+      }
+      set
+      {
+        __isset.MetricItems = true;
+        this._MetricItems = value;
       }
     }
 
@@ -74,7 +88,8 @@ namespace Logging.ThriftContract
     public struct Isset {
       public bool IP;
       public bool AppId;
-      public bool Items;
+      public bool LogItems;
+      public bool MetricItems;
     }
 
     public TLogPackage() {
@@ -109,14 +124,32 @@ namespace Logging.ThriftContract
           case 3:
             if (field.Type == TType.List) {
               {
-                Items = new List<TLogEntity>();
-                TList _list5 = iprot.ReadListBegin();
-                for( int _i6 = 0; _i6 < _list5.Count; ++_i6)
+                LogItems = new List<TLogEntity>();
+                TList _list10 = iprot.ReadListBegin();
+                for( int _i11 = 0; _i11 < _list10.Count; ++_i11)
                 {
-                  TLogEntity _elem7;
-                  _elem7 = new TLogEntity();
-                  _elem7.Read(iprot);
-                  Items.Add(_elem7);
+                  TLogEntity _elem12;
+                  _elem12 = new TLogEntity();
+                  _elem12.Read(iprot);
+                  LogItems.Add(_elem12);
+                }
+                iprot.ReadListEnd();
+              }
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 4:
+            if (field.Type == TType.List) {
+              {
+                MetricItems = new List<TMetricEntity>();
+                TList _list13 = iprot.ReadListBegin();
+                for( int _i14 = 0; _i14 < _list13.Count; ++_i14)
+                {
+                  TMetricEntity _elem15;
+                  _elem15 = new TMetricEntity();
+                  _elem15.Read(iprot);
+                  MetricItems.Add(_elem15);
                 }
                 iprot.ReadListEnd();
               }
@@ -153,16 +186,31 @@ namespace Logging.ThriftContract
         oprot.WriteI32(AppId);
         oprot.WriteFieldEnd();
       }
-      if (Items != null && __isset.Items) {
-        field.Name = "Items";
+      if (LogItems != null && __isset.LogItems) {
+        field.Name = "LogItems";
         field.Type = TType.List;
         field.ID = 3;
         oprot.WriteFieldBegin(field);
         {
-          oprot.WriteListBegin(new TList(TType.Struct, Items.Count));
-          foreach (TLogEntity _iter8 in Items)
+          oprot.WriteListBegin(new TList(TType.Struct, LogItems.Count));
+          foreach (TLogEntity _iter16 in LogItems)
           {
-            _iter8.Write(oprot);
+            _iter16.Write(oprot);
+          }
+          oprot.WriteListEnd();
+        }
+        oprot.WriteFieldEnd();
+      }
+      if (MetricItems != null && __isset.MetricItems) {
+        field.Name = "MetricItems";
+        field.Type = TType.List;
+        field.ID = 4;
+        oprot.WriteFieldBegin(field);
+        {
+          oprot.WriteListBegin(new TList(TType.Struct, MetricItems.Count));
+          foreach (TMetricEntity _iter17 in MetricItems)
+          {
+            _iter17.Write(oprot);
           }
           oprot.WriteListEnd();
         }
@@ -187,11 +235,17 @@ namespace Logging.ThriftContract
         __sb.Append("AppId: ");
         __sb.Append(AppId);
       }
-      if (Items != null && __isset.Items) {
+      if (LogItems != null && __isset.LogItems) {
         if(!__first) { __sb.Append(", "); }
         __first = false;
-        __sb.Append("Items: ");
-        __sb.Append(Items);
+        __sb.Append("LogItems: ");
+        __sb.Append(LogItems);
+      }
+      if (MetricItems != null && __isset.MetricItems) {
+        if(!__first) { __sb.Append(", "); }
+        __first = false;
+        __sb.Append("MetricItems: ");
+        __sb.Append(MetricItems);
       }
       __sb.Append(")");
       return __sb.ToString();

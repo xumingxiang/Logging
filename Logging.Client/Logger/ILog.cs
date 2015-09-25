@@ -66,6 +66,8 @@ namespace Logging.Client
 
         void Error(string title, Exception ex, Dictionary<string, string> tags);
 
+        void Metric(string name, double value, Dictionary<string, string> tags = null);
+
         /// <summary>
         /// 获取日志。
         /// 本方法为了不引入第三方序列化框架，请客户程序自行返回结果反序列化

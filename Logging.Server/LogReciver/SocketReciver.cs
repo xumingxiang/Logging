@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Thrift.Server;
 using Thrift.Transport;
 
-namespace Logging.Server.LogReciver
+namespace Logging.Server.Reciver
 {
     public class SocketReciver
     {

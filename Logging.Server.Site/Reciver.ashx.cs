@@ -1,4 +1,4 @@
-﻿using Logging.Server.LogReciver;
+﻿using Logging.Server.Reciver;
 
 namespace Logging.Server.Site
 {

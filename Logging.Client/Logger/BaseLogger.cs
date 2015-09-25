@@ -10,7 +10,7 @@ namespace Logging.Client
 {
     internal abstract class BaseLogger : ILog
     {
-        private static ITimerActionBlock<LogEntity> block;
+        private static ITimerActionBlock<ILogEntity> block;
 
         private string Source { get; set; }
 
@@ -49,14 +49,14 @@ namespace Logging.Client
 
             if (LoggingTaskNum == 1)
             {
-                block = new TimerActionBlock<LogEntity>((buffer) =>
+                block = new TimerActionBlock<ILogEntity>((buffer) =>
                 {
                     sender.Send(buffer);
                 }, LoggingQueueLength, LoggingBufferSize, LoggingBlockElapsed);
             }
             else
             {
-                block = new ThreadedTimerActionBlock<LogEntity>(LoggingTaskNum, (buffer) =>
+                block = new ThreadedTimerActionBlock<ILogEntity>(LoggingTaskNum, (buffer) =>
                 {
                     sender.Send(buffer);
                 }, LoggingQueueLength, LoggingBufferSize, LoggingBlockElapsed);
@@ -157,7 +157,19 @@ namespace Logging.Client
             return sb.ToString();
         }
 
+        public void Metric(string name, double value, Dictionary<string, string> tags = null)
+        {
+            if (!LoggingEnabled) { return; }
 
+            var Metric = new MetricEntity();
+            Metric.Name = name;
+            Metric.Value = value;
+            Metric.Tags = tags;
+            Metric.Time = Utils.GetUnixTime(DateTime.Now);
+            block.Enqueue(Metric);
+            //PrivatePoint(name, value, tags);
+            //SysPoint();
+        }
 
 
         protected LogEntity CreateLog(string source, string title, string message, Dictionary<string, string> tags, LogLevel level)
@@ -166,12 +178,14 @@ namespace Logging.Client
             log.Level = level;
             log.Message = message;
             log.Tags = tags;
-            log.Time = Utils.GetTimeStamp(DateTime.Now);
+            log.Time = Utils.GetTimeTicks(DateTime.Now);
             log.Title = title;
             log.Source = source;
             log.Thread = Thread.CurrentThread.ManagedThreadId;
             return log;
         }
+
+     
 
         protected virtual void Log(string title, string message, Dictionary<string, string> tags, LogLevel level)
         {

@@ -1,4 +1,5 @@
-﻿using Logging.Server.Processor;
+﻿using Logging.Server.Metric.Processor;
+using Logging.Server.Processor;
 using Logging.ThriftContract;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,11 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
-namespace Logging.Server.LogReciver
+namespace Logging.Server.Reciver
 {
-    public  class LogReciverBase : LogTransferService.Iface
+    public class LogReciverBase : LogTransferService.Iface
     {
-        private static BlockingActionQueue<IList<LogEntity>> queue;
+        private static BlockingActionQueue<TLogPackage> queue;
 
         private static int server_appId = Convert.ToInt32(ConfigurationManager.AppSettings["AppId"]);
 
@@ -25,21 +26,18 @@ namespace Logging.Server.LogReciver
             int processTaskNum = Convert.ToInt32(ConfigurationManager.AppSettings["ProcessTaskNum"]);
             int blockingQueueLength = Convert.ToInt32(ConfigurationManager.AppSettings["BlockingQueueLength"]);
 
-            queue = new BlockingActionQueue<IList<LogEntity>>(processTaskNum, (LogEntities) =>
+            queue = new BlockingActionQueue<TLogPackage>(processTaskNum, (logPackage) =>
             {
-                ProcessLog(LogEntities);
+                ProcessLog(logPackage);
+                ProcessMetric(logPackage);
             }, blockingQueueLength);
         }
 
-        private static void ProcessLog(IList<LogEntity> logs)
+        private static void ProcessLog(TLogPackage logPackage)
         {
-            var processor = LogProcessorManager.GetLogProcessor();
-            processor.Process(logs);
-        }
+            if (logPackage.LogItems == null || logPackage.LogItems.Count == 0) { return; }
 
-        public void Log(TLogPackage logPackage)
-        {
-            List<TLogEntity> logEntities = logPackage.Items;
+            List<TLogEntity> logEntities = logPackage.LogItems;
             var _logEntities = new List<LogEntity>();
             foreach (var item in logEntities)
             {
@@ -65,10 +63,51 @@ namespace Logging.Server.LogReciver
                 _log.AppId = logPackage.AppId;
                 _logEntities.Add(_log);
             }
-            int over_count = queue.Enqueue(_logEntities);
+
+            var processor = LogProcessorManager.GetLogProcessor();
+            processor.Process(_logEntities);
+        }
+
+        private static void ProcessMetric(TLogPackage logPackage)
+        {
+            string appId = logPackage.AppId.ToString();
+            string ip = Utils.NumberToIP(logPackage.IP);
+            List<MetricEntity> metrics = new List<MetricEntity>();
+            foreach (var item in logPackage.MetricItems)
+            {
+                MetricEntity metric = new MetricEntity();
+                metric.Name = item.Name;
+                metric.Time = item.Time;
+                metric.Tags = item.Tags;
+                metric.Value = item.Value;
+                if (metric.Tags == null)
+                {
+                    metric.Tags = new Dictionary<string, string>();
+                }
+                if (!metric.Tags.ContainsKey("AppId"))
+                {
+                    metric.Tags.Add("AppId", appId);
+                }
+                if (!metric.Tags.ContainsKey("IP"))
+                {
+                    metric.Tags.Add("IP", ip);
+                }
+                metrics.Add(metric);
+            }
+            var metricProcessor = MetricProcessorManager.GetMetricProcessor();
+            metricProcessor.Process(metrics);
+        }
+
+        /// <summary>
+        /// Thrift实现方法
+        /// </summary>
+        /// <param name="logPackage"></param>
+        public void Log(TLogPackage logPackage)
+        {
+            int over_count = queue.Enqueue(logPackage);
 
             #region 溢出处理
-          
+
             if (over_count > 0)
             {
                 string msg = "Logging_Server_Queue溢出数量:" + over_count + " 。 建议增加 BlockingQueueLength 配置值";
@@ -86,8 +125,11 @@ namespace Logging.Server.LogReciver
                 over_log.AppId = server_appId;
 
                 List<LogEntity> over_logs = new List<LogEntity>();
-                over_logs.Add(over_log);
-                ProcessLog(over_logs);
+                //over_logs.Add(over_log);
+                //ProcessLog(over_logs);
+
+                var processor = LogProcessorManager.GetLogProcessor();
+                processor.Process(over_logs);
             }
 
             #endregion 溢出处理

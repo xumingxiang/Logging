@@ -70,6 +70,9 @@
     <Compile Include="..\Logging.ThriftContract\TLogPackage.cs">
       <Link>ThriftContract\TLogPackage.cs</Link>
     </Compile>
+    <Compile Include="..\Logging.ThriftContract\TMetricEntity.cs">
+      <Link>ThriftContract\TMetricEntity.cs</Link>
+    </Compile>
     <Compile Include="..\thrift\thrift\collections\TCollections.cs">
       <Link>Thrift\Collections\TCollections.cs</Link>
     </Compile>
@@ -233,6 +236,14 @@
     <Compile Include="LogWriter\ILogWriter.cs" />
     <Compile Include="LogWriter\LogWriterManager.cs" />
     <Compile Include="LogWriter\MongoDbWriter.cs" />
+    <Compile Include="MetricEntity.cs" />
+    <Compile Include="Metric\DefaulMetricProcessor.cs" />
+    <Compile Include="Metric\IMetricProcessor.cs" />
+    <Compile Include="Metric\MetricWriter\InfluxdbWriter.cs" />
+    <Compile Include="Metric\Json\JsonObject.cs" />
+    <Compile Include="Metric\Json\JsonProperty.cs" />
+    <Compile Include="Metric\Json\JsonValue.cs" />
+    <Compile Include="Metric\MetricProcessorManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LogReciver\SocketReciver.cs" />
     <Compile Include="Utils.cs" />

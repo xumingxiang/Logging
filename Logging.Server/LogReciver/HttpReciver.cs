@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Thrift.Transport;
 
-namespace Logging.Server.LogReciver
+namespace Logging.Server.Reciver
 {
     public class HttpReciver : THttpHandler
     {

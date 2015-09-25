@@ -13,9 +13,20 @@ namespace Logging.Client
         /// </summary>
         /// <param name="time"></param>
         /// <returns></returns>
-        public static long GetTimeStamp(DateTime time)
+        public static long GetTimeTicks(DateTime time)
         {
             return (time - START_TIME).Ticks;
+        }
+
+        /// <summary>
+        /// DateTime时间格式转换为Unix时间戳格式精确到13位。
+        /// 
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public static long GetUnixTime(DateTime time)
+        {
+            return (long)(time - START_TIME).TotalMilliseconds;
         }
 
 

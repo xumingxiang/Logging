@@ -10,10 +10,18 @@ struct TLogEntity {   #  ×¢ÊÍ2
     7: map<string,string> Tags
   }
 
+struct TMetricEntity {   #  ×¢ÊÍ2 
+    1: string Name 
+    2: double Value 
+    3: i64    Time 
+    4: map<string,string> Tags
+  }
+
   struct TLogPackage {   #  ×¢ÊÍ2 
     1:i64		IP
 	2:i32    AppId
-	3:list<TLogEntity> Items
+	3:list<TLogEntity>    LogItems
+	4:list<TMetricEntity> MetricItems
   }
 
   

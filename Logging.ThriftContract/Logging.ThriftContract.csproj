@@ -44,6 +44,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TLogEntity.cs" />
     <Compile Include="TLogPackage.cs" />
+    <Compile Include="TMetricEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="log.thrift" />

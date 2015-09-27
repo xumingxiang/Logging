@@ -19,14 +19,14 @@ namespace Logging.Client
         }
 
         /// <summary>
-        /// DateTime时间格式转换为Unix时间戳格式精确到13位。
+        /// DateTime时间格式转换为Unix时间戳格式精确到10位。
         /// 
         /// </summary>
         /// <param name="time"></param>
         /// <returns></returns>
         public static long GetUnixTime(DateTime time)
         {
-            return (long)(time - START_TIME).TotalMilliseconds;
+            return (long)(time - START_TIME).TotalSeconds;
         }
 
 

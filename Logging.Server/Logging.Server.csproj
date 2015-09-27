@@ -237,13 +237,13 @@
     <Compile Include="LogWriter\LogWriterManager.cs" />
     <Compile Include="LogWriter\MongoDbWriter.cs" />
     <Compile Include="MetricEntity.cs" />
-    <Compile Include="Metric\DefaulMetricProcessor.cs" />
-    <Compile Include="Metric\IMetricProcessor.cs" />
+    <Compile Include="Metric\MetricProcessor\DefaulMetricProcessor.cs" />
+    <Compile Include="Metric\MetricProcessor\IMetricProcessor.cs" />
+    <Compile Include="Metric\MetricProcessor\MetricProcessorManager.cs" />
     <Compile Include="Metric\MetricWriter\InfluxdbWriter.cs" />
     <Compile Include="Metric\Json\JsonObject.cs" />
     <Compile Include="Metric\Json\JsonProperty.cs" />
     <Compile Include="Metric\Json\JsonValue.cs" />
-    <Compile Include="Metric\MetricProcessorManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LogReciver\SocketReciver.cs" />
     <Compile Include="Utils.cs" />

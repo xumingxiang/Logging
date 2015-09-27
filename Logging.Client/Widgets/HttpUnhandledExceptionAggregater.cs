@@ -67,12 +67,13 @@ namespace Logging.Client.Widgets
             {
                 foreach (var err in this.ErrorCollection)
                 {
-                    Dictionary<string, string> tags = new Dictionary<string, string>();
-                    tags.Add("url", err.Key); 
-                    tags.Add("count", err.Value.Item1.ToString());
-                    tags.Add("Widgets", "HttpUnhandledExceptionAggregater");
-                    logger.Error(err.Value.Item2.Message + "(" + err.Value.Item1.ToString() + ")", err.Value.Item2, tags);
+                    Dictionary<string, string> log_tags = new Dictionary<string, string>();
+                    log_tags.Add("url", err.Key); 
+                    log_tags.Add("count", err.Value.Item1.ToString());
+                    log_tags.Add("widgets", "HttpUnhandledExceptionAggregater");
+                    logger.Error(err.Value.Item2.Message + "(" + err.Value.Item1.ToString() + ")", err.Value.Item2, log_tags);
                 }
+                logger.Metric("HttpUnhandledException",this.ErrorCount);
                 this.ErrorCollection.Clear();
                 Interlocked.Add(ref this.ErrorCount, -this.ErrorCount);
                 this.LastReportTime = DateTime.Now;

@@ -128,6 +128,12 @@ namespace Logging.Client
             this.Error(ex, null);
         }
 
+
+        public void Error(string title, Exception ex)
+        {
+            this.Error(title, GetExceptionMessage(ex), null);
+        }
+
         public void Error(Exception ex, Dictionary<string, string> tags)
         {
             this.Error(ex.Message, GetExceptionMessage(ex), tags);

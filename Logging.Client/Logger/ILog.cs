@@ -62,6 +62,8 @@ namespace Logging.Client
 
         void Error(Exception ex);
 
+        void Error(string title, Exception ex);
+
         void Error(Exception ex, Dictionary<string, string> tags);
 
         void Error(string title, Exception ex, Dictionary<string, string> tags);

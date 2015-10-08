@@ -46,37 +46,44 @@ namespace Logging.Client.Widgets
 
         public void Aggregate()
         {
-            var url = HttpContext.Current.Request.Url;
-            Exception ex = HttpContext.Current.Server.GetLastError();
-            string key = url.Scheme + "://" + url.Authority + url.AbsolutePath;
-
-            Tuple<int, Exception> item_ex;
-
-            var has = this.ErrorCollection.TryGetValue(key, out item_ex);
-            if (has)
+            try
             {
-                this.ErrorCollection[key] = new Tuple<int, Exception>(item_ex.Item1 + 1, ex);
-            }
-            else 
-            {
-                this.ErrorCollection.TryAdd(key, new Tuple<int, Exception>(1, ex));
-            }
+                var url = HttpContext.Current.Request.Url;
+                Exception ex = HttpContext.Current.Server.GetLastError();
+                string key = url.Scheme + "://" + url.Authority + url.AbsolutePath;
 
-            Interlocked.Increment(ref this.ErrorCount);
-            if (this.ErrorCount >= this.ReportCount || (DateTime.Now - LastReportTime).Seconds >= this.ReportElapsed)
-            {
-                foreach (var err in this.ErrorCollection)
+                Tuple<int, Exception> item_ex;
+
+                var has = this.ErrorCollection.TryGetValue(key, out item_ex);
+                if (has)
                 {
-                    Dictionary<string, string> log_tags = new Dictionary<string, string>();
-                    log_tags.Add("url", err.Key); 
-                    log_tags.Add("count", err.Value.Item1.ToString());
-                    log_tags.Add("widgets", "HttpUnhandledExceptionAggregater");
-                    logger.Error(err.Value.Item2.Message + "(" + err.Value.Item1.ToString() + ")", err.Value.Item2, log_tags);
+                    this.ErrorCollection[key] = new Tuple<int, Exception>(item_ex.Item1 + 1, ex);
                 }
-                logger.Metric("HttpUnhandledException",this.ErrorCount);
-                this.ErrorCollection.Clear();
-                Interlocked.Add(ref this.ErrorCount, -this.ErrorCount);
-                this.LastReportTime = DateTime.Now;
+                else
+                {
+                    this.ErrorCollection.TryAdd(key, new Tuple<int, Exception>(1, ex));
+                }
+
+                Interlocked.Increment(ref this.ErrorCount);
+                if (this.ErrorCount >= this.ReportCount || (DateTime.Now - LastReportTime).Seconds >= this.ReportElapsed)
+                {
+                    foreach (var err in this.ErrorCollection)
+                    {
+                        Dictionary<string, string> log_tags = new Dictionary<string, string>();
+                        log_tags.Add("url", err.Key);
+                        log_tags.Add("count", err.Value.Item1.ToString());
+                        log_tags.Add("widgets", "HttpUnhandledExceptionAggregater");
+                        logger.Error(err.Value.Item2.Message + "(" + err.Value.Item1.ToString() + ")", err.Value.Item2, log_tags);
+                    }
+                    logger.Metric("HttpUnhandledException", this.ErrorCount);
+                    this.ErrorCollection.Clear();
+                    Interlocked.Add(ref this.ErrorCount, -this.ErrorCount);
+                    this.LastReportTime = DateTime.Now;
+                }
+            }
+            catch 
+            {
+
             }
         }
     }

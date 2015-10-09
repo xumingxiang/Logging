@@ -27,6 +27,18 @@ $(function () {
         (Math.floor(number % 256));
     }
 
+    function htmlEncodeByRegExp(str) {
+        var s = "";
+        if (str.length == 0) return "";
+        s = str.replace(/&/g, "&amp;");
+        s = s.replace(/</g, "&lt;");
+        s = s.replace(/>/g, "&gt;");
+        s = s.replace(/ /g, "&nbsp;");
+        s = s.replace(/\'/g, "&#39;");
+        s = s.replace(/\"/g, "&quot;");
+        return s;
+    }
+
     function getLogs(start, end, clear) {
         var query_url = "logviewer.ashx";
         var appid = $("#appid").val() || 0;
@@ -130,7 +142,7 @@ $(function () {
 
                 var item_html = item_temp
                  .replace("{title}", log.Title)
-                 .replace("{msg}", log.Message)
+                 .replace("{msg}", htmlEncodeByRegExp(log.Message))
                  .replace("{source}", log.Source)
                  .replace("{ip}", numberToIp(log.IP))
                  .replace("{appid}", log.AppId)

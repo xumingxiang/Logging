@@ -45,7 +45,7 @@ namespace Logging.Client
         /// <summary>
         /// 应用号
         /// </summary>
-        public readonly static int AppId = Convert.ToInt32(ConfigurationManager.AppSettings["AppId"] ?? "0");
+        public  static int AppId = Convert.ToInt32(ConfigurationManager.AppSettings["AppId"] ?? "0");
 
         /// <summary>
         /// 默认日志队列最大长度：100000
@@ -61,5 +61,48 @@ namespace Logging.Client
         /// 默认发送阻塞时间。单位:毫秒。5000,即5秒
         /// </summary>
         public readonly static int DefaultLoggingBlockElapsed = 5000;
+
+        public static void Init(Boolean enabled, int appId, String serverHost, int bufferSize, int blockElapsed)
+        {
+            LoggingEnabled = enabled;
+            AppId = appId;
+            LoggingServerHost = serverHost;
+            LoggingBufferSize = bufferSize;
+            LoggingBlockElapsed = blockElapsed;
+        }
+
+
+        public static void Init(int appId, String serverHost, int bufferSize, int blockElapsed)
+        {
+            Init(true, appId, serverHost, bufferSize, blockElapsed);
+        }
+
+        public static void Init(int appId, String serverHost)
+        {
+            LoggingEnabled = true;
+            AppId = appId;
+            LoggingServerHost = serverHost;
+
+            if (LoggingBufferSize <= 0)
+            {
+                LoggingBufferSize = DefaultLoggingBufferSize;
+            }
+
+            if (LoggingBlockElapsed <= 0)
+            {
+                LoggingBlockElapsed = DefaultLoggingBlockElapsed;
+            }
+        }
+
+        public static void Enabled()
+        {
+            LoggingEnabled = true;
+        }
+
+        public static void Disabled()
+        {
+            LoggingEnabled = false;
+        }
+
     }
 }

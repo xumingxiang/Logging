@@ -5,7 +5,7 @@ namespace Logging.Client
 {
     public static class Settings
     {
-    
+
 
         /// <summary>
         /// 设置日志服务器
@@ -45,7 +45,7 @@ namespace Logging.Client
         /// <summary>
         /// 应用号
         /// </summary>
-        public  static int AppId = Convert.ToInt32(ConfigurationManager.AppSettings["AppId"] ?? "0");
+        public static int AppId = Convert.ToInt32(ConfigurationManager.AppSettings["AppId"] ?? "0");
 
         /// <summary>
         /// 默认日志队列最大长度：100000
@@ -62,36 +62,53 @@ namespace Logging.Client
         /// </summary>
         public readonly static int DefaultLoggingBlockElapsed = 5000;
 
-        public static void Init(Boolean enabled, int appId, String serverHost, int bufferSize, int blockElapsed)
+        public static void Startup(Boolean enabled, int appId, String serverHost, int queueLength, int bufferSize, int blockElapsed)
         {
             LoggingEnabled = enabled;
             AppId = appId;
             LoggingServerHost = serverHost;
-            LoggingBufferSize = bufferSize;
-            LoggingBlockElapsed = blockElapsed;
-        }
 
+            if (queueLength <= 0)
+            {
+                LoggingQueueLength = DefaultLoggingQueueLength;
+            }
+            else
+            {
+                LoggingQueueLength = queueLength;
+            }
 
-        public static void Init(int appId, String serverHost, int bufferSize, int blockElapsed)
-        {
-            Init(true, appId, serverHost, bufferSize, blockElapsed);
-        }
-
-        public static void Init(int appId, String serverHost)
-        {
-            LoggingEnabled = true;
-            AppId = appId;
-            LoggingServerHost = serverHost;
-
-            if (LoggingBufferSize <= 0)
+            if (bufferSize <= 0)
             {
                 LoggingBufferSize = DefaultLoggingBufferSize;
             }
+            else
+            {
+                LoggingBufferSize = bufferSize;
+            }
 
-            if (LoggingBlockElapsed <= 0)
+            if (blockElapsed <= 0)
             {
                 LoggingBlockElapsed = DefaultLoggingBlockElapsed;
             }
+            else
+            {
+                LoggingBlockElapsed = blockElapsed;
+            }
+        }
+
+        public static void Startup(Boolean enabled, int appId, String serverHost, int bufferSize, int blockElapsed)
+        {
+            Startup(true, appId, serverHost, DefaultLoggingQueueLength, bufferSize, blockElapsed);
+        }
+
+        public static void Startup(int appId, String serverHost, int bufferSize, int blockElapsed)
+        {
+            Startup(true, appId, serverHost, bufferSize, blockElapsed);
+        }
+
+        public static void Startup(int appId, String serverHost)
+        {
+            Startup(true, appId, serverHost, DefaultLoggingQueueLength, DefaultLoggingBufferSize, DefaultLoggingBlockElapsed);
         }
 
         public static void Enabled()

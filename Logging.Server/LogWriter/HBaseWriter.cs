@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Logging.Server.Writer
 {
-    internal class HBaseWriter : ILogWriter
+    public class HBaseWriter : ILogWriter
     {
+        public void SetLogOnOff(LogOnOff on_off)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Write(IList<LogEntity> logs)
         {
             throw new NotImplementedException();

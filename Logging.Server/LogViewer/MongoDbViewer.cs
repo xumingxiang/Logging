@@ -13,15 +13,15 @@ namespace Logging.Server.Viewer
         {
             if (limit <= 0) { limit = 100; }
 
-            List<LogEntity> result = new List<LogEntity>(); 
+            List<LogEntity> result = new List<LogEntity>();
 
             if (tags != null && tags.Count > 0)
             {
-                result= this.GetLogsInTags(start, end, appId, level, title, msg, source, ip, tags, limit);
+                result = this.GetLogsInTags(start, end, appId, level, title, msg, source, ip, tags, limit);
             }
             else
             {
-                result= this.GetLogsNoTags(start, end, appId, level, title, msg, source, ip, limit);
+                result = this.GetLogsNoTags(start, end, appId, level, title, msg, source, ip, limit);
             }
 
             //result = result.OrderByDescending(x => x.Time).ToList();
@@ -102,7 +102,7 @@ namespace Logging.Server.Viewer
                 tagFilterBuilder.In<long>("Tag", _tags);
 
             var tagCollection = MongoDataBase.GetCollection<LogTag>();
-            var tagEntity = tagCollection.Find(tagFilter).Project(x=>x.LogId).ToListAsync().Result;
+            var tagEntity = tagCollection.Find(tagFilter).Project(x => x.LogId).ToListAsync().Result;
 
             if (tagEntity == null || tagEntity.Count == 0) { return new List<LogEntity>(); }
 
@@ -165,7 +165,7 @@ namespace Logging.Server.Viewer
 
             var collection = MongoDataBase.GetCollection<LogEntity>();
             return collection.Find(filter)
-                .SortByDescending(x=>x.Time)
+                .SortByDescending(x => x.Time)
                 .Limit(limit)
                 .ToListAsync<LogEntity>()
                 .Result;
@@ -182,7 +182,7 @@ namespace Logging.Server.Viewer
 
             if (appId > 0)
             {
-                filter = filter &  filterBuilder.Eq("AppId", appId);
+                filter = filter & filterBuilder.Eq("AppId", appId);
             }
 
             var collection = MongoDataBase.GetCollection<LogStatistics>();
@@ -212,5 +212,26 @@ namespace Logging.Server.Viewer
                  .ThenByDescending(x => x.Debug)
                  .ToList();
         }
+
+        public  List<LogOnOff> GetALLLogOnOff()
+        {
+            var filterBuilder = Builders<LogOnOff>.Filter;
+            var filter = filterBuilder.Gt("AppId", 0);
+
+            var collection = MongoDataBase.GetCollection<LogOnOff>();
+            var result= collection.Find(filter).ToListAsync<LogOnOff>().Result;
+            return result.OrderBy(x=>x.AppId).ToList();
+        }
+
+        public LogOnOff GetLogOnOff(int appId)
+        {
+            var filterBuilder = Builders<LogOnOff>.Filter;
+            var filter = filterBuilder.Eq("AppId", appId);
+
+            var collection = MongoDataBase.GetCollection<LogOnOff>();
+            var result = collection.Find(filter).FirstOrDefaultAsync().Result;
+            return result;
+        }
+
     }
 }

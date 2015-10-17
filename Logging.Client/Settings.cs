@@ -10,7 +10,23 @@ namespace Logging.Client
         /// <summary>
         /// 设置日志服务器
         /// </summary>
-        public static string LoggingServerHost { get; set; }
+        private static string _loggingServerHost;
+
+        public static string LoggingServerHost
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(_loggingServerHost))
+                {
+                    _loggingServerHost = ConfigurationManager.AppSettings["LoggingServerHost"];
+                }
+                return _loggingServerHost;
+            }
+            set
+            {
+                _loggingServerHost = value;
+            }
+        }
 
         /// <summary>
         /// 设置日志发送线程数。默认为1
@@ -66,7 +82,7 @@ namespace Logging.Client
         {
             LoggingEnabled = enabled;
             AppId = appId;
-            LoggingServerHost = serverHost;
+            _loggingServerHost = serverHost;
 
             if (queueLength <= 0)
             {
@@ -120,6 +136,7 @@ namespace Logging.Client
         {
             LoggingEnabled = false;
         }
+
 
     }
 }

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Logging.Server.Writer
 {
-    interface ILogWriter
+   public interface ILogWriter
     {
          void Write(IList<LogEntity> logs);
+
+        void SetLogOnOff(LogOnOff on_off);
     }
 }

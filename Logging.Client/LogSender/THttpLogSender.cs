@@ -12,7 +12,7 @@ namespace Logging.Client
     /// </summary>
     internal class THttpLogSender : LogSenderBase
     {
-        private readonly static string loggingServerHost = ConfigurationManager.AppSettings["LoggingServerHost"] ?? Settings.LoggingServerHost;
+        private readonly static string loggingServerHost = Settings.LoggingServerHost;
         private readonly static Uri uri = new Uri(loggingServerHost + "/Reciver.ashx");
 
         public override void Send(IList<ILogEntity> logEntities)

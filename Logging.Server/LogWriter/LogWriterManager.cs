@@ -3,7 +3,7 @@ using System.Configuration;
 
 namespace Logging.Server.Writer
 {
-    internal sealed class LogWriterManager
+    public sealed class LogWriterManager
     {
 
       static  string LoggingStorage = ConfigurationManager.AppSettings["LoggingStorage"];

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace Logging.Server.Writer
 {
@@ -70,6 +72,22 @@ namespace Logging.Server.Writer
             log_ls_collection.InsertManyAsync(lss);
 
 
+        }
+
+        public void SetLogOnOff(LogOnOff on_off)
+        {
+            var collection = MongoDataBase.GetCollection<LogOnOff>();
+
+            var old_on_off = collection.Find(a => a.AppId == on_off.AppId).Limit(1).FirstOrDefaultAsync().Result;
+
+            if (old_on_off == null)
+            {
+                collection.InsertOneAsync(on_off);
+            }
+            else {
+                on_off._id = old_on_off._id;
+                collection.ReplaceOneAsync(a => a.AppId == on_off.AppId, on_off);
+            }
         }
     }
 }

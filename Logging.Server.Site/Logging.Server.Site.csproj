@@ -113,6 +113,7 @@
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\bootstrap\js\npm.js" />
     <Content Include="Content\logviewer.css" />
+    <Content Include="Content\settings.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\jQuery\css\jquery-ui-timepicker-addon.css" />
@@ -138,7 +139,7 @@
     <Content Include="LogViewer.html" />
     <Content Include="Reciver.ashx" />
     <Content Include="Content\logviewer.js" />
-    <Content Include="Settings.aspx" />
+    <Content Include="Settings.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -149,8 +150,11 @@
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="GetLogOnOffs.ashx" />
+    <Content Include="GetLogOnOff.ashx" />
     <None Include="Properties\PublishProfiles\release.server.logging.plu.cn.pubxml" />
     <Content Include="StatisticsViewer.ashx" />
+    <Content Include="SetLogOnOff.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -159,6 +163,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetLogOnOff.ashx.cs">
+      <DependentUpon>GetLogOnOff.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="GetLogOnOffs.ashx.cs">
+      <DependentUpon>GetLogOnOffs.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -176,12 +186,8 @@
     <Compile Include="Reciver.ashx.cs">
       <DependentUpon>Reciver.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Settings.aspx.cs">
-      <DependentUpon>Settings.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Settings.aspx.designer.cs">
-      <DependentUpon>Settings.aspx</DependentUpon>
+    <Compile Include="SetLogOnOff.ashx.cs">
+      <DependentUpon>SetLogOnOff.ashx</DependentUpon>
     </Compile>
     <Compile Include="StatisticsViewer.ashx.cs">
       <DependentUpon>StatisticsViewer.ashx</DependentUpon>

@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Net;
-using System.Runtime.Caching;
 using System.Text;
 using System.Threading;
 
@@ -24,7 +23,6 @@ namespace Logging.Client
         /// 客户端是否启用日志
         /// </summary>
         private readonly static bool LoggingEnabled = Convert.ToBoolean(ConfigurationManager.AppSettings["LoggingEnabled"] ?? Settings.LoggingEnabled.ToString());
-
 
         static BaseLogger()
         {
@@ -53,6 +51,7 @@ namespace Logging.Client
                 block = new TimerActionBlock<ILogEntity>((buffer) =>
                 {
                     sender.Send(buffer);
+                    LogOnOffManager.RefreshLogOnOff();
                 }, LoggingQueueLength, LoggingBufferSize, LoggingBlockElapsed);
             }
             else
@@ -60,6 +59,7 @@ namespace Logging.Client
                 block = new ThreadedTimerActionBlock<ILogEntity>(LoggingTaskNum, (buffer) =>
                 {
                     sender.Send(buffer);
+                    LogOnOffManager.RefreshLogOnOff();
                 }, LoggingQueueLength, LoggingBufferSize, LoggingBlockElapsed);
             }
         }
@@ -129,7 +129,6 @@ namespace Logging.Client
             this.Error(ex, null);
         }
 
-
         public void Error(string title, Exception ex)
         {
             this.Error(title, GetExceptionMessage(ex), null);
@@ -139,7 +138,6 @@ namespace Logging.Client
         {
             this.Error(ex.Message, GetExceptionMessage(ex), tags);
         }
-
 
         public void Error(string title, Exception ex, Dictionary<string, string> tags)
         {
@@ -178,7 +176,6 @@ namespace Logging.Client
             //SysPoint();
         }
 
-
         protected LogEntity CreateLog(string source, string title, string message, Dictionary<string, string> tags, LogLevel level)
         {
             LogEntity log = new LogEntity();
@@ -192,13 +189,11 @@ namespace Logging.Client
             return log;
         }
 
-
-
         protected virtual void Log(string title, string message, Dictionary<string, string> tags, LogLevel level)
         {
             if (!LoggingEnabled) { return; }
 
-            LogOnOff onOff = GetLogOnOff();
+            LogOnOff onOff = LogOnOffManager.GetLogOnOff();
 
             if (level == LogLevel.Debug && onOff.Debug != 1) { return; }
             if (level == LogLevel.Info && onOff.Info != 1) { return; }
@@ -211,7 +206,6 @@ namespace Logging.Client
 
         public string GetLogs(long start, long end, int appId, int[] level = null, string title = "", string msg = "", string source = "", string ip = "", Dictionary<string, string> tags = null, int limit = 100)
         {
-
             string url = Settings.LoggingServerHost + "/LogViewer.ashx";
 
             StringBuilder query = new StringBuilder(url);
@@ -313,52 +307,6 @@ namespace Logging.Client
             }
 
             this.Error(title, message, tags_dic);
-        }
-
-
-        private static string LogOnOffCackeKey = "LoggingClient_LogOnOff";
-
-        private static int LogOnOffCackeTimeOut = 10;//单位:分钟
-
-        private static string GetLogOnOffUrl = Settings.LoggingServerHost + "/GetLogOnOff.ashx?appId=" + Settings.AppId;
-
-        /// <summary>
-        /// 获取服务端日志开关,10分钟缓存
-        /// </summary>
-        /// <returns></returns>
-        private static LogOnOff GetLogOnOff()
-        {
-            LogOnOff logOnOff = MemoryCache.Default.Get(LogOnOffCackeKey) as LogOnOff;
-            if (logOnOff == null)
-            {
-               
-                string resp = string.Empty;
-                using (WebClient _client = new WebClient())
-                {
-                    byte[] resp_byte = _client.DownloadData(GetLogOnOffUrl);
-                    resp = Encoding.UTF8.GetString(resp_byte);
-                }
-                if (!string.IsNullOrWhiteSpace(resp))
-                {
-                    logOnOff = new LogOnOff();
-                    string[] arr = resp.Split(',');
-                    logOnOff.Debug = Convert.ToByte(arr[0]);
-                    logOnOff.Info = Convert.ToByte(arr[1]);
-                    logOnOff.Warm = Convert.ToByte(arr[2]);
-                    logOnOff.Error = Convert.ToByte(arr[3]);
-                    MemoryCache.Default.Add(LogOnOffCackeKey, logOnOff, DateTimeOffset.Now.AddMinutes(LogOnOffCackeTimeOut));
-                }
-            }
-
-            if (logOnOff == null)
-            {
-                logOnOff = new LogOnOff();
-                logOnOff.Debug = 1;
-                logOnOff.Info = 1;
-                logOnOff.Warm = 1;
-                logOnOff.Error = 1;
-            }
-            return logOnOff;
         }
     }
 }

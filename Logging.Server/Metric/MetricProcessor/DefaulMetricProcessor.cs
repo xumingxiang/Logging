@@ -6,7 +6,7 @@ namespace Logging.Server.Metric.Processor
     /// <summary>
     /// 处理队列元素(日志)的处理器
     /// </summary>
-    internal class DefaulMetricProcessor : IMetricProcessor
+    public class DefaulMetricProcessor : IMetricProcessor
     {
         public void Process(IList<MetricEntity> logs)
         {

@@ -1,6 +1,6 @@
 ﻿namespace Logging.Server.Metric.Processor
 {
-    internal sealed class MetricProcessorManager
+    public sealed class MetricProcessorManager
     {
         private MetricProcessorManager()
         { }

@@ -36,7 +36,6 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -206,6 +205,7 @@
     <Compile Include="Logger\BaseLogger.cs" />
     <Compile Include="Logger\LoggingClientReport.cs" />
     <Compile Include="LogOnOff.cs" />
+    <Compile Include="LogOnOffManager.cs" />
     <Compile Include="LogSender\TSocketLogSender.cs" />
     <Compile Include="LogSender\LogSenderManager.cs" />
     <Compile Include="Settings.cs" />

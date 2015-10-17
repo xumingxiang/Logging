@@ -156,6 +156,7 @@ namespace Logging.Client
                     this.Report();
                 }
             }
+
         }
 
         private static readonly int ReportElapsed = 30;//报告时间间隔。单位：秒

@@ -1,4 +1,5 @@
-﻿using Logging.Server.Viewer;
+﻿using Logging.Server.Metric.Processor;
+using Logging.Server.Viewer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,19 @@ namespace Logging.Server.Site
             {
                 resp += on_off.Debug + "," + on_off.Info + "," + on_off.Warm + "," + on_off.Error;
             }
+
+            #region 计数
+            MetricEntity metric = new MetricEntity();
+            metric.Name = "logging_client_getLogOnOff_count";
+            metric.Time = Utils.GetTimeStamp(DateTime.Now) / 1000;
+            metric.Value = 1;
+            metric.Tags = new Dictionary<string, string>();
+            metric.Tags.Add("AppId", appId.ToString());
+            List<MetricEntity> metrics = new List<MetricEntity>();
+            metrics.Add(metric);
+            var metricProcessor = MetricProcessorManager.GetMetricProcessor();
+            metricProcessor.Process(metrics); 
+            #endregion
 
             context.Response.Write(resp);
         }

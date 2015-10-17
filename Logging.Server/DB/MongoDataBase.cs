@@ -23,7 +23,7 @@ namespace Logging.Server.DB
             {
                 var mongo = System.Configuration.ConfigurationManager.AppSettings["Mongo"];
                 _client = new MongoClient(mongo);
-                _client.Settings.WriteConcern = WriteConcern.Acknowledged;
+                _client.Settings.WriteConcern = WriteConcern.Unacknowledged;
             }
             return _client;
         }

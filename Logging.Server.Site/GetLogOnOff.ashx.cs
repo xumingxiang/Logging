@@ -3,6 +3,7 @@ using Logging.Server.Viewer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace Logging.Server.Site
@@ -16,27 +17,31 @@ namespace Logging.Server.Site
         public void ProcessRequest(HttpContext context)
         {
             int appId = Convert.ToInt32(context.Request["appId"]);
-            var on_off = LogViewerManager.GetLogViewer().GetLogOnOff(appId);
 
             string resp = string.Empty;
-            if (on_off != null)
+
+            Parallel.Invoke(() =>
             {
-                resp += on_off.Debug + "," + on_off.Info + "," + on_off.Warm + "," + on_off.Error;
-            }
-
-            #region 计数
-            MetricEntity metric = new MetricEntity();
-            metric.Name = "logging_client_getLogOnOff_count";
-            metric.Time = Utils.GetTimeStamp(DateTime.Now) / 1000;
-            metric.Value = 1;
-            metric.Tags = new Dictionary<string, string>();
-            metric.Tags.Add("AppId", appId.ToString());
-            List<MetricEntity> metrics = new List<MetricEntity>();
-            metrics.Add(metric);
-            var metricProcessor = MetricProcessorManager.GetMetricProcessor();
-            metricProcessor.Process(metrics); 
-            #endregion
-
+                var on_off = LogViewerManager.GetLogViewer().GetLogOnOff(appId);
+                if (on_off != null)
+                {
+                    resp += on_off.Debug + "," + on_off.Info + "," + on_off.Warm + "," + on_off.Error;
+                }
+            }, () =>
+            {
+                #region 计数
+                MetricEntity metric = new MetricEntity();
+                metric.Name = "logging_client_getLogOnOff_count";
+                metric.Time = Utils.GetTimeStamp(DateTime.Now) / 1000;
+                metric.Value = 1;
+                metric.Tags = new Dictionary<string, string>();
+                metric.Tags.Add("AppId", appId.ToString());
+                List<MetricEntity> metrics = new List<MetricEntity>();
+                metrics.Add(metric);
+                var metricProcessor = MetricProcessorManager.GetMetricProcessor();
+                metricProcessor.Process(metrics);
+                #endregion
+            });
             context.Response.Write(resp);
         }
 

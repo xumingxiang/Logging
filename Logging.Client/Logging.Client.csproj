@@ -206,6 +206,7 @@
     <Compile Include="Logger\LoggingClientReport.cs" />
     <Compile Include="LogOnOff.cs" />
     <Compile Include="LogOnOffManager.cs" />
+    <Compile Include="LogSender\LogSenderResult.cs" />
     <Compile Include="LogSender\TSocketLogSender.cs" />
     <Compile Include="LogSender\LogSenderManager.cs" />
     <Compile Include="Settings.cs" />
@@ -220,6 +221,11 @@
     <Compile Include="Logger\TimerActionBlock.cs" />
     <Compile Include="Logger\ThreadedTimerActionBlock.cs" />
     <Compile Include="Utils.cs" />
+    <Compile Include="WebClientEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Error.cs" />
+    <Compile Include="HttpContextExtensions.cs" />
     <Compile Include="Widgets\HttpUnhandledExceptionAggregater.cs" />
     <Compile Include="Widgets\IWidget.cs" />
   </ItemGroup>

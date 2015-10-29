@@ -24,6 +24,7 @@ namespace Logging.Client
             var tags = new Dictionary<string, string>();
             tags.Add("type", "one_minute_err");
             logger.Error("Logging_Client_Report", msg, tags);
+            logger.Metric("logging_client_err", count);
         }
 
         /// <summary>

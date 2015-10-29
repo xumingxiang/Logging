@@ -16,9 +16,9 @@ namespace Logging.Client.Widgets
     {
         readonly static ILog logger = LogManager.GetLogger(typeof(HttpUnhandledExceptionAggregater));
 
-        private int ReportCount { get;  set; }
+        private int ReportCount { get; set; }
 
-        private int ReportElapsed { get;  set; }
+        private int ReportElapsed { get; set; }
 
         private DateTime LastReportTime { get; set; }
 
@@ -31,7 +31,7 @@ namespace Logging.Client.Widgets
         {
             this.ReportCount = reportCount;
             this.ReportElapsed = reportElapsed;
-            this.ErrorCollection = new ConcurrentDictionary<string, Tuple<int, Exception>>();
+            this.ErrorCollection = new ConcurrentDictionary<string, Tuple<int, string, string>>();
             this.ErrorCount = 0;
             this.LastReportTime = DateTime.Now;
         }
@@ -40,7 +40,7 @@ namespace Logging.Client.Widgets
 
         private int ErrorCount;
 
-        private ConcurrentDictionary<string, Tuple<int, Exception>> ErrorCollection { get; set; }
+        private ConcurrentDictionary<string, Tuple<int, string, string>> ErrorCollection { get; set; }
 
         //  readonly  object lockthis = new object();
 
@@ -49,19 +49,22 @@ namespace Logging.Client.Widgets
             try
             {
                 var url = HttpContext.Current.Request.Url;
-                Exception ex = HttpContext.Current.Server.GetLastError();
+
+
                 string key = url.Scheme + "://" + url.Authority + url.AbsolutePath;
 
-                Tuple<int, Exception> item_ex;
+                Tuple<int, string, string> item_ex;
 
                 var has = this.ErrorCollection.TryGetValue(key, out item_ex);
                 if (has)
                 {
-                    this.ErrorCollection[key] = new Tuple<int, Exception>(item_ex.Item1 + 1, ex);
+                    this.ErrorCollection[key] = new Tuple<int, string, string>(item_ex.Item1 + 1, item_ex.Item2, item_ex.Item3);
                 }
                 else
                 {
-                    this.ErrorCollection.TryAdd(key, new Tuple<int, Exception>(1, ex));
+                    Exception ex = HttpContext.Current.Server.GetLastError();
+                    string ex_msg = new Error(ex, new HttpContextWrapper(HttpContext.Current)).ToString();
+                    this.ErrorCollection.TryAdd(key, new Tuple<int, string, string>(1, ex.Message, ex_msg));
                 }
 
                 Interlocked.Increment(ref this.ErrorCount);
@@ -73,7 +76,7 @@ namespace Logging.Client.Widgets
                         log_tags.Add("url", err.Key);
                         log_tags.Add("count", err.Value.Item1.ToString());
                         log_tags.Add("widgets", "HttpUnhandledExceptionAggregater");
-                        logger.Error(err.Value.Item2.Message + "(" + err.Value.Item1.ToString() + ")", err.Value.Item2, log_tags);
+                        logger.Error(err.Value.Item2 + "(" + err.Value.Item1.ToString() + ")", err.Value.Item3, log_tags);
                     }
                     logger.Metric("HttpUnhandledException", this.ErrorCount);
                     this.ErrorCollection.Clear();
@@ -81,7 +84,7 @@ namespace Logging.Client.Widgets
                     this.LastReportTime = DateTime.Now;
                 }
             }
-            catch 
+            catch
             {
 
             }

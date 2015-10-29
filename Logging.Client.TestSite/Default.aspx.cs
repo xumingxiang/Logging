@@ -18,7 +18,7 @@ namespace Logging.Client.TestSite
             logger.Info("aabbbbbcc", "test");
             logger.Warm("test", "大大的打算打算大大", null);
             logger.Error("test", "大大的打算打算大大", null);
-            return;
+          //  return;
             for (int i = 1; i < 6; i++)
             {
                 Dictionary<string, string> tags2 = new Dictionary<string, string>();

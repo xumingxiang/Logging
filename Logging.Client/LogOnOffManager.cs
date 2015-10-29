@@ -31,23 +31,26 @@ namespace Logging.Client
             return logOnOff;
         }
 
+        private static readonly object lockthis = new object();
+
         /// <summary>
         /// 从服务端获取并刷新日志开关,10分钟缓存
         /// </summary>
         /// <returns></returns>
         public static void RefreshLogOnOff()
         {
-            if ((DateTime.Now - LastUpdateTime).TotalMinutes < LogOnOffCackeTimeOut)
-            {
-                return;
-            }
+            if ((DateTime.Now - LastUpdateTime).TotalMinutes < LogOnOffCackeTimeOut) { return; }
 
             string resp = string.Empty;
-            using (WebClient _client = new WebClient())
+            try
             {
-                byte[] resp_byte = _client.DownloadData(GetLogOnOffUrl);
-                resp = Encoding.UTF8.GetString(resp_byte);
+                using (WebClient _client = new WebClientEx(10 * 1000))
+                {
+                    byte[] resp_byte = _client.DownloadData(GetLogOnOffUrl);
+                    resp = Encoding.UTF8.GetString(resp_byte);
+                }
             }
+            catch { }
             if (!string.IsNullOrWhiteSpace(resp))
             {
                 logOnOff = new LogOnOff();
@@ -56,9 +59,8 @@ namespace Logging.Client
                 logOnOff.Info = Convert.ToByte(arr[1]);
                 logOnOff.Warm = Convert.ToByte(arr[2]);
                 logOnOff.Error = Convert.ToByte(arr[3]);
-
-                LastUpdateTime = DateTime.Now;
             }
+            LastUpdateTime = DateTime.Now;
         }
     }
 }

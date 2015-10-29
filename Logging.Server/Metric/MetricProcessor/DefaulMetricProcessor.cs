@@ -12,7 +12,7 @@ namespace Logging.Server.Metric.Processor
         {
             InfluxdbReport report = new InfluxdbReport();
 
-            report.Write(logs);
+            report.WriteAsync(logs);
         }
     }
 }

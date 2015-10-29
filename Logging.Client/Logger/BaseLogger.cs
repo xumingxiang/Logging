@@ -5,10 +5,11 @@ using System.Configuration;
 using System.Net;
 using System.Text;
 using System.Threading;
+using System.Web;
 
 namespace Logging.Client
 {
-    internal abstract class BaseLogger : ILog
+    internal abstract partial class BaseLogger : ILog
     {
         private static ITimerActionBlock<ILogEntity> block;
 
@@ -131,18 +132,29 @@ namespace Logging.Client
 
         public void Error(string title, Exception ex)
         {
-            this.Error(title, GetExceptionMessage(ex), null);
+            this.Error(title, ex, null);
         }
 
         public void Error(Exception ex, Dictionary<string, string> tags)
         {
-            this.Error(ex.Message, GetExceptionMessage(ex), tags);
+            this.Error(ex.Message, ex, tags);
         }
 
         public void Error(string title, Exception ex, Dictionary<string, string> tags)
         {
-            this.Error(title, GetExceptionMessage(ex), tags);
+            string err_msg = string.Empty;
+            if (HttpContext.Current == null)
+            {
+                err_msg = new Error(ex,null).ToString();
+            }
+            else
+            {
+                err_msg = new Error(ex, new HttpContextWrapper(HttpContext.Current)).ToString();
+            }
+            this.Error(title, err_msg, tags);
         }
+
+
 
         private string GetExceptionMessage(Exception ex)
         {
@@ -174,6 +186,11 @@ namespace Logging.Client
             block.Enqueue(Metric);
             //PrivatePoint(name, value, tags);
             //SysPoint();
+        }
+
+        public void Metric(string name, Dictionary<string, string> tags = null)
+        {
+            Metric(name, 1, tags);
         }
 
         protected LogEntity CreateLog(string source, string title, string message, Dictionary<string, string> tags, LogLevel level)

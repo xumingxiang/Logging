@@ -45,63 +45,8 @@ namespace Logging.Client
             return !string.IsNullOrEmpty(ip) ? ip : UnknownIP;
         }
 
-        /// <summary>
-        /// 获取客户端IP
-        /// </summary>
-        /// <returns></returns>
-        public static string GetClientIP(this HttpContextBase ctx)
-        {
-            string ip = null;
-            if (ctx.Request.ServerVariables["HTTP_X_FORWARDED_FOR"] != null)
-            {
-                ip = ctx.Request.ServerVariables["HTTP_X_FORWARDED_FOR"].ToString().Split(',')[0].Trim();
-            }
-            else
-            {
-                ip = ctx.Request.UserHostAddress;
-            }
-            return ip;
-        }
-
-        /// <summary>
-        /// 获取客户端IP地址
-        /// </summary>
-        /// <returns></returns>
-        public static string GetClientIPAddress()
-        {
-            string clientIP = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-            if (string.IsNullOrEmpty(clientIP))
-            {
-                clientIP = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-            }
-
-
-            if (!string.IsNullOrEmpty(clientIP))
-                return clientIP;
-            else
-                return "127.0.0.1";
-        }
-
-        /// <summary>
-        /// 检查IP地址格式
-        /// </summary>
-        /// <param name="ip"></param>
-        /// <returns></returns>
-        public static bool IsIP(string ip)
-        {
-            return System.Text.RegularExpressions.Regex.IsMatch(ip, @"^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$");
-        }
-
-        public static string GetClientIP(this HttpContext ctx)
-        {
-            return GetClientIP(new HttpContextWrapper(ctx));
-        }
-
-        public static string GetClientIP(this HttpRequestBase hrb)
-        {
-            return GetClientIP(hrb.RequestContext.HttpContext);
-        }
-
+       
+      
         #endregion
     }
 }

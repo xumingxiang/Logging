@@ -10,9 +10,11 @@ namespace Logging.Client
         {
         }
 
-        private readonly static int LogOnOffCackeTimeOut = 10;//单位:分钟
+        private readonly static int LogOnOffCacheTimeOut = 10;//单位:分钟
 
         private readonly static string GetLogOnOffUrl = Settings.LoggingServerHost + "/GetLogOnOff.ashx?appId=" + Settings.AppId;
+
+        private readonly static LogOnOff Default = new LogOnOff { Debug = 1, Error = 1, Info = 1, Warm = 1 };
 
         private static DateTime LastUpdateTime;
 
@@ -20,18 +22,9 @@ namespace Logging.Client
 
         public static LogOnOff GetLogOnOff()
         {
-            if (logOnOff == null)
-            {
-                logOnOff = new LogOnOff();
-                logOnOff.Debug = 1;
-                logOnOff.Info = 1;
-                logOnOff.Warm = 1;
-                logOnOff.Error = 1;
-            }
+            if (logOnOff == null) { return Default; }
             return logOnOff;
         }
-
-        private static readonly object lockthis = new object();
 
         /// <summary>
         /// 从服务端获取并刷新日志开关,10分钟缓存
@@ -39,7 +32,7 @@ namespace Logging.Client
         /// <returns></returns>
         public static void RefreshLogOnOff()
         {
-            if ((DateTime.Now - LastUpdateTime).TotalMinutes < LogOnOffCackeTimeOut) { return; }
+            if ((DateTime.Now - LastUpdateTime).TotalMinutes < LogOnOffCacheTimeOut) { return; }
 
             string resp = string.Empty;
             try

@@ -14,7 +14,7 @@ namespace Logging.Server.Site
 
         public void ProcessRequest(HttpContext context)
         {
-            var on_offs = LogViewerManager.GetLogViewer().GetALLLogOnOff();
+            var on_offs = LogOnOffManager.GetALLLogOnOff();
             context.Response.ContentType = "text/plain";
             context.Response.Write(Newtonsoft.Json.JsonConvert.SerializeObject(on_offs));
         }

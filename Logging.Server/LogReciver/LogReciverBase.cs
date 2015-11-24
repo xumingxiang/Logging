@@ -116,7 +116,9 @@ namespace Logging.Server.Reciver
         public void Log(TLogPackage logPackage)
         {
             int over_count = queue.Enqueue(logPackage);
-
+            
+            //sizeof(logPackage)
+            //logPackage.
             #region 溢出处理
 
             if (over_count > 0)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Thrift;
 
 namespace Logging.Client
 {
@@ -47,6 +48,18 @@ namespace Logging.Client
 
             logger.Error("Logging_Client_Report", msg, over_log_tags);
             FileLogger.Log(msg);
+        }
+
+        /// <summary>
+        /// 报告传输数据Size溢出
+        /// </summary>
+        public static void ReportTransOver(TTransportDataSizeOverflowException tdoe)
+        {
+            if (tdoe == null) { return; }
+            var over_log_tags = new Dictionary<string, string>();
+            over_log_tags.Add("type", "logging_client_trans_over");
+            logger.Error("Logging_Client_Report", tdoe.Message, over_log_tags);
+            FileLogger.Log(tdoe);
         }
     }
 }

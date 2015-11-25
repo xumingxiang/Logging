@@ -12,7 +12,7 @@ namespace Logging.Client
     /// </summary>
     internal class TSocketLogSender : LogSenderBase
     {
-        public override void Send(IList<ILogEntity> logEntities)
+        public override long Send(IList<ILogEntity> logEntities)
         {
             //if (logEntities == null || logEntities.Count <= 0) { return; }
             //var _logEntities = new List<TLogEntity>();
@@ -41,7 +41,8 @@ namespace Logging.Client
             //transport.Open();
             //client.Log(logPackage);
             //transport.Close();
-           
+            throw new NotImplementedException();
+
         }
     }
 }

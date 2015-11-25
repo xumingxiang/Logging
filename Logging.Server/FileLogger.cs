@@ -15,7 +15,7 @@ namespace Logging.Server
         static DateTime _lastTime = DateTime.MinValue;
         static TimeSpan _flushInterval = new TimeSpan(0, 1, 0);
 
-        const string log_path = "d:\\log\\Logging_Server\\";
+        const string log_path = "c:\\log\\Logging_Server\\";
 
         static string _getLogPath()
         {

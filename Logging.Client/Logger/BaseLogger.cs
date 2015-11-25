@@ -25,6 +25,9 @@ namespace Logging.Client
         /// </summary>
         private readonly static bool LoggingEnabled = Convert.ToBoolean(ConfigurationManager.AppSettings["LoggingEnabled"] ?? Settings.LoggingEnabled.ToString());
 
+
+        private static LogSenderBase sender = LogSenderManager.GetLogSender();
+
         static BaseLogger()
         {
             if (!LoggingEnabled) { return; }
@@ -45,24 +48,29 @@ namespace Logging.Client
 
             if (LoggingBlockElapsed <= 0) { LoggingBlockElapsed = Settings.DefaultLoggingBlockElapsed; }
 
-            LogSenderBase sender = LogSenderManager.GetLogSender();
+
 
             if (LoggingTaskNum == 1)
             {
                 block = new TimerActionBlock<ILogEntity>((buffer) =>
                 {
-                    sender.Send(buffer);
-                    LogOnOffManager.RefreshLogOnOff();
+                    Send(buffer);
                 }, LoggingQueueLength, LoggingBufferSize, LoggingBlockElapsed);
             }
             else
             {
                 block = new ThreadedTimerActionBlock<ILogEntity>(LoggingTaskNum, (buffer) =>
                 {
-                    sender.Send(buffer);
-                    LogOnOffManager.RefreshLogOnOff();
+                    Send(buffer);
                 }, LoggingQueueLength, LoggingBufferSize, LoggingBlockElapsed);
             }
+        }
+
+        private static void Send(IList<ILogEntity> buffer)
+        {
+            long size = sender.Send(buffer);
+            LogOnOffManager.RefreshLogOnOff();
+            PrivateMetric("logging_client_send_data_size", size);
         }
 
         public void Debug(string message)
@@ -145,7 +153,7 @@ namespace Logging.Client
             string err_msg = string.Empty;
             if (HttpContext.Current == null)
             {
-                err_msg = new Error(ex,null).ToString();
+                err_msg = new Error(ex, null).ToString();
             }
             else
             {
@@ -174,19 +182,23 @@ namespace Logging.Client
             return sb.ToString();
         }
 
-        public void Metric(string name, double value, Dictionary<string, string> tags = null)
+        private static void PrivateMetric(string name, double value, Dictionary<string, string> tags = null)
         {
             if (!LoggingEnabled) { return; }
-
             var Metric = new MetricEntity();
             Metric.Name = name;
             Metric.Value = value;
             Metric.Tags = tags;
             Metric.Time = Utils.GetUnixTime(DateTime.Now);
             block.Enqueue(Metric);
-            //PrivatePoint(name, value, tags);
-            //SysPoint();
         }
+
+        public void Metric(string name, double value, Dictionary<string, string> tags = null)
+        {
+            PrivateMetric(name, value, tags);
+        }
+
+
 
         public void Metric(string name, Dictionary<string, string> tags = null)
         {

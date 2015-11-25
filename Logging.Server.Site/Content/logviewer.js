@@ -28,8 +28,8 @@ $(function () {
     }
 
     function htmlEncodeByRegExp(str) {
+        if (!str || str.length == 0) return "";
         var s = "";
-        if (!!str && str.length == 0) return "";
         s = str.replace(/&/g, "&amp;");
         s = s.replace(/</g, "&lt;");
         s = s.replace(/>/g, "&gt;");

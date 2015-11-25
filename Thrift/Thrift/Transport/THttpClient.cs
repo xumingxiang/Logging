@@ -169,6 +169,12 @@ namespace Thrift.Transport
 
                 byte[] data = outputStream.ToArray();
                 connection.ContentLength = data.Length;
+                this.DataSize = data.Length;
+                if (this.DataSizeLimit > 0 && this.DataSize > this.DataSizeLimit)
+                {
+                    throw new TTransportDataSizeOverflowException(this.DataSize, this.DataSizeLimit);
+                }
+
 
                 using (Stream requestStream = connection.GetRequestStream())
                 {
@@ -188,12 +194,16 @@ namespace Thrift.Transport
                             int bytesRead;
                             while ((bytesRead = responseStream.Read(buffer, 0, buffer.Length)) > 0)
                             {
-                                inputStream.Write (buffer, 0, bytesRead);
+                                inputStream.Write(buffer, 0, bytesRead);
                             }
                             inputStream.Seek(0, 0);
                         }
                     }
                 }
+            }
+            catch (TTransportDataSizeOverflowException tdoe)
+            {
+                throw tdoe;
             }
             catch (IOException iox)
             {

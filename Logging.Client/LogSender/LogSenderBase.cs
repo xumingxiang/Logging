@@ -11,7 +11,7 @@ namespace Logging.Client
     {
         protected static int SENDER_TIMEOUT = 5000;
 
-        public abstract void Send(IList<ILogEntity> logEntities);
+        public abstract long Send(IList<ILogEntity> logEntities);
 
 
         protected TLogPackage CreateLogPackage(IList<ILogEntity> logEntities)

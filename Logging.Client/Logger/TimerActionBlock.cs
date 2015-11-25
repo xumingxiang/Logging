@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Thrift;
 
 namespace Logging.Client
 {
@@ -75,7 +76,7 @@ namespace Logging.Client
             this.Action = action;
             this.QueueMaxLength = queueMaxLength;
             this.Task = Task.Factory.StartNew(this.DequeueProcess);
-           
+
         }
 
         ///// <summary>
@@ -145,6 +146,12 @@ namespace Logging.Client
                     Thread.ResetAbort();
                     this.ExceptionCount += 1;
                     this.LastException = tae;
+                }
+                catch (TTransportDataSizeOverflowException tdoe)
+                {
+                    this.ExceptionCount += 1;
+                    this.LastException = tdoe;
+                    LoggingClientReport.ReportTransOver(tdoe);
                 }
                 catch (Exception ex)
                 {

@@ -31,10 +31,23 @@ namespace Thrift
         {
         }
 
-        public TException( string message)
+        public TException(string message)
             : base(message)
         {
         }
+    }
 
+    public class TTransportDataSizeOverflowException : TException
+    {
+        public long DataSize { get; set; }
+
+        public long DataSizeLimit { get; set; }
+
+        public TTransportDataSizeOverflowException(long dataSize, long dataSizeLimit)
+            : base("传输数据Size:" + dataSize + ",超过上限:" + dataSizeLimit)
+        {
+            this.DataSizeLimit = dataSizeLimit;
+            this.DataSize = dataSize;
+        }
     }
 }

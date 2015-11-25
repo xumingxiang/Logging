@@ -87,14 +87,15 @@ namespace Logging.Server
                     //  Console.WriteLine("again");
 
                 }
-                catch (ThreadAbortException)
+                catch (ThreadAbortException tae)
                 {
                     Thread.ResetAbort();
+                    FileLogger.Log(tae);
                     //do exception...
                 }
                 catch (Exception ex)
                 {
-
+                    FileLogger.Log(ex);
                 }
             }
         }

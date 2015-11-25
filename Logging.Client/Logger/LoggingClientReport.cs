@@ -18,13 +18,14 @@ namespace Logging.Client
         public static void ReportException(Exception ex, int count)
         {
             if (count <= 0) { return; }
-            string msg = "最近一分钟该应用内(" + Settings.AppId + ")Logging.Client发生" + count + "条异常数量";
+            string msg = "最近一分钟内该应用(" + Settings.AppId + ")Logging.Client发生" + count + "条异常数量";
             msg += "</br>";
             msg += "最近一条异常:" + ex.ToString();
             var tags = new Dictionary<string, string>();
             tags.Add("type", "one_minute_err");
             logger.Error("Logging_Client_Report", msg, tags);
             logger.Metric("logging_client_err", count);
+            FileLogger.Log(msg);
         }
 
         /// <summary>
@@ -36,7 +37,7 @@ namespace Logging.Client
         public static void ReportOver(int over_count, int currentQueneLength, int maxQueueLength)
         {
             if (over_count <= 0) { return; }
-            string msg = "最近一分钟该应用内(" + Settings.AppId + ")发生Logging_Client_Over溢出数量:" + over_count + " 。 建议增加 LoggingQueueLength 和配置值。";
+            string msg = "最近一分钟内该应用(" + Settings.AppId + ")发生Logging_Client_Over溢出数量:" + over_count + " 。 建议增加 LoggingQueueLength 和配置值。";
             msg += "</br>";
             msg += "CurrentQueneLength:" + currentQueneLength + "</br>";
             msg += "</br>";
@@ -45,7 +46,7 @@ namespace Logging.Client
             over_log_tags.Add("type", "logging_client_over");
 
             logger.Error("Logging_Client_Report", msg, over_log_tags);
-
+            FileLogger.Log(msg);
         }
     }
 }

@@ -64,9 +64,9 @@ namespace Logging.Client
         public static int AppId = Convert.ToInt32(ConfigurationManager.AppSettings["AppId"] ?? "0");
 
         /// <summary>
-        /// 默认日志队列最大长度：100000
+        /// 默认日志队列最大长度：50000
         /// </summary>
-        public readonly static int DefaultLoggingQueueLength = 100000;
+        public readonly static int DefaultLoggingQueueLength = 50000;
 
         /// <summary>
         /// 默认日志打包大小：300

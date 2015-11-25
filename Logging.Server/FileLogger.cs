@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Logging.Client
+namespace Logging.Server
 {
     internal static class FileLogger
     {
@@ -15,7 +15,7 @@ namespace Logging.Client
         static DateTime _lastTime = DateTime.MinValue;
         static TimeSpan _flushInterval = new TimeSpan(0, 1, 0);
 
-        const string log_path = "d:\\log\\Logging_Client\\";
+        const string log_path = "d:\\log\\Logging_Server\\";
 
         static string _getLogPath()
         {

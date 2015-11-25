@@ -219,6 +219,7 @@
     </Compile>
     <Compile Include="BlockingActionQueue.cs" />
     <Compile Include="DB\MongoDataBase.cs" />
+    <Compile Include="FileLogger.cs" />
     <Compile Include="LogOnOff.cs" />
     <Compile Include="LogOnOffManager.cs" />
     <Compile Include="LogReciver\HttpReciver.cs" />

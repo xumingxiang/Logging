@@ -22,14 +22,14 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net;
-using System.Threading;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Threading;
 
 namespace Thrift.Transport
 {
-
     public class THttpClient : TTransport, IDisposable
     {
         private readonly Uri uri;
@@ -63,7 +63,7 @@ namespace Thrift.Transport
         {
             set
             {
-               connectTimeout = value;
+                connectTimeout = value;
             }
         }
 
@@ -84,6 +84,7 @@ namespace Thrift.Transport
         }
 
 #if !SILVERLIGHT
+
         public IWebProxy Proxy
         {
             set
@@ -91,6 +92,7 @@ namespace Thrift.Transport
                 proxy = value;
             }
         }
+
 #endif
 
         public override bool IsOpen
@@ -149,6 +151,7 @@ namespace Thrift.Transport
         }
 
 #if !SILVERLIGHT
+
         public override void Flush()
         {
             try
@@ -174,7 +177,6 @@ namespace Thrift.Transport
                 {
                     throw new TTransportDataSizeOverflowException(this.DataSize, this.DataSizeLimit);
                 }
-
 
                 using (Stream requestStream = connection.GetRequestStream())
                 {
@@ -211,14 +213,34 @@ namespace Thrift.Transport
             }
             catch (WebException wx)
             {
-                throw new TTransportException(TTransportException.ExceptionType.Unknown, "Couldn't connect to server: " + wx);
+                string wx_context = "Couldn't connect to server: " + wx;
+                if (wx != null && wx.Response != null)
+                {
+                    using (var responseStream = wx.Response.GetResponseStream())
+                    {
+                        using (var sr = new StreamReader(responseStream, Encoding.UTF8))
+                        {
+                            StringBuilder sb = new StringBuilder();
+                            char[] c = null;
+                            while (sr.Peek() >= 0)
+                            {
+                                c = new char[128];
+                                sr.Read(c, 0, c.Length);
+                                sb.Append(c);
+                            }
+                            wx_context = sb.ToString();
+                        }
+                    }
+                }
+                throw new TTransportException(TTransportException.ExceptionType.Unknown, wx_context);
             }
         }
+
 #endif
+
         private HttpWebRequest CreateRequest()
         {
             HttpWebRequest connection = (HttpWebRequest)WebRequest.Create(uri);
-
 
 #if !SILVERLIGHT
             // Adding certificates through code is not supported with WP7 Silverlight
@@ -275,10 +297,8 @@ namespace Thrift.Transport
 
                 flushAsyncResult.Data = data;
 
-
                 flushAsyncResult.Connection.BeginGetRequestStream(GetRequestStreamCallback, flushAsyncResult);
                 return flushAsyncResult;
-
             }
             catch (IOException iox)
             {
@@ -290,7 +310,7 @@ namespace Thrift.Transport
         {
             try
             {
-                var flushAsyncResult = (FlushAsyncResult) asyncResult;
+                var flushAsyncResult = (FlushAsyncResult)asyncResult;
 
                 if (!flushAsyncResult.IsCompleted)
                 {
@@ -303,11 +323,11 @@ namespace Thrift.Transport
                 {
                     throw flushAsyncResult.AsyncException;
                 }
-            } finally
+            }
+            finally
             {
                 outputStream = new MemoryStream();
             }
-
         }
 
         private void GetRequestStreamCallback(IAsyncResult asynchronousResult)
@@ -347,7 +367,7 @@ namespace Thrift.Transport
         }
 
         // Based on http://msmvps.com/blogs/luisabreu/archive/2009/06/15/multithreading-implementing-the-iasyncresult-interface.aspx
-        class FlushAsyncResult : IAsyncResult
+        private class FlushAsyncResult : IAsyncResult
         {
             private volatile Boolean _isCompleted;
             private ManualResetEvent _evt;
@@ -368,19 +388,24 @@ namespace Thrift.Transport
             {
                 get { return _state; }
             }
+
             public WaitHandle AsyncWaitHandle
             {
                 get { return GetEvtHandle(); }
             }
+
             public bool CompletedSynchronously
             {
                 get { return false; }
             }
+
             public bool IsCompleted
             {
                 get { return _isCompleted; }
             }
+
             private readonly Object _locker = new Object();
+
             private ManualResetEvent GetEvtHandle()
             {
                 lock (_locker)
@@ -396,6 +421,7 @@ namespace Thrift.Transport
                 }
                 return _evt;
             }
+
             internal void UpdateStatusToComplete()
             {
                 _isCompleted = true; //1. set _iscompleted to true
@@ -417,7 +443,8 @@ namespace Thrift.Transport
             }
         }
 
-#region " IDisposable Support "
+        #region " IDisposable Support "
+
         private bool _IsDisposed;
 
         // IDisposable
@@ -435,6 +462,7 @@ namespace Thrift.Transport
             }
             _IsDisposed = true;
         }
-#endregion
+
+        #endregion " IDisposable Support "
     }
 }

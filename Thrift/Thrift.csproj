@@ -44,6 +44,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Thrift\Collections\TCollections.cs" />
     <Compile Include="Thrift\Collections\THashSet.cs" />
+    <Compile Include="Thrift\TMemoryStream.cs" />
     <Compile Include="Thrift\Protocol\TAbstractBase.cs" />
     <Compile Include="Thrift\Protocol\TBase.cs" />
     <Compile Include="Thrift\Protocol\TBase64Utils.cs" />

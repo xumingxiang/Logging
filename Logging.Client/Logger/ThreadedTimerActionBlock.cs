@@ -140,9 +140,9 @@ namespace Logging.Client
                 }
                 catch (TTransportDataSizeOverflowException tdoe)
                 {
-                    this.ExceptionCount += 1;
+                    Interlocked.Increment(ref this.ExceptionCount);
                     this.LastException = tdoe;
-                    LoggingClientReport.ReportTransOver(tdoe);
+                    LoggingClientReport.ReportTransportOver(tdoe);
                 }
                 catch (Exception ex)
                 {

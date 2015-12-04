@@ -151,7 +151,7 @@ namespace Logging.Client
                 {
                     this.ExceptionCount += 1;
                     this.LastException = tdoe;
-                    LoggingClientReport.ReportTransOver(tdoe);
+                    LoggingClientReport.ReportTransportOver(tdoe);
                 }
                 catch (Exception ex)
                 {

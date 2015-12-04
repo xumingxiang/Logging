@@ -23,7 +23,9 @@ namespace Logging.Client
         }
         static string _getLogFileName()
         {
-            return Path.Combine(log_path, DateTime.Now.ToString("yyyyMMdd") + ".txt");
+            var now = DateTime.Now;
+
+            return Path.Combine(log_path, now.ToString("yyyyMMdd")+"\\"+ now.ToString("yyyyMMddHH") + ".txt");
         }
 
         static string _logCurrentTime()

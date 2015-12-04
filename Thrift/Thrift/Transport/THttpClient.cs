@@ -35,7 +35,7 @@ namespace Thrift.Transport
         private readonly Uri uri;
         private readonly X509Certificate[] certificates;
         private Stream inputStream;
-        private MemoryStream outputStream = new MemoryStream();
+        private TMemoryStream outputStream = new TMemoryStream();
 
         // Timeouts in milliseconds
         private int connectTimeout = 30000;
@@ -160,7 +160,7 @@ namespace Thrift.Transport
             }
             finally
             {
-                outputStream = new MemoryStream();
+                outputStream = new TMemoryStream();
             }
         }
 
@@ -326,7 +326,7 @@ namespace Thrift.Transport
             }
             finally
             {
-                outputStream = new MemoryStream();
+                outputStream = new TMemoryStream();
             }
         }
 

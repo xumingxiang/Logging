@@ -163,6 +163,9 @@
     <Compile Include="..\thrift\thrift\TException.cs">
       <Link>Thrift\TException.cs</Link>
     </Compile>
+    <Compile Include="..\Thrift\Thrift\TMemoryStream.cs">
+      <Link>TMemoryStream.cs</Link>
+    </Compile>
     <Compile Include="..\thrift\thrift\TProcessor.cs">
       <Link>Thrift\TProcessor.cs</Link>
     </Compile>

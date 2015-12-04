@@ -14,7 +14,7 @@ namespace Logging.Client
     {
         private readonly static string loggingServerHost = Settings.LoggingServerHost;
         private readonly static Uri uri = new Uri(loggingServerHost + "/Reciver.ashx");
-        private readonly static long TransDataSizeLimit = 10 * 1024 * 1024L;
+        private readonly static long TransDataSizeLimit = 1 * 1024 * 1024L;
         public override long Send(IList<ILogEntity> logEntities)
         {
             if (logEntities == null || logEntities.Count <= 0) { return 0; }

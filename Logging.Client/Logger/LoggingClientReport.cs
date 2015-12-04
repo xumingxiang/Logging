@@ -53,7 +53,7 @@ namespace Logging.Client
         /// <summary>
         /// 报告传输数据Size溢出
         /// </summary>
-        public static void ReportTransOver(TTransportDataSizeOverflowException tdoe)
+        public static void ReportTransportOver(TTransportDataSizeOverflowException tdoe)
         {
             if (tdoe == null) { return; }
             var over_log_tags = new Dictionary<string, string>();

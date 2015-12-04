@@ -11,6 +11,8 @@ namespace Logging.Client
     {
         private static ILog logger = LogManager.GetLogger(typeof(LoggingClientReport));
 
+        private static FileLogger fileLogger = new FileLogger(Settings.AppId);
+
         /// <summary>
         /// 报告异常
         /// </summary>
@@ -26,7 +28,7 @@ namespace Logging.Client
             tags.Add("type", "one_minute_err");
             logger.Error("Logging_Client_Report", msg, tags);
             logger.Metric("logging_client_err", count);
-            FileLogger.Log(msg);
+            fileLogger.Log(msg);
         }
 
         /// <summary>
@@ -47,7 +49,7 @@ namespace Logging.Client
             over_log_tags.Add("type", "logging_client_over");
 
             logger.Error("Logging_Client_Report", msg, over_log_tags);
-            FileLogger.Log(msg);
+            fileLogger.Log(msg);
         }
 
         /// <summary>
@@ -59,7 +61,7 @@ namespace Logging.Client
             var over_log_tags = new Dictionary<string, string>();
             over_log_tags.Add("type", "logging_client_trans_over");
             logger.Error("Logging_Client_Report", tdoe.Message, over_log_tags);
-            FileLogger.Log(tdoe);
+            fileLogger.Log(tdoe);
         }
     }
 }

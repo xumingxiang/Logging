@@ -15,7 +15,7 @@ namespace Logging.Client.TestSite
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            Logging.Client.Settings.LoggingBlockElapsed = 1000 * 10;
+            Settings.LoggingBlockElapsed = 1000 * 10;
         }
 
         protected void Session_Start(object sender, EventArgs e)

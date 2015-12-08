@@ -50,20 +50,16 @@ namespace Logging.Server
         {
             _queue.Enqueue(_logCurrentTime() + content);
 
-
             if (_queue.Count > 0 && DateTime.Now - _lastTime > _flushInterval)
             {
                 _lastTime = DateTime.Now;
-                ConcurrentQueue<string> temp = _queue;
+                _FlushLog(_queue);
                 _queue = new ConcurrentQueue<string>();
-                ThreadPool.QueueUserWorkItem(_FlushLog, temp);
             }
         }
 
-        static void _FlushLog(object logs)
+        private static void _FlushLog(ConcurrentQueue<string> queue)
         {
-            ConcurrentQueue<string> queue = (ConcurrentQueue<string>)logs;
-
             try
             {
                 string path = _getLogPath();
@@ -71,16 +67,33 @@ namespace Logging.Server
                 {
                     Directory.CreateDirectory(path);
                 }
-                string file = _getLogFileName();
+
                 string content = null;
                 StringBuilder sb = new StringBuilder();
                 while (queue.TryDequeue(out content))
                 {
                     sb.AppendLine(content);
                 }
-                File.AppendAllText(file, sb.ToString());
+
+                string file = _getLogFileName();
+                if (!File.Exists(file))
+                {
+                    using (var fs = File.Create(file)) { }
+                }
+
+                using (var fs = new FileStream(file, FileMode.Append, FileAccess.Write))
+                {
+                    using (var sw = new StreamWriter(fs))
+                    {
+                        sw.WriteLine(sb.ToString());
+                        sw.Flush();
+                    }
+                }
             }
-            catch
+            catch (Exception ex)
+            {
+            }
+            finally
             {
             }
         }

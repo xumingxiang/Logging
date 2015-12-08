@@ -166,7 +166,7 @@ namespace Logging.Client
 
         }
 
-        private static readonly int ReportElapsed = 30;//报告时间间隔。单位：秒
+        private static readonly int ReportElapsed = 60;//报告时间间隔。单位：秒
 
         /// <summary>
         /// 报告Logging.Client自身异常

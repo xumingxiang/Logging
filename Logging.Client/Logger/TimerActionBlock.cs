@@ -124,11 +124,20 @@ namespace Logging.Client
             {
                 try
                 {
-                    T item;
-                    bool hasItem = s_Queue.TryTake(out item, 200);
+                    T item = default(T);
+                    bool hasItem = false;
+                    if (s_Queue.Count > 0)
+                    {
+                        item = s_Queue.Take();
+                        hasItem = true;
+                    }
                     if (hasItem)
                     {
                         this.Buffer.Add(item);
+                    }
+                    else
+                    {
+                        Thread.Sleep(200);
                     }
 
                     if (this.Buffer.Count > 0)
@@ -141,12 +150,12 @@ namespace Logging.Client
                         }
                     }
                 }
-                catch (ThreadAbortException tae)
-                {
-                    Thread.ResetAbort();
-                    this.ExceptionCount += 1;
-                    this.LastException = tae;
-                }
+                //catch (ThreadAbortException tae)
+                //{
+                //    //Thread.ResetAbort();
+                //    this.ExceptionCount += 1;
+                //    this.LastException = tae;
+                //}
                 catch (TTransportDataSizeOverflowException tdoe)
                 {
                     this.ExceptionCount += 1;

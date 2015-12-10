@@ -24,7 +24,11 @@ namespace Logging.Server.Viewer
                 result = this.GetLogsNoTags(start, end, appId, level, title, msg, source, ip, limit);
             }
 
-            //result = result.OrderByDescending(x => x.Time).ToList();
+
+            if (result != null)
+            {
+                result.Sort(new LogEntityComparer());
+            }
             return result;
         }
 
@@ -81,7 +85,14 @@ namespace Logging.Server.Viewer
                 filter = filter & filterBuilder.Regex("Message", re);
             }
             var collection = MongoDataBase.GetCollection<LogEntity>();
-            return collection.Find(filter).SortByDescending(x => x.Time).Limit(limit).ToListAsync<LogEntity>().Result;
+            var result= collection.Find(filter)
+                .SortByDescending(x => x.Time)
+                .Limit(limit)
+                .ToListAsync<LogEntity>()
+                .Result;
+
+       
+            return result;
         }
 
 
@@ -170,10 +181,6 @@ namespace Logging.Server.Viewer
                 .ToListAsync<LogEntity>()
                 .Result;
 
-            if (result != null)
-            {
-                result = result.OrderByDescending(x => x._id.Increment).ToList();
-            }
             return result;
         }
 

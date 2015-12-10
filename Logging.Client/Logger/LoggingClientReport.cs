@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using System.Threading;
 using Thrift;
 
 namespace Logging.Client
@@ -13,6 +15,8 @@ namespace Logging.Client
 
         private static FileLogger fileLogger = new FileLogger(Settings.AppId);
 
+        private static readonly string ver = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
         /// <summary>
         /// 报告异常
         /// </summary>
@@ -21,14 +25,23 @@ namespace Logging.Client
         public static void ReportException(Exception ex, int count)
         {
             if (count <= 0) { return; }
-            string msg = "最近一分钟内该应用(" + Settings.AppId + ")Logging.Client发生" + count + "条异常数量";
-            msg += "</br>";
-            msg += "最近一条异常:" + ex.ToString();
+            StringBuilder msg_sb = new StringBuilder();
+
+            msg_sb.AppendLine("最近一分钟内该应用(" + Settings.AppId + ")Logging.Client发生" + count + "条异常数量");
+            msg_sb.AppendLine("最近一条异常:" + ex.ToString());
+            msg_sb.AppendLine("ThreadId:" + Thread.CurrentThread.ManagedThreadId);
+            msg_sb.AppendLine("HostIP:" + Utils.GetServerIP());
+            msg_sb.AppendLine("Ver:" + ver);
+            msg_sb.AppendLine("ReportTime:" + DateTime.Now);
+
+
             var tags = new Dictionary<string, string>();
             tags.Add("type", "one_minute_err");
-            logger.Error("Logging_Client_Report", msg, tags);
+            tags.Add("ver", ver);
+
+            logger.Error("Logging_Client_Report", msg_sb.ToString(), tags);
             logger.Metric("logging_client_err", count);
-            fileLogger.Log(msg);
+            fileLogger.Log(msg_sb.ToString());
         }
 
         /// <summary>
@@ -40,16 +53,21 @@ namespace Logging.Client
         public static void ReportOver(int over_count, int currentQueneLength, int maxQueueLength)
         {
             if (over_count <= 0) { return; }
-            string msg = "最近一分钟内该应用(" + Settings.AppId + ")发生Logging_Client_Over溢出数量:" + over_count + " 。 建议增加 LoggingQueueLength 和配置值。";
-            msg += "</br>";
-            msg += "CurrentQueneLength:" + currentQueneLength + "</br>";
-            msg += "</br>";
-            msg += "MaxQueueLength:" + maxQueueLength + "</br>";
+
+            StringBuilder msg_sb = new StringBuilder();
+            msg_sb.AppendLine("最近一分钟内该应用(" + Settings.AppId + ")发生Logging_Client_Over溢出数量:" + over_count + " 。 建议增加 LoggingQueueLength 和配置值。");
+            msg_sb.AppendLine("CurrentQueneLength:" + currentQueneLength);
+            msg_sb.AppendLine("MaxQueueLength:" + maxQueueLength);
+            msg_sb.AppendLine("ThreadId:" + Thread.CurrentThread.ManagedThreadId);
+            msg_sb.AppendLine("HostIP:" + Utils.GetServerIP());
+            msg_sb.AppendLine("Ver:" + ver);
+            msg_sb.AppendLine("ReportTime:" + DateTime.Now);
+
             var over_log_tags = new Dictionary<string, string>();
             over_log_tags.Add("type", "logging_client_over");
 
-            logger.Error("Logging_Client_Report", msg, over_log_tags);
-            fileLogger.Log(msg);
+            logger.Error("Logging_Client_Report", msg_sb.ToString(), over_log_tags);
+            fileLogger.Log(msg_sb.ToString());
         }
 
         /// <summary>

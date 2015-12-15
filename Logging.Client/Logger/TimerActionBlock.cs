@@ -124,38 +124,33 @@ namespace Logging.Client
             {
                 try
                 {
-                    T item = default(T);
-                    bool hasItem = false;
-                    if (s_Queue.Count > 0)
+                    try
+                    { }
+                    finally
                     {
-                        item = s_Queue.Take();
-                        hasItem = true;
-                    }
-                    if (hasItem)
-                    {
-                        this.Buffer.Add(item);
-                    }
-                    else
-                    {
-                        Thread.Sleep(200);
-                    }
-
-                    if (this.Buffer.Count > 0)
-                    {
-                        if (this.Buffer.Count >= this.BufferSize || (DateTime.Now - this.LastActionTime).TotalMilliseconds > this.BlockElapsed)
+                        T item;
+                        bool hasItem = s_Queue.TryTake(out item, 200);
+                        if (hasItem)
                         {
-                            this.Action(this.Buffer);
-                            this.Buffer.Clear();
-                            this.LastActionTime = DateTime.Now;
+                            this.Buffer.Add(item);
+                        }
+                        if (this.Buffer.Count > 0)
+                        {
+                            if (this.Buffer.Count >= this.BufferSize || (DateTime.Now - this.LastActionTime).TotalMilliseconds > this.BlockElapsed)
+                            {
+                                this.Action(this.Buffer);
+                                this.Buffer.Clear();
+                                this.LastActionTime = DateTime.Now;
+                            }
                         }
                     }
                 }
-                //catch (ThreadAbortException tae)
-                //{
-                //    //Thread.ResetAbort();
-                //    this.ExceptionCount += 1;
-                //    this.LastException = tae;
-                //}
+                catch (ThreadAbortException tae)
+                {
+                    this.ExceptionCount += 1;
+                    this.LastException = tae;
+                    Thread.ResetAbort();
+                }
                 catch (TTransportDataSizeOverflowException tdoe)
                 {
                     this.ExceptionCount += 1;

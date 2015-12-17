@@ -76,7 +76,6 @@ namespace Logging.Client
             this.Action = action;
             this.QueueMaxLength = queueMaxLength;
             this.Task = Task.Factory.StartNew(this.DequeueProcess);
-
         }
 
         ///// <summary>

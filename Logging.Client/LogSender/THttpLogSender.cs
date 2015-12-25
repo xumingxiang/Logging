@@ -1,7 +1,6 @@
 ﻿using Logging.ThriftContract;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using Thrift.Protocol;
 using Thrift.Transport;
 
@@ -14,21 +13,28 @@ namespace Logging.Client
     {
         private readonly static string loggingServerHost = Settings.LoggingServerHost;
         private readonly static Uri uri = new Uri(loggingServerHost + "/Reciver.ashx");
+        private readonly static long TransDataSizeLimit = 1 * 1024 * 1024L;
 
-        public override void Send(IList<ILogEntity> logEntities)
+        public override long Send(IList<ILogEntity> logEntities)
         {
-            if (logEntities == null || logEntities.Count <= 0) { return; }
+            if (logEntities == null || logEntities.Count <= 0) { return 0; }
 
             TLogPackage logPackage = this.CreateLogPackage(logEntities);
 
-            var httpClient = new THttpClient(uri);
-            httpClient.ConnectTimeout = SENDER_TIMEOUT;
+            var trans = new THttpClient(uri);
+            trans.ConnectTimeout = SENDER_TIMEOUT;
+            trans.DataSizeLimit = TransDataSizeLimit;
             //var protocol = new TBinaryProtocol(httpClient);
-            var protocol = new TCompactProtocol(httpClient);
-            httpClient.Open();
+            var protocol = new TCompactProtocol(trans);
+            trans.Open();
+
             var client = new LogTransferService.Client(protocol);
             client.Log(logPackage);
-            httpClient.Close();
+
+            long data_size = trans.DataSize;
+
+            trans.Close();
+            return data_size;
         }
     }
 }

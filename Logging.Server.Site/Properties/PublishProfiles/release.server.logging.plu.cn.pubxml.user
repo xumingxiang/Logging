@@ -13,10 +13,10 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="bin/Logging.Server.dll">
-      <publishTime>09/28/2015 13:52:57</publishTime>
+      <publishTime>12/25/2015 14:40:06</publishTime>
     </File>
     <File Include="bin/Logging.Server.Site.dll">
-      <publishTime>09/28/2015 13:52:58</publishTime>
+      <publishTime>12/25/2015 14:40:06</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -214,10 +214,19 @@
       <publishTime>09/25/2015 18:09:32</publishTime>
     </File>
     <File Include="Content/logviewer.js">
-      <publishTime>09/25/2015 16:27:29</publishTime>
+      <publishTime>11/25/2015 11:46:57</publishTime>
+    </File>
+    <File Include="Content/settings.js">
+      <publishTime>10/19/2015 10:25:39</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="GetLogOnOff.ashx">
+      <publishTime>10/19/2015 10:25:39</publishTime>
+    </File>
+    <File Include="GetLogOnOffs.ashx">
+      <publishTime>10/19/2015 10:25:39</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>09/17/2015 18:02:20</publishTime>
@@ -289,7 +298,7 @@
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="LogViewer.html">
-      <publishTime>09/25/2015 18:01:48</publishTime>
+      <publishTime>11/12/2015 19:09:58</publishTime>
     </File>
     <File Include="MongoTools.aspx">
       <publishTime>09/17/2015 18:02:20</publishTime>
@@ -300,14 +309,20 @@
     <File Include="Reciver.ashx">
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
+    <File Include="SetLogOnOff.ashx">
+      <publishTime>10/19/2015 10:25:39</publishTime>
+    </File>
     <File Include="Settings.aspx">
       <publishTime>09/17/2015 18:02:20</publishTime>
+    </File>
+    <File Include="Settings.html">
+      <publishTime>11/12/2015 19:09:49</publishTime>
     </File>
     <File Include="StatisticsViewer.ashx">
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/28/2015 13:53:28</publishTime>
+      <publishTime>12/25/2015 14:40:18</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -1,43 +1,39 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
-namespace Logging.Client
+namespace Logging.Server
 {
-    public class FileLogger
+    internal static class FileLogger
     {
-        private static ConcurrentQueue<string> _queue = new ConcurrentQueue<string>();
-        private static DateTime _lastTime = DateTime.MinValue;
-        private static TimeSpan _flushInterval = new TimeSpan(0, 1, 0);
-        private const string log_path = "d:\\log\\Logging_Client\\";
+        static ConcurrentQueue<string> _queue = new ConcurrentQueue<string>();
+        static DateTime _lastTime = DateTime.MinValue;
+        static TimeSpan _flushInterval = new TimeSpan(0, 1, 0);
 
-        public int AppId { get; set; }
+        const string log_path = "c:\\log\\Logging_Server\\";
 
-        public FileLogger(int appId)
+        static string _getLogPath()
         {
-            this.AppId = appId;
+            return log_path;
+        }
+        static string _getLogFileName()
+        {
+            return Path.Combine(log_path, DateTime.Now.ToString("yyyyMMdd") + ".txt");
         }
 
-        private string _getLogPath()
-        {
-            return log_path + this.AppId;
-        }
-
-        private string _getLogFileName()
-        {
-            return Path.Combine(log_path, this.AppId + "\\" + DateTime.Now.ToString("yyyyMMdd") + ".txt");
-        }
-
-        private static string _logCurrentTime()
+        static string _logCurrentTime()
         {
             return DateTime.Now.ToString("HH:mm:ss");
         }
 
-        private static readonly object _lock = new object();
+        static readonly object _lock = new object();
 
-        public void Log(Exception e)
+        public static void Log(Exception e)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(e.Message);
@@ -50,7 +46,7 @@ namespace Logging.Client
             }
         }
 
-        public void Log(string content)
+        public static void Log(string content)
         {
             _queue.Enqueue(_logCurrentTime() + content);
 
@@ -62,7 +58,7 @@ namespace Logging.Client
             }
         }
 
-        private void _FlushLog(ConcurrentQueue<string> queue)
+        private static void _FlushLog(ConcurrentQueue<string> queue)
         {
             try
             {

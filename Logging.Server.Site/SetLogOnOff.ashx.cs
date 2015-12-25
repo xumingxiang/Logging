@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Logging.Server.Writer;
 
+
 namespace Logging.Server.Site
 {
     /// <summary>
@@ -27,7 +28,7 @@ namespace Logging.Server.Site
             on_off.Warm = (byte)warm;
             on_off.Error = (byte)error;
 
-            LogWriterManager.GetLogWriter().SetLogOnOff(on_off);
+            LogOnOffManager.SetLogOnOff(on_off);
 
 
             context.Response.ContentType = "text/plain";

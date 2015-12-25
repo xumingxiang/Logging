@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Logging.Client
 {
-    public interface ILog
+    public partial interface  ILog
     {
         void Debug(string message);
 
@@ -38,6 +38,7 @@ namespace Logging.Client
         void Warm(string title, string message);
 
         void Warm(string title, string message, Dictionary<string, string> tags);
+
         /// <summary>
         /// 
         /// </summary>
@@ -69,6 +70,8 @@ namespace Logging.Client
         void Error(string title, Exception ex, Dictionary<string, string> tags);
 
         void Metric(string name, double value, Dictionary<string, string> tags = null);
+
+        void Metric(string name, Dictionary<string, string> tags = null);
 
         /// <summary>
         /// 获取日志。

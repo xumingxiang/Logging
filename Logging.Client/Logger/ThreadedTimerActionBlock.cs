@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Thrift;
 
 namespace Logging.Client
 {
@@ -136,6 +137,12 @@ namespace Logging.Client
                     Thread.ResetAbort();
                     Interlocked.Increment(ref this.ExceptionCount);
                     this.LastException = tae;
+                }
+                catch (TTransportDataSizeOverflowException tdoe)
+                {
+                    Interlocked.Increment(ref this.ExceptionCount);
+                    this.LastException = tdoe;
+                    LoggingClientReport.ReportTransportOver(tdoe);
                 }
                 catch (Exception ex)
                 {

@@ -28,8 +28,8 @@ $(function () {
     }
 
     function htmlEncodeByRegExp(str) {
+        if (!str || str.length == 0) return "";
         var s = "";
-        if (str.length == 0) return "";
         s = str.replace(/&/g, "&amp;");
         s = s.replace(/</g, "&lt;");
         s = s.replace(/>/g, "&gt;");
@@ -85,7 +85,7 @@ $(function () {
 
         var item_temp = $("#log_item_temp").html();
 
-        
+
         $.get(query_url, {
             appid: appid,
             source: source,
@@ -170,11 +170,11 @@ $(function () {
             var s_length = s_json.length;
 
             if (s_length <= 0) {
-                var no_data_item_html="<li class=\"list-group-item\"><div class=\"row\"><div class=\"col-lg-12\">No Data</div></div></li>";
+                var no_data_item_html = "<li class=\"list-group-item\"><div class=\"row\"><div class=\"col-lg-12\">No Data</div></div></li>";
                 $("#statistics_warp").append(no_data_item_html);
                 return;
             }
-          
+
             var s_item_temp = $("#s_item_temp").html();
             for (var i = 0; i < s_length; i++) {
                 var s = s_json[i];
@@ -287,7 +287,7 @@ $(function () {
 
         start = start * 10000;
         end = end * 10000;
-        getStatistics(start,end);
+        getStatistics(start, end);
 
     });
 

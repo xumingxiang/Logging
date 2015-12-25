@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Thrift;
 
 namespace Logging.Client
 {
@@ -75,7 +76,6 @@ namespace Logging.Client
             this.Action = action;
             this.QueueMaxLength = queueMaxLength;
             this.Task = Task.Factory.StartNew(this.DequeueProcess);
-           
         }
 
         ///// <summary>
@@ -123,28 +123,38 @@ namespace Logging.Client
             {
                 try
                 {
-                    T item;
-                    bool hasItem = s_Queue.TryTake(out item, 200);
-                    if (hasItem)
+                    try
+                    { }
+                    finally
                     {
-                        this.Buffer.Add(item);
-                    }
-
-                    if (this.Buffer.Count > 0)
-                    {
-                        if (this.Buffer.Count >= this.BufferSize || (DateTime.Now - this.LastActionTime).TotalMilliseconds > this.BlockElapsed)
+                        T item;
+                        bool hasItem = s_Queue.TryTake(out item, 200);
+                        if (hasItem)
                         {
-                            this.Action(this.Buffer);
-                            this.Buffer.Clear();
-                            this.LastActionTime = DateTime.Now;
+                            this.Buffer.Add(item);
+                        }
+                        if (this.Buffer.Count > 0)
+                        {
+                            if (this.Buffer.Count >= this.BufferSize || (DateTime.Now - this.LastActionTime).TotalMilliseconds > this.BlockElapsed)
+                            {
+                                this.Action(this.Buffer);
+                                this.Buffer.Clear();
+                                this.LastActionTime = DateTime.Now;
+                            }
                         }
                     }
                 }
                 catch (ThreadAbortException tae)
                 {
-                    Thread.ResetAbort();
                     this.ExceptionCount += 1;
                     this.LastException = tae;
+                    Thread.ResetAbort();
+                }
+                catch (TTransportDataSizeOverflowException tdoe)
+                {
+                    this.ExceptionCount += 1;
+                    this.LastException = tdoe;
+                    LoggingClientReport.ReportTransportOver(tdoe);
                 }
                 catch (Exception ex)
                 {
@@ -159,7 +169,7 @@ namespace Logging.Client
 
         }
 
-        private static readonly int ReportElapsed = 30;//报告时间间隔。单位：秒
+        private static readonly int ReportElapsed = 60;//报告时间间隔。单位：秒
 
         /// <summary>
         /// 报告Logging.Client自身异常

@@ -5,10 +5,11 @@ using System.Configuration;
 using System.Net;
 using System.Text;
 using System.Threading;
+using System.Web;
 
 namespace Logging.Client
 {
-    internal abstract class BaseLogger : ILog
+    internal abstract partial class BaseLogger : ILog
     {
         private static ITimerActionBlock<ILogEntity> block;
 
@@ -23,6 +24,9 @@ namespace Logging.Client
         /// 客户端是否启用日志
         /// </summary>
         private readonly static bool LoggingEnabled = Convert.ToBoolean(ConfigurationManager.AppSettings["LoggingEnabled"] ?? Settings.LoggingEnabled.ToString());
+
+
+        private static LogSenderBase sender = LogSenderManager.GetLogSender();
 
         static BaseLogger()
         {
@@ -44,24 +48,29 @@ namespace Logging.Client
 
             if (LoggingBlockElapsed <= 0) { LoggingBlockElapsed = Settings.DefaultLoggingBlockElapsed; }
 
-            LogSenderBase sender = LogSenderManager.GetLogSender();
+
 
             if (LoggingTaskNum == 1)
             {
                 block = new TimerActionBlock<ILogEntity>((buffer) =>
                 {
-                    sender.Send(buffer);
-                    LogOnOffManager.RefreshLogOnOff();
+                    Send(buffer);
                 }, LoggingQueueLength, LoggingBufferSize, LoggingBlockElapsed);
             }
             else
             {
                 block = new ThreadedTimerActionBlock<ILogEntity>(LoggingTaskNum, (buffer) =>
                 {
-                    sender.Send(buffer);
-                    LogOnOffManager.RefreshLogOnOff();
+                    Send(buffer);
                 }, LoggingQueueLength, LoggingBufferSize, LoggingBlockElapsed);
             }
+        }
+
+        private static void Send(IList<ILogEntity> buffer)
+        {
+            long size = sender.Send(buffer);
+            LogOnOffManager.RefreshLogOnOff();
+            PrivateMetric("logging_client_send_data_size", size);
         }
 
         public void Debug(string message)
@@ -131,18 +140,29 @@ namespace Logging.Client
 
         public void Error(string title, Exception ex)
         {
-            this.Error(title, GetExceptionMessage(ex), null);
+            this.Error(title, ex, null);
         }
 
         public void Error(Exception ex, Dictionary<string, string> tags)
         {
-            this.Error(ex.Message, GetExceptionMessage(ex), tags);
+            this.Error(ex.Message, ex, tags);
         }
 
         public void Error(string title, Exception ex, Dictionary<string, string> tags)
         {
-            this.Error(title, GetExceptionMessage(ex), tags);
+            string err_msg = string.Empty;
+            if (HttpContext.Current == null)
+            {
+                err_msg = new Error(ex, null).ToString();
+            }
+            else
+            {
+                err_msg = new Error(ex, new HttpContextWrapper(HttpContext.Current)).ToString();
+            }
+            this.Error(title, err_msg, tags);
         }
+
+
 
         private string GetExceptionMessage(Exception ex)
         {
@@ -162,18 +182,27 @@ namespace Logging.Client
             return sb.ToString();
         }
 
-        public void Metric(string name, double value, Dictionary<string, string> tags = null)
+        private static void PrivateMetric(string name, double value, Dictionary<string, string> tags = null)
         {
             if (!LoggingEnabled) { return; }
-
             var Metric = new MetricEntity();
             Metric.Name = name;
             Metric.Value = value;
             Metric.Tags = tags;
             Metric.Time = Utils.GetUnixTime(DateTime.Now);
             block.Enqueue(Metric);
-            //PrivatePoint(name, value, tags);
-            //SysPoint();
+        }
+
+        public void Metric(string name, double value, Dictionary<string, string> tags = null)
+        {
+            PrivateMetric(name, value, tags);
+        }
+
+
+
+        public void Metric(string name, Dictionary<string, string> tags = null)
+        {
+            Metric(name, 1, tags);
         }
 
         protected LogEntity CreateLog(string source, string title, string message, Dictionary<string, string> tags, LogLevel level)

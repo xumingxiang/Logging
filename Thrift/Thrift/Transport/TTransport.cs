@@ -36,6 +36,16 @@ namespace Thrift.Transport
         private byte[] _peekBuffer = new byte[1];
         private bool _hasPeekByte = false;
 
+        /// <summary>
+        /// 传输的数据大小.单位：字节(Byte)
+        /// </summary>
+        public  long DataSize { get; protected set; }
+
+        /// <summary>
+        /// 传输的数据大小上限，超过会抛出异常.单位：字节(Byte)
+        /// </summary>
+        public long DataSizeLimit { get;  set; }
+
         public bool Peek()
         {
             //If we already have a byte read but not consumed, do nothing.

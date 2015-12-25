@@ -24,7 +24,11 @@ namespace Logging.Server.Viewer
                 result = this.GetLogsNoTags(start, end, appId, level, title, msg, source, ip, limit);
             }
 
-            //result = result.OrderByDescending(x => x.Time).ToList();
+
+            if (result != null)
+            {
+                result.Sort(new LogEntityComparer());
+            }
             return result;
         }
 
@@ -81,7 +85,14 @@ namespace Logging.Server.Viewer
                 filter = filter & filterBuilder.Regex("Message", re);
             }
             var collection = MongoDataBase.GetCollection<LogEntity>();
-            return collection.Find(filter).SortByDescending(x => x.Time).Limit(limit).ToListAsync<LogEntity>().Result;
+            var result= collection.Find(filter)
+                .SortByDescending(x => x.Time)
+                .Limit(limit)
+                .ToListAsync<LogEntity>()
+                .Result;
+
+       
+            return result;
         }
 
 
@@ -164,11 +175,13 @@ namespace Logging.Server.Viewer
 
 
             var collection = MongoDataBase.GetCollection<LogEntity>();
-            return collection.Find(filter)
+            var result = collection.Find(filter)
                 .SortByDescending(x => x.Time)
                 .Limit(limit)
                 .ToListAsync<LogEntity>()
                 .Result;
+
+            return result;
         }
 
 
@@ -213,14 +226,14 @@ namespace Logging.Server.Viewer
                  .ToList();
         }
 
-        public  List<LogOnOff> GetALLLogOnOff()
+        public List<LogOnOff> GetALLLogOnOff()
         {
             var filterBuilder = Builders<LogOnOff>.Filter;
             var filter = filterBuilder.Gt("AppId", 0);
 
             var collection = MongoDataBase.GetCollection<LogOnOff>();
-            var result= collection.Find(filter).ToListAsync<LogOnOff>().Result;
-            return result.OrderBy(x=>x.AppId).ToList();
+            var result = collection.Find(filter).ToListAsync<LogOnOff>().Result;
+            return result.OrderBy(x => x.AppId).ToList();
         }
 
         public LogOnOff GetLogOnOff(int appId)

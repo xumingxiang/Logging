@@ -39,8 +39,16 @@ namespace Logging.Server.Reciver
 
             List<TLogEntity> logEntities = logPackage.LogItems;
             var _logEntities = new List<LogEntity>();
+
+            var log_on_off = LogOnOffManager.GetLogOnOff(logPackage.AppId);
+
             foreach (var item in logEntities)
             {
+                if (item.Level == (int)LogLevel.Debug && log_on_off.Debug == 0) { continue; }
+                if (item.Level == (int)LogLevel.Info && log_on_off.Info == 0) { continue; }
+                if (item.Level == (int)LogLevel.Warm && log_on_off.Warm == 0) { continue; }
+                if (item.Level == (int)LogLevel.Error && log_on_off.Error == 0) { continue; }
+
                 List<string> tags = new List<string>();
 
                 if (item.Tags != null && item.Tags.Count > 0)
@@ -64,6 +72,8 @@ namespace Logging.Server.Reciver
                 _logEntities.Add(_log);
             }
 
+            if (_logEntities.Count == 0) { return; }
+
             var processor = LogProcessorManager.GetLogProcessor();
             processor.Process(_logEntities);
         }
@@ -79,7 +89,7 @@ namespace Logging.Server.Reciver
                 MetricEntity metric = new MetricEntity();
                 metric.Name = item.Name;
                 metric.Time = item.Time;
-                metric.Tags = item.Tags; 
+                metric.Tags = item.Tags;
                 metric.Value = item.Value;
                 if (metric.Tags == null)
                 {
@@ -95,6 +105,7 @@ namespace Logging.Server.Reciver
                 }
                 metrics.Add(metric);
             }
+
             var metricProcessor = MetricProcessorManager.GetMetricProcessor();
             metricProcessor.Process(metrics);
         }
@@ -107,6 +118,10 @@ namespace Logging.Server.Reciver
         {
             int over_count = queue.Enqueue(logPackage);
 
+
+
+            //sizeof(logPackage)
+            //logPackage.
             #region 溢出处理
 
             if (over_count > 0)

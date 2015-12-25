@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 
 namespace Logging.Client
 {
@@ -45,6 +48,30 @@ namespace Logging.Client
             long sip4 = long.Parse(arrayIP[3]);
 
             return (sip1 << 24) + (sip2 << 16) + (sip3 << 8) + sip4;
+        }
+
+        /// <summary>
+        /// 获取服务器IP
+        /// </summary>
+        /// <returns></returns>
+        public static string GetServerIP()
+        {
+            string str = "127.0.0.1";
+            try
+            {
+                string hostName = Dns.GetHostName();
+                var hostEntity = Dns.GetHostEntry(hostName);
+                var ipAddressList = hostEntity.AddressList;
+                var ipAddress = ipAddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
+
+                if (ipAddress != null)
+                {
+                    str = ipAddress.ToString();
+                }
+                return str;
+            }
+            catch (Exception) { str = string.Empty; }
+            return str;
         }
 
 

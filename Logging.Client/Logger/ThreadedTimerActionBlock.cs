@@ -142,13 +142,12 @@ namespace Logging.Client
                 {
                     Interlocked.Increment(ref this.ExceptionCount);
                     this.LastException = tdoe;
-                    LoggingClientReport.ReportTransportOver(tdoe);
+                   // LoggingClientReport.ReportTransportOver(tdoe);
                 }
                 catch (Exception ex)
                 {
                     Interlocked.Increment(ref this.ExceptionCount);
                     this.LastException = ex;
-                   
                 }
                 finally
                 {

@@ -41,7 +41,7 @@ namespace Logging.Client
                 tags.Add("type", "one_minute_err");
                 tags.Add("ver", ver);
 
-                logger.Error("Logging_Client_Report", msg_sb.ToString(), tags);
+              //  logger.Error("Logging_Client_Report", msg_sb.ToString(), tags);
                 logger.Metric("logging_client_err", count);
                 fileLogger.Log(msg_sb.ToString());
             }
@@ -72,7 +72,7 @@ namespace Logging.Client
                 var over_log_tags = new Dictionary<string, string>();
                 over_log_tags.Add("type", "logging_client_over");
 
-                logger.Error("Logging_Client_Report", msg_sb.ToString(), over_log_tags);
+            //    logger.Error("Logging_Client_Report", msg_sb.ToString(), over_log_tags);
                 fileLogger.Log(msg_sb.ToString());
             }
             catch { }
@@ -88,7 +88,7 @@ namespace Logging.Client
                 if (tdoe == null) { return; }
                 var over_log_tags = new Dictionary<string, string>();
                 over_log_tags.Add("type", "logging_client_trans_over");
-                logger.Error("Logging_Client_Report", tdoe.Message, over_log_tags);
+               // logger.Error("Logging_Client_Report", tdoe.Message, over_log_tags);
                 fileLogger.Log(tdoe);
             }
             catch { }

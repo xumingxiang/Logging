@@ -231,6 +231,7 @@
     <Compile Include="HttpContextExtensions.cs" />
     <Compile Include="Widgets\HttpUnhandledExceptionAggregater.cs" />
     <Compile Include="Widgets\IWidget.cs" />
+    <Compile Include="Widgets\WebApiMetric.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Logging.ThriftContract\log.thrift">

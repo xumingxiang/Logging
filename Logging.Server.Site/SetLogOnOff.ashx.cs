@@ -16,6 +16,7 @@ namespace Logging.Server.Site
         public void ProcessRequest(HttpContext context)
         {
             int appId = Convert.ToInt32(context.Request["appId"]);
+            string appName = context.Request["appName"];
             int debug = Convert.ToInt32(context.Request["debug"]);
             int info = Convert.ToInt32(context.Request["info"]);
             int warm = Convert.ToInt32(context.Request["warm"]);
@@ -27,6 +28,7 @@ namespace Logging.Server.Site
             on_off.Info = (byte)info;
             on_off.Warm = (byte)warm;
             on_off.Error = (byte)error;
+            on_off.AppName = appName;
 
             LogOnOffManager.SetLogOnOff(on_off);
 

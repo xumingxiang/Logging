@@ -16,6 +16,8 @@ namespace Logging.Server
 
         public int AppId { get; set; }
 
+        public string AppName { get; set; }
+
         public byte Debug { get; set; }
 
         public byte Info { get; set; }

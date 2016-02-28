@@ -182,14 +182,21 @@ namespace Logging.Client
             return sb.ToString();
         }
 
-        private static void PrivateMetric(string name, double value, Dictionary<string, string> tags = null)
+        private static void PrivateMetric(string name, double value, Dictionary<string, string> tags = null, DateTime time = default(DateTime))
         {
             if (!LoggingEnabled) { return; }
             var Metric = new MetricEntity();
             Metric.Name = name;
             Metric.Value = value;
             Metric.Tags = tags;
-            Metric.Time = Utils.GetUnixTime(DateTime.Now);
+            if (time == default(DateTime))
+            {
+                Metric.Time = Utils.GetUnixTime(DateTime.Now);
+            }
+            else
+            {
+                Metric.Time = Utils.GetUnixTime(time);
+            }
             block.Enqueue(Metric);
         }
 
@@ -336,6 +343,11 @@ namespace Logging.Client
             }
 
             this.Error(title, message, tags_dic);
+        }
+
+        public void Metric(string name, double value, DateTime time, Dictionary<string, string> tags = null)
+        {
+            PrivateMetric(name, value, tags, time);
         }
     }
 }

@@ -103,6 +103,10 @@ namespace Logging.Server.Reciver
                 {
                     metric.Tags.Add("IP", ip);
                 }
+                if (!metric.Tags.ContainsKey("time"))
+                {
+                    metric.Tags.Add("IP", ip);
+                }
                 metrics.Add(metric);
             }
 

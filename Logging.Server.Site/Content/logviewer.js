@@ -18,6 +18,8 @@ Date.prototype.Format = function (fmt, utc) {
 
 $(function () {
 
+    var root_path = "/server/";
+
     function numberToIp(number) {
         if (number <= 0) { return ""; }
 
@@ -39,8 +41,10 @@ $(function () {
         return s;
     }
 
+
+
     function getLogs(start, end, clear) {
-        var query_url = "logviewer.ashx";
+        var query_url = root_path + "logviewer.ashx";
         var appid = $("#appid").val() || 0;
         var source = $("#source").val() || "";
         var title = $("#title").val() || "";
@@ -85,7 +89,8 @@ $(function () {
 
         var item_temp = $("#log_item_temp").html();
 
-
+        $("#empty").find("p").text("正在努力加载中...");
+        $("#empty").show();
         $.get(query_url, {
             appid: appid,
             source: source,
@@ -109,6 +114,7 @@ $(function () {
                 $("#more_query").hide();
             }
             if (log_length == 0) {
+                $("#empty").find("p").text("没有找到相关信息，请更改条件重新查询！");
                 $("#empty").show();
                 $("#record").hide();
 
@@ -159,7 +165,7 @@ $(function () {
     }
 
     function getStatistics(start, end, appId) {
-        var query_url = "StatisticsViewer.ashx";
+        var query_url = root_path + "StatisticsViewer.ashx";
         $.get(query_url, {
             start: start,
             end: end,
@@ -214,7 +220,8 @@ $(function () {
               .replace("{debug_num}", debug_num)
               .replace("{info_num}", info_num)
               .replace("{warm_num}", warm_num)
-              .replace("{error_num}", error_num);
+              .replace("{error_num}", error_num)
+                .replace("{statics_appName}",s.AppName);
 
                 $("#statistics_warp").append(s_item_html);
             }

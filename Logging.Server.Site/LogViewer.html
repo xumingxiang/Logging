@@ -162,8 +162,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row mt-10" id="empty" style=" display:none"><p class="col-lg-12 text-center bg-success pt-10 pb-10">没有找到相关信息，请更改条件重新查询！</p></div>
                     <ul class="list-group mt-10" id="log_warp"></ul>
-                    <div class="row" id="empty" style=" display:none"><p class="col-lg-12 text-center bg-success pt-10 pb-10">没有找到相关信息，请更改条件重新查询！</p></div>
+                    
                     <div class=" row ">
                         <div class="col-md-6">
                         </div>
@@ -242,14 +243,14 @@
     <script id="s_item_temp" type="text/template">
         <li class="list-group-item">
             <div class="row">                
-                        <div class="col-lg-2">
+                        <div class="col-lg-2" title="{statics_appName}">
                             {appId}
                         </div>
                         <div class="col-lg-10 pl-5 pr-5 text-right">
                             <strong title="debug" class="badge ml-2">{debug_num}</strong>
-                            <strong title="info" class=" text-info ml-2  badge-info">{info_num}</strong>
-                            <strong title="warm" class=" text-warning ml-2  badge-warning">{warm_num}</strong>
-                            <strong title="error" class=" text-danger ml-2  badge-danger">{error_num}</strong>
+                            <strong title="info" class="text-info ml-2  badge-info">{info_num}</strong>
+                            <strong title="warm" class="text-warning ml-2  badge-warning">{warm_num}</strong>
+                            <strong title="error" class="text-danger ml-2  badge-danger">{error_num}</strong>
                         </div>
                    
                 

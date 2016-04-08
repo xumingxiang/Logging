@@ -9,7 +9,7 @@ namespace Logging.Server.Viewer
 {
     internal class MongoDbViewer : ILogViewer
     {
-        public List<LogEntity> GetLogs(long start, long end, int appId, int[] level, string title, string msg, string source, int ip, List<string> tags, int limit = 100)
+        public List<LogEntity> GetLogs(long start, long end, int appId, int[] level, string title, string msg, string source, long ip, List<string> tags, int limit = 100)
         {
             if (limit <= 0) { limit = 100; }
 
@@ -33,7 +33,7 @@ namespace Logging.Server.Viewer
         }
 
 
-        private List<LogEntity> GetLogsNoTags(long start, long end, int appId, int[] level, string title, string msg, string source, int ip, int limit = 100)
+        private List<LogEntity> GetLogsNoTags(long start, long end, int appId, int[] level, string title, string msg, string source, long ip, int limit = 100)
         {
             if (limit <= 0) { limit = 100; }
 
@@ -85,18 +85,18 @@ namespace Logging.Server.Viewer
                 filter = filter & filterBuilder.Regex("Message", re);
             }
             var collection = MongoDataBase.GetCollection<LogEntity>();
-            var result= collection.Find(filter)
+            var result = collection.Find(filter)
                 .SortByDescending(x => x.Time)
                 .Limit(limit)
                 .ToListAsync<LogEntity>()
                 .Result;
 
-       
+
             return result;
         }
 
 
-        private List<LogEntity> GetLogsInTags(long start, long end, int appId, int[] level, string title, string msg, string source, int ip, List<string> tags, int limit = 100)
+        private List<LogEntity> GetLogsInTags(long start, long end, int appId, int[] level, string title, string msg, string source, long ip, List<string> tags, int limit = 100)
         {
             if (limit <= 0) { limit = 100; }
 
@@ -205,16 +205,22 @@ namespace Logging.Server.Viewer
 
             List<LogStatistics> result = new List<LogStatistics>();
 
+            var logOnOffs = GetALLLogOnOff();
+
             foreach (var _appId in appIds)
             {
                 var lst = s.Where(x => x.AppId == _appId);
-
+                var onOff = logOnOffs.FirstOrDefault(x => x.AppId == _appId);
                 LogStatistics item = new LogStatistics();
                 item.AppId = _appId;
                 item.Debug = lst.Sum(x => x.Debug);
                 item.Info = lst.Sum(x => x.Info);
                 item.Warm = lst.Sum(x => x.Warm);
                 item.Error = lst.Sum(x => x.Error);
+                if (onOff != null)
+                {
+                    item.AppName = onOff.AppName;
+                }
                 result.Add(item);
             }
 

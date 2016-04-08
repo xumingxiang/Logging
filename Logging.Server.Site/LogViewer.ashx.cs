@@ -53,7 +53,7 @@ namespace Logging.Server.Site
 
             //tags.Add("a=a");
 
-            var lst = viewer.GetLogs(start, end, appId, level, title, msg, source, (int)ipNum, tags, limit);
+            var lst = viewer.GetLogs(start, end, appId, level, title, msg, source, ipNum, tags, limit);
 
             result.List = lst;
             result.Start = start;

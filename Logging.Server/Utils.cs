@@ -40,10 +40,10 @@ namespace Logging.Server
 
             //将目标IP地址字符串strIPAddress转换为数字
             string[] arrayIP = strIPAddress.Split('.');
-            long sip1 = long.Parse(arrayIP[0]);
-            long sip2 = long.Parse(arrayIP[1]);
-            long sip3 = long.Parse(arrayIP[2]);
-            long sip4 = long.Parse(arrayIP[3]);
+            long sip1 = long.Parse(arrayIP.Length >= 1 ? arrayIP[0] : "0");
+            long sip2 = long.Parse(arrayIP.Length >= 2 ? arrayIP[1] : "0");
+            long sip3 = long.Parse(arrayIP.Length >= 3 ? arrayIP[2] : "0");
+            long sip4 = long.Parse(arrayIP.Length >= 4 ? arrayIP[3] : "0");
             long tmpIpNumber;
             tmpIpNumber = sip1 * 256 * 256 * 256 + sip2 * 256 * 256 + sip3 * 256 + sip4;
             return tmpIpNumber;

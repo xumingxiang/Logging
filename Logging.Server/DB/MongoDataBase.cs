@@ -37,5 +37,12 @@ namespace Logging.Server.DB
         {
             return GetDataBase().GetCollection<T>(typeof(T).Name);
         }
+
+        public static void DropCollectionAsync<T>()
+        {
+            GetDataBase().DropCollectionAsync(typeof(T).Name);
+        }
+
+
     }
 }

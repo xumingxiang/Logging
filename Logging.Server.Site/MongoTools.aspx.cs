@@ -37,6 +37,10 @@ namespace Logging.Server.Site
             var indexDefinition5 = new IndexKeysDefinitionBuilder<LogTag>().Descending(field5);
             MongoDataBase.GetCollection<LogTag>().Indexes.CreateOneAsync(indexDefinition5, options);
 
+            var field8 = new StringFieldDefinition<LogTag>("LogId");
+            var indexDefinition8 = new IndexKeysDefinitionBuilder<LogTag>().Ascending(field8);
+            MongoDataBase.GetCollection<LogTag>().Indexes.CreateOneAsync(indexDefinition8, options);
+
             var field6 = new StringFieldDefinition<LogStatistics>("Time");
             var indexDefinition6 = new IndexKeysDefinitionBuilder<LogStatistics>().Descending(field6);
             MongoDataBase.GetCollection<LogStatistics>().Indexes.CreateOneAsync(indexDefinition6, options);
@@ -45,9 +49,7 @@ namespace Logging.Server.Site
             var indexDefinition7 = new IndexKeysDefinitionBuilder<LogStatistics>().Ascending(field7);
             MongoDataBase.GetCollection<LogStatistics>().Indexes.CreateOneAsync(indexDefinition7, options);
 
-            var field8 = new StringFieldDefinition<LogTag>("LogId");
-            var indexDefinition8 = new IndexKeysDefinitionBuilder<LogTag>().Ascending(field8);
-            MongoDataBase.GetCollection<LogTag>().Indexes.CreateOneAsync(indexDefinition8, options);
+
 
             Response.Write("Create Index Success");
         }
@@ -82,13 +84,15 @@ namespace Logging.Server.Site
                 Response.Write(item.ToString());
             }
 
-          
+
         }
 
         protected void btnDropDB_Click(object sender, EventArgs e)
         {
-            MongoDataBase.GetClient().DropDatabaseAsync(MongoDataBase.DatabaseName);
-            Response.Write("数据库已删除");
+            MongoDataBase.DropCollectionAsync<LogEntity>();
+            MongoDataBase.DropCollectionAsync<LogTag>();
+            MongoDataBase.DropCollectionAsync<LogStatistics>();
+            Response.Write("数据已清空");
         }
     }
 }

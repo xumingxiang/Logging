@@ -140,7 +140,10 @@
     <Content Include="Reciver.ashx" />
     <Content Include="Content\logviewer.js" />
     <Content Include="Settings.html" />
-    <Content Include="Web.config" />
+    <Content Include="Test\MetricTest.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="LogViewer.ashx" />
@@ -191,6 +194,13 @@
     </Compile>
     <Compile Include="StatisticsViewer.ashx.cs">
       <DependentUpon>StatisticsViewer.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Test\MetricTest.aspx.cs">
+      <DependentUpon>MetricTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test\MetricTest.aspx.designer.cs">
+      <DependentUpon>MetricTest.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

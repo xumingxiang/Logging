@@ -17,6 +17,16 @@ namespace Logging.Server
             return (time - START_TIME).Ticks;
         }
 
+        /// <summary>
+        /// DateTime时间格式转换为Unix时间戳格式精确到10位。
+        /// 
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public static long GetUnixTime(DateTime time)
+        {
+            return (long)(time - START_TIME).TotalSeconds;
+        }
 
         public static DateTime GetDateTime(long timestamp)
         {

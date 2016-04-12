@@ -20,8 +20,10 @@ namespace Logging.Server.Site.Test
             var metric = MetricProcessorManager.GetMetricProcessor();
 
             IList<MetricEntity> logs = new List<MetricEntity>();
-            logs.Add(new MetricEntity { Name= "plu_test_request_count", Value=100, Time=Utils.GetUnixTime(DateTime.Now) });
+            logs.Add(new MetricEntity { Name= "plu_test_request_count", Value=400, Time=Utils.GetUnixTime(DateTime.Now) });
             metric.Process(logs);
+
+
         }
     }
 }

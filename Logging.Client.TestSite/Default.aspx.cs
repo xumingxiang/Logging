@@ -65,7 +65,7 @@ namespace Logging.Client.TestSite
             //}
 
 
-            logger.Metric();
+          //  logger.Metric();
 
         }
     }

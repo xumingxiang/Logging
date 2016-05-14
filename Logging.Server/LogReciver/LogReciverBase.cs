@@ -103,7 +103,6 @@ namespace Logging.Server.Reciver
                 {
                     metric.Tags.Add("IP", ip);
                 }
-               
                 metrics.Add(metric);
             }
 

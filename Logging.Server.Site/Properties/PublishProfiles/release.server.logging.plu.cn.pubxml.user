@@ -12,11 +12,20 @@
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
+    <File Include="bin/InfluxData.Net.Common.dll">
+      <publishTime>04/11/2016 18:43:47</publishTime>
+    </File>
+    <File Include="bin/InfluxData.Net.InfluxDb.dll">
+      <publishTime>04/11/2016 18:43:47</publishTime>
+    </File>
+    <File Include="bin/InfluxData.Net.Kapacitor.dll">
+      <publishTime>04/11/2016 18:43:47</publishTime>
+    </File>
     <File Include="bin/Logging.Server.dll">
-      <publishTime>02/17/2016 16:36:51</publishTime>
+      <publishTime>04/11/2016 19:09:31</publishTime>
     </File>
     <File Include="bin/Logging.Server.Site.dll">
-      <publishTime>02/17/2016 16:53:19</publishTime>
+      <publishTime>04/11/2016 19:09:32</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -32,6 +41,15 @@
     </File>
     <File Include="bin/Microsoft.ScriptManager.WebForms.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Threading.Tasks.dll">
+      <publishTime>04/11/2016 15:39:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Threading.Tasks.Extensions.Desktop.dll">
+      <publishTime>04/11/2016 15:39:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Threading.Tasks.Extensions.dll">
+      <publishTime>04/11/2016 15:39:38</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/08/2013 15:15:08</publishTime>
@@ -49,7 +67,13 @@
       <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>04/11/2016 15:39:46</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Extensions.dll">
+      <publishTime>04/11/2016 15:39:42</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Primitives.dll">
+      <publishTime>04/11/2016 15:39:42</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -214,10 +238,10 @@
       <publishTime>09/25/2015 18:09:32</publishTime>
     </File>
     <File Include="Content/logviewer.js">
-      <publishTime>11/25/2015 11:46:57</publishTime>
+      <publishTime>04/11/2016 10:40:04</publishTime>
     </File>
     <File Include="Content/settings.js">
-      <publishTime>02/17/2016 16:45:09</publishTime>
+      <publishTime>02/17/2016 17:00:45</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>09/16/2015 09:44:42</publishTime>
@@ -233,6 +257,9 @@
     </File>
     <File Include="Index.html">
       <publishTime>09/16/2015 09:44:42</publishTime>
+    </File>
+    <File Include="InfluxData.Net.dll.config">
+      <publishTime>04/11/2016 15:39:51</publishTime>
     </File>
     <File Include="InitMongo.aspx">
       <publishTime>09/02/2015 11:56:12</publishTime>
@@ -298,13 +325,13 @@
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="LogViewer.html">
-      <publishTime>11/12/2015 19:09:58</publishTime>
+      <publishTime>04/11/2016 10:40:04</publishTime>
     </File>
     <File Include="MongoTools.aspx">
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>06/01/2015 15:27:21</publishTime>
+      <publishTime>04/11/2016 15:39:51</publishTime>
     </File>
     <File Include="Reciver.ashx">
       <publishTime>09/17/2015 18:02:20</publishTime>
@@ -316,13 +343,16 @@
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="Settings.html">
-      <publishTime>02/17/2016 16:44:39</publishTime>
+      <publishTime>04/11/2016 10:40:04</publishTime>
     </File>
     <File Include="StatisticsViewer.ashx">
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
+    <File Include="Test/MetricTest.aspx">
+      <publishTime>04/11/2016 14:20:24</publishTime>
+    </File>
     <File Include="Web.config">
-      <publishTime>02/17/2016 16:36:51</publishTime>
+      <publishTime>04/11/2016 19:09:32</publishTime>
     </File>
   </ItemGroup>
 </Project>

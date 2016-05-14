@@ -17,13 +17,33 @@ namespace Logging.Server
             return (time - START_TIME).Ticks;
         }
 
+        /// <summary>
+        /// DateTime时间格式转换为Unix时间戳格式精确到10位。
+        /// 
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public static long GetUnixTime(DateTime time)
+        {
+            return (long)(time - START_TIME).TotalSeconds;
+        }
 
-        public static DateTime GetDateTime(long timestamp)
+        public static DateTime GetDateTimeFromTicks(long timestamp)
         {
             DateTime newDateTime = START_TIME.AddTicks(timestamp);
             return newDateTime;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="timestamp"></param>
+        /// <returns></returns>
+        public static DateTime GetDateTimeFromUnix(long timestamp)
+        {
+            DateTime newDateTime = START_TIME.AddSeconds(timestamp);
+            return newDateTime;
+        }
 
         /// <summary>
         /// 将IPv4格式的字符串转换为int型表示

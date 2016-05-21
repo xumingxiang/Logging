@@ -6,7 +6,7 @@ using System.Configuration;
 
 namespace Logging.Server.Metric.Writer
 {
-    internal partial class InfluxdbWriter
+    public partial class InfluxdbWriter
     {
         private readonly InfluxDbClient influxDbClient;
 

@@ -122,7 +122,11 @@
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\bootstrap\js\npm.js" />
+    <Content Include="Content\dashboard.css" />
+    <Content Include="Content\echarts\echarts.min.js" />
     <Content Include="Content\logviewer.css" />
+    <Content Include="Content\metrics.css" />
+    <Content Include="Content\metrics.js" />
     <Content Include="Content\settings.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -142,6 +146,8 @@
     <Content Include="Content\jQuery\css\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\jQuery\css\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Index.html" />
+    <Content Include="metrics\dashboard.html" />
+    <Content Include="metrics\test.aspx" />
     <Content Include="MongoTools.aspx" />
     <Content Include="Content\jQuery\jquery-ui-timepicker-addon.js" />
     <Content Include="Content\jQuery\jquery-ui.js" />
@@ -167,6 +173,8 @@
     <Content Include="GetLogOnOff.ashx" />
     <Content Include="packages.config" />
     <Content Include="InfluxData.Net.dll.config" />
+    <Content Include="metrics\MetricsQuery.ashx" />
+    <Content Include="metrics\MetricTags.ashx" />
     <None Include="Properties\PublishProfiles\release.server.logging.plu.cn.pubxml" />
     <Content Include="StatisticsViewer.ashx" />
     <Content Include="SetLogOnOff.ashx" />
@@ -186,6 +194,19 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="metrics\MetricsQuery.ashx.cs">
+      <DependentUpon>MetricsQuery.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="metrics\MetricTags.ashx.cs">
+      <DependentUpon>MetricTags.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="metrics\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="metrics\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="MongoTools.aspx.cs">
       <DependentUpon>MongoTools.aspx</DependentUpon>

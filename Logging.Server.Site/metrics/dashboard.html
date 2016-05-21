@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrics Dashboard</title>
+
+    <link rel="shortcut icon" href="../asset/ico/favicon.png">
+    <link href="../Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/dashboard.css" rel="stylesheet" />
+    <link href="../Content/metrics.css" rel="stylesheet" />
+    <link href="../Content/jQuery/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="../Content/jQuery/css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../Content/echarts/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" data-toggle="collapse" data-target="#navbar-collapsed" aria-expanded="false" class="navbar-toggle collapsed">
+                    <span class="sr-only">toggle</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Metrics Dashboard</a>
+            </div>
+            <div id="navbar-collapsed" class="collapse navbar-collapse">
+
+            </div>
+        </div>
+    </nav>
+    <div class="params_warp container-fluid">
+        <div class="row">
+            <div id="left_params" class="col-md-9">
+                <div class="params">
+                    Metric Name：&nbsp;&nbsp;<input id="metric_name" type="text" class="metric_name" />
+                    时间间隔：<input type="text" value="1m" id="group_by_time" class="group_by_time" />
+                    聚合：
+                    <select id="aggr" class="group_by_time">
+                        <option value="count">count</option>
+                        <option value="sum">sum</option>
+                        <option value="mean">avg</option>
+                        <option value="max">max</option>
+                        <option value="min">min</option>
+                    </select>
+                    显示：
+                    <select id="displayType" class="group_by_time">
+                        <option value="line">折线</option>
+                        <option value="pie">饼状</option>
+                    </select>
+                </div>
+                <div class="params">
+                    过滤：
+                    <select id="flt_tag"></select>
+                    <input id="flite_by_tag" type="text" />
+                    分组：
+                    <select id="grp_tag"></select>
+                    开始：
+                    <input id="start_time" type="text" />
+                    结束：
+                    <input id="end_time" type="text" />
+                </div>
+            </div>
+            <div id="right_params" class="params  col-md-3">
+                <input id="btn_query" type="button" value="查询" />
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid featurette">
+
+        <div class="empty_point" style="display: none" id="empty_point">没有相关查到数据</div>
+
+        <div class="row">
+            <div id="graphic" class="col-md-12">
+                <div id="chart-panel" style="min-height:450px; width: 100%"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="../Content/jQuery/jquery.min.js"></script>
+    <script src="../Content/jQuery/jquery-ui.js"></script>
+    <script src="../Content/jQuery/jquery-ui-timepicker-addon.js"></script>
+    <script src="../Content/metrics.js"></script>
+</body>
+</html>

@@ -1,14 +1,13 @@
-﻿using InfluxData.Net.Common.Enums;
-using InfluxData.Net.InfluxDb;
-using InfluxData.Net.InfluxDb.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
+using System.Net;
+using System.Text;
 
 namespace Logging.Server.Metric.Writer
 {
     internal partial class InfluxdbWriter
     {
-        private readonly InfluxDbClient influxDbClient;
+        //  private readonly InfluxDbClient influxDbClient;
 
         private static string host = ConfigurationManager.AppSettings["MetricInfluxdbHost"];
         private static string port = ConfigurationManager.AppSettings["MetricInfluxdbPort"];
@@ -16,10 +15,8 @@ namespace Logging.Server.Metric.Writer
         private static string user = ConfigurationManager.AppSettings["MetricInfluxdbUser"];
         private static string pass = ConfigurationManager.AppSettings["MetricInfluxdbPwd"];
 
-        public InfluxdbWriter()
-        {
-            this.influxDbClient = new InfluxDbClient($"http://{host}:{port}/", user, pass, InfluxDbVersion.Latest);
-        }
+        // private static string influxDbConnectString;
+
 
         /// <summary>
         /// 描述：将LogMetric写入Influxdb数据库
@@ -30,29 +27,38 @@ namespace Logging.Server.Metric.Writer
         public void WriteAsync(IList<MetricEntity> logs)
         {
             if (logs == null || logs.Count == 0) { return; }
-            List<Point> points = new List<Point>();
-            foreach (var item in logs)
+            string ms = GetMetricsString(logs);
+            string writeUrl = $"http://{host}:{port}/write?db={database}&u={user}&p={pass}";
+            using (var client = new WebClient())
             {
-                var pointToWrite = new Point();
-                pointToWrite.Name = item.Name;
-                pointToWrite.Tags = new Dictionary<string, object>();
-                if (item.Tags != null)
+                client.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
+                client.UploadStringAsync(new System.Uri(writeUrl), ms);
+            }
+        }
+
+        private string GetMetricsString(IList<MetricEntity> metrics)
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < metrics.Count; i++)
+            {
+                var m = metrics[i];
+                sb.Append(m.Name);
+                if (m.Tags != null)
                 {
-                    foreach (var tag in item.Tags)
+                    foreach (var t in m.Tags)
                     {
-                        pointToWrite.Tags.Add(tag.Key, tag.Value);
+                        sb.Append(",");
+                        sb.Append(t.Key + "=" + t.Value);
                     }
                 }
-                pointToWrite.Fields = new Dictionary<string, object>();
-                pointToWrite.Fields.Add("value", item.Value);
-                if (item.Time > 0)
+                sb.Append(" ");
+                sb.Append("value=" + m.Value);
+                if (i < metrics.Count - 1)
                 {
-                    pointToWrite.Timestamp = Utils.GetDateTimeFromUnix(item.Time).ToUniversalTime();
+                    sb.AppendLine();
                 }
-                points.Add(pointToWrite);
             }
-
-            influxDbClient.Client.WriteAsync(database, points);
+            return sb.ToString();
         }
     }
 }

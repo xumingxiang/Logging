@@ -83,8 +83,6 @@ namespace Logging.Server.Site
             {
                 Response.Write(item.ToString());
             }
-
-
         }
 
         protected void btnDropDB_Click(object sender, EventArgs e)

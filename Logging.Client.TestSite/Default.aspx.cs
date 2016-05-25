@@ -65,7 +65,14 @@ namespace Logging.Client.TestSite
             //}
 
 
-          //  logger.Metric();
+            //  logger.Metric();
+
+
+            for (int i = 0; i < 1000; i++)
+            {
+
+                  logger.Metric("csharp_test",100);
+            }
 
         }
     }

@@ -13,19 +13,19 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="bin/InfluxData.Net.Common.dll">
-      <publishTime>04/11/2016 18:43:47</publishTime>
+      <publishTime>05/14/2016 12:30:47</publishTime>
     </File>
     <File Include="bin/InfluxData.Net.InfluxDb.dll">
-      <publishTime>04/11/2016 18:43:47</publishTime>
+      <publishTime>05/14/2016 12:30:47</publishTime>
     </File>
     <File Include="bin/InfluxData.Net.Kapacitor.dll">
-      <publishTime>04/11/2016 18:43:47</publishTime>
+      <publishTime>05/14/2016 12:30:47</publishTime>
     </File>
     <File Include="bin/Logging.Server.dll">
-      <publishTime>05/06/2016 17:13:55</publishTime>
+      <publishTime>05/14/2016 23:53:20</publishTime>
     </File>
     <File Include="bin/Logging.Server.Site.dll">
-      <publishTime>05/06/2016 17:13:55</publishTime>
+      <publishTime>05/21/2016 18:44:26</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -43,37 +43,37 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="bin/Microsoft.Threading.Tasks.dll">
-      <publishTime>04/11/2016 15:39:38</publishTime>
+      <publishTime>05/14/2016 12:30:47</publishTime>
     </File>
     <File Include="bin/Microsoft.Threading.Tasks.Extensions.Desktop.dll">
-      <publishTime>04/11/2016 15:39:38</publishTime>
+      <publishTime>05/14/2016 12:30:47</publishTime>
     </File>
     <File Include="bin/Microsoft.Threading.Tasks.Extensions.dll">
-      <publishTime>04/11/2016 15:39:38</publishTime>
+      <publishTime>05/14/2016 12:30:47</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/08/2013 15:15:08</publishTime>
     </File>
     <File Include="bin/MongoDB.Bson.dll">
-      <publishTime>04/12/2016 10:41:53</publishTime>
+      <publishTime>05/14/2016 12:30:48</publishTime>
     </File>
     <File Include="bin/MongoDB.Driver.Core.dll">
-      <publishTime>04/12/2016 10:41:56</publishTime>
+      <publishTime>05/14/2016 12:30:48</publishTime>
     </File>
     <File Include="bin/MongoDB.Driver.dll">
-      <publishTime>04/12/2016 10:41:59</publishTime>
+      <publishTime>05/14/2016 12:30:48</publishTime>
     </File>
     <File Include="bin/MongoDB.Driver.Legacy.dll">
       <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>04/11/2016 15:39:46</publishTime>
+      <publishTime>05/14/2016 12:30:48</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Extensions.dll">
-      <publishTime>04/11/2016 15:39:42</publishTime>
+      <publishTime>05/14/2016 12:30:47</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Primitives.dll">
-      <publishTime>04/11/2016 15:39:42</publishTime>
+      <publishTime>05/14/2016 12:30:47</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -139,127 +139,139 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.css">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.css.map">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.min.css">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.css">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.css.map">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.min.css">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.eot">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.svg">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.woff">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.woff2">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/bootstrap/js/bootstrap.js">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/bootstrap/js/bootstrap.min.js">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/bootstrap/js/npm.js">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
+    </File>
+    <File Include="Content/dashboard.css">
+      <publishTime>05/14/2016 21:14:56</publishTime>
+    </File>
+    <File Include="Content/echarts/echarts.min.js">
+      <publishTime>05/14/2016 17:55:17</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_flat_0_aaaaaa_40x100.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_flat_75_ffffff_40x100.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_55_fbf9ee_1x400.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_65_ffffff_1x400.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_75_dadada_1x400.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_75_e6e6e6_1x400.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_95_fef1ec_1x400.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_222222_256x240.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_2e83ff_256x240.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_454545_256x240.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_888888_256x240.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_cd0a0a_256x240.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/css/jquery-ui-timepicker-addon.css">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/css/jquery-ui.min.css">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/jquery-ui-timepicker-addon.js">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/jquery-ui.js">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/jQuery/jquery.min.js">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/logviewer.css">
-      <publishTime>09/25/2015 18:09:32</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Content/logviewer.js">
-      <publishTime>04/11/2016 10:40:04</publishTime>
+      <publishTime>04/08/2016 18:50:14</publishTime>
+    </File>
+    <File Include="Content/metrics.css">
+      <publishTime>05/14/2016 21:16:10</publishTime>
+    </File>
+    <File Include="Content/metrics.js">
+      <publishTime>05/21/2016 18:36:52</publishTime>
     </File>
     <File Include="Content/settings.js">
-      <publishTime>02/17/2016 17:00:45</publishTime>
+      <publishTime>02/28/2016 13:33:16</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="GetLogOnOff.ashx">
-      <publishTime>10/19/2015 10:25:39</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="GetLogOnOffs.ashx">
-      <publishTime>10/19/2015 10:25:39</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>09/17/2015 18:02:20</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Index.html">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="InfluxData.Net.dll.config">
-      <publishTime>04/11/2016 15:39:51</publishTime>
+      <publishTime>05/14/2016 12:30:47</publishTime>
     </File>
     <File Include="InitMongo.aspx">
       <publishTime>09/02/2015 11:56:12</publishTime>
@@ -322,37 +334,1804 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="LogViewer.ashx">
-      <publishTime>09/17/2015 18:02:20</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="LogViewer.html">
-      <publishTime>04/11/2016 10:40:04</publishTime>
+      <publishTime>05/21/2016 18:35:16</publishTime>
+    </File>
+    <File Include="metrics/dashboard.html">
+      <publishTime>05/21/2016 18:21:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/.editorconfig">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/.github/CONTRIBUTING.md">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/.github/ISSUE_TEMPLATE.md">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/.gitignore">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/.jshintrc">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/.npmignore">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/asset/logo.png">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/build/amd2common.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/build/build.sh">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/build/mangleString.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/build/optimize.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/dist/echarts.common.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/dist/echarts.common.min.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/dist/echarts.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/dist/echarts.min.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/dist/echarts.simple.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/dist/echarts.simple.min.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/dist/extension/bmap.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/dist/extension/bmap.min.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/dist/extension/dataTool.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/dist/extension/dataTool.min.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/extension/bmap/bmap.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/extension/bmap/BMapCoordSys.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/extension/bmap/BMapModel.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/extension/bmap/BMapView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/extension/dataTool/gexf.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/extension/dataTool/index.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/extension/dataTool/prepareBoxplotData.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/extension/dataTool/quantile.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/extension/echarts.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/extension/webpack.config.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/index.common.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/index.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/index.simple.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/LICENSE">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/china-contour.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/china.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/anhui.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/aomen.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/beijing.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/chongqing.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/fujian.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/gansu.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/guangdong.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/guangxi.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/guizhou.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/hainan.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/hebei.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/heilongjiang.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/henan.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/hubei.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/hunan.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/jiangsu.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/jiangxi.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/jilin.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/liaoning.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/neimenggu.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/ningxia.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/qinghai.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/shandong.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/shanghai.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/shanxi.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/shanxi1.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/sichuan.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/tianjin.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/xianggang.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/xinjiang.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/xizang.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/yunnan.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/province/zhejiang.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/js/world.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/china-contour.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/china.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/anhui.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/aomen.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/beijing.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/chongqing.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/fujian.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/gansu.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/guangdong.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/guangxi.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/guizhou.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/hainan.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/hebei.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/heilongjiang.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/henan.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/hubei.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/hunan.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/jiangsu.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/jiangxi.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/jilin.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/liaoning.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/neimenggu.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/ningxia.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/qinghai.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/shandong.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/shanghai.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/shanxi.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/shanxi1.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/sichuan.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/tianjin.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/xianggang.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/xinjiang.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/xizang.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/yunnan.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/province/zhejiang.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/map/json/world.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/package.json">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/README.md">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/action/createDataSelectAction.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/action/geoRoam.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/action/roamHelper.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/bar.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/bar/barItemStyle.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/bar/BarSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/bar/BarView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/boxplot.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/boxplot/boxplotLayout.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/boxplot/BoxplotSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/boxplot/BoxplotView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/boxplot/boxplotVisual.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/candlestick.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/candlestick/candlestickLayout.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/candlestick/CandlestickSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/candlestick/CandlestickView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/candlestick/candlestickVisual.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/candlestick/preprocessor.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/chord.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/chord/chordCircularLayout.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/chord/ChordSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/chord/ChordView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/chord/Ribbon.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/effectScatter.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/effectScatter/EffectScatterSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/effectScatter/EffectScatterView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/funnel.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/funnel/funnelLayout.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/funnel/FunnelSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/funnel/FunnelView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/gauge.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/gauge/GaugeSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/gauge/GaugeView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/gauge/PointerPath.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/adjustEdge.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/backwardCompat.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/categoryFilter.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/categoryVisual.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/circularLayout.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/circularLayoutHelper.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/createView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/edgeVisual.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/forceHelper.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/forceLayout.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/GraphSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/GraphView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/roamAction.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/simpleLayout.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/simpleLayoutEdge.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/graph/simpleLayoutHelper.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/heatmap.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/heatmap/HeatmapLayer.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/heatmap/HeatmapSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/heatmap/HeatmapView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/helper/createGraphFromNodeEdge.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/helper/createGraphFromNodeMatrix.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/helper/createListFromArray.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/helper/dataSelectableMixin.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/helper/EffectLine.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/helper/EffectSymbol.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/helper/LargeSymbolDraw.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/helper/Line.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/helper/LineDraw.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/helper/LinePath.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/helper/Symbol.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/helper/SymbolDraw.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/helper/whiskerBoxCommon.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/helper/WhiskerBoxDraw.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/line.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/line/lineAnimationDiff.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/line/LineSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/line/LineView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/line/poly.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/lines.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/lines/linesLayout.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/lines/LinesSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/lines/LinesView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/map.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/map/backwardCompat.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/map/mapDataStatistic.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/map/MapSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/map/mapSymbolLayout.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/map/MapView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/map/mapVisual.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/parallel.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/parallel/ParallelSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/parallel/ParallelView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/parallel/parallelVisual.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/pie.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/pie/labelLayout.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/pie/pieLayout.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/pie/PieSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/pie/PieView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/radar.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/radar/backwardCompat.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/radar/radarLayout.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/radar/RadarSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/radar/RadarView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/sankey.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/sankey/sankeyLayout.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/sankey/SankeySeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/sankey/SankeyView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/sankey/sankeyVisual.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/scatter.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/scatter/ScatterSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/scatter/ScatterView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/themeRiver.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/themeRiver/themeRiverLayout.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/themeRiver/ThemeRiverSeries.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/themeRiver/ThemeRiverView.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/themeRiver/themeRiverVisual.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/treemap.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/treemap/Breadcrumb.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/treemap/helper.js">
+      <publishTime>05/14/2016 18:03:09</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/treemap/treemapAction.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/treemap/treemapLayout.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/treemap/TreemapSeries.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/treemap/TreemapView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/chart/treemap/treemapVisual.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/angleAxis.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/axis.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/axis/AngleAxisView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/axis/AxisBuilder.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/axis/AxisView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/axis/parallelAxisAction.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/axis/ParallelAxisView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/axis/RadiusAxisView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/axis/SingleAxisView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom/AxisProxy.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom/dataZoomAction.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom/DataZoomModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom/dataZoomProcessor.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom/DataZoomView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom/history.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom/InsideZoomModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom/InsideZoomView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom/roams.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom/SelectZoomModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom/SelectZoomView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom/SliderZoomModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom/SliderZoomView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoom/typeDefaulter.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoomInside.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/dataZoomSelect.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/geo.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/geo/GeoView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/grid.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/helper/interactionMutex.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/helper/listComponent.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/helper/MapDraw.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/helper/RoamController.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/helper/SelectController.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/helper/sliderMove.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/legend.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/legend/legendAction.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/legend/legendFilter.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/legend/LegendModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/legend/LegendView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/marker/markerHelper.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/marker/MarkLineModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/marker/MarkLineView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/marker/MarkPointModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/marker/MarkPointView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/markLine.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/markPoint.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/parallel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/parallelAxis.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/polar.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/radar.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/radar/RadarView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/radiusAxis.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/single.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/singleAxis.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/timeline.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/timeline/preprocessor.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/timeline/SliderTimelineModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/timeline/SliderTimelineView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/timeline/timelineAction.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/timeline/TimelineAxis.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/timeline/TimelineModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/timeline/TimelineView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/timeline/typeDefaulter.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/title.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/toolbox.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/toolbox/feature/DataView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/toolbox/feature/DataZoom.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/toolbox/feature/MagicType.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/toolbox/feature/Restore.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/toolbox/feature/SaveAsImage.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/toolbox/featureManager.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/toolbox/ToolboxModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/toolbox/ToolboxView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/tooltip.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/tooltip/TooltipContent.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/tooltip/TooltipModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/tooltip/TooltipView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/visualMap.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/visualMap/ContinuousModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/visualMap/ContinuousView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/visualMap/helper.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/visualMap/PiecewiseModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/visualMap/PiecewiseView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/visualMap/preprocessor.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/visualMap/typeDefaulter.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/visualMap/visualCoding.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/visualMap/visualMapAction.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/visualMap/VisualMapModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/visualMap/VisualMapView.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/visualMapContinuous.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/component/visualMapPiecewise.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/Axis.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/axisDefault.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/axisHelper.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/axisModelCommonMixin.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/axisModelCreator.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/cartesian/Axis2D.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/cartesian/axisLabelInterval.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/cartesian/AxisModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/cartesian/Cartesian.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/cartesian/Cartesian2D.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/cartesian/Grid.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/cartesian/GridModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/geo/fix/geoCoord.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/geo/fix/nanhai.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/geo/fix/textCoord.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/geo/Geo.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/geo/geoCreator.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/geo/GeoModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/geo/parseGeoJson.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/geo/Region.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/parallel/AxisModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/parallel/Parallel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/parallel/ParallelAxis.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/parallel/parallelCreator.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/parallel/ParallelModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/parallel/parallelPreprocessor.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/polar/AngleAxis.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/polar/AxisModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/polar/Polar.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/polar/polarCreator.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/polar/PolarModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/polar/RadiusAxis.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/radar/IndicatorAxis.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/radar/Radar.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/radar/RadarModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/single/AxisModel.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/single/Single.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/single/SingleAxis.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/single/singleCreator.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/coord/View.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/CoordinateSystem.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/data/DataDiffer.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/data/Graph.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/data/helper/completeDimensions.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/data/helper/linkList.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/data/List.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/data/Tree.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/echarts.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/ExtensionAPI.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/layout/barGrid.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/layout/points.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/loading/default.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/model/Component.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/model/Global.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/model/globalDefault.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/model/mixin/areaStyle.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/model/mixin/boxLayout.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/model/mixin/itemStyle.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/model/mixin/lineStyle.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/model/mixin/makeStyleMapper.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/model/mixin/textStyle.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/model/Model.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/model/OptionManager.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/model/Series.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/preprocessor/backwardCompat.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/preprocessor/helper/compatStyle.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/processor/dataFilter.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/processor/dataSample.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/scale/Interval.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/scale/Log.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/scale/Ordinal.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/scale/Scale.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/scale/Time.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/util/animation.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/util/array/nest.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/util/clazz.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/util/component.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/util/format.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/util/graphic.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/util/KDTree.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/util/layout.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/util/model.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/util/number.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/util/quickSelect.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/util/symbol.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/util/throttle.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/view/Chart.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/view/Component.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/visual/dataColor.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/visual/seriesColor.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/visual/symbol.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/visual/visualDefault.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/src/visual/VisualMapping.js">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/area.html">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/area2.html">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/axes.html">
+      <publishTime>05/14/2016 18:03:10</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/axis.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/bar-large.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/bar.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/bar2.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/bmap.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/boxplot-multi.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/boxplot.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/candlestick.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/candlestickConnect.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/chord.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/color-mix-aqi.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/config.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/connect.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/connect2.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/aqi/BJdata.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/aqi/GZdata.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/aqi/processAQI.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/aqi/SHdata.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/disk.tree.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/energy.json">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/les-miserables.gexf">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/masterPainterColorChoice.json">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/Michelson-Morley.json.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/obama_budget_proposal_2012.tree.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/option-view.json">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/product.json">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/rainfall.json.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/security-sh-2013.json.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/data/timelineGDP.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataView.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-axes.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-axis-type.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-cartesian-h.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-cartesian-v.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-dataShadow.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-dataShadow0.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-dataShadow1.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-dataShadow2.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-dynamic.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-rainfall-connect.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-rainfall-inside.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-rainfall.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-scatter-hv-polar.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-scatter-hv.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoom-scatter-toolbox.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dataZoomHighPrecision.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/diff.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/dynamicData.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/effectScatter.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/esl.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/force.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/force2.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/force3.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/funnel.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/gauge.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/geoLine.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/geoScatter.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/getOption.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/graph-grid.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/graph-simple.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/graph.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/heatmap-map.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/heatmap.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ie8.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/largeLine.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/lib/dat.gui.min.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/lib/draggable.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/lib/facePrint.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/lib/jquery.min.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/line.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/loading.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/logScale.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/map-contour.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/map.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/mapWorld.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/markLine.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/markPoint.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/masterPainterColorChoice.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/media-dataZoom.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/media-finance.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/media-pie.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/mix.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/mobileBench.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/multipleGrid.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/parallel-aqi.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/pie.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/pie2.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/pie3.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/pieDynamic.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/polarLine.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/polarLine2.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/polarScatter.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/punchCard.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/radar.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/radar2.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/radar3.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/radar4.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/README.md">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/reset.css">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/roseType.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/sankey.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/scatter.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/selectedMode.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/showTip.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/symbol.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/theme.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/themeRiver.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/timeline-finance.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/timeline-layout.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/timeScale.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/tooltip.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/treemap-disk.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/treemap-obama.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/treemap-option.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/treemap-simple.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/.jshintrc">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/config.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/configure">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/core/uiHelper.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/core/utHelper.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/lib/canteen.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/lib/imagediff.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/lib/jasmine-2.3.4/boot.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/lib/jasmine-2.3.4/console.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/lib/jasmine-2.3.4/jasmine-html.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/lib/jasmine-2.3.4/jasmine.css">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/lib/jasmine-2.3.4/jasmine.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/lib/jasmine-2.3.4/jasmine_favicon.png">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/MIT.LICENSE">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/spec/component/visualMap/setOption.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/spec/data/List.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/spec/model/Component.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/spec/model/Global.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/spec/model/timelineOptions.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/spec/ui/config.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/spec/ui/legend.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/spec/ui/title.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/spec/ui/title.subtextStyle.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/spec/ui/title.textStyle.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/spec/util/graphic.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/spec/util/model.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/ui.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/ut.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/ut/ut.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/visualMap-categories.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/visualMap-continuous.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/visualMap-layout.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/visualMap-opacity.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/visualMap-pieces.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/visualMap-scatter-colorAndSymbol.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/visualMap-scatter-symbolSize.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/webkit-dep.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/test/worldPopulationBubble.html">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/theme/dark.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/theme/infographic.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/theme/macarons.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/theme/roma.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/theme/shine.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/theme/tool/option/area.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/theme/tool/option/bar.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/theme/tool/option/graph.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/theme/tool/option/map.js">
+      <publishTime>05/14/2016 18:03:11</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/theme/tool/option/pie.js">
+      <publishTime>05/14/2016 18:03:12</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/theme/tool/option/scatter.js">
+      <publishTime>05/14/2016 18:03:12</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/theme/tool/thumb.js">
+      <publishTime>05/14/2016 18:03:12</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/theme/vintage.js">
+      <publishTime>05/14/2016 18:03:12</publishTime>
+    </File>
+    <File Include="metrics/echarts-master/webpack.config.js">
+      <publishTime>05/14/2016 18:03:12</publishTime>
+    </File>
+    <File Include="metrics/echarts.min.js">
+      <publishTime>05/14/2016 17:56:27</publishTime>
+    </File>
+    <File Include="metrics/MetricsQuery.ashx">
+      <publishTime>05/14/2016 21:37:51</publishTime>
+    </File>
+    <File Include="metrics/MetricTags.ashx">
+      <publishTime>05/18/2016 22:13:46</publishTime>
+    </File>
+    <File Include="metrics/test.aspx">
+      <publishTime>05/14/2016 23:48:30</publishTime>
     </File>
     <File Include="MongoTools.aspx">
-      <publishTime>09/17/2015 18:02:20</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>04/12/2016 10:42:58</publishTime>
+      <publishTime>05/14/2016 12:30:47</publishTime>
     </File>
     <File Include="Reciver.ashx">
-      <publishTime>09/17/2015 18:02:20</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="SetLogOnOff.ashx">
-      <publishTime>10/19/2015 10:25:39</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Settings.aspx">
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="Settings.html">
-      <publishTime>04/11/2016 10:40:04</publishTime>
+      <publishTime>05/21/2016 18:35:25</publishTime>
     </File>
     <File Include="StatisticsViewer.ashx">
-      <publishTime>09/17/2015 18:02:20</publishTime>
+      <publishTime>01/17/2016 00:30:41</publishTime>
     </File>
     <File Include="Test/MetricTest.aspx">
-      <publishTime>04/11/2016 14:20:24</publishTime>
+      <publishTime>05/14/2016 12:30:47</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/06/2016 17:07:55</publishTime>
+      <publishTime>05/21/2016 13:32:34</publishTime>
     </File>
   </ItemGroup>
 </Project>

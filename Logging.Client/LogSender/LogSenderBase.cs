@@ -16,8 +16,6 @@ namespace Logging.Client
 
         protected TLogPackage CreateLogPackage(IList<ILogEntity> logEntities)
         {
-           
-
             var logs = logEntities.Where(x => x.Type == 1);
             var metrics = logEntities.Where(x => x.Type == 2);
 

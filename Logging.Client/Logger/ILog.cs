@@ -92,5 +92,7 @@ namespace Logging.Client
         /// <param name="limit"></param>
         /// <returns></returns>
         string GetLogs(long start, long end, int appId, int[] level = null, string title = "", string msg = "", string source = "", string ip = "", Dictionary<string, string> tags = null, int limit = 100);
+
+        void Flush();
     }
 }

@@ -180,6 +180,22 @@ namespace Logging.Client
             }
         }
 
-
+        public void Flush()
+        {
+            if (this.s_Queue.Count >= 0)
+            {
+                this.Action(this.s_Queue.ToList());
+                for (int i = 0; i < s_Queue.Count; i++)
+                {
+                    this.s_Queue.Take();
+                }
+            }
+            if (this.Buffer.Count > 0)
+            {
+                this.Action(this.Buffer.ToList());
+                this.Buffer.Clear();
+            }
+            this.LastActionTime = DateTime.Now;
+        }
     }
 }

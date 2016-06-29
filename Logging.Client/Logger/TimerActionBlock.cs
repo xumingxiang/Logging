@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Thrift;
@@ -187,6 +188,24 @@ namespace Logging.Client
                 this.OverCount = 0;
                 this.LastReportTime = DateTime.Now;
             }
+        }
+
+        public void Flush()
+        {
+            if (this.s_Queue.Count >= 0)
+            {
+                this.Action(this.s_Queue.ToList());
+                for (int i = 0; i < s_Queue.Count; i++)
+                {
+                    this.s_Queue.Take();
+                }
+            }
+            if (this.Buffer.Count > 0)
+            {
+                this.Action(this.Buffer);
+                this.Buffer.Clear();
+            }
+            this.LastActionTime = DateTime.Now;
         }
     }
 }

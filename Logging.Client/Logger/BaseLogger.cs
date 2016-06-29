@@ -349,5 +349,10 @@ namespace Logging.Client
         {
             PrivateMetric(name, value, tags, time);
         }
+
+        public void Flush()
+        {
+            block.Flush();
+        }
     }
 }

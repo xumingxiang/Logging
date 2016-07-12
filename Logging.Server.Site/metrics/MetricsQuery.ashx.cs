@@ -20,9 +20,10 @@ namespace Logging.Server.Site.metrics
 
         public void ProcessRequest(HttpContext context)
         {
-            InfluxdbConnectionString = $"http://{MetricInfluxdbHost}:{MetricInfluxdbPort}/db/{MetricInfluxdbDBName}/series?u={MetricInfluxdbUser}&p={MetricInfluxdbPwd}";
+            InfluxdbConnectionString = $"http://{MetricInfluxdbHost}:{MetricInfluxdbPort}/query?db={MetricInfluxdbDBName}&u={MetricInfluxdbUser}&p={MetricInfluxdbPwd}";
+            //"http://172.16.9.221:8086/query?db=metrics&u=root&p=root&q=SHOW+SERIES+from+%2F_a%2F"
 
-         
+
             context.Response.ContentType = "text/plain";
 
             string queryCmd = context.Request["cmd"];

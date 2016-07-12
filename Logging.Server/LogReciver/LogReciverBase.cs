@@ -88,7 +88,7 @@ namespace Logging.Server.Reciver
             {
                 MetricEntity metric = new MetricEntity();
                 metric.Name = item.Name;
-                metric.Time = item.Time;
+                metric.Time = item.Time * 1000000000;
                 metric.Tags = item.Tags;
                 metric.Value = item.Value;
                 if (metric.Tags == null)

@@ -20,13 +20,13 @@ namespace Logging.Server.Site.Test
             var metric = MetricProcessorManager.GetMetricProcessor();
 
             IList<MetricEntity> logs = new List<MetricEntity>();
-            logs.Add(new MetricEntity { Name= "plu_test_request_count", Value=4110, Time=Utils.GetUnixTime(DateTime.Now) });
-            logs.Add(new MetricEntity { Name = "plu_test_request_count", Value = 4110, Time = Utils.GetUnixTime(DateTime.Now) });
-            logs.Add(new MetricEntity { Name = "plu_test_request_count", Value = 4110, Time = Utils.GetUnixTime(DateTime.Now) });
-            logs.Add(new MetricEntity { Name = "plu_test_request_count", Value = 4110, Time = Utils.GetUnixTime(DateTime.Now) });
+            logs.Add(new MetricEntity { Name = "plu_test_request_9", Value = 4110, Time = Utils.GetUnixTime(DateTime.Now) });
+            logs.Add(new MetricEntity { Name = "plu_test_request_8", Value = 4110, Time = Utils.GetUnixTime(DateTime.Now) });
+            logs.Add(new MetricEntity { Name = "plu_test_request_7", Value = 4110, Time = Utils.GetUnixTime(DateTime.Now) });
+            logs.Add(new MetricEntity { Name = "plu_test_request_6", Value = 4110, Time = Utils.GetUnixTime(DateTime.Now) });
             metric.Process(logs);
 
-
+            Response.Write(Utils.GetTimeStamp(DateTime.Now));
         }
     }
 }

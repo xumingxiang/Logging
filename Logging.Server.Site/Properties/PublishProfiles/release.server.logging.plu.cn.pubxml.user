@@ -13,19 +13,19 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="bin/InfluxData.Net.Common.dll">
-      <publishTime>05/14/2016 12:30:47</publishTime>
+      <publishTime>04/11/2016 18:43:47</publishTime>
     </File>
     <File Include="bin/InfluxData.Net.InfluxDb.dll">
-      <publishTime>05/14/2016 12:30:47</publishTime>
+      <publishTime>04/11/2016 18:43:47</publishTime>
     </File>
     <File Include="bin/InfluxData.Net.Kapacitor.dll">
-      <publishTime>05/14/2016 12:30:47</publishTime>
+      <publishTime>04/11/2016 18:43:47</publishTime>
     </File>
     <File Include="bin/Logging.Server.dll">
-      <publishTime>05/14/2016 23:53:20</publishTime>
+      <publishTime>07/11/2016 19:31:22</publishTime>
     </File>
     <File Include="bin/Logging.Server.Site.dll">
-      <publishTime>05/21/2016 18:44:26</publishTime>
+      <publishTime>07/12/2016 18:35:37</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -43,37 +43,37 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="bin/Microsoft.Threading.Tasks.dll">
-      <publishTime>05/14/2016 12:30:47</publishTime>
+      <publishTime>04/11/2016 15:39:38</publishTime>
     </File>
     <File Include="bin/Microsoft.Threading.Tasks.Extensions.Desktop.dll">
-      <publishTime>05/14/2016 12:30:47</publishTime>
+      <publishTime>04/11/2016 15:39:38</publishTime>
     </File>
     <File Include="bin/Microsoft.Threading.Tasks.Extensions.dll">
-      <publishTime>05/14/2016 12:30:47</publishTime>
+      <publishTime>04/11/2016 15:39:38</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/08/2013 15:15:08</publishTime>
     </File>
     <File Include="bin/MongoDB.Bson.dll">
-      <publishTime>05/14/2016 12:30:48</publishTime>
+      <publishTime>04/12/2016 10:41:53</publishTime>
     </File>
     <File Include="bin/MongoDB.Driver.Core.dll">
-      <publishTime>05/14/2016 12:30:48</publishTime>
+      <publishTime>04/12/2016 10:41:56</publishTime>
     </File>
     <File Include="bin/MongoDB.Driver.dll">
-      <publishTime>05/14/2016 12:30:48</publishTime>
+      <publishTime>04/12/2016 10:41:59</publishTime>
     </File>
     <File Include="bin/MongoDB.Driver.Legacy.dll">
       <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>05/14/2016 12:30:48</publishTime>
+      <publishTime>04/11/2016 15:39:46</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Extensions.dll">
-      <publishTime>05/14/2016 12:30:47</publishTime>
+      <publishTime>04/11/2016 15:39:42</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Primitives.dll">
-      <publishTime>05/14/2016 12:30:47</publishTime>
+      <publishTime>04/11/2016 15:39:42</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -139,139 +139,139 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.css">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.css.map">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.min.css">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.css">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.css.map">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.min.css">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.eot">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.svg">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.woff">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.woff2">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/bootstrap/js/bootstrap.js">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/bootstrap/js/bootstrap.min.js">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/bootstrap/js/npm.js">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/dashboard.css">
-      <publishTime>05/14/2016 21:14:56</publishTime>
+      <publishTime>05/25/2016 20:09:51</publishTime>
     </File>
     <File Include="Content/echarts/echarts.min.js">
-      <publishTime>05/14/2016 17:55:17</publishTime>
+      <publishTime>05/25/2016 20:09:51</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_flat_0_aaaaaa_40x100.png">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_flat_75_ffffff_40x100.png">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_55_fbf9ee_1x400.png">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_65_ffffff_1x400.png">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_75_dadada_1x400.png">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_75_e6e6e6_1x400.png">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_95_fef1ec_1x400.png">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_222222_256x240.png">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_2e83ff_256x240.png">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_454545_256x240.png">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_888888_256x240.png">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_cd0a0a_256x240.png">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/css/jquery-ui-timepicker-addon.css">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/css/jquery-ui.min.css">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/jquery-ui-timepicker-addon.js">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/jquery-ui.js">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/jQuery/jquery.min.js">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="Content/logviewer.css">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/25/2015 18:09:32</publishTime>
     </File>
     <File Include="Content/logviewer.js">
-      <publishTime>04/08/2016 18:50:14</publishTime>
+      <publishTime>04/11/2016 10:40:04</publishTime>
     </File>
     <File Include="Content/metrics.css">
-      <publishTime>05/14/2016 21:16:10</publishTime>
+      <publishTime>05/25/2016 20:09:51</publishTime>
     </File>
     <File Include="Content/metrics.js">
-      <publishTime>05/21/2016 18:36:52</publishTime>
+      <publishTime>07/12/2016 18:25:06</publishTime>
     </File>
     <File Include="Content/settings.js">
-      <publishTime>02/28/2016 13:33:16</publishTime>
+      <publishTime>02/17/2016 17:00:45</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="GetLogOnOff.ashx">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>10/19/2015 10:25:39</publishTime>
     </File>
     <File Include="GetLogOnOffs.ashx">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>10/19/2015 10:25:39</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="Index.html">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="InfluxData.Net.dll.config">
-      <publishTime>05/14/2016 12:30:47</publishTime>
+      <publishTime>04/11/2016 15:39:51</publishTime>
     </File>
     <File Include="InitMongo.aspx">
       <publishTime>09/02/2015 11:56:12</publishTime>
@@ -334,13 +334,13 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="LogViewer.ashx">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="LogViewer.html">
-      <publishTime>05/21/2016 18:35:16</publishTime>
+      <publishTime>05/25/2016 20:09:51</publishTime>
     </File>
     <File Include="metrics/dashboard.html">
-      <publishTime>05/21/2016 18:21:11</publishTime>
+      <publishTime>05/25/2016 20:09:51</publishTime>
     </File>
     <File Include="metrics/echarts-master/.editorconfig">
       <publishTime>05/14/2016 18:03:09</publishTime>
@@ -2098,40 +2098,43 @@
       <publishTime>05/14/2016 17:56:27</publishTime>
     </File>
     <File Include="metrics/MetricsQuery.ashx">
-      <publishTime>05/14/2016 21:37:51</publishTime>
+      <publishTime>05/25/2016 20:09:51</publishTime>
     </File>
     <File Include="metrics/MetricTags.ashx">
-      <publishTime>05/18/2016 22:13:46</publishTime>
+      <publishTime>05/25/2016 20:09:51</publishTime>
+    </File>
+    <File Include="metrics/Point.ashx">
+      <publishTime>07/12/2016 18:22:47</publishTime>
     </File>
     <File Include="metrics/test.aspx">
-      <publishTime>05/14/2016 23:48:30</publishTime>
+      <publishTime>05/25/2016 20:09:51</publishTime>
     </File>
     <File Include="MongoTools.aspx">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>05/14/2016 12:30:47</publishTime>
+      <publishTime>04/12/2016 10:42:58</publishTime>
     </File>
     <File Include="Reciver.ashx">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="SetLogOnOff.ashx">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>10/19/2015 10:25:39</publishTime>
     </File>
     <File Include="Settings.aspx">
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="Settings.html">
-      <publishTime>05/21/2016 18:35:25</publishTime>
+      <publishTime>05/25/2016 20:09:51</publishTime>
     </File>
     <File Include="StatisticsViewer.ashx">
-      <publishTime>01/17/2016 00:30:41</publishTime>
+      <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="Test/MetricTest.aspx">
-      <publishTime>05/14/2016 12:30:47</publishTime>
+      <publishTime>04/11/2016 14:20:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/21/2016 13:32:34</publishTime>
+      <publishTime>07/11/2016 17:30:44</publishTime>
     </File>
   </ItemGroup>
 </Project>

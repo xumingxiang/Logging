@@ -75,8 +75,17 @@ $(function () {
         });
 
 
+        var query_metric_name_arr = query_metric_name.split(',');
+        var _query_metric_name = "";
+        for (var i = 0; i < query_metric_name_arr.length; i++) {
+            _query_metric_name += "/" + query_metric_name_arr[i] + "/";
+            if (i < query_metric_name_arr.length - 1) {
+                _query_metric_name += ",";
+            }
+        }
+        _query_metric_name = _query_metric_name.trimRight(',');
+        var query_str = query_base + 'select ' + aggr + '( value )' + ' from ' + _query_metric_name + ' where ';
 
-        var query_str = query_base + 'select ' + aggr + '( value )' + ' from ' + query_metric_name + ' where ';
         if (start_time != "") {
             query_str += ' time > \'' + utc_start_time_fm + '\' and ';
         }
@@ -87,9 +96,9 @@ $(function () {
             query_str += ' and ' + filter_name + ' = \'' + filter_val + '\' ';
         }
 
-        query_str += ' group%20by%20';
-        if (group_by_tag != "") {
-            query_str += group_by_tag + '%20%2C';
+        query_str += ' group by ';
+        if (group_by_tag != "" && group_by_tag != 0) {
+            query_str += group_by_tag + ',';
         }
         query_str += ' time(' + group_by_time + ')';
 
@@ -97,7 +106,8 @@ $(function () {
             'type': 'get',
             'url': query_str,
             'success': function (resp) {
-                var result = eval("(" + resp + ")");
+                var _result = eval("(" + resp + ")");
+                var result = _result.results[0].series;
                 if (!result || result.length == 0) {
                     myChart.hideLoading();
                     $("#empty_point").text("没有相关查到数据").show();
@@ -111,6 +121,8 @@ $(function () {
                 var xAxis_timestamp = [];
                 var group_index = 2;
 
+
+
                 //计算legend
                 for (var i = 0; i < result.length; i++) {
                     var columns = result[i].columns;
@@ -120,14 +132,15 @@ $(function () {
                     legend_map_item.legend = [];
                     legend_map_item.data_index = i;
 
-                    if (columns.length < 3) {
+                    var tags = result[i].tags;
+                    var points = result[i].values;
 
+                    if (!tags) {
                         legend_map_item.legend.push(metric_name);
                         legend.push(metric_name);
                     } else {
-                        var points = result[i].points;
                         for (var j = 0; j < points.length; j++) {
-                            var group_val = points[j][group_index];
+                            var group_val = tags[group_by_tag];
                             if (group_val != null && group_val != "") {
                                 group_val = metric_name + "." + group_val;
                             } else {
@@ -136,7 +149,6 @@ $(function () {
 
                             if (legend_map_item.legend.indexOf(group_val) < 0) {
                                 legend_map_item.legend.push(group_val);
-
                             }
 
                             if (legend.indexOf(group_val) < 0) {
@@ -149,10 +161,10 @@ $(function () {
 
                 //计算xAxis_timestamp、xAxis
                 for (var i = 0; i < result.length; i++) {
-                    var points = result[i].points;
+                    var points = result[i].values;
                     var points_len = points.length;
                     for (var j = 0; j < points_len; j++) {
-                        var timestamp = points[points_len - j - 1][0];
+                        var timestamp = points[j][0];
                         if (xAxis_timestamp.indexOf(timestamp) < 0) {
                             xAxis_timestamp.push(timestamp);
                         }
@@ -173,7 +185,12 @@ $(function () {
                         serie.name = legend_item_val;
                         serie.type = "line";
                         serie.data = [];
-                        var points = result[legend_map[k].data_index].points;
+                        var points = result[legend_map[k].data_index].values;
+                        var tags = result[legend_map[k].data_index].tags;
+
+                        var group_val = tags == null ? "" : tags[group_by_tag];
+
+
                         var points_len = points.length;
 
                         //初始化折线点
@@ -182,11 +199,12 @@ $(function () {
                             serie_data_map.set(item, "-");
                         });
 
-                        for (var j = points_len - 1; j >= 0; j--) {
+                        //for (var j = points_len - 1; j >= 0; j--) {
+                        for (var j = 0; j < points_len ; j++) {
                             var point = points[j];
-                            var group_val = point[group_index];
+                            // var group_val = point[group_index];
                             if (legend_item_val == metric_name || legend_item_val == metric_name + "." + group_val) {
-                                serie_data_map.set(point[0], point[1]);
+                                serie_data_map.set(point[0], point[1] == null ? 0 : point[1]);
                             }
                         }
 
@@ -283,7 +301,18 @@ $(function () {
             text: '正在努力的读取数据中...',    //loading话术
         });
 
-        var query_str = query_base + 'select ' + aggr + '( value )' + ' from ' + query_metric_name + ' where ';
+        var query_metric_name_arr = query_metric_name.split(',');
+        var _query_metric_name = "";
+        for (var i = 0; i < query_metric_name_arr.length; i++) {
+            _query_metric_name += "/" + query_metric_name_arr[i] + "/";
+            if (i < query_metric_name_arr.length - 1) {
+                _query_metric_name += ",";
+            }
+        }
+        _query_metric_name = _query_metric_name.trimRight(',');
+
+
+        var query_str = query_base + 'select ' + aggr + '(value)' + ' from ' + _query_metric_name + ' where ';
         if (start_time != "") {
             query_str += ' time > \'' + utc_start_time_fm + '\' and ';
         }
@@ -293,8 +322,8 @@ $(function () {
             query_str += ' and ' + filter_name + ' = \'' + filter_val + '\' ';
         }
         if (group_by_tag != "0") {
-            query_str += ' group%20by%20';
-            query_str += group_by_tag + '%20';
+            query_str += ' group by ';
+            query_str += group_by_tag;
         }
 
 
@@ -302,7 +331,8 @@ $(function () {
             'type': 'get',
             'url': query_str,
             'success': function (resp) {
-                var result = eval("(" + resp + ")");
+                var _result = eval("(" + resp + ")");
+                var result = _result.results[0].series;
                 if (!result || result.length == 0) {
                     myChart.hideLoading();
                     $("#empty_point").text("没有相关查到数据").show();
@@ -345,13 +375,15 @@ $(function () {
 
                 serie.data = [];
                 for (var k = 0; k < result.length; k++) {
-                    var points = result[k].points;
+                    var points = result[k].values;
+                    var tags = result[k].tags;
                     var metric_name = result[k].name;
                     var points_len = points.length;
+
                     for (var i = 0; i < points_len; i++) {
                         var legend_name = metric_name;
-                        if (points[i].length >= 3) {
-                            legend_name = metric_name + "." + points[i][2];
+                        if (!!tags) {
+                            legend_name = metric_name + "." + tags[group_by_tag];
                         }
                         serie.data.push({ value: points[i][1], name: legend_name });
                         legend.push(legend_name);
@@ -411,15 +443,28 @@ $(function () {
     $("#metric_name").autocomplete({
         source: function (request, responseFn) {
             var metric_name = request.term;
-            var query_str = query_base + 'list+series+%2F' + metric_name + '%2F';
+            var query_str = query_base + 'SHOW+SERIES+from+%2F' + metric_name + '%2F';
             $.get(query_str, function (resp) {
                 var result = eval("(" + resp + ")");
-                var points = result[0].points;
-                var series = $.map(points, function (item) {
-                    return item[1];
-                });
-                responseFn(series);
+                var series = result.results[0].series;
+                if (series == null || series.length == 0) {
+                    return;
+                }
+                var points = series[0].values;
+                var mns = [];
+                for (var i = 0; i < points.length; i++) {
+                    var mn = points[i][0].split(',')[0]
+                    if (mns.indexOf(mn) < 0) {
+                        mns.push(mn)
+                    }
+                }
+
+                //var series = $.map(points, function (item) {
+                //    return item[0].split(',')[0];
+                //});
+                responseFn(mns);
             });
+            setTags(metric_name);
         },
         select: function (event, ui) {
             var metricName = ui.item.value;
@@ -435,7 +480,7 @@ $(function () {
             var query_str = query_base + 'select+*+from+%22' + metric_name + '%22+limit+1';
             $.get(query_str, function (resp) {
                 var result = eval("(" + resp + ")");
-                var columns = result[0].columns;
+                var columns = result.results[0].series[0].columns;
                 var series = [];
                 for (var i = 3; i < columns.length; i++) {
                     var tag = columns[i];
@@ -457,22 +502,43 @@ $(function () {
         }
     });
 
-
-
     function setTags(metricName) {
-        var query_str = query_base + 'select+*+from+%22' + metricName + '%22+limit+1';
+
+        var query_metric_name_arr = metricName.split(',');
+        var _query_metric_name = "";
+        for (var i = 0; i < query_metric_name_arr.length; i++) {
+            _query_metric_name += "/" + query_metric_name_arr[i] + "/";
+            if (i < query_metric_name_arr.length - 1) {
+                _query_metric_name += ",";
+            }
+        }
+        _query_metric_name = _query_metric_name.trimRight(',');
+
+
+        var query_str = query_base + 'select * from ' + _query_metric_name + ' limit 1';
         $.get(query_str, function (resp) {
             var result = eval("(" + resp + ")");
-            var columns = result[0].columns;
+            var series = result.results[0].series;
+            if (series == null || series.length == 0) { return; }
+
             $("#flt_tag,#grp_tag").empty();
             $("#flt_tag").append("<option  value=\"0\">未选择</option>");
             $("#grp_tag").append("<option  value=\"0\">未选择</option>");
-            for (var i = 0; i < columns.length; i++) {
-                var tag = columns[i];
-                //"time", "sequence_number", "AppId", "IP", "value"
-                if (tag != "time" && tag != "sequence_number" && tag != "IP" && tag != "value") {
-                    $("#flt_tag").append("<option  value=\"" + tag + "\">" + tag + "</option>");
-                    $("#grp_tag").append("<option  value=\"" + tag + "\">" + tag + "</option>");
+
+            var tag_arr = [];
+
+            for (var i = 0; i < series.length; i++) {
+                var serie = series[i];
+                var columns = serie.columns;
+                for (var j = 0; j < columns.length; j++) {
+                    //"time", "sequence_number", "AppId", "IP", "value"
+                    var tag = columns[j];
+                    if (tag_arr.indexOf(tag) >= 0) { return; }
+                    tag_arr.push(tag)
+                    if (tag != "time" && tag != "sequence_number" && tag != "IP" && tag != "value") {
+                        $("#flt_tag").append("<option  value=\"" + tag + "\">" + tag + "</option>");
+                        $("#grp_tag").append("<option  value=\"" + tag + "\">" + tag + "</option>");
+                    }
                 }
             }
         });

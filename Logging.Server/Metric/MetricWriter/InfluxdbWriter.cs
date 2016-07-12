@@ -29,10 +29,12 @@ namespace Logging.Server.Metric.Writer
             if (logs == null || logs.Count == 0) { return; }
             string ms = GetMetricsString(logs);
             string writeUrl = $"http://{host}:{port}/write?db={database}&u={user}&p={pass}";
+           // string writeUrl = $"http://{host}:{port}/write";
             using (var client = new WebClient())
             {
-                client.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
-                client.UploadStringAsync(new System.Uri(writeUrl), ms);
+                client.Headers.Add("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+                var result = client.UploadData(new System.Uri(writeUrl), System.Text.Encoding.UTF8.GetBytes(ms));
+                var result2 = System.Text.Encoding.UTF8.GetString(result);
             }
         }
 
@@ -47,15 +49,17 @@ namespace Logging.Server.Metric.Writer
                 {
                     foreach (var t in m.Tags)
                     {
-                        sb.Append(",");
-                        sb.Append(t.Key + "=" + t.Value);
+                        sb.Append($",{t.Key}={ t.Value}");
                     }
                 }
-                sb.Append(" ");
-                sb.Append("value=" + m.Value);
+                sb.Append($" value={ m.Value}");
+                if (m.Time > 0)
+                {
+                    sb.Append($" {m.Time}");
+                }
                 if (i < metrics.Count - 1)
                 {
-                    sb.AppendLine();
+                    sb.Append("\n");
                 }
             }
             return sb.ToString();

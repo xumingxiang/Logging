@@ -39,18 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="InfluxData.Net.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\InfluxData.Net.4.2.2\lib\InfluxData.Net.Common.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="InfluxData.Net.InfluxDb, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\InfluxData.Net.4.2.2\lib\InfluxData.Net.InfluxDb.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="InfluxData.Net.Kapacitor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\InfluxData.Net.4.2.2\lib\InfluxData.Net.Kapacitor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
@@ -108,10 +96,6 @@
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
@@ -175,6 +159,7 @@
     <Content Include="InfluxData.Net.dll.config" />
     <Content Include="metrics\MetricsQuery.ashx" />
     <Content Include="metrics\MetricTags.ashx" />
+    <Content Include="metrics\Point.ashx" />
     <None Include="Properties\PublishProfiles\release.server.logging.plu.cn.pubxml" />
     <Content Include="StatisticsViewer.ashx" />
     <Content Include="SetLogOnOff.ashx" />
@@ -200,6 +185,9 @@
     </Compile>
     <Compile Include="metrics\MetricTags.ashx.cs">
       <DependentUpon>MetricTags.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="metrics\Point.ashx.cs">
+      <DependentUpon>Point.ashx</DependentUpon>
     </Compile>
     <Compile Include="metrics\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>

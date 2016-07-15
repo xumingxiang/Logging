@@ -18,12 +18,11 @@
  */
 
 using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
-using System.Collections.Generic;
-
 using Thrift.Transport;
-using System.Globalization;
 
 namespace Thrift.Protocol
 {
@@ -62,6 +61,7 @@ namespace Thrift.Protocol
         private byte[] ESCSEQ = new byte[] { (byte)'\\', (byte)'u', (byte)'0', (byte)'0' };
 
         private const long VERSION = 1;
+
         private byte[] JSON_CHAR_TABLE = {
     0,  0,  0,  0,  0,  0,  0,  0,(byte)'b',(byte)'t',(byte)'n',  0,(byte)'f',(byte)'r',  0,  0,
     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
@@ -94,26 +94,37 @@ namespace Thrift.Protocol
             {
                 case TType.Bool:
                     return NAME_BOOL;
+
                 case TType.Byte:
                     return NAME_BYTE;
+
                 case TType.I16:
                     return NAME_I16;
+
                 case TType.I32:
                     return NAME_I32;
+
                 case TType.I64:
                     return NAME_I64;
+
                 case TType.Double:
                     return NAME_DOUBLE;
+
                 case TType.String:
                     return NAME_STRING;
+
                 case TType.Struct:
                     return NAME_STRUCT;
+
                 case TType.Map:
                     return NAME_MAP;
+
                 case TType.Set:
                     return NAME_SET;
+
                 case TType.List:
                     return NAME_LIST;
+
                 default:
                     throw new TProtocolException(TProtocolException.NOT_IMPLEMENTED,
                                                  "Unrecognized type");
@@ -130,32 +141,40 @@ namespace Thrift.Protocol
                     case (byte)'d':
                         result = TType.Double;
                         break;
+
                     case (byte)'i':
                         switch (name[1])
                         {
                             case (byte)'8':
                                 result = TType.Byte;
                                 break;
+
                             case (byte)'1':
                                 result = TType.I16;
                                 break;
+
                             case (byte)'3':
                                 result = TType.I32;
                                 break;
+
                             case (byte)'6':
                                 result = TType.I64;
                                 break;
                         }
                         break;
+
                     case (byte)'l':
                         result = TType.List;
                         break;
+
                     case (byte)'m':
                         result = TType.Map;
                         break;
+
                     case (byte)'r':
                         result = TType.Struct;
                         break;
+
                     case (byte)'s':
                         if (name[1] == (byte)'t')
                         {
@@ -166,6 +185,7 @@ namespace Thrift.Protocol
                             result = TType.Set;
                         }
                         break;
+
                     case (byte)'t':
                         result = TType.Bool;
                         break;
@@ -193,11 +213,18 @@ namespace Thrift.Protocol
                 this.proto = proto;
             }
 
-            public virtual void Write() { }
+            public virtual void Write()
+            {
+            }
 
-            public virtual void Read() { }
+            public virtual void Read()
+            {
+            }
 
-            public virtual bool EscapeNumbers() { return false; }
+            public virtual bool EscapeNumbers()
+            {
+                return false;
+            }
         }
 
         ///<summary>
@@ -209,7 +236,6 @@ namespace Thrift.Protocol
             public JSONListContext(TJSONProtocol protocol)
                 : base(protocol)
             {
-
             }
 
             private bool first = true;
@@ -250,7 +276,6 @@ namespace Thrift.Protocol
             public JSONPairContext(TJSONProtocol proto)
                 : base(proto)
             {
-
             }
 
             private bool first = true;
@@ -514,6 +539,7 @@ namespace Thrift.Protocol
                 case 'I': // Infinity
                     special = true;
                     break;
+
                 case '-':
                     if (str[1] == 'I')
                     { // -Infinity
@@ -532,6 +558,7 @@ namespace Thrift.Protocol
             if (escapeNum)
                 trans.Write(QUOTE);
         }
+
         ///<summary>
         /// Write out contents of byte array b as a JSON string with base-64 encoded
         /// data
@@ -627,7 +654,9 @@ namespace Thrift.Protocol
             WriteJSONObjectEnd();
         }
 
-        public override void WriteFieldStop() { }
+        public override void WriteFieldStop()
+        {
+        }
 
         public override void WriteMapBegin(TMap map)
         {
@@ -721,7 +750,6 @@ namespace Thrift.Protocol
         {
             MemoryStream buffer = new MemoryStream();
 
-
             if (!skipContext)
             {
                 context.Read();
@@ -756,7 +784,6 @@ namespace Thrift.Protocol
                     buffer.Write(new byte[] { (byte)ch }, 0, 1);
                     continue;
                 }
-
 
                 // it's \uXXXX
                 trans.ReadAll(tempBuffer, 0, 4);
@@ -852,7 +879,7 @@ namespace Thrift.Protocol
             if (reader.Peek() == QUOTE[0])
             {
                 byte[] arr = ReadJSONString(true);
-                double dub = Double.Parse(utf8Encoding.GetString(arr,0,arr.Length), CultureInfo.InvariantCulture);
+                double dub = Double.Parse(utf8Encoding.GetString(arr, 0, arr.Length), CultureInfo.InvariantCulture);
 
                 if (!context.EscapeNumbers() && !Double.IsNaN(dub) &&
                     !Double.IsInfinity(dub))
@@ -956,7 +983,7 @@ namespace Thrift.Protocol
             }
 
             var buf = ReadJSONString(false);
-            message.Name = utf8Encoding.GetString(buf,0,buf.Length);
+            message.Name = utf8Encoding.GetString(buf, 0, buf.Length);
             message.Type = (TMessageType)ReadJSONInteger();
             message.SeqID = (int)ReadJSONInteger();
             return message;
@@ -1078,13 +1105,12 @@ namespace Thrift.Protocol
         public override String ReadString()
         {
             var buf = ReadJSONString(false);
-            return utf8Encoding.GetString(buf,0,buf.Length);
+            return utf8Encoding.GetString(buf, 0, buf.Length);
         }
 
         public override byte[] ReadBinary()
         {
             return ReadJSONBase64();
         }
-
     }
 }

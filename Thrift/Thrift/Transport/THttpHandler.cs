@@ -1,3 +1,6 @@
+using System.IO;
+using System.Net;
+
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements. See the NOTICE file
@@ -19,11 +22,7 @@
  *
  */
 
-using System;
 using System.Web;
-using System.Net;
-using System.IO;
-
 using Thrift.Protocol;
 
 namespace Thrift.Transport
@@ -41,13 +40,11 @@ namespace Thrift.Transport
         public THttpHandler(TProcessor processor)
             : this(processor, new TCompactProtocol.Factory())
         {
-
         }
 
         public THttpHandler(TProcessor processor, TProtocolFactory protocolFactory)
             : this(processor, protocolFactory, protocolFactory)
         {
-
         }
 
         public THttpHandler(TProcessor processor, TProtocolFactory inputProtocolFactory, TProtocolFactory outputProtocolFactory)
@@ -73,7 +70,7 @@ namespace Thrift.Transport
 
         public void ProcessRequest(Stream input, Stream output)
         {
-            TTransport transport = new TStreamTransport(input,output);
+            TTransport transport = new TStreamTransport(input, output);
 
             try
             {

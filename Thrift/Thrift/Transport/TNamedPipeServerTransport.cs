@@ -22,7 +22,6 @@
  */
 
 using System;
-using System.Collections.Generic;
 using System.IO.Pipes;
 
 namespace Thrift.Transport
@@ -33,7 +32,8 @@ namespace Thrift.Transport
         /// This is the address of the Pipe on the localhost.
         /// </summary>
         private readonly string pipeAddress;
-        NamedPipeServerStream stream = null;
+
+        private NamedPipeServerStream stream = null;
 
         public TNamedPipeServerTransport(string pipeAddress)
         {
@@ -63,7 +63,7 @@ namespace Thrift.Transport
 
         private void EnsurePipeInstance()
         {
-            if( stream == null)
+            if (stream == null)
                 stream = new NamedPipeServerStream(
                     pipeAddress, PipeDirection.InOut, 254,
                     PipeTransmissionMode.Byte,
@@ -90,6 +90,7 @@ namespace Thrift.Transport
         private class ServerTransport : TTransport
         {
             private NamedPipeServerStream server;
+
             public ServerTransport(NamedPipeServerStream server)
             {
                 this.server = server;

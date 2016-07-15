@@ -224,7 +224,9 @@
       <DependentUpon>MetricTest.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="alerting\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Logging.Server\Logging.Server.csproj">
       <Project>{c53c8137-4145-4853-87f8-a47cccfbb24b}</Project>

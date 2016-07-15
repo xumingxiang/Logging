@@ -36,31 +36,34 @@ namespace Thrift.Protocol
         protected bool strictWrite_ = true;
 
         #region BinaryProtocol Factory
-         /**
-          * Factory
-          */
-          public class Factory : TProtocolFactory {
 
-              protected bool strictRead_ = false;
-              protected bool strictWrite_ = true;
+        /**
+         * Factory
+         */
 
-              public Factory()
-                  :this(false, true)
-              {
-              }
+        public class Factory : TProtocolFactory
+        {
+            protected bool strictRead_ = false;
+            protected bool strictWrite_ = true;
 
-              public Factory(bool strictRead, bool strictWrite)
-              {
-                  strictRead_ = strictRead;
-                  strictWrite_ = strictWrite;
-              }
-
-            public TProtocol GetProtocol(TTransport trans) {
-              return new TBinaryProtocol(trans, strictRead_, strictWrite_);
+            public Factory()
+                : this(false, true)
+            {
             }
-          }
 
-        #endregion
+            public Factory(bool strictRead, bool strictWrite)
+            {
+                strictRead_ = strictRead;
+                strictWrite_ = strictWrite;
+            }
+
+            public TProtocol GetProtocol(TTransport trans)
+            {
+                return new TBinaryProtocol(trans, strictRead_, strictWrite_);
+            }
+        }
+
+        #endregion BinaryProtocol Factory
 
         public TBinaryProtocol(TTransport trans)
             : this(trans, false, true)
@@ -68,7 +71,7 @@ namespace Thrift.Protocol
         }
 
         public TBinaryProtocol(TTransport trans, bool strictRead, bool strictWrite)
-            :base(trans)
+            : base(trans)
         {
             strictRead_ = strictRead;
             strictWrite_ = strictWrite;
@@ -157,6 +160,7 @@ namespace Thrift.Protocol
         }
 
         private byte[] bout = new byte[1];
+
         public override void WriteByte(sbyte b)
         {
             bout[0] = (byte)b;
@@ -164,6 +168,7 @@ namespace Thrift.Protocol
         }
 
         private byte[] i16out = new byte[2];
+
         public override void WriteI16(short s)
         {
             i16out[0] = (byte)(0xff & (s >> 8));
@@ -172,6 +177,7 @@ namespace Thrift.Protocol
         }
 
         private byte[] i32out = new byte[4];
+
         public override void WriteI32(int i32)
         {
             i32out[0] = (byte)(0xff & (i32 >> 24));
@@ -182,6 +188,7 @@ namespace Thrift.Protocol
         }
 
         private byte[] i64out = new byte[8];
+
         public override void WriteI64(long i64)
         {
             i64out[0] = (byte)(0xff & (i64 >> 56));
@@ -211,7 +218,7 @@ namespace Thrift.Protocol
             trans.Write(b, 0, b.Length);
         }
 
-        #endregion
+        #endregion Write Methods
 
         #region ReadMethods
 
@@ -319,6 +326,7 @@ namespace Thrift.Protocol
         }
 
         private byte[] bin = new byte[1];
+
         public override sbyte ReadByte()
         {
             ReadAll(bin, 0, 1);
@@ -326,6 +334,7 @@ namespace Thrift.Protocol
         }
 
         private byte[] i16in = new byte[2];
+
         public override short ReadI16()
         {
             ReadAll(i16in, 0, 2);
@@ -333,6 +342,7 @@ namespace Thrift.Protocol
         }
 
         private byte[] i32in = new byte[4];
+
         public override int ReadI32()
         {
             ReadAll(i32in, 0, 4);
@@ -342,19 +352,21 @@ namespace Thrift.Protocol
 #pragma warning disable 675
 
         private byte[] i64in = new byte[8];
+
         public override long ReadI64()
         {
             ReadAll(i64in, 0, 8);
-            unchecked {
-              return (long)(
-                  ((long)(i64in[0] & 0xff) << 56) |
-                  ((long)(i64in[1] & 0xff) << 48) |
-                  ((long)(i64in[2] & 0xff) << 40) |
-                  ((long)(i64in[3] & 0xff) << 32) |
-                  ((long)(i64in[4] & 0xff) << 24) |
-                  ((long)(i64in[5] & 0xff) << 16) |
-                  ((long)(i64in[6] & 0xff) << 8) |
-                  ((long)(i64in[7] & 0xff)));
+            unchecked
+            {
+                return (long)(
+                    ((long)(i64in[0] & 0xff) << 56) |
+                    ((long)(i64in[1] & 0xff) << 48) |
+                    ((long)(i64in[2] & 0xff) << 40) |
+                    ((long)(i64in[3] & 0xff) << 32) |
+                    ((long)(i64in[4] & 0xff) << 24) |
+                    ((long)(i64in[5] & 0xff) << 16) |
+                    ((long)(i64in[6] & 0xff) << 8) |
+                    ((long)(i64in[7] & 0xff)));
             }
         }
 
@@ -378,7 +390,8 @@ namespace Thrift.Protocol
             trans.ReadAll(buf, 0, size);
             return buf;
         }
-        private  string ReadStringBody(int size)
+
+        private string ReadStringBody(int size)
         {
             byte[] buf = new byte[size];
             trans.ReadAll(buf, 0, size);
@@ -390,6 +403,6 @@ namespace Thrift.Protocol
             return trans.ReadAll(buf, off, len);
         }
 
-        #endregion
+        #endregion ReadMethods
     }
 }

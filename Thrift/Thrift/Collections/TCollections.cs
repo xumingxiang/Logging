@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
 using System;
 using System.Collections;
 
@@ -27,7 +28,7 @@ namespace Thrift.Collections
         /// This will return true if the two collections are value-wise the same.
         /// If the collection contains a collection, the collections will be compared using this method.
         /// </summary>
-        public static bool Equals (IEnumerable first, IEnumerable second)
+        public static bool Equals(IEnumerable first, IEnumerable second)
         {
             if (first == null && second == null)
             {
@@ -37,11 +38,11 @@ namespace Thrift.Collections
             {
                 return false;
             }
-            IEnumerator fiter = first.GetEnumerator ();
-            IEnumerator siter = second.GetEnumerator ();
+            IEnumerator fiter = first.GetEnumerator();
+            IEnumerator siter = second.GetEnumerator();
 
-            bool fnext = fiter.MoveNext ();
-            bool snext = siter.MoveNext ();
+            bool fnext = fiter.MoveNext();
+            bool snext = siter.MoveNext();
             while (fnext && snext)
             {
                 IEnumerable fenum = fiter.Current as IEnumerable;
@@ -71,7 +72,7 @@ namespace Thrift.Collections
         /// <summary>
         /// This returns a hashcode based on the value of the enumerable.
         /// </summary>
-        public static int GetHashCode (IEnumerable enumerable)
+        public static int GetHashCode(IEnumerable enumerable)
         {
             if (enumerable == null)
             {
@@ -82,7 +83,7 @@ namespace Thrift.Collections
             foreach (Object obj in enumerable)
             {
                 IEnumerable enum2 = obj as IEnumerable;
-                int objHash = enum2 == null ? obj.GetHashCode () : GetHashCode (enum2);
+                int objHash = enum2 == null ? obj.GetHashCode() : GetHashCode(enum2);
                 unchecked
                 {
                     hashcode = (hashcode * 397) ^ (objHash);

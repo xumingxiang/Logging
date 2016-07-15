@@ -182,9 +182,6 @@
     <Compile Include="..\thrift\thrift\TException.cs">
       <Link>Thrift\TException.cs</Link>
     </Compile>
-    <Compile Include="..\Thrift\Thrift\TMemoryStream.cs">
-      <Link>TMemoryStream.cs</Link>
-    </Compile>
     <Compile Include="..\thrift\thrift\TProcessor.cs">
       <Link>Thrift\TProcessor.cs</Link>
     </Compile>
@@ -239,20 +236,25 @@
     <Compile Include="..\thrift\thrift\transport\TTransportFactory.cs">
       <Link>Thrift\Transport\TTransportFactory.cs</Link>
     </Compile>
+    <Compile Include="Alerting\AlertingHistory.cs" />
+    <Compile Include="Alerting\AlertingType.cs" />
+    <Compile Include="Alerting\AppErrorGrowthAlerting.cs" />
+    <Compile Include="Alerting\BaseAlerting.cs" />
+    <Compile Include="Alerting\MailHelper.cs" />
     <Compile Include="BlockingActionQueue.cs" />
     <Compile Include="DB\MongoDataBase.cs" />
     <Compile Include="FileLogger.cs" />
-    <Compile Include="LogOnOff.cs" />
+    <Compile Include="Entitys\LogOnOff.cs" />
     <Compile Include="LogOnOffManager.cs" />
     <Compile Include="LogReciver\HttpReciver.cs" />
     <Compile Include="LogProcessor\ILogProcessor.cs" />
-    <Compile Include="LogEntity.cs" />
-    <Compile Include="LogLevel.cs" />
+    <Compile Include="Entitys\LogEntity.cs" />
+    <Compile Include="Entitys\LogLevel.cs" />
     <Compile Include="LogProcessor\LogProcessorManager.cs" />
     <Compile Include="LogProcessor\DefaultLogProcessor.cs" />
     <Compile Include="LogReciver\LogReciverBase.cs" />
-    <Compile Include="LogStatistics.cs" />
-    <Compile Include="LogTag.cs" />
+    <Compile Include="Entitys\LogStatistics.cs" />
+    <Compile Include="Entitys\LogTag.cs" />
     <Compile Include="LogViewer\ILogView.cs" />
     <Compile Include="LogViewer\HBaseViewer.cs" />
     <Compile Include="LogViewer\LogViewerManager.cs" />
@@ -261,7 +263,7 @@
     <Compile Include="LogWriter\ILogWriter.cs" />
     <Compile Include="LogWriter\LogWriterManager.cs" />
     <Compile Include="LogWriter\MongoDbWriter.cs" />
-    <Compile Include="MetricEntity.cs" />
+    <Compile Include="Entitys\MetricEntity.cs" />
     <Compile Include="Metric\MetricProcessor\DefaulMetricProcessor.cs" />
     <Compile Include="Metric\MetricProcessor\IMetricProcessor.cs" />
     <Compile Include="Metric\MetricProcessor\MetricProcessorManager.cs" />
@@ -270,6 +272,7 @@
     <Compile Include="Metric\Json\JsonObject.cs" />
     <Compile Include="Metric\Json\JsonProperty.cs" />
     <Compile Include="Metric\Json\JsonValue.cs" />
+    <Compile Include="Entitys\Options.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LogReciver\SocketReciver.cs" />
     <Compile Include="Utils.cs" />
@@ -278,7 +281,6 @@
     <None Include="..\Logging.ThriftContract\log.thrift">
       <Link>ThriftContract\log.thrift</Link>
     </None>
-    <None Include="InfluxData.Net.dll.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

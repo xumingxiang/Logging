@@ -132,7 +132,7 @@ namespace Thrift.Transport
                 InitSocket();
             }
 
-            if( timeout == 0)            // no timeout -> infinite
+            if (timeout == 0)            // no timeout -> infinite
             {
                 client.Connect(host, port);
             }
@@ -145,7 +145,7 @@ namespace Thrift.Transport
                 {
                     lock (hlp.Mutex)
                     {
-                        if( hlp.CallbackDone)
+                        if (hlp.CallbackDone)
                         {
                             asyncres.AsyncWaitHandle.Close();
                             client.Close();
@@ -164,8 +164,7 @@ namespace Thrift.Transport
             outputStream = client.GetStream();
         }
 
-
-        static void ConnectCallback(IAsyncResult asyncres)
+        private static void ConnectCallback(IAsyncResult asyncres)
         {
             ConnectHelper hlp = asyncres.AsyncState as ConnectHelper;
             lock (hlp.Mutex)
@@ -174,7 +173,7 @@ namespace Thrift.Transport
 
                 try
                 {
-                    if( hlp.Client.Client != null)
+                    if (hlp.Client.Client != null)
                         hlp.Client.EndConnect(asyncres);
                 }
                 catch (Exception)
@@ -184,14 +183,18 @@ namespace Thrift.Transport
 
                 if (hlp.DoCleanup)
                 {
-                    try {
+                    try
+                    {
                         asyncres.AsyncWaitHandle.Close();
-                    } catch (Exception) {}
+                    }
+                    catch (Exception) { }
 
-                    try {
+                    try
+                    {
                         if (hlp.Client is IDisposable)
                             ((IDisposable)hlp.Client).Dispose();
-                    } catch (Exception) {}
+                    }
+                    catch (Exception) { }
                     hlp.Client = null;
                 }
             }
@@ -203,6 +206,7 @@ namespace Thrift.Transport
             public bool DoCleanup = false;
             public bool CallbackDone = false;
             public TcpClient Client;
+
             public ConnectHelper(TcpClient client)
             {
                 Client = client;
@@ -219,23 +223,25 @@ namespace Thrift.Transport
             }
         }
 
-    #region " IDisposable Support "
-    private bool _IsDisposed;
+        #region " IDisposable Support "
 
-    // IDisposable
-    protected override void Dispose(bool disposing)
-    {
-      if (!_IsDisposed)
-      {
-        if (disposing)
+        private bool _IsDisposed;
+
+        // IDisposable
+        protected override void Dispose(bool disposing)
         {
-          if (client != null)
-            ((IDisposable)client).Dispose();
-          base.Dispose(disposing);
+            if (!_IsDisposed)
+            {
+                if (disposing)
+                {
+                    if (client != null)
+                        ((IDisposable)client).Dispose();
+                    base.Dispose(disposing);
+                }
+            }
+            _IsDisposed = true;
         }
-      }
-      _IsDisposed = true;
+
+        #endregion " IDisposable Support "
     }
-    #endregion
-  }
 }

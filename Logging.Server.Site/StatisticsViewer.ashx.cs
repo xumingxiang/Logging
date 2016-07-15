@@ -19,10 +19,6 @@ namespace Logging.Server.Site
             long end = Convert.ToInt64(context.Request["end"]);
             int appId = Convert.ToInt32(context.Request["appId"]);
 
-            //long start_num = Utils.GetTimeStamp(start);
-
-            //long end_num = Utils.GetTimeStamp(end);
-
             var viewer = LogViewerManager.GetLogViewer();
 
             var s = viewer.GetStatistics(start, end, appId);

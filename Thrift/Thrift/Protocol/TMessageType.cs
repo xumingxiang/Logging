@@ -17,8 +17,6 @@
  * under the License.
  */
 
-using System;
-
 namespace Thrift.Protocol
 {
     public enum TMessageType

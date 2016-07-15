@@ -22,11 +22,9 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Text;
 using Thrift.Transport;
-using System.Collections;
-using System.IO;
-using System.Collections.Generic;
 
 namespace Thrift.Protocol
 {
@@ -47,6 +45,7 @@ namespace Thrift.Protocol
         /**
          * All of the on-wire type codes.
          */
+
         private static class Types
         {
             public const byte STOP = 0x00;
@@ -82,17 +81,19 @@ namespace Thrift.Protocol
          * If we Read a field header, and it's a boolean field, save the boolean
          * value here so that ReadBool can use it.
          */
-        private  Nullable<Boolean> boolValue_;
-
+        private Nullable<Boolean> boolValue_;
 
         #region CompactProtocol Factory
 
         /**
           * Factory
           */
+
         public class Factory : TProtocolFactory
         {
-            public Factory() { }
+            public Factory()
+            {
+            }
 
             public TProtocol GetProtocol(TTransport trans)
             {
@@ -100,7 +101,7 @@ namespace Thrift.Protocol
             }
         }
 
-        #endregion
+        #endregion CompactProtocol Factory
 
         public TCompactProtocol(TTransport trans)
             : base(trans)
@@ -127,12 +128,12 @@ namespace Thrift.Protocol
 
         #region Write Methods
 
-
         /**
          * Writes a byte without any possibility of all that field header nonsense.
          * Used internally by other writing methods that know they need to Write a byte.
          */
         private byte[] byteDirectBuffer = new byte[1];
+
         private void WriteByteDirect(byte b)
         {
             byteDirectBuffer[0] = b;
@@ -142,6 +143,7 @@ namespace Thrift.Protocol
         /**
          * Writes a byte without any possibility of all that field header nonsense.
          */
+
         private void WriteByteDirect(int n)
         {
             WriteByteDirect((byte)n);
@@ -151,7 +153,8 @@ namespace Thrift.Protocol
          * Write an i32 as a varint. Results in 1-5 bytes on the wire.
          * TODO: make a permanent buffer like WriteVarint64?
          */
-        byte[] i32buf = new byte[5];
+        private byte[] i32buf = new byte[5];
+
         private void WriteVarint32(uint n)
         {
             int idx = 0;
@@ -178,6 +181,7 @@ namespace Thrift.Protocol
         * Write a message header to the wire. Compact Protocol messages contain the
         * protocol version so we can migrate forwards in the future if need be.
         */
+
         public override void WriteMessageBegin(TMessage message)
         {
             WriteByteDirect(PROTOCOL_ID);
@@ -191,6 +195,7 @@ namespace Thrift.Protocol
          * use it as an opportunity to put special placeholder markers on the field
          * stack so we can get the field id deltas correct.
          */
+
         public override void WriteStructBegin(TStruct strct)
         {
             lastField_.Push(lastFieldId_);
@@ -202,6 +207,7 @@ namespace Thrift.Protocol
          * this as an opportunity to pop the last field from the current struct off
          * of the field stack.
          */
+
         public override void WriteStructEnd()
         {
             lastFieldId_ = lastField_.Pop();
@@ -213,6 +219,7 @@ namespace Thrift.Protocol
          * then the field id will be encoded in the 4 MSB as a delta. Otherwise, the
          * field id will follow the type header as a zigzag varint.
          */
+
         public override void WriteFieldBegin(TField field)
         {
             if (field.Type == TType.Bool)
@@ -231,6 +238,7 @@ namespace Thrift.Protocol
          * 'type override' of the type header. This is used specifically in the
          * boolean field case.
          */
+
         private void WriteFieldBeginInternal(TField field, byte typeOverride)
         {
             // short lastField = lastField_.Pop();
@@ -258,6 +266,7 @@ namespace Thrift.Protocol
         /**
          * Write the STOP symbol so we know there are no more fields in this struct.
          */
+
         public override void WriteFieldStop()
         {
             WriteByteDirect(Types.STOP);
@@ -267,6 +276,7 @@ namespace Thrift.Protocol
          * Write a map header. If the map is empty, omit the key and value type
          * headers, as we don't need any additional information to skip it.
          */
+
         public override void WriteMapBegin(TMap map)
         {
             if (map.Count == 0)
@@ -283,6 +293,7 @@ namespace Thrift.Protocol
         /**
          * Write a list header.
          */
+
         public override void WriteListBegin(TList list)
         {
             WriteCollectionBegin(list.ElementType, list.Count);
@@ -291,6 +302,7 @@ namespace Thrift.Protocol
         /**
          * Write a set header.
          */
+
         public override void WriteSetBegin(TSet set)
         {
             WriteCollectionBegin(set.ElementType, set.Count);
@@ -302,6 +314,7 @@ namespace Thrift.Protocol
          * right type header is for the value and then Write the field header.
          * Otherwise, Write a single byte.
          */
+
         public override void WriteBool(Boolean b)
         {
             if (booleanField_ != null)
@@ -320,6 +333,7 @@ namespace Thrift.Protocol
         /**
          * Write a byte. Nothing to see here!
          */
+
         public override void WriteByte(sbyte b)
         {
             WriteByteDirect((byte)b);
@@ -328,6 +342,7 @@ namespace Thrift.Protocol
         /**
          * Write an I16 as a zigzag varint.
          */
+
         public override void WriteI16(short i16)
         {
             WriteVarint32(intToZigZag(i16));
@@ -336,6 +351,7 @@ namespace Thrift.Protocol
         /**
          * Write an i32 as a zigzag varint.
          */
+
         public override void WriteI32(int i32)
         {
             WriteVarint32(intToZigZag(i32));
@@ -344,6 +360,7 @@ namespace Thrift.Protocol
         /**
          * Write an i64 as a zigzag varint.
          */
+
         public override void WriteI64(long i64)
         {
             WriteVarint64(longToZigzag(i64));
@@ -352,6 +369,7 @@ namespace Thrift.Protocol
         /**
          * Write a double to the wire as 8 bytes.
          */
+
         public override void WriteDouble(double dub)
         {
             byte[] data = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -362,6 +380,7 @@ namespace Thrift.Protocol
         /**
          * Write a string to the wire with a varint size preceding.
          */
+
         public override void WriteString(String str)
         {
             byte[] bytes = UTF8Encoding.UTF8.GetBytes(str);
@@ -371,6 +390,7 @@ namespace Thrift.Protocol
         /**
          * Write a byte array, using a varint for the size.
          */
+
         public override void WriteBinary(byte[] bin)
         {
             WriteBinary(bin, 0, bin.Length);
@@ -387,11 +407,25 @@ namespace Thrift.Protocol
         // output or purpose.
         //
 
-        public override void WriteMessageEnd() { }
-        public override void WriteMapEnd() { }
-        public override void WriteListEnd() { }
-        public override void WriteSetEnd() { }
-        public override void WriteFieldEnd() { }
+        public override void WriteMessageEnd()
+        {
+        }
+
+        public override void WriteMapEnd()
+        {
+        }
+
+        public override void WriteListEnd()
+        {
+        }
+
+        public override void WriteSetEnd()
+        {
+        }
+
+        public override void WriteFieldEnd()
+        {
+        }
 
         //
         // Internal writing methods
@@ -401,6 +435,7 @@ namespace Thrift.Protocol
          * Abstract method for writing the start of lists and sets. List and sets on
          * the wire differ only by the type indicator.
          */
+
         protected void WriteCollectionBegin(TType elemType, int size)
         {
             if (size <= 14)
@@ -417,7 +452,8 @@ namespace Thrift.Protocol
         /**
          * Write an i64 as a varint. Results in 1-10 bytes on the wire.
          */
-        byte[] varint64out = new byte[10];
+        private byte[] varint64out = new byte[10];
+
         private void WriteVarint64(ulong n)
         {
             int idx = 0;
@@ -441,6 +477,7 @@ namespace Thrift.Protocol
          * Convert l into a zigzag long. This allows negative numbers to be
          * represented compactly as a varint.
          */
+
         private ulong longToZigzag(long n)
         {
             return (ulong)(n << 1) ^ (ulong)(n >> 63);
@@ -450,6 +487,7 @@ namespace Thrift.Protocol
          * Convert n into a zigzag int. This allows negative numbers to be
          * represented compactly as a varint.
          */
+
         private uint intToZigZag(int n)
         {
             return (uint)(n << 1) ^ (uint)(n >> 31);
@@ -459,6 +497,7 @@ namespace Thrift.Protocol
          * Convert a long into little-endian bytes in buf starting at off and going
          * until off+7.
          */
+
         private void fixedLongToBytes(long n, byte[] buf, int off)
         {
             buf[off + 0] = (byte)(n & 0xff);
@@ -471,13 +510,14 @@ namespace Thrift.Protocol
             buf[off + 7] = (byte)((n >> 56) & 0xff);
         }
 
-        #endregion
+        #endregion Write Methods
 
         #region ReadMethods
 
         /**
    * Read a message header.
    */
+
         public override TMessage ReadMessageBegin()
         {
             byte protocolId = (byte)ReadByte();
@@ -501,6 +541,7 @@ namespace Thrift.Protocol
          * Read a struct begin. There's nothing on the wire for this, but it is our
          * opportunity to push a new struct begin marker onto the field stack.
          */
+
         public override TStruct ReadStructBegin()
         {
             lastField_.Push(lastFieldId_);
@@ -512,6 +553,7 @@ namespace Thrift.Protocol
          * Doesn't actually consume any wire data, just removes the last field for
          * this struct from the field stack.
          */
+
         public override void ReadStructEnd()
         {
             // consume the last field we Read off the wire.
@@ -521,6 +563,7 @@ namespace Thrift.Protocol
         /**
          * Read a field header off the wire.
          */
+
         public override TField ReadFieldBegin()
         {
             byte type = (byte)ReadByte();
@@ -565,6 +608,7 @@ namespace Thrift.Protocol
          * and value type. This means that 0-length maps will yield TMaps without the
          * "correct" types.
          */
+
         public override TMap ReadMapBegin()
         {
             int size = (int)ReadVarint32();
@@ -578,6 +622,7 @@ namespace Thrift.Protocol
          * of the element type header will be 0xF, and a varint will follow with the
          * true size.
          */
+
         public override TList ReadListBegin()
         {
             byte size_and_type = (byte)ReadByte();
@@ -596,6 +641,7 @@ namespace Thrift.Protocol
          * of the element type header will be 0xF, and a varint will follow with the
          * true size.
          */
+
         public override TSet ReadSetBegin()
         {
             return new TSet(ReadListBegin());
@@ -606,6 +652,7 @@ namespace Thrift.Protocol
          * already have been Read during ReadFieldBegin, so we'll just consume the
          * pre-stored value. Otherwise, Read a byte.
          */
+
         public override Boolean ReadBool()
         {
             if (boolValue_ != null)
@@ -617,10 +664,11 @@ namespace Thrift.Protocol
             return ReadByte() == Types.BOOLEAN_TRUE;
         }
 
-        byte[] byteRawBuf = new byte[1];
+        private byte[] byteRawBuf = new byte[1];
         /**
          * Read a single byte off the wire. Nothing interesting here.
          */
+
         public override sbyte ReadByte()
         {
             trans.ReadAll(byteRawBuf, 0, 1);
@@ -630,6 +678,7 @@ namespace Thrift.Protocol
         /**
          * Read an i16 from the wire as a zigzag varint.
          */
+
         public override short ReadI16()
         {
             return (short)zigzagToInt(ReadVarint32());
@@ -638,6 +687,7 @@ namespace Thrift.Protocol
         /**
          * Read an i32 from the wire as a zigzag varint.
          */
+
         public override int ReadI32()
         {
             return zigzagToInt(ReadVarint32());
@@ -646,6 +696,7 @@ namespace Thrift.Protocol
         /**
          * Read an i64 from the wire as a zigzag varint.
          */
+
         public override long ReadI64()
         {
             return zigzagToLong(ReadVarint64());
@@ -654,6 +705,7 @@ namespace Thrift.Protocol
         /**
          * No magic here - just Read a double off the wire.
          */
+
         public override double ReadDouble()
         {
             byte[] longBits = new byte[8];
@@ -664,6 +716,7 @@ namespace Thrift.Protocol
         /**
          * Reads a byte[] (via ReadBinary), and then UTF-8 decodes it.
          */
+
         public override String ReadString()
         {
             int length = (int)ReadVarint32();
@@ -679,6 +732,7 @@ namespace Thrift.Protocol
         /**
          * Read a byte[] from the wire.
          */
+
         public override byte[] ReadBinary()
         {
             int length = (int)ReadVarint32();
@@ -692,6 +746,7 @@ namespace Thrift.Protocol
         /**
          * Read a byte[] of a known length from the wire.
          */
+
         private byte[] ReadBinary(int length)
         {
             if (length == 0) return new byte[0];
@@ -706,10 +761,22 @@ namespace Thrift.Protocol
         // encoding.
         //
         public override void ReadMessageEnd() { }
-        public override void ReadFieldEnd() { }
-        public override void ReadMapEnd() { }
-        public override void ReadListEnd() { }
-        public override void ReadSetEnd() { }
+
+        public override void ReadFieldEnd()
+        {
+        }
+
+        public override void ReadMapEnd()
+        {
+        }
+
+        public override void ReadListEnd()
+        {
+        }
+
+        public override void ReadSetEnd()
+        {
+        }
 
         //
         // Internal Reading methods
@@ -719,6 +786,7 @@ namespace Thrift.Protocol
          * Read an i32 from the wire as a varint. The MSB of each byte is set
          * if there is another byte to follow. This can Read up to 5 bytes.
          */
+
         private uint ReadVarint32()
         {
             uint result = 0;
@@ -737,6 +805,7 @@ namespace Thrift.Protocol
          * Read an i64 from the wire as a proper varint. The MSB of each byte is set
          * if there is another byte to follow. This can Read up to 10 bytes.
          */
+
         private ulong ReadVarint64()
         {
             int shift = 0;
@@ -752,7 +821,7 @@ namespace Thrift.Protocol
             return result;
         }
 
-        #endregion
+        #endregion ReadMethods
 
         //
         // encoding helpers
@@ -761,6 +830,7 @@ namespace Thrift.Protocol
         /**
          * Convert from zigzag int to int.
          */
+
         private int zigzagToInt(uint n)
         {
             return (int)(n >> 1) ^ (-(int)(n & 1));
@@ -769,6 +839,7 @@ namespace Thrift.Protocol
         /**
          * Convert from zigzag long to long.
          */
+
         private long zigzagToLong(ulong n)
         {
             return (long)(n >> 1) ^ (-(long)(n & 1));
@@ -779,6 +850,7 @@ namespace Thrift.Protocol
          * otherwise they'll default to ints, and when you shift an int left 56 bits,
          * you just get a messed up int.
          */
+
         private long bytesToLong(byte[] bytes)
         {
             return
@@ -806,35 +878,48 @@ namespace Thrift.Protocol
          * Given a TCompactProtocol.Types constant, convert it to its corresponding
          * TType value.
          */
+
         private TType getTType(byte type)
         {
             switch ((byte)(type & 0x0f))
             {
                 case Types.STOP:
                     return TType.Stop;
+
                 case Types.BOOLEAN_FALSE:
                 case Types.BOOLEAN_TRUE:
                     return TType.Bool;
+
                 case Types.BYTE:
                     return TType.Byte;
+
                 case Types.I16:
                     return TType.I16;
+
                 case Types.I32:
                     return TType.I32;
+
                 case Types.I64:
                     return TType.I64;
+
                 case Types.DOUBLE:
                     return TType.Double;
+
                 case Types.BINARY:
                     return TType.String;
+
                 case Types.LIST:
                     return TType.List;
+
                 case Types.SET:
                     return TType.Set;
+
                 case Types.MAP:
                     return TType.Map;
+
                 case Types.STRUCT:
                     return TType.Struct;
+
                 default:
                     throw new TProtocolException("don't know what type: " + (byte)(type & 0x0f));
             }
@@ -843,6 +928,7 @@ namespace Thrift.Protocol
         /**
          * Given a TType value, find the appropriate TCompactProtocol.Types constant.
          */
+
         private byte getCompactType(TType ttype)
         {
             return ttypeToCompactType[(int)ttype];

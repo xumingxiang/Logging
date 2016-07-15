@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logging.Server.Alerting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,7 @@ namespace Logging.Server.Writer
          void Write(IList<LogEntity> logs);
 
         void SetLogOnOff(LogOnOff on_off);
+
+        void RecordAlerting(AlertingHistory alert);
     }
 }

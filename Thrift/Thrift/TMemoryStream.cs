@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.IO;
 
 namespace Thrift
@@ -292,5 +290,4 @@ namespace Thrift
     //}
 
     public class TMemoryStream : MemoryStream { }
-
 }

@@ -22,13 +22,9 @@
  */
 
 using System;
-using System.Text;
-using Thrift.Transport;
-using System.Collections.Generic;
 
 namespace Thrift.Protocol
 {
-
     /**
      * TProtocolDecorator forwards all requests to an enclosed TProtocol instance,
      * providing a way to author concise concrete decorator subclasses.  While it has
@@ -38,6 +34,7 @@ namespace Thrift.Protocol
      * See p.175 of Design Patterns (by Gamma et al.)
      * See TMultiplexedProtocol
      */
+
     public abstract class TProtocolDecorator : TProtocol
     {
         private TProtocol WrappedProtocol;
@@ -46,10 +43,10 @@ namespace Thrift.Protocol
          * Encloses the specified protocol.
          * @param protocol All operations will be forward to this protocol.  Must be non-null.
          */
-        public TProtocolDecorator(TProtocol protocol)
-            : base( protocol.Transport)
-        {
 
+        public TProtocolDecorator(TProtocol protocol)
+            : base(protocol.Transport)
+        {
             WrappedProtocol = protocol;
         }
 
@@ -104,7 +101,7 @@ namespace Thrift.Protocol
         }
 
         public override void WriteListEnd()
-{
+        {
             WrappedProtocol.WriteListEnd();
         }
 
@@ -258,5 +255,4 @@ namespace Thrift.Protocol
             return WrappedProtocol.ReadBinary();
         }
     }
-
 }

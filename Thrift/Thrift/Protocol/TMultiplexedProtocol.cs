@@ -22,13 +22,9 @@
  */
 
 using System;
-using System.Text;
-using Thrift.Transport;
-using System.Collections.Generic;
 
 namespace Thrift.Protocol
 {
-
     /**
      * TMultiplexedProtocol is a protocol-independent concrete decorator that allows a Thrift
      * client to communicate with a multiplexing Thrift server, by prepending the service name
@@ -54,9 +50,9 @@ namespace Thrift.Protocol
      *     System.out.println(service2.getTemperature());
      *
      */
+
     public class TMultiplexedProtocol : TProtocolDecorator
     {
-
         /** Used to delimit the service name from the function name */
         public static String SEPARATOR = ":";
 
@@ -72,6 +68,7 @@ namespace Thrift.Protocol
          *  protocol        Your communication protocol of choice, e.g. TBinaryProtocol
          *  serviceName     The service name of the service communicating via this protocol.
          */
+
         public TMultiplexedProtocol(TProtocol protocol, String serviceName)
             : base(protocol)
         {
@@ -83,9 +80,10 @@ namespace Thrift.Protocol
          * Args:
          *   tMessage     The original message.
          */
+
         public override void WriteMessageBegin(TMessage tMessage)
         {
-            switch(tMessage.Type)
+            switch (tMessage.Type)
             {
                 case TMessageType.Call:
                 case TMessageType.Oneway:
@@ -101,5 +99,4 @@ namespace Thrift.Protocol
             }
         }
     }
-
 }

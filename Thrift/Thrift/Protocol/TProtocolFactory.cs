@@ -21,7 +21,6 @@
  * details.
  */
 
-using System;
 using Thrift.Transport;
 
 namespace Thrift.Protocol

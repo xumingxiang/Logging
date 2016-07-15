@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Logging.Server.Alerting;
 
 namespace Logging.Server.Writer
 {
@@ -88,6 +89,12 @@ namespace Logging.Server.Writer
                 on_off._id = old_on_off._id;
                 collection.ReplaceOneAsync(a => a.AppId == on_off.AppId, on_off);
             }
+        }
+
+        public void RecordAlerting(AlertingHistory alert)
+        {
+            var log_ls_collection = MongoDataBase.GetCollection<AlertingHistory>();
+            log_ls_collection.InsertOneAsync(alert);
         }
     }
 }

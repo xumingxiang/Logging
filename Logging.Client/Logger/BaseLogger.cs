@@ -48,8 +48,6 @@ namespace Logging.Client
 
             if (LoggingBlockElapsed <= 0) { LoggingBlockElapsed = Settings.DefaultLoggingBlockElapsed; }
 
-
-
             if (LoggingTaskNum == 1)
             {
                 block = new TimerActionBlock<ILogEntity>((buffer) =>

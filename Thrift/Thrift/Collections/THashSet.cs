@@ -30,6 +30,7 @@ namespace Thrift.Collections
 #if SILVERLIGHT
     [DataContract]
 #else
+
     [Serializable]
 #endif
     public class THashSet<T> : ICollection<T>
@@ -40,8 +41,9 @@ namespace Thrift.Collections
 #endif
         TDictSet<T> set = new TDictSet<T>();
 #else
-        HashSet<T> set = new HashSet<T>();
+        private HashSet<T> set = new HashSet<T>();
 #endif
+
         public int Count
         {
             get { return set.Count; }
@@ -156,5 +158,4 @@ namespace Thrift.Collections
         }
 #endif
     }
-
 }

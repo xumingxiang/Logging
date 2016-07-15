@@ -17,8 +17,6 @@
  * under the License.
  */
 
-using System;
-
 namespace Thrift.Protocol
 {
     internal static class TBase64Utils
@@ -48,7 +46,6 @@ namespace Thrift.Protocol
                         ((src[srcOff] << 4) & 0x30) | ((src[srcOff + 1] >> 4) & 0x0F)];
                 dst[dstOff + 2] =
                     (byte)ENCODE_TABLE[(src[srcOff + 1] << 2) & 0x3C];
-
             }
             else
             { // len == 1) {
@@ -95,6 +92,5 @@ namespace Thrift.Protocol
                 }
             }
         }
-
     }
 }

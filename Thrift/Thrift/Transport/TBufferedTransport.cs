@@ -22,7 +22,7 @@ using System.IO;
 
 namespace Thrift.Transport
 {
-  public class TBufferedTransport : TTransport, IDisposable
+    public class TBufferedTransport : TTransport, IDisposable
     {
         private BufferedStream inputBuffer;
         private BufferedStream outputBuffer;
@@ -30,9 +30,8 @@ namespace Thrift.Transport
         private TStreamTransport transport;
 
         public TBufferedTransport(TStreamTransport transport)
-            :this(transport, 1024)
+            : this(transport, 1024)
         {
-
         }
 
         public TBufferedTransport(TStreamTransport transport, int bufSize)
@@ -103,24 +102,26 @@ namespace Thrift.Transport
             outputBuffer.Flush();
         }
 
-    #region " IDisposable Support "
-    private bool _IsDisposed;
+        #region " IDisposable Support "
 
-    // IDisposable
-    protected override void Dispose(bool disposing)
-    {
-      if (!_IsDisposed)
-      {
-        if (disposing)
+        private bool _IsDisposed;
+
+        // IDisposable
+        protected override void Dispose(bool disposing)
         {
-          if (inputBuffer != null)
-            inputBuffer.Dispose();
-          if (outputBuffer != null)
-            outputBuffer.Dispose();
+            if (!_IsDisposed)
+            {
+                if (disposing)
+                {
+                    if (inputBuffer != null)
+                        inputBuffer.Dispose();
+                    if (outputBuffer != null)
+                        outputBuffer.Dispose();
+                }
+            }
+            _IsDisposed = true;
         }
-      }
-      _IsDisposed = true;
+
+        #endregion " IDisposable Support "
     }
-    #endregion
-  }
 }

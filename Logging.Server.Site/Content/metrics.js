@@ -76,7 +76,7 @@ $(function () {
 
 
 
-        var query_str = query_base + 'select ' + aggr + '( value )' + ' from ' + query_metric_name + ' where ';
+        var query_str = query_base + 'select ' + aggr + '( value )' + ' from /' + query_metric_name + '/ where ';
         if (start_time != "") {
             query_str += ' time > \'' + utc_start_time_fm + '\' and ';
         }
@@ -88,7 +88,7 @@ $(function () {
         }
 
         query_str += ' group%20by%20';
-        if (group_by_tag != "" && group_by_tag != 0) {
+        if (!!group_by_tag) {
             query_str += group_by_tag + '%20%2C';
         }
         query_str += ' time(' + group_by_time + ')';
@@ -283,7 +283,7 @@ $(function () {
             text: '正在努力的读取数据中...',    //loading话术
         });
 
-        var query_str = query_base + 'select ' + aggr + '( value )' + ' from ' + query_metric_name + ' where ';
+        var query_str = query_base + 'select ' + aggr + '( value )' + ' from /' + query_metric_name + '/ where ';
         if (start_time != "") {
             query_str += ' time > \'' + utc_start_time_fm + '\' and ';
         }

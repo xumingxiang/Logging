@@ -55,7 +55,7 @@ namespace Logging.Server.Metric.Writer
                 sb.Append("value=" + m.Value);
                 if (i < metrics.Count - 1)
                 {
-                    sb.AppendLine();
+                    sb.Append("\n");
                 }
             }
             return sb.ToString();

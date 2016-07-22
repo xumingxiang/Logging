@@ -88,7 +88,7 @@ $(function () {
         }
 
         query_str += ' group%20by%20';
-        if (group_by_tag != "") {
+        if (group_by_tag != "" && group_by_tag != 0) {
             query_str += group_by_tag + '%20%2C';
         }
         query_str += ' time(' + group_by_time + ')';

@@ -99,10 +99,10 @@ namespace Logging.Server.Reciver
                 {
                     metric.Tags.Add("AppId", appId);
                 }
-                if (!metric.Tags.ContainsKey("IP"))
-                {
-                    metric.Tags.Add("IP", ip);
-                }
+                //if (!metric.Tags.ContainsKey("IP"))
+                //{
+                //    metric.Tags.Add("IP", ip);
+                //}
                 metrics.Add(metric);
             }
 

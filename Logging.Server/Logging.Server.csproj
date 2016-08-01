@@ -239,8 +239,22 @@
     <Compile Include="..\thrift\thrift\transport\TTransportFactory.cs">
       <Link>Thrift\Transport\TTransportFactory.cs</Link>
     </Compile>
+    <Compile Include="Alerting\AlertingHistory.cs" />
+    <Compile Include="Alerting\AlertingType.cs" />
+    <Compile Include="Alerting\AppErrorGrowthAlerting.cs" />
+    <Compile Include="Alerting\BaseAlerting.cs" />
+    <Compile Include="Alerting\MailHelper.cs" />
+    <Compile Include="BackgroundTask.cs" />
     <Compile Include="BlockingActionQueue.cs" />
     <Compile Include="DB\MongoDataBase.cs" />
+    <Compile Include="Entitys\LogEntity.cs" />
+    <Compile Include="Entitys\LogLevel.cs" />
+    <Compile Include="Entitys\LogOnOff.cs" />
+    <Compile Include="Entitys\LogStatistics.cs" />
+    <Compile Include="Entitys\LogTag.cs" />
+    <Compile Include="Entitys\MetricEntity.cs" />
+    <Compile Include="Entitys\OptionKeys.cs" />
+    <Compile Include="Entitys\Options.cs" />
     <Compile Include="FileLogger.cs" />
     <Compile Include="LogOnOff.cs" />
     <Compile Include="LogOnOffManager.cs" />
@@ -278,6 +292,7 @@
     <None Include="..\Logging.ThriftContract\log.thrift">
       <Link>ThriftContract\log.thrift</Link>
     </None>
+    <None Include="Entitys\MetricEntity.cs~HEAD" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

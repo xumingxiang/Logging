@@ -12,17 +12,17 @@ namespace Logging.Server.Site.metrics
     public class Point : IHttpHandler
     {
 
-        string InfluxdbConnectionString = System.Configuration.ConfigurationManager.AppSettings["InfluxdbConnectionString"];
-        string MetricInfluxdbHost = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbHost"];
-        string MetricInfluxdbPort = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbPort"];
-        string MetricInfluxdbDBName = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbDBName"];
-        string MetricInfluxdbUser = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbUser"];
-        string MetricInfluxdbPwd = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbPwd"];
+        //string InfluxdbConnectionString = System.Configuration.ConfigurationManager.AppSettings["InfluxdbConnectionString"];
+        //string MetricInfluxdbHost = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbHost"];
+        //string MetricInfluxdbPort = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbPort"];
+        //string MetricInfluxdbDBName = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbDBName"];
+        //string MetricInfluxdbUser = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbUser"];
+        //string MetricInfluxdbPwd = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbPwd"];
 
 
         public void ProcessRequest(HttpContext context)
         {
-            context.Response.ContentType = "text/plain";
+            //context.Response.ContentType = "text/plain";
 
 
 
@@ -57,10 +57,10 @@ namespace Logging.Server.Site.metrics
                     }
                 }
                 m.Tags = tags;
-                m.Time = Utils.GetUnixTime(DateTime.Now) * 1000000000;
+                m.Time = Utils.GetUnixTime(DateTime.Now) ;
                 lst.Add(m);
-                InfluxdbWriter w = new InfluxdbWriter();
-                w.WriteAsync(lst);
+                var w = new InfluxdbReport();
+                w.Write(lst);
 
 
 
@@ -73,6 +73,7 @@ namespace Logging.Server.Site.metrics
             catch (Exception ex)
             {
                 context.Response.Write(ex);
+                context.Response.Write("point error :" + context.Request.RawUrl);
             }
         }
 

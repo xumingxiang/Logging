@@ -158,6 +158,7 @@
     <Content Include="InfluxData.Net.dll.config" />
     <Content Include="metrics\MetricsQuery.ashx" />
     <Content Include="metrics\MetricTags.ashx" />
+    <Content Include="metrics\Point.ashx" />
     <None Include="Properties\PublishProfiles\release.server.logging.plu.cn.pubxml" />
     <Content Include="StatisticsViewer.ashx" />
     <Content Include="SetLogOnOff.ashx" />
@@ -183,6 +184,9 @@
     </Compile>
     <Compile Include="metrics\MetricTags.ashx.cs">
       <DependentUpon>MetricTags.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="metrics\Point.ashx.cs">
+      <DependentUpon>Point.ashx</DependentUpon>
     </Compile>
     <Compile Include="metrics\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>

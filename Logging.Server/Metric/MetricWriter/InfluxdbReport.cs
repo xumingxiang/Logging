@@ -7,7 +7,7 @@ using System.Net;
 
 namespace Logging.Server.Metric.Writer
 {
-    internal partial class InfluxdbReport
+    public partial class InfluxdbReport
     {
         private readonly Uri influxdb;
 

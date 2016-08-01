@@ -36,6 +36,25 @@ namespace Logging.Server.Metric.Writer
             }
         }
 
+
+        /// <summary>
+        /// 描述：将LogMetric写入Influxdb数据库
+        /// 作者：徐明祥
+        /// 日期：20160411
+        /// </summary>
+        /// <param name="logs"></param>
+        public void Write(IList<MetricEntity> logs)
+        {
+            if (logs == null || logs.Count == 0) { return; }
+            string ms = GetMetricsString(logs);
+            string writeUrl = $"http://{host}:{port}/write?db={database}&u={user}&p={pass}";
+            using (var client = new WebClient())
+            {
+                client.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
+                client.UploadString(new System.Uri(writeUrl), ms);
+            }
+        }
+
         private string GetMetricsString(IList<MetricEntity> metrics)
         {
             StringBuilder sb = new StringBuilder();

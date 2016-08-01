@@ -22,10 +22,10 @@
       <publishTime>04/11/2016 18:43:47</publishTime>
     </File>
     <File Include="bin/Logging.Server.dll">
-      <publishTime>07/22/2016 16:10:57</publishTime>
+      <publishTime>08/01/2016 11:36:05</publishTime>
     </File>
     <File Include="bin/Logging.Server.Site.dll">
-      <publishTime>07/22/2016 16:10:58</publishTime>
+      <publishTime>08/01/2016 11:40:42</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -250,7 +250,7 @@
       <publishTime>05/25/2016 20:09:51</publishTime>
     </File>
     <File Include="Content/metrics.js">
-      <publishTime>07/22/2016 15:54:05</publishTime>
+      <publishTime>07/22/2016 18:58:33</publishTime>
     </File>
     <File Include="Content/settings.js">
       <publishTime>02/17/2016 17:00:45</publishTime>
@@ -271,7 +271,7 @@
       <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="InfluxData.Net.dll.config">
-      <publishTime>07/22/2016 15:54:06</publishTime>
+      <publishTime>07/22/2016 18:57:13</publishTime>
     </File>
     <File Include="InitMongo.aspx">
       <publishTime>09/02/2015 11:56:12</publishTime>
@@ -337,7 +337,7 @@
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="LogViewer.html">
-      <publishTime>07/22/2016 15:54:06</publishTime>
+      <publishTime>07/22/2016 18:57:13</publishTime>
     </File>
     <File Include="metrics/dashboard.html">
       <publishTime>05/25/2016 20:09:51</publishTime>
@@ -2103,6 +2103,9 @@
     <File Include="metrics/MetricTags.ashx">
       <publishTime>05/25/2016 20:09:51</publishTime>
     </File>
+    <File Include="metrics/Point.ashx">
+      <publishTime>08/01/2016 11:34:45</publishTime>
+    </File>
     <File Include="metrics/test.aspx">
       <publishTime>05/25/2016 20:09:51</publishTime>
     </File>
@@ -2131,7 +2134,7 @@
       <publishTime>04/11/2016 14:20:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/22/2016 16:09:13</publishTime>
+      <publishTime>08/01/2016 11:13:53</publishTime>
     </File>
   </ItemGroup>
 </Project>

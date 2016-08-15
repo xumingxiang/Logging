@@ -292,7 +292,6 @@
     <None Include="..\Logging.ThriftContract\log.thrift">
       <Link>ThriftContract\log.thrift</Link>
     </None>
-    <None Include="Entitys\MetricEntity.cs~HEAD" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

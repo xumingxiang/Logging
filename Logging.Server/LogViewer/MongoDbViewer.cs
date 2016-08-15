@@ -4,6 +4,7 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Logging.Server.Alerting;
 
 namespace Logging.Server.Viewer
 {
@@ -249,6 +250,32 @@ namespace Logging.Server.Viewer
 
             var collection = MongoDataBase.GetCollection<LogOnOff>();
             var result = collection.Find(filter).FirstOrDefaultAsync().Result;
+            return result;
+        }
+
+
+        public AlertingHistory GetLastAlertingHistory(int appId, AlertingType type)
+        {
+            var collection = MongoDataBase.GetCollection<AlertingHistory>();
+            var filterBuilder = Builders<AlertingHistory>.Filter;
+            var filter = filterBuilder.Gt("ObjId", appId) & filterBuilder.Gt("AlertingType", type);
+            var result = collection.Find(filter)
+                .SortByDescending(x => x.Time)
+                .FirstOrDefaultAsync().Result;
+            return result;
+        }
+
+        /// <summary>
+        /// 获取配置项
+        /// </summary>
+        /// <param name="keys"></param>
+        /// <returns></returns>
+        public List<Options> GetOptions(string[] keys)
+        {
+            var collection = MongoDataBase.GetCollection<Options>();
+            var filterBuilder = Builders<Options>.Filter;
+            var filter = filterBuilder.In("Key", keys);
+            var result = collection.Find(filter).ToListAsync().Result;
             return result;
         }
 

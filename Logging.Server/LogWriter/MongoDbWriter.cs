@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Logging.Server.Alerting;
 
 namespace Logging.Server.Writer
 {
@@ -88,6 +89,36 @@ namespace Logging.Server.Writer
                 on_off._id = old_on_off._id;
                 collection.ReplaceOneAsync(a => a.AppId == on_off.AppId, on_off);
             }
+        }
+
+        public void SetOptions(List<Options> lst)
+        {
+            var log_ls_collection = MongoDataBase.GetCollection<Options>();
+
+            foreach (var item in lst)
+            {
+                var filterBuilder = Builders<Options>.Filter;
+                var filter = filterBuilder.Eq("Key", item.Key);
+                var opt = log_ls_collection.Find(filter).FirstOrDefault();
+
+                if (opt == null)
+                {
+                    log_ls_collection.InsertOneAsync(item);
+                }
+                else
+                {
+                    var updateBuilder = Builders<Options>.Update;
+                    var update = updateBuilder.Set("Value", item.Value)
+                                              .Set("UpdateTime", item.UpdateTime);
+                    log_ls_collection.UpdateOneAsync(filter, update);
+                }
+            }
+        }
+
+        public void RecordAlerting(AlertingHistory alert)
+        {
+            var log_ls_collection = MongoDataBase.GetCollection<AlertingHistory>();
+            log_ls_collection.InsertOneAsync(alert);
         }
     }
 }

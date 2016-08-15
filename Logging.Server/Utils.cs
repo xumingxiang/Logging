@@ -121,6 +121,11 @@ namespace Logging.Server
             return (hash & 0x7FFFFFFF);
         }
 
+        internal static DateTime GetDateTimeFromUnix(object time)
+        {
+            throw new NotImplementedException();
+        }
+
         public static long Time33(string str)
         {
             long hash = 0;

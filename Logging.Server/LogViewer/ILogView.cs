@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Logging.Server.Alerting;
 
 namespace Logging.Server.Viewer
 {
@@ -23,5 +24,7 @@ namespace Logging.Server.Viewer
         /// </summary>
         /// <returns></returns>    
         LogOnOff GetLogOnOff(int appId);
+        AlertingHistory GetLastAlertingHistory(int appId, AlertingType appError);
+        List<Options> GetOptions(string[] optKeys);
     }
 }

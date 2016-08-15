@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Net;
 using System.Text;
 using System.Threading;
@@ -222,6 +223,11 @@ namespace Logging.Client
             log.Title = title;
             log.Source = source;
             log.Thread = Thread.CurrentThread.ManagedThreadId;
+            if (log.Tags == null)
+            {
+                log.Tags = new Dictionary<string, string>();
+            }
+            log.Tags.Add("traceid", Trace.CorrelationManager.ActivityId.ToString("N"));
             return log;
         }
 

@@ -1,0 +1,67 @@
+<!-- 不把第三方依赖包打进去 -->  
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>logging.client</groupId>
+  <artifactId>logging.client</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+
+  <name>logging。client</name>
+  <url>http://maven.apache.org</url>
+<build>
+	<defaultGoal>compile</defaultGoal>
+</build>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+ <repositories>  
+    <repository>  
+      <id>maven-net-cn</id>  
+      <name>Maven China Mirror</name>  
+      <url>http://mvnrepository.com/content/groups/public/</url>  
+      
+      <releases>  
+        <enabled>true</enabled>  
+      </releases>  
+      <snapshots>  
+        <enabled>false</enabled>  
+      </snapshots>  
+    </repository>  
+  </repositories>  
+  <pluginRepositories>  
+    <pluginRepository>  
+      <id>maven-net-cn</id>  
+      <name>Maven China Mirror</name>  
+      <url>http://mvnrepository.com/content/groups/public/</url>  
+      <releases>  
+        <enabled>true</enabled>  
+      </releases>  
+      <snapshots>  
+        <enabled>false</enabled>  
+      </snapshots>       
+    </pluginRepository>  
+  </pluginRepositories>  
+
+  <dependencies>
+	 
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+
+   
+  
+    <dependency>
+	<groupId>org.apache.httpcomponents</groupId>
+	<artifactId>httpclient</artifactId>
+	<version>4.5.1</version>
+</dependency>
+  </dependencies>
+</project>

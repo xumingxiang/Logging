@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="file://$MODULE_DIR$/../logging.client4j/target/logging.client-1.0-jar-with-dependencies.jar" />
+    <conelement value="org.eclipse.jst.j2ee.internal.module.container" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/appClientModule" expected_position="0" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/build/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/appClientModule" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="library" name="org.eclipse.jst.j2ee.internal.module.container" level="application" />
+    <orderEntry type="module-library">
+      <library name="logging.client-1.0-jar-with-dependencies.jar">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../logging.client4j/target/logging.client-1.0-jar-with-dependencies.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../logging.client4j/target/logging.client-1.0-jar-with-dependencies.jar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="logging.client" level="project" />
+  </component>
+</module>

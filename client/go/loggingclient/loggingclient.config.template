@@ -1,0 +1,22 @@
+{
+    //应用号
+    "AppId" :6001,
+
+	//是否启用日志
+	"LoggingEnabled" :true,
+
+	//设置日志服务器
+	"LoggingServerHost":"", 
+
+	//队列最大长度
+	"QueueMaxLength":50000,
+
+	/// 元素包的大小
+	"BufferSize":300,
+   
+	//队列阻塞时间。单位：秒
+	"BlockElapsed":5 ,
+
+	//开关缓存时间。单位：分钟
+	"LogOnOffCacheTimeOut":5
+}

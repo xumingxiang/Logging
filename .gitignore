@@ -10,3 +10,4 @@
 /Logging.ThriftContract/obj
 /Thrift/obj
 *.suo
+/packages

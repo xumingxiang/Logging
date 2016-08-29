@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C53C8137-4145-4853-87F8-A47CCCFBB24B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Logging.Server</RootNamespace>
+    <AssemblyName>Logging.Server</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.2.3.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MongoDB.Bson.2.2.3\lib\net45\MongoDB.Bson.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.2.3.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MongoDB.Driver.2.2.3\lib\net45\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.2.3.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MongoDB.Driver.Core.2.2.3\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\contract\Logging.ThriftContract\LogTransferService.cs">
+      <Link>ThriftContract\LogTransferService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Logging.ThriftContract\TLogEntity.cs">
+      <Link>ThriftContract\TLogEntity.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Logging.ThriftContract\TLogPackage.cs">
+      <Link>ThriftContract\TLogPackage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Logging.ThriftContract\TMetricEntity.cs">
+      <Link>ThriftContract\TMetricEntity.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Collections\TCollections.cs">
+      <Link>Thrift\Collections\TCollections.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Collections\THashSet.cs">
+      <Link>Thrift\Collections\THashSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TAbstractBase.cs">
+      <Link>Thrift\Protocol\TAbstractBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TBase.cs">
+      <Link>Thrift\Protocol\TBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TBase64Utils.cs">
+      <Link>Thrift\Protocol\TBase64Utils.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TBinaryProtocol.cs">
+      <Link>Thrift\Protocol\TBinaryProtocol.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TCompactProtocol.cs">
+      <Link>Thrift\Protocol\TCompactProtocol.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TField.cs">
+      <Link>Thrift\Protocol\TField.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TJSONProtocol.cs">
+      <Link>Thrift\Protocol\TJSONProtocol.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TList.cs">
+      <Link>Thrift\Protocol\TList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TMap.cs">
+      <Link>Thrift\Protocol\TMap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TMessage.cs">
+      <Link>Thrift\Protocol\TMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TMessageType.cs">
+      <Link>Thrift\Protocol\TMessageType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TMultiplexedProcessor.cs">
+      <Link>Thrift\Protocol\TMultiplexedProcessor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TMultiplexedProtocol.cs">
+      <Link>Thrift\Protocol\TMultiplexedProtocol.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TProtocol.cs">
+      <Link>Thrift\Protocol\TProtocol.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TProtocolDecorator.cs">
+      <Link>Thrift\Protocol\TProtocolDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TProtocolException.cs">
+      <Link>Thrift\Protocol\TProtocolException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TProtocolFactory.cs">
+      <Link>Thrift\Protocol\TProtocolFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TProtocolUtil.cs">
+      <Link>Thrift\Protocol\TProtocolUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TSet.cs">
+      <Link>Thrift\Protocol\TSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TStruct.cs">
+      <Link>Thrift\Protocol\TStruct.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Protocol\TType.cs">
+      <Link>Thrift\Protocol\TType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Server\TServer.cs">
+      <Link>Thrift\Server\TServer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Server\TServerEventHandler.cs">
+      <Link>Thrift\Server\TServerEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Server\TSimpleServer.cs">
+      <Link>Thrift\Server\TSimpleServer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Server\TThreadedServer.cs">
+      <Link>Thrift\Server\TThreadedServer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Server\TThreadPoolServer.cs">
+      <Link>Thrift\Server\TThreadPoolServer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\TApplicationException.cs">
+      <Link>Thrift\TApplicationException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\TException.cs">
+      <Link>Thrift\TException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\TMemoryStream.cs">
+      <Link>Thrift\TMemoryStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\TProcessor.cs">
+      <Link>Thrift\TProcessor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TBufferedTransport.cs">
+      <Link>Thrift\Transport\TBufferedTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TFramedTransport.cs">
+      <Link>Thrift\Transport\TFramedTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\THttpClient.cs">
+      <Link>Thrift\Transport\THttpClient.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\THttpHandler.cs">
+      <Link>Thrift\Transport\THttpHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TMemoryBuffer.cs">
+      <Link>Thrift\Transport\TMemoryBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TNamedPipeClientTransport.cs">
+      <Link>Thrift\Transport\TNamedPipeClientTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TNamedPipeServerTransport.cs">
+      <Link>Thrift\Transport\TNamedPipeServerTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TServerSocket.cs">
+      <Link>Thrift\Transport\TServerSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TServerTransport.cs">
+      <Link>Thrift\Transport\TServerTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TSilverlightSocket.cs">
+      <Link>Thrift\Transport\TSilverlightSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TSocket.cs">
+      <Link>Thrift\Transport\TSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TStreamTransport.cs">
+      <Link>Thrift\Transport\TStreamTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TTLSServerSocket.cs">
+      <Link>Thrift\Transport\TTLSServerSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TTLSSocket.cs">
+      <Link>Thrift\Transport\TTLSSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TTransport.cs">
+      <Link>Thrift\Transport\TTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TTransportException.cs">
+      <Link>Thrift\Transport\TTransportException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\contract\Thrift\Thrift\Transport\TTransportFactory.cs">
+      <Link>Thrift\Transport\TTransportFactory.cs</Link>
+    </Compile>
+    <Compile Include="Alerting\AlertingHistory.cs" />
+    <Compile Include="Alerting\AlertingType.cs" />
+    <Compile Include="Alerting\AppErrorGrowthAlerting.cs" />
+    <Compile Include="Alerting\BaseAlerting.cs" />
+    <Compile Include="Alerting\MailHelper.cs" />
+    <Compile Include="BackgroundTask.cs" />
+    <Compile Include="BlockingActionQueue.cs" />
+    <Compile Include="DB\MongoDataBase.cs" />
+    <Compile Include="Entitys\LogEntity.cs" />
+    <Compile Include="Entitys\LogLevel.cs" />
+    <Compile Include="Entitys\LogOnOff.cs" />
+    <Compile Include="Entitys\LogStatistics.cs" />
+    <Compile Include="Entitys\LogTag.cs" />
+    <Compile Include="Entitys\MetricEntity.cs" />
+    <Compile Include="Entitys\OptionKeys.cs" />
+    <Compile Include="Entitys\Options.cs" />
+    <Compile Include="FileLogger.cs" />
+    <Compile Include="LogOnOff.cs" />
+    <Compile Include="LogOnOffManager.cs" />
+    <Compile Include="LogReciver\HttpReciver.cs" />
+    <Compile Include="LogProcessor\ILogProcessor.cs" />
+    <Compile Include="LogEntity.cs" />
+    <Compile Include="LogLevel.cs" />
+    <Compile Include="LogProcessor\LogProcessorManager.cs" />
+    <Compile Include="LogProcessor\DefaultLogProcessor.cs" />
+    <Compile Include="LogReciver\LogReciverBase.cs" />
+    <Compile Include="LogStatistics.cs" />
+    <Compile Include="LogTag.cs" />
+    <Compile Include="LogViewer\ILogView.cs" />
+    <Compile Include="LogViewer\HBaseViewer.cs" />
+    <Compile Include="LogViewer\LogViewerManager.cs" />
+    <Compile Include="LogViewer\MongoDbViewer.cs" />
+    <Compile Include="LogWriter\HBaseWriter.cs" />
+    <Compile Include="LogWriter\ILogWriter.cs" />
+    <Compile Include="LogWriter\LogWriterManager.cs" />
+    <Compile Include="LogWriter\MongoDbWriter.cs" />
+    <Compile Include="MetricEntity.cs" />
+    <Compile Include="Metric\MetricProcessor\DefaulMetricProcessor.cs" />
+    <Compile Include="Metric\MetricProcessor\IMetricProcessor.cs" />
+    <Compile Include="Metric\MetricProcessor\MetricProcessorManager.cs" />
+    <Compile Include="Metric\MetricWriter\InfluxdbWriter.cs" />
+    <Compile Include="Metric\MetricWriter\InfluxdbReport.cs" />
+    <Compile Include="Metric\Json\JsonObject.cs" />
+    <Compile Include="Metric\Json\JsonProperty.cs" />
+    <Compile Include="Metric\Json\JsonValue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LogReciver\SocketReciver.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

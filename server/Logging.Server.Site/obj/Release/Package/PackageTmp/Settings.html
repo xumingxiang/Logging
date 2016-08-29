@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/logviewer.css" rel="stylesheet" />
+</head>
+<body>
+    <script src="Content/jQuery/jquery.min.js"></script>
+    <script src="Content/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Content/settings.js"></script>
+
+    <div class="container">
+
+        <ul class="nav nav-tabs">
+            <li role="presentation" ><a  href="LogViewer.html">Home</a></li>
+			<li role="presentation"><a target="_blank"  href="metrics/dashboard.html">metrics</a></li>
+            <li role="presentation" class="active"><a href="javascript:;">Settings</a></li>
+            <li role="presentation"><a target="_blank" href="#">Help</a></li>
+        </ul>
+        <fieldset class="mt-10">
+            <legend>日志级别启用设置</legend>
+            <div class="row" id="logonoffwarp">
+
+            </div>
+            <div class="row">
+                <div class="col-lg-1 mt-10">
+                    <button type="button" id="addnoff" class="btn btn-info  btn-sm">Add</button>
+                </div>
+            </div>
+        </fieldset>
+</div>
+   
+    <script id="log_on_off_temp" type="text/template">
+
+        <div class="col-lg-10 mt-10">
+            <div class="col-lg-2  mt-5">
+                {appId}
+            </div>
+            <div class="col-lg-4  mt-5">
+                {appName}
+            </div>
+            <div class="col-lg-5">
+                <div class="input-group h-34">
+
+                    <div id="level-warp" class="ml-20 mt-4">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" {checked_debug} value="1"><strong>Debug</strong>
+                        </label>
+
+
+                        <label class=" checkbox-inline text-info">
+                            <input type="checkbox" {checked_info} value="2"> <strong>Info</strong>
+                        </label>
+                        <label class=" checkbox-inline text-warning">
+                            <input type="checkbox" {checked_warm} value="3"> <strong>Warming</strong>
+                        </label>
+                        <label class=" checkbox-inline text-danger">
+                            <input type="checkbox" {checked_error} value="4"> <strong>Error</strong>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-1">
+                <button type="button" data-appId="{appId}"  data-appName="{appName}" class="btn btn-info  btn-sm">&nbsp;&nbsp;确&nbsp;&nbsp;定&nbsp;&nbsp;</button>
+            </div>
+        </div>
+
+    </script>
+</body>
+
+</html>

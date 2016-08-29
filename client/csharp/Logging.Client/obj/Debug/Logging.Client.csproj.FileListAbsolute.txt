@@ -1,0 +1,4 @@
+D:\WorkStudio\Logging\Logging.Client\bin\Debug\Logging.Client.dll
+D:\WorkStudio\Logging\Logging.Client\bin\Debug\Logging.Client.pdb
+D:\WorkStudio\Logging\Logging.Client\obj\Debug\Logging.Client.dll
+D:\WorkStudio\Logging\Logging.Client\obj\Debug\Logging.Client.pdb

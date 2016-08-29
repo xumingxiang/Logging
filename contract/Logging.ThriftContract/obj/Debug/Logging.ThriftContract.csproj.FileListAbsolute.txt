@@ -1,0 +1,7 @@
+D:\WorkStudio\Logging\Logging.ThriftContract\bin\Debug\Logging.ThriftContract.dll
+D:\WorkStudio\Logging\Logging.ThriftContract\bin\Debug\Logging.ThriftContract.pdb
+D:\WorkStudio\Logging\Logging.ThriftContract\bin\Debug\Thrift.dll
+D:\WorkStudio\Logging\Logging.ThriftContract\bin\Debug\Thrift.pdb
+D:\WorkStudio\Logging\Logging.ThriftContract\obj\Debug\Logging.ThriftContract.csprojResolveAssemblyReference.cache
+D:\WorkStudio\Logging\Logging.ThriftContract\obj\Debug\Logging.ThriftContract.dll
+D:\WorkStudio\Logging\Logging.ThriftContract\obj\Debug\Logging.ThriftContract.pdb

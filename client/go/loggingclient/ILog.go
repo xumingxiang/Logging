@@ -19,4 +19,6 @@ type ILog interface {
 	Errorf(format string, params ...interface{})
 
 	Metric(name string, value float64, tags map[string]string)
+
+	Flush()
 }

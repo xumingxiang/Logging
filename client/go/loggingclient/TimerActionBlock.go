@@ -111,6 +111,16 @@ func (block *TimerActionBlock) checkBlockElapsed() {
 	}
 }
 
+func (block *TimerActionBlock) flush() {
+	for true {
+		item, has := block.popQueue()
+		if has {
+			block.Buffer.PushBack(item)
+		}
+	}
+	block.executeAction()
+}
+
 func (block *TimerActionBlock) executeAction() {
 	block.Action(block.Buffer)
 	block.Buffer.Init()

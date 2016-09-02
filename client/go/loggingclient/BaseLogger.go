@@ -118,6 +118,14 @@ func (bl *BaseLogger) Metric2(name string, value float64, tags map[string]string
 	block.enqueue(Metric)
 }
 
+func (bl *BaseLogger) Flush() {
+	if !LoggingSettings.LoggingEnabled {
+		return
+	}
+	var block = getBlock()
+	block.flush()
+}
+
 func (bl *BaseLogger) getLogParams(params interface{}) (title string, message string, tags map[string]string) {
 	var _title = ""
 	var _message = ""

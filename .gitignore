@@ -11,3 +11,5 @@
 /Thrift/obj
 *.suo
 /packages
+/server/Logging.Server.Site/obj
+/server/Logging.Server.Site/bin

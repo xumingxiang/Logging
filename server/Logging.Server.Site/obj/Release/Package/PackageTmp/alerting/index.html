@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>LogViewer</title>
+
+    <!-- Bootstrap -->
+    <link href="../Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/logviewer.css" rel="stylesheet" />
+    <link href="../Content/jQuery/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="../Content/jQuery/css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+    <!--<link href="Content/BootSideMenu/css/BootSideMenu.css" rel="stylesheet" />-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container-fluid">
+        <ul class="nav nav-tabs">
+            <li role="presentation" ><a href="../LogViewer.html">Home</a></li>
+            <li role="presentation"><a target="_blank" href="metrics/dashboard.html">metrics</a></li>
+            <li role="presentation"><a target="_blank" href="Settings.html">Settings</a></li>
+            <li role="presentation" class="active"><a target="_blank" href="#">alerting</a></li>
+            <li role="presentation"><a href="#">Help</a></li>
+        </ul>
+        <fieldset class="mt-10">
+            <legend>应用异常报警设置</legend>
+            <div class="row">
+                <div class="col-lg-10 mt-10"> 
+                    <div class="col-lg-2  mt-5">
+                        报警间隔时间(分钟)
+                    </div>
+                    <div class="col-lg-4">
+                       <input type="text"  id="app_err_interval" style="width:100%" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-10 mt-10">
+                    <div class="col-lg-2  mt-5">
+                        异常数量报警线
+                    </div>
+                    <div class="col-lg-4">
+                        <input type="text" id="app_err_errorCountLimit" style="width:100%" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-10 mt-10">
+                    <div class="col-lg-2  mt-5">
+                        异常环比增速报警线
+                    </div>
+                    <div class="col-lg-4">
+                        <input type="text" id="app_err_errorGrowthLimit" style="width:100%"  />百分比,如:100%
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mt-10">
+                    <div class="col-lg-2  mt-5">
+                        异常报警邮件收件人
+                    </div>
+                    <div class="col-lg-4">
+                        <input type="text" id="app_err_emailReceivers" style="width:100%"  />多个之间英文分号";"隔开
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 mt-10 ml-10">
+                    <button type="button" id="btn_ok" class="btn btn-info  btn-sm">确定</button>
+                </div>
+            </div>
+</fieldset>
+
+        </div>
+   
+    <script src="../Content/jQuery/jquery.min.js"></script>
+    <script src="alerting.js"></script>
+</body>
+</html>

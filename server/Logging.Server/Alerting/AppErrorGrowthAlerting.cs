@@ -4,8 +4,6 @@ using Logging.Server.Writer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Logging.Server.Alerting
 {
@@ -14,8 +12,7 @@ namespace Logging.Server.Alerting
     /// </summary>
     public class AppErrorthAlerting : BaseAlerting
     {
-
-        static string[] OptKeys = {
+        private static string[] OptKeys = {
              OptionKeys.ALERTING_APPERROR_INTERVAL.ToString(),
              OptionKeys.ALERTING_APPERROR_ERRORCOUNTLIMIT.ToString(),
              OptionKeys.ALERTING_APPERROR_ERRORGROWTHLIMIT.ToString(),
@@ -26,7 +23,7 @@ namespace Logging.Server.Alerting
             base(AlertingType.AppError)
         {
             var opts = GetOptions();
-
+            if (opts.Count == 0) { return; }
             this.Interval = Convert.ToInt64(opts[OptionKeys.ALERTING_APPERROR_INTERVAL.ToString()]);
             this.ErrorCountLimit = Convert.ToInt32(opts[OptionKeys.ALERTING_APPERROR_ERRORCOUNTLIMIT.ToString()]);
             this.ErrorGrowthLimit = Convert.ToInt32(opts[OptionKeys.ALERTING_APPERROR_ERRORGROWTHLIMIT.ToString()]);
@@ -45,10 +42,15 @@ namespace Logging.Server.Alerting
 
         public static Dictionary<string, string> GetOptions()
         {
-            var opts = LogViewerManager.GetLogViewer()
-             .GetOptions(OptKeys)
-             .ToDictionary(x => x.Key, x => x.Value);
-            return opts;
+            var opts = LogViewerManager.GetLogViewer().GetOptions(OptKeys);
+            if (opts.Count == 0)
+            {
+                return new Dictionary<string, string>();
+            }
+            else
+            {
+                return opts.ToDictionary(x => x.Key, x => x.Value);
+            }
         }
 
         /// <summary>
@@ -56,23 +58,25 @@ namespace Logging.Server.Alerting
         /// </summary>
         public long Interval { get; set; }
 
-
         /// <summary>
         /// 错误数量报警线
         /// </summary>
         public int ErrorCountLimit { get; set; }
-
 
         /// <summary>
         /// 错误增长速度报警线(环比)
         /// </summary>
         public double ErrorGrowthLimit { get; set; }
 
-
         public string[] EmailReceivers { get; set; }
 
         public override void Alert()
         {
+            if (this.EmailReceivers == null || this.EmailReceivers.Length == 0)
+            {
+                return;
+            }
+
             long start1 = Utils.GetUnixTime(DateTime.Now.AddMinutes(-1)) * 10000000;
             long end1 = Utils.GetUnixTime(DateTime.Now) * 10000000;
 
@@ -99,16 +103,15 @@ namespace Logging.Server.Alerting
 
                 int error_count1 = item.Sum(x => x.Error);
                 int error_count2 = data2.Where(x => x.AppId == appId).Sum(x => x.Error);
-
                 int error_count = error_count1 + error_count2;
-               // double growth = (error_count1 - error_count2) / error_count2;
+
                 string msg_body = string.Empty;
                 if ((error_count) > ErrorCountLimit)
                 {
                     //报警
                     msg_body = $"应用" + appId + "程序异常过多，请及时处理";
                 }
-                else if (error_count2 > 0 && (error_count1 - error_count2) / error_count2 > ErrorGrowthLimit)
+                else if (error_count2 > 0 && error_count1 > 10 * this.Interval && ((error_count1 - error_count2) / error_count2) * 100 > ErrorGrowthLimit)
                 {
                     //报警
                     msg_body = $"应用" + appId + "程序异常增长很快，请及时处理";
@@ -125,8 +128,6 @@ namespace Logging.Server.Alerting
                     MailHelper.SendMail(msg_subject, EmailReceivers[i], msg_body, true);
                 }
 
-
-
                 AlertingHistory ah = new AlertingHistory();
                 ah.AlertingType = AlertingType.AppError;
                 ah.Time = Utils.GetUnixTime(DateTime.Now);
@@ -135,8 +136,5 @@ namespace Logging.Server.Alerting
                 w.RecordAlerting(ah);
             }
         }
-
-
-
     }
 }

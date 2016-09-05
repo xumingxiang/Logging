@@ -98,6 +98,8 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="alerting\alerting.js" />
+    <Content Include="alerting\index.html" />
     <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
@@ -159,6 +161,8 @@
     <Content Include="metrics\MetricsQuery.ashx" />
     <Content Include="metrics\MetricTags.ashx" />
     <Content Include="metrics\Point.ashx" />
+    <Content Include="alerting\GetAppErrOpts.ashx" />
+    <Content Include="alerting\SetAppErrOpts.ashx" />
     <None Include="Properties\PublishProfiles\release.server.logging.plu.cn.pubxml" />
     <Content Include="StatisticsViewer.ashx" />
     <Content Include="SetLogOnOff.ashx" />
@@ -170,6 +174,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="alerting\GetAppErrOpts.ashx.cs">
+      <DependentUpon>GetAppErrOpts.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="alerting\SetAppErrOpts.ashx.cs">
+      <DependentUpon>SetAppErrOpts.ashx</DependentUpon>
+    </Compile>
     <Compile Include="GetLogOnOff.ashx.cs">
       <DependentUpon>GetLogOnOff.ashx</DependentUpon>
     </Compile>

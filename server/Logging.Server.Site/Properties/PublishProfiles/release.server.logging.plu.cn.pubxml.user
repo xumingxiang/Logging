@@ -9,6 +9,18 @@
     <_PublishTargetUrl>D:\Publish\release.server.logging.plu.cn</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="alerting/alerting.js">
+      <publishTime>07/19/2016 18:02:51</publishTime>
+    </File>
+    <File Include="alerting/GetAppErrOpts.ashx">
+      <publishTime>07/19/2016 10:39:05</publishTime>
+    </File>
+    <File Include="alerting/index.html">
+      <publishTime>09/05/2016 18:47:28</publishTime>
+    </File>
+    <File Include="alerting/SetAppErrOpts.ashx">
+      <publishTime>07/19/2016 10:38:38</publishTime>
+    </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
@@ -22,10 +34,10 @@
       <publishTime>04/11/2016 18:43:47</publishTime>
     </File>
     <File Include="bin/Logging.Server.dll">
-      <publishTime>08/01/2016 11:36:05</publishTime>
+      <publishTime>09/05/2016 18:47:33</publishTime>
     </File>
     <File Include="bin/Logging.Server.Site.dll">
-      <publishTime>08/01/2016 11:40:42</publishTime>
+      <publishTime>09/05/2016 18:47:33</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -337,7 +349,7 @@
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="LogViewer.html">
-      <publishTime>07/22/2016 18:57:13</publishTime>
+      <publishTime>09/05/2016 18:22:50</publishTime>
     </File>
     <File Include="metrics/dashboard.html">
       <publishTime>05/25/2016 20:09:51</publishTime>
@@ -2125,7 +2137,7 @@
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="Settings.html">
-      <publishTime>05/25/2016 20:09:51</publishTime>
+      <publishTime>09/05/2016 18:20:45</publishTime>
     </File>
     <File Include="StatisticsViewer.ashx">
       <publishTime>09/17/2015 18:02:20</publishTime>
@@ -2134,7 +2146,7 @@
       <publishTime>04/11/2016 14:20:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/01/2016 11:13:53</publishTime>
+      <publishTime>09/05/2016 17:27:32</publishTime>
     </File>
   </ItemGroup>
 </Project>

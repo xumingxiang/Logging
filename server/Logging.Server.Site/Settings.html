@@ -12,12 +12,13 @@
     <script src="Content/bootstrap/js/bootstrap.min.js"></script>
     <script src="Content/settings.js"></script>
 
-    <div class="container">
+    <div class="container-fluid">
 
         <ul class="nav nav-tabs">
             <li role="presentation" ><a  href="LogViewer.html">Home</a></li>
-			<li role="presentation"><a target="_blank"  href="metrics/dashboard.html">metrics</a></li>
+			<li role="presentation"><a target="_blank"  href="metrics/dashboard.html">Metrics</a></li>
             <li role="presentation" class="active"><a href="javascript:;">Settings</a></li>
+            <li role="presentation"><a target="_blank" href="alerting/index.html">Alerting</a></li>
             <li role="presentation"><a target="_blank" href="#">Help</a></li>
         </ul>
         <fieldset class="mt-10">
@@ -27,22 +28,28 @@
             </div>
             <div class="row">
                 <div class="col-lg-1 mt-10">
-                    <button type="button" id="addnoff" class="btn btn-info  btn-sm">Add</button>
+                    <button type="button" id="addnoff" class="btn btn-info  btn-sm">设置</button>
                 </div>
             </div>
         </fieldset>
 </div>
    
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">All rights reserved</p>
+        </div>
+    </footer>
+
     <script id="log_on_off_temp" type="text/template">
 
         <div class="col-lg-10 mt-10">
-            <div class="col-lg-2  mt-5">
+            <div class="col-lg-1  mt-5">
                 {appId}
             </div>
-            <div class="col-lg-4  mt-5">
+            <div class="col-lg-3  mt-5">
                 {appName}
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-3">
                 <div class="input-group h-34">
 
                     <div id="level-warp" class="ml-20 mt-4">

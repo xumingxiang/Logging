@@ -24,3 +24,11 @@ D:\WorkStudio\Logging\Logging.Server.Site\obj\Release\Logging.Server.Site.csproj
 D:\WorkStudio\Logging\Logging.Server.Site\obj\Release\Logging.Server.Site.csprojResolveAssemblyReference.cache
 D:\WorkStudio\Logging\Logging.Server.Site\obj\Release\Logging.Server.Site.dll
 D:\WorkStudio\Logging\Logging.Server.Site\obj\Release\Logging.Server.Site.pdb
+D:\WorkStudio\Logging\server\Logging.Server.Site\bin\Logging.Server.Site.dll.config
+D:\WorkStudio\Logging\server\Logging.Server.Site\bin\Logging.Server.Site.dll
+D:\WorkStudio\Logging\server\Logging.Server.Site\bin\Logging.Server.Site.pdb
+D:\WorkStudio\Logging\server\Logging.Server.Site\bin\Logging.Server.dll
+D:\WorkStudio\Logging\server\Logging.Server.Site\bin\Logging.Server.pdb
+D:\WorkStudio\Logging\server\Logging.Server.Site\obj\Release\Logging.Server.Site.csprojResolveAssemblyReference.cache
+D:\WorkStudio\Logging\server\Logging.Server.Site\obj\Release\Logging.Server.Site.dll
+D:\WorkStudio\Logging\server\Logging.Server.Site\obj\Release\Logging.Server.Site.pdb

@@ -24,9 +24,9 @@
     <div class="container-fluid">
         <ul class="nav nav-tabs">
             <li role="presentation" ><a href="../LogViewer.html">Home</a></li>
-            <li role="presentation"><a target="_blank" href="metrics/dashboard.html">metrics</a></li>
-            <li role="presentation"><a target="_blank" href="Settings.html">Settings</a></li>
-            <li role="presentation" class="active"><a target="_blank" href="#">alerting</a></li>
+            <li role="presentation"><a target="_blank" href="../metrics/dashboard.html">Metrics</a></li>
+            <li role="presentation"><a target="_blank" href="../Settings.html">Settings</a></li>
+            <li role="presentation" class="active"><a target="_blank" href="#">Alerting</a></li>
             <li role="presentation"><a href="#">Help</a></li>
         </ul>
         <fieldset class="mt-10">
@@ -56,10 +56,10 @@
             <div class="row">
                 <div class="col-lg-10 mt-10">
                     <div class="col-lg-2  mt-5">
-                        异常增长速度报警线(环比)
+                        异常环比增速报警线
                     </div>
                     <div class="col-lg-4">
-                        <input type="text" id="app_err_errorGrowthLimit" style="width:100%"  />
+                        <input type="text" id="app_err_errorGrowthLimit" style="width:100%"  />百分比。如：100表示增长1倍，即100%
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                         异常报警邮件收件人
                     </div>
                     <div class="col-lg-4">
-                        <input type="text" id="app_err_emailReceivers" style="width:100%"  />
+                        <input type="text" id="app_err_emailReceivers" style="width:100%"  />多个之间英文分号";"隔开
                     </div>
                 </div>
             </div>

@@ -27,6 +27,15 @@ namespace Logging.Server
                     BaseAlerting alert = new AppErrorthAlerting();
                     alert.Alert();
                 }
+                catch (ThreadAbortException tae)
+                {
+                    Thread.ResetAbort();
+                    FileLogger.Log(tae);
+                }
+                catch(Exception ex)
+                {
+                    FileLogger.Log(ex);
+                }
                 finally
                 {
                     Thread.Sleep(1000 * 60);

@@ -92,6 +92,8 @@ namespace Logging.Server.Alerting
             foreach (var item in data_grp1)
             {
                 var appId = item.Key;
+
+
                 var lastAH = LogViewerManager.GetLogViewer().GetLastAlertingHistory(appId, AlertingType.AppError);
                 if (lastAH != null)
                 {
@@ -105,27 +107,34 @@ namespace Logging.Server.Alerting
                 int error_count2 = data2.Where(x => x.AppId == appId).Sum(x => x.Error);
                 int error_count = error_count1 + error_count2;
 
-                string msg_body = string.Empty;
+                string msg_body_fmt = string.Empty;
                 if ((error_count) > ErrorCountLimit)
                 {
                     //报警
-                    msg_body = $"应用" + appId + "程序异常过多，请及时处理";
+                    msg_body_fmt = "应用{0}程序异常过多，请及时处理";
                 }
                 else if (error_count2 > 0 && error_count1 > 10 * this.Interval && ((error_count1 - error_count2) / error_count2) * 100 > ErrorGrowthLimit)
                 {
                     //报警
-                    msg_body = $"应用" + appId + "程序异常增长很快，请及时处理";
+                    msg_body_fmt = "应用{0}程序异常增长很快，请及时处理";
                 }
                 else
                 {
                     continue;
                 }
 
-                string msg_subject = "【报警】应用" + appId + "程序异常";
+                string appName = appId.ToString();
+                var loo = LogViewerManager.GetLogViewer().GetLogOnOff(appId);
+                if (loo != null)
+                {
+                    appName = $"{appId}({ loo.AppName})";
+                }
+
+                string msg_subject = "【报警】应用" + appName + "程序异常";
 
                 for (int i = 0; i < EmailReceivers.Length; i++)
                 {
-                    MailHelper.SendMail(msg_subject, EmailReceivers[i], msg_body, true);
+                    MailHelper.SendMail(msg_subject, EmailReceivers[i], string.Format(msg_body_fmt, appName), true);
                 }
 
                 AlertingHistory ah = new AlertingHistory();

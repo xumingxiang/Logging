@@ -11,7 +11,6 @@ namespace Logging.Server.Alerting
 {
     class MailHelper
     {
-
         /// <summary>
         /// 发送邮件
         /// </summary>
@@ -21,31 +20,34 @@ namespace Logging.Server.Alerting
         /// <param name="isBodyHtml">是否Html</param>
         public static int SendMail(string subject, string toEmail, string body, bool isBodyHtml)
         {
-
-            // < item key = "feedback" from = "noreply@plu.cn" password = "PLUn0reply123!" host = "smtp.exmail.qq.com" port = "25" />
-
-            string from = "noreply@plu.cn";
-            string password = "PLUn0reply123!";
-            string host = "smtp.exmail.qq.com";
-            int port = 25;
-
-            MailMessage mailMsg = new MailMessage();
-            mailMsg.From = new MailAddress(from);
-            mailMsg.To.Add(toEmail);
-            mailMsg.Subject = subject;
-            mailMsg.Body = body;
-            mailMsg.BodyEncoding = Encoding.UTF8;
-            mailMsg.IsBodyHtml = isBodyHtml;
-            mailMsg.Priority = MailPriority.High;
-
-            SmtpClient smtp = new SmtpClient();
-            smtp.Credentials = new NetworkCredential(from, password);
-            smtp.Port = port;
-            smtp.Host = host; 
-            smtp.EnableSsl = false; // 如果使用GMail，则需要设置为true 
-            smtp.SendCompleted += new SendCompletedEventHandler(SendMailCompleted);
             try
             {
+                // < item key = "feedback" from = "noreply@plu.cn" password = "PLUn0reply123!" host = "smtp.exmail.qq.com" port = "25" />
+                string from = "noreply@plu.cn";
+                string password = "PLUn0reply123!";
+                string host = "smtp.exmail.qq.com";
+                int port = 25;
+
+                MailMessage mailMsg = new MailMessage();
+                mailMsg.From = new MailAddress(from);
+                string[] tos = toEmail.Split(';');
+                foreach (var to in tos)
+                {
+                    mailMsg.To.Add(to);
+                }
+                mailMsg.Subject = subject;
+                mailMsg.Body = body;
+                mailMsg.BodyEncoding = Encoding.UTF8;
+                mailMsg.IsBodyHtml = isBodyHtml;
+                mailMsg.Priority = MailPriority.High;
+
+                SmtpClient smtp = new SmtpClient();
+                smtp.Credentials = new NetworkCredential(from, password);
+                smtp.Port = port;
+                smtp.Host = host;
+                smtp.EnableSsl = false; // 如果使用GMail，则需要设置为true 
+                smtp.SendCompleted += new SendCompletedEventHandler(SendMailCompleted);
+
                 smtp.Send(mailMsg);
                 return 1;
             }

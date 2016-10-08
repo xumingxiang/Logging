@@ -13,3 +13,9 @@
 /packages
 /server/Logging.Server.Site/obj
 /server/Logging.Server.Site/bin
+/server/Logging.Server/obj
+/server/Logging.Server/bin
+/client/csharp/Logging.Client.TestSite/Bin
+/client/csharp/Logging.Client.TestSite/obj
+/client/csharp/Logging.Client/obj
+/client/csharp/Logging.Client/bin

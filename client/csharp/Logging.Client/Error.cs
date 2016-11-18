@@ -55,7 +55,7 @@ namespace Logging.Client
             SetContextProperties(context);
         }
 
-       
+
 
         /// <summary>
         /// Sets Error properties pulled from HttpContext, if present

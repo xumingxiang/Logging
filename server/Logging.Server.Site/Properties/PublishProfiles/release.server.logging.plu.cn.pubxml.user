@@ -37,7 +37,7 @@
       <publishTime>10/08/2016 11:54:59</publishTime>
     </File>
     <File Include="bin/Logging.Server.Site.dll">
-      <publishTime>10/08/2016 11:54:59</publishTime>
+      <publishTime>10/20/2016 17:27:40</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -2141,6 +2141,9 @@
     </File>
     <File Include="Sigins.aspx">
       <publishTime>09/09/2016 17:43:35</publishTime>
+    </File>
+    <File Include="StatisticsPeriod.ashx">
+      <publishTime>10/20/2016 16:54:02</publishTime>
     </File>
     <File Include="StatisticsViewer.ashx">
       <publishTime>09/17/2015 18:02:20</publishTime>

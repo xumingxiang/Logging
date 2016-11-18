@@ -167,6 +167,7 @@
     <None Include="Properties\PublishProfiles\release.server.logging.plu.cn.pubxml" />
     <Content Include="StatisticsViewer.ashx" />
     <Content Include="SetLogOnOff.ashx" />
+    <Content Include="StatisticsPeriod.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -229,6 +230,9 @@
     </Compile>
     <Compile Include="Sigins.aspx.designer.cs">
       <DependentUpon>Sigins.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StatisticsPeriod.ashx.cs">
+      <DependentUpon>StatisticsPeriod.ashx</DependentUpon>
     </Compile>
     <Compile Include="StatisticsViewer.ashx.cs">
       <DependentUpon>StatisticsViewer.ashx</DependentUpon>

@@ -10,16 +10,16 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="alerting/alerting.js">
-      <publishTime>07/19/2016 18:02:51</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="alerting/GetAppErrOpts.ashx">
-      <publishTime>07/19/2016 10:39:05</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="alerting/index.html">
-      <publishTime>09/05/2016 19:02:15</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="alerting/SetAppErrOpts.ashx">
-      <publishTime>07/19/2016 10:38:38</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -34,10 +34,10 @@
       <publishTime>04/11/2016 18:43:47</publishTime>
     </File>
     <File Include="bin/Logging.Server.dll">
-      <publishTime>10/08/2016 11:54:59</publishTime>
+      <publishTime>11/28/2016 20:51:22</publishTime>
     </File>
     <File Include="bin/Logging.Server.Site.dll">
-      <publishTime>10/20/2016 17:27:40</publishTime>
+      <publishTime>11/28/2016 20:52:40</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -67,19 +67,19 @@
       <publishTime>07/08/2013 15:15:08</publishTime>
     </File>
     <File Include="bin/MongoDB.Bson.dll">
-      <publishTime>04/12/2016 10:41:53</publishTime>
+      <publishTime>09/21/2016 17:00:52</publishTime>
     </File>
     <File Include="bin/MongoDB.Driver.Core.dll">
-      <publishTime>04/12/2016 10:41:56</publishTime>
+      <publishTime>09/21/2016 17:00:52</publishTime>
     </File>
     <File Include="bin/MongoDB.Driver.dll">
-      <publishTime>04/12/2016 10:41:59</publishTime>
+      <publishTime>09/21/2016 17:00:54</publishTime>
     </File>
     <File Include="bin/MongoDB.Driver.Legacy.dll">
       <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>04/11/2016 15:39:46</publishTime>
+      <publishTime>06/13/2016 23:06:14</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Extensions.dll">
       <publishTime>04/11/2016 15:39:42</publishTime>
@@ -151,139 +151,139 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.css">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.css.map">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.min.css">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.css">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.css.map">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.min.css">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.eot">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.svg">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.woff">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.woff2">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/bootstrap/js/bootstrap.js">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/bootstrap/js/bootstrap.min.js">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/bootstrap/js/npm.js">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/dashboard.css">
-      <publishTime>05/25/2016 20:09:51</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/echarts/echarts.min.js">
-      <publishTime>05/25/2016 20:09:51</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_flat_0_aaaaaa_40x100.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_flat_75_ffffff_40x100.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_55_fbf9ee_1x400.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_65_ffffff_1x400.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_75_dadada_1x400.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_75_e6e6e6_1x400.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_95_fef1ec_1x400.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_222222_256x240.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_2e83ff_256x240.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_454545_256x240.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_888888_256x240.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_cd0a0a_256x240.png">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/jquery-ui-timepicker-addon.css">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/css/jquery-ui.min.css">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/jquery-ui-timepicker-addon.js">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/jquery-ui.js">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/jQuery/jquery.min.js">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/logviewer.css">
-      <publishTime>09/05/2016 18:59:53</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/logviewer.js">
-      <publishTime>04/11/2016 10:40:04</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/metrics.css">
-      <publishTime>05/25/2016 20:09:51</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/metrics.js">
-      <publishTime>09/07/2016 14:56:13</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Content/settings.js">
-      <publishTime>02/17/2016 17:00:45</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="GetLogOnOff.ashx">
-      <publishTime>10/19/2015 10:25:39</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="GetLogOnOffs.ashx">
-      <publishTime>10/19/2015 10:25:39</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>09/17/2015 18:02:20</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Index.html">
-      <publishTime>09/16/2015 09:44:42</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="InfluxData.Net.dll.config">
-      <publishTime>07/22/2016 18:57:13</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="InitMongo.aspx">
       <publishTime>09/02/2015 11:56:12</publishTime>
@@ -346,13 +346,13 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="LogViewer.ashx">
-      <publishTime>09/17/2015 18:02:20</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="LogViewer.html">
-      <publishTime>09/05/2016 19:01:43</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="metrics/dashboard.html">
-      <publishTime>05/25/2016 20:09:51</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="metrics/echarts-master/.editorconfig">
       <publishTime>05/14/2016 18:03:09</publishTime>
@@ -2110,49 +2110,49 @@
       <publishTime>05/14/2016 17:56:27</publishTime>
     </File>
     <File Include="metrics/MetricsQuery.ashx">
-      <publishTime>05/25/2016 20:09:51</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="metrics/MetricTags.ashx">
-      <publishTime>05/25/2016 20:09:51</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="metrics/Point.ashx">
-      <publishTime>08/01/2016 11:34:45</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="metrics/test.aspx">
-      <publishTime>05/25/2016 20:09:51</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="MongoTools.aspx">
-      <publishTime>09/17/2015 18:02:20</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>07/22/2016 15:54:06</publishTime>
+      <publishTime>11/28/2016 20:52:24</publishTime>
     </File>
     <File Include="Reciver.ashx">
-      <publishTime>09/17/2015 18:02:20</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="SetLogOnOff.ashx">
-      <publishTime>10/19/2015 10:25:39</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Settings.aspx">
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="Settings.html">
-      <publishTime>09/05/2016 19:08:52</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Sigins.aspx">
-      <publishTime>09/09/2016 17:43:35</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="StatisticsPeriod.ashx">
-      <publishTime>10/20/2016 16:54:02</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="StatisticsViewer.ashx">
-      <publishTime>09/17/2015 18:02:20</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Test/MetricTest.aspx">
-      <publishTime>04/11/2016 14:20:24</publishTime>
+      <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/05/2016 17:27:32</publishTime>
+      <publishTime>11/28/2016 20:52:40</publishTime>
     </File>
   </ItemGroup>
 </Project>

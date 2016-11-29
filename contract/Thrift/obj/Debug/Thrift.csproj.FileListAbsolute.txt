@@ -2,3 +2,8 @@ D:\WorkStudio\Logging\Thrift\bin\Debug\Thrift.dll
 D:\WorkStudio\Logging\Thrift\bin\Debug\Thrift.pdb
 D:\WorkStudio\Logging\Thrift\obj\Debug\Thrift.dll
 D:\WorkStudio\Logging\Thrift\obj\Debug\Thrift.pdb
+D:\workstudio\Logging\contract\Thrift\bin\Debug\Thrift.dll
+D:\workstudio\Logging\contract\Thrift\bin\Debug\Thrift.pdb
+D:\workstudio\Logging\contract\Thrift\obj\Debug\Thrift.csprojResolveAssemblyReference.cache
+D:\workstudio\Logging\contract\Thrift\obj\Debug\Thrift.dll
+D:\workstudio\Logging\contract\Thrift\obj\Debug\Thrift.pdb

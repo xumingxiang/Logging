@@ -104,17 +104,17 @@ namespace Logging.Client
             Log(title, message, tags, LogLevel.Info);
         }
 
-        public void Warm(string message)
+        public void Warn(string message)
         {
-            Warm(string.Empty, message);
+            Warn(string.Empty, message);
         }
 
-        public void Warm(string title, string message)
+        public void Warn(string title, string message)
         {
-            Warm(title, message, null);
+            Warn(title, message, null);
         }
 
-        public void Warm(string title, string message, Dictionary<string, string> tags)
+        public void Warn(string title, string message, Dictionary<string, string> tags)
         {
             Log(title, message, tags, LogLevel.Warm);
         }
@@ -323,7 +323,7 @@ namespace Logging.Client
             this.Info(title, message, tags_dic);
         }
 
-        public void WarmWithTags(string title, string message, string[] tags)
+        public void WarnWithTags(string title, string message, string[] tags)
         {
             var tags_dic = new Dictionary<string, string>();
 
@@ -334,7 +334,7 @@ namespace Logging.Client
                 tags_dic[tag_key] = tag_val;
             }
 
-            this.Warm(title, message, tags_dic);
+            this.Warn(title, message, tags_dic);
         }
 
         public void ErrorWithTags(string title, string message, string[] tags)

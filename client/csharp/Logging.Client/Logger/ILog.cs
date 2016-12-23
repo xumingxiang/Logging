@@ -33,11 +33,11 @@ namespace Logging.Client
         /// <param name="tags">key=val格式的字符串数组</param>
         void InfoWithTags(string title, string message, string[] tags);
 
-        void Warm(string message);
+        void Warn(string message);
 
-        void Warm(string title, string message);
+        void Warn(string title, string message);
 
-        void Warm(string title, string message, Dictionary<string, string> tags);
+        void Warn(string title, string message, Dictionary<string, string> tags);
 
         /// <summary>
         /// 
@@ -45,7 +45,7 @@ namespace Logging.Client
         /// <param name="title"></param>
         /// <param name="message"></param>
         /// <param name="tags">key=val格式的字符串数组</param>
-        void WarmWithTags(string title, string message, string[] tags);
+        void WarnWithTags(string title, string message, string[] tags);
 
         void Error(string message);
 

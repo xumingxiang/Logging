@@ -50,7 +50,6 @@
 //            {
 //                var url = HttpContext.Current.Request.Url;
 
-
 //                string key = url.Scheme + "://" + url.Authority + url.AbsolutePath;
 
 //                Tuple<int, string, string> item_ex;
@@ -86,7 +85,6 @@
 //            }
 //            catch
 //            {
-
 //            }
 //        }
 //    }

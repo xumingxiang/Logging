@@ -12,7 +12,7 @@ namespace Logging.Client
         void Debug(string title, string message, Dictionary<string, string> tags);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="title"></param>
         /// <param name="message"></param>
@@ -26,26 +26,26 @@ namespace Logging.Client
         void Info(string title, string message, Dictionary<string, string> tags);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="title"></param>
         /// <param name="message"></param>
         /// <param name="tags">key=val格式的字符串数组</param>
         void InfoWithTags(string title, string message, string[] tags);
 
-        void Warm(string message);
+        void Warn(string message);
 
-        void Warm(string title, string message);
+        void Warn(string title, string message);
 
-        void Warm(string title, string message, Dictionary<string, string> tags);
+        void Warn(string title, string message, Dictionary<string, string> tags);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="title"></param>
         /// <param name="message"></param>
         /// <param name="tags">key=val格式的字符串数组</param>
-        void WarmWithTags(string title, string message, string[] tags);
+        void WarnWithTags(string title, string message, string[] tags);
 
         void Error(string message);
 
@@ -54,7 +54,7 @@ namespace Logging.Client
         void Error(string title, string message, Dictionary<string, string> tags);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="title"></param>
         /// <param name="message"></param>
@@ -74,7 +74,6 @@ namespace Logging.Client
         void Metric(string name, Dictionary<string, string> tags = null);
 
         void Metric(string name, double value, DateTime time, Dictionary<string, string> tags = null);
-
 
         /// <summary>
         /// 获取日志。

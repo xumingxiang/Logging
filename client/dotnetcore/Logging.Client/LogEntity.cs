@@ -2,9 +2,7 @@
 
 namespace Logging.Client
 {
-
-
-    interface ILogEntity
+    internal interface ILogEntity
     {
         /// <summary>
         /// 类型:1Log;2:Metric
@@ -12,11 +10,14 @@ namespace Logging.Client
         int Type { get; set; }
     }
 
-    public class LogEntity: ILogEntity
+    public class LogEntity : ILogEntity
     {
         public int Type { get; set; }
 
-        public LogEntity() { this.Type = 1; }
+        public LogEntity()
+        {
+            this.Type = 1;
+        }
 
         public string Title { get; set; }
 
@@ -35,7 +36,10 @@ namespace Logging.Client
 
     public class MetricEntity : ILogEntity
     {
-        public MetricEntity() { this.Type = 2; }
+        public MetricEntity()
+        {
+            this.Type = 2;
+        }
 
         public int Type { get; set; }
 
@@ -47,5 +51,4 @@ namespace Logging.Client
 
         public Dictionary<string, string> Tags { get; set; }
     }
-
 }

@@ -1,15 +1,10 @@
-﻿
-using System;
-using System.Collections.Generic;
-
-namespace Logging.Client
+﻿namespace Logging.Client
 {
     /// <summary>
     /// 日志开关
     /// </summary>
     public class LogOnOff
     {
-
         public int AppId { get; set; }
 
         public byte Debug { get; set; }
@@ -19,8 +14,5 @@ namespace Logging.Client
         public byte Warm { get; set; }
 
         public byte Error { get; set; }
-
-
-     
     }
 }

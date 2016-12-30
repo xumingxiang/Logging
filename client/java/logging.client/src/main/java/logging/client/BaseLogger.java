@@ -64,22 +64,22 @@ public abstract class BaseLogger implements ILog {
 
 	}
 
-	public void warm(String message) {
+	public void warn(String message) {
 		// TODO Auto-generated method stub
-		warm("", message);
+		warn("", message);
 	}
 
-	public void warm(String title, String message) {
+	public void warn(String title, String message) {
 		// TODO Auto-generated method stub
-		warm(title, message, null);
+		warn(title, message, null);
 	}
 
-	public void warm(String title, String message, Map<String, String> tags) {
+	public void warn(String title, String message, Map<String, String> tags) {
 		// TODO Auto-generated method stub
 		Log(title, message, null, 3);
 	}
 
-	public void warmWithTags(String title, String message, String[] tags) {
+	public void warnWithTags(String title, String message, String[] tags) {
 		// TODO Auto-generated method stub
 
 	}

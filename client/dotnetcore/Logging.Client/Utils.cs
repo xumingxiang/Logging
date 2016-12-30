@@ -7,14 +7,13 @@ namespace Logging.Client
 {
     internal static class Utils
     {
-
         //   readonly static DateTime START_TIME = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
 
-        readonly static DateTime START_TIME = new System.DateTime(1970, 1, 1).ToLocalTime();
+        private static readonly DateTime START_TIME = new System.DateTime(1970, 1, 1).ToLocalTime();
 
         /// <summary>
         /// DateTime时间格式转换为Unix时间戳格式精确到17位。
-        /// 
+        ///
         /// </summary>
         /// <param name="time"></param>
         /// <returns></returns>
@@ -25,7 +24,7 @@ namespace Logging.Client
 
         /// <summary>
         /// DateTime时间格式转换为Unix时间戳格式精确到10位。
-        /// 
+        ///
         /// </summary>
         /// <param name="time"></param>
         /// <returns></returns>
@@ -33,7 +32,6 @@ namespace Logging.Client
         {
             return (long)(time - START_TIME).TotalSeconds;
         }
-
 
         /// <summary>
         /// 将IPv4格式的字符串转换为int型表示
@@ -62,7 +60,7 @@ namespace Logging.Client
             try
             {
                 string hostName = Dns.GetHostName();
-                
+
                 var hostEntity = Dns.GetHostEntryAsync(hostName).Result;
                 var ipAddressList = hostEntity.AddressList;
                 var ipAddress = ipAddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
@@ -77,7 +75,6 @@ namespace Logging.Client
             return str;
         }
 
-
         ///// <summary>
         ///// 将int型表示的IP还原成正常IPv4格式。
         ///// </summary>
@@ -87,8 +84,8 @@ namespace Logging.Client
         //{
         //    long tempIPAddress;
         //    //将目标整形数字intIPAddress转换为IP地址字符串
-        //    //-1062731518 192.168.1.2 
-        //    //-1062731517 192.168.1.3 
+        //    //-1062731518 192.168.1.2
+        //    //-1062731517 192.168.1.3
         //    if (intIPAddress >= 0)
         //    {
         //        tempIPAddress = intIPAddress;
@@ -113,6 +110,5 @@ namespace Logging.Client
         //    string strIPAddress = s1.ToString() + "." + s2.ToString() + "." + s3.ToString() + "." + s4.ToString();
         //    return strIPAddress;
         //}
-
     }
 }

@@ -158,7 +158,14 @@ namespace Logging.Client
             }
             else
             {
-                err_msg = new Error(ex, new HttpContextWrapper(HttpContext.Current)).ToString();
+                try
+                {
+                    err_msg = new Error(ex, new HttpContextWrapper(HttpContext.Current)).ToString();
+                }
+                catch
+                {
+                    err_msg = new Error(ex, null).ToString();
+                }
             }
             this.Error(title, err_msg, tags);
         }

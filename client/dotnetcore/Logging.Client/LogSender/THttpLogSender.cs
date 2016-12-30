@@ -17,8 +17,7 @@ namespace Logging.Client
 
         public override long Send(IList<ILogEntity> logEntities)
         {
-
-          //  Console.WriteLine(logEntities.Count);
+            //  Console.WriteLine(logEntities.Count);
 
             if (logEntities == null || logEntities.Count <= 0) { return 0; }
 

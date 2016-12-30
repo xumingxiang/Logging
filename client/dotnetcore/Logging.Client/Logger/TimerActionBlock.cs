@@ -2,9 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
-using Thrift;
 
 namespace Logging.Client
 {
@@ -167,7 +165,6 @@ namespace Logging.Client
                     this.Report();
                 }
             }
-
         }
 
         private static readonly int ReportElapsed = 60;//报告时间间隔。单位：秒

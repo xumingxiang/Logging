@@ -4,8 +4,6 @@ namespace Logging.Client
 {
     public static class Settings
     {
-
-
         /// <summary>
         /// 设置日志服务器
         /// </summary>
@@ -17,10 +15,9 @@ namespace Logging.Client
             {
                 if (string.IsNullOrWhiteSpace(_loggingServerHost))
                 {
-
                     //if (ConfigurationManager.AppSettings.ContainsKey("LoggingServerHost"))
                     //{
-                        _loggingServerHost = ConfigurationManager.AppSettings["LoggingServerHost"];
+                    _loggingServerHost = ConfigurationManager.AppSettings["LoggingServerHost"];
                     //}
                 }
                 return _loggingServerHost;
@@ -83,9 +80,6 @@ namespace Logging.Client
 
         public static void Startup(Boolean enabled, int appId, String serverHost, int queueLength, int bufferSize, int blockElapsed)
         {
-
-          
-
             LoggingEnabled = enabled;
             AppId = appId;
             _loggingServerHost = serverHost;
@@ -118,7 +112,6 @@ namespace Logging.Client
             }
 
             Console.WriteLine(DateTime.Now + ":Settings.Startup" + Settings.LoggingEnabled);
-
         }
 
         public static void Startup(Boolean enabled, int appId, String serverHost, int bufferSize, int blockElapsed)
@@ -129,7 +122,6 @@ namespace Logging.Client
         public static void Startup(int appId, String serverHost, int bufferSize, int blockElapsed)
         {
             Startup(true, appId, serverHost, bufferSize, blockElapsed);
-            
         }
 
         public static void Startup(int appId, String serverHost)
@@ -146,7 +138,5 @@ namespace Logging.Client
         {
             LoggingEnabled = false;
         }
-
-
     }
 }

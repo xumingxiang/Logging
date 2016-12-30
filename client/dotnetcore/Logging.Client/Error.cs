@@ -28,8 +28,8 @@
 
 //        /// <summary>
 //        /// Initializes a new instance of the <see cref="Error"/> class
-//        /// from a given <see cref="Exception"/> instance and 
-//        /// <see cref="HttpContext"/> instance representing the HTTP 
+//        /// from a given <see cref="Exception"/> instance and
+//        /// <see cref="HttpContext"/> instance representing the HTTP
 //        /// context during the exception.
 //        /// </summary>
 //        public Error(Exception e, HttpContextBase context)
@@ -54,8 +54,6 @@
 //            }
 //            SetContextProperties(context);
 //        }
-
-       
 
 //        /// <summary>
 //        /// Sets Error properties pulled from HttpContext, if present
@@ -117,7 +115,6 @@
 //        {
 //            return e.GetType().Name == "CommonLanguageRuntimeLibrary";
 //        }
-
 
 //        public Exception Exception { get; set; }
 

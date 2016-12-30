@@ -145,8 +145,6 @@ namespace Thrift.Transport
 
                 IAsyncResult asyncres = client.ConnectAsync(host, port);
 
-         
-
                 //  client.ConnectAsync().
 
                 bool bConnected = asyncres.AsyncWaitHandle.WaitOne(timeout) && client.Connected;
@@ -161,8 +159,6 @@ namespace Thrift.Transport
 
                             asyncres.AsyncWaitHandle.Dispose();
                             client.Dispose();
-
-
                         }
                         else
                         {

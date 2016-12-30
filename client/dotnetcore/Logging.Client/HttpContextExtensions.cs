@@ -6,10 +6,6 @@
 //{
 //    static class HttpContextBaseExtensions
 //    {
-
-
-
-
 //        #region client ip
 //        /// <summary>
 //        /// When a client IP can't be determined
@@ -19,7 +15,7 @@
 //        private static readonly Regex IPv4Regex = new Regex(@"\b([0-9]{1,3}\.){3}[0-9]{1,3}$", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
 //        /// <summary>
-//        /// returns true if this is a private network IP  
+//        /// returns true if this is a private network IP
 //        /// http://en.wikipedia.org/wiki/Private_network
 //        /// </summary>
 //        private static bool IsPrivateIP(string s)
@@ -44,8 +40,6 @@
 
 //            return !string.IsNullOrEmpty(ip) ? ip : UnknownIP;
 //        }
-
-
 
 //        #endregion
 //    }

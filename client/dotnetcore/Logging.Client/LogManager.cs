@@ -5,8 +5,7 @@ namespace Logging.Client
 {
     public sealed class LogManager
     {
-        static ConcurrentDictionary<string, ILog> _logs = new ConcurrentDictionary<string, ILog>();
-
+        private static ConcurrentDictionary<string, ILog> _logs = new ConcurrentDictionary<string, ILog>();
 
         private LogManager()
         { }

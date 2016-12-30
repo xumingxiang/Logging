@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
-using Thrift;
 
 namespace Logging.Client
 {
@@ -36,12 +35,11 @@ namespace Logging.Client
                 msg_sb.AppendLine("Ver:" + ver);
                 msg_sb.AppendLine("ReportTime:" + DateTime.Now);
 
-
                 var tags = new Dictionary<string, string>();
                 tags.Add("type", "one_minute_err");
                 tags.Add("ver", ver);
 
-              //  logger.Error("Logging_Client_Report", msg_sb.ToString(), tags);
+                //  logger.Error("Logging_Client_Report", msg_sb.ToString(), tags);
                 logger.Metric("logging_client_err", count);
                 fileLogger.Log(msg_sb.ToString());
             }
@@ -72,7 +70,7 @@ namespace Logging.Client
                 var over_log_tags = new Dictionary<string, string>();
                 over_log_tags.Add("type", "logging_client_over");
 
-            //    logger.Error("Logging_Client_Report", msg_sb.ToString(), over_log_tags);
+                //    logger.Error("Logging_Client_Report", msg_sb.ToString(), over_log_tags);
                 fileLogger.Log(msg_sb.ToString());
             }
             catch { }

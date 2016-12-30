@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 
 namespace System
 {
@@ -14,6 +10,7 @@ namespace System
         {
             return (type.Attributes & TypeAttributes.Serializable) == TypeAttributes.Serializable ? new SerializableAttribute() : null;
         }
+
         internal static bool IsDefined(TypeInfo type)
         {
             return type.IsSerializable;
@@ -23,5 +20,4 @@ namespace System
         {
         }
     }
-
 }

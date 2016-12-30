@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Logging.Client
 {
     public class ConfigurationManager
     {
-
-        static Dictionary<string, string> _appSettings { get; set; }
-
+        private static Dictionary<string, string> _appSettings { get; set; }
 
         static ConfigurationManager()
         {
@@ -19,13 +14,11 @@ namespace Logging.Client
             AppSettings = new NameValueCollection();
         }
 
-
         public static NameValueCollection AppSettings { get; set; }
 
         //public static Dictionary<string, string> AppSettings
         //{
         //    get { return _appSettings; }
         //}
-
     }
 }

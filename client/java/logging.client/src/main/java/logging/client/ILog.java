@@ -33,18 +33,18 @@ public interface ILog {
     /// <param name="tags">key=val格式的字符串数组</param>
     void infoWithTags(String title, String message, String[] tags);
 
-    void warm(String message);
+    void warn(String message);
 
-    void warm(String title, String message);
+    void warn(String title, String message);
 
-    void warm(String title, String message, Map<String, String> tags);
+    void warn(String title, String message, Map<String, String> tags);
     /// <summary>
     /// 
     /// </summary>
     /// <param name="title"></param>
     /// <param name="message"></param>
     /// <param name="tags">key=val格式的字符串数组</param>
-    void warmWithTags(String title, String message, String[] tags);
+    void warnWithTags(String title, String message, String[] tags);
 
     void error(String message);
 

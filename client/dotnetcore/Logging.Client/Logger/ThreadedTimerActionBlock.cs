@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Thrift;
 
 namespace Logging.Client
 {
@@ -14,7 +13,6 @@ namespace Logging.Client
     /// <typeparam name="T"></typeparam>
     internal class ThreadedTimerActionBlock<T> : ITimerActionBlock<T>
     {
-
         private Task[] Tasks { get; set; }
 
         private Action<IList<T>> Action { get; set; }
@@ -156,9 +154,9 @@ namespace Logging.Client
             }
         }
 
+        private static readonly object report_lock = new object();
+        private static readonly int ReportElapsed = 30;//报告时间间隔
 
-        readonly static object report_lock = new object();
-        readonly static int ReportElapsed = 30;//报告时间间隔
         /// <summary>
         /// 报告Logging.Client自身异常
         /// </summary>

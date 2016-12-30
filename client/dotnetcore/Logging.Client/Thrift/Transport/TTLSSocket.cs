@@ -256,7 +256,7 @@ namespace Thrift.Transport
             {
                 // Server authentication
                 this.secureStream = new SslStream(this.client.GetStream(), false);
-               // this.secureStream.AuthenticateAsServer(this.certificate, false, SslProtocols.Tls, true);
+                // this.secureStream.AuthenticateAsServer(this.certificate, false, SslProtocols.Tls, true);
 
                 this.secureStream.AuthenticateAsServerAsync(this.certificate, false, SslProtocols.Tls, true);
             }

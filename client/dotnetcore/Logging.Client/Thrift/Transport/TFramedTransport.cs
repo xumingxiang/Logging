@@ -102,7 +102,7 @@ namespace Thrift.Transport
 
         public override void Flush()
         {
-            //byte[] buf = writeBuffer.GetBuffer(); 
+            //byte[] buf = writeBuffer.GetBuffer();
             byte[] buf = null;
             ArraySegment<byte> _buf;
             bool flag = writeBuffer.TryGetBuffer(out _buf);

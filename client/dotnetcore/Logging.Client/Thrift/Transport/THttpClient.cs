@@ -175,7 +175,6 @@ namespace Thrift.Transport
                 byte[] data = outputStream.ToArray();
                 // connection.ContentLength = data.Length;
 
-
                 this.DataSize = data.Length;
                 if (this.DataSizeLimit > 0 && this.DataSize > this.DataSizeLimit)
                 {

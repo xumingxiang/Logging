@@ -1,15 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace System.Web
 {
-
     public interface IHttpHandler
     {
-
         /// <devdoc>
         ///    <para>
         ///       Drives web processing execution.
@@ -24,6 +18,5 @@ namespace System.Web
         ///    </para>
         /// </devdoc>
         bool IsReusable { get; }
-
     }
 }

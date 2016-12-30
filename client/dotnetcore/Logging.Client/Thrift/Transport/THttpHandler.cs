@@ -1,6 +1,3 @@
-using System.IO;
-using System.Net;
-
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements. See the NOTICE file
@@ -23,8 +20,9 @@ using System.Net;
  */
 
 using Microsoft.AspNetCore.Http;
-using Thrift.Protocol;
+using System.IO;
 using System.Web;
+using Thrift.Protocol;
 
 namespace Thrift.Transport
 {
@@ -65,8 +63,8 @@ namespace Thrift.Transport
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = contentType;
-           // context.Response.ContentEncoding = encoding;
-           // ProcessRequest(context.Request.InputStream, context.Response.OutputStream);
+            // context.Response.ContentEncoding = encoding;
+            // ProcessRequest(context.Request.InputStream, context.Response.OutputStream);
             ProcessRequest(context.Request.Body, context.Response.Body);
         }
 

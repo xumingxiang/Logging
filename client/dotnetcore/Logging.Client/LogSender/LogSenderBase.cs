@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Logging.ThriftContract;
 using System.Collections.Generic;
-using System.Net;
 using System.Linq;
-using System.Net.Sockets;
-using Logging.ThriftContract;
 
 namespace Logging.Client
 {
@@ -12,7 +9,6 @@ namespace Logging.Client
         protected static int SENDER_TIMEOUT = 5000;
 
         public abstract long Send(IList<ILogEntity> logEntities);
-
 
         protected TLogPackage CreateLogPackage(IList<ILogEntity> logEntities)
         {
@@ -55,12 +51,9 @@ namespace Logging.Client
             return package;
         }
 
-
-
         #region 私有成员
 
         private static long serverIPNum;
-
 
         protected static long ServerIPNum
         {
@@ -75,9 +68,6 @@ namespace Logging.Client
             }
         }
 
-   
-
         #endregion 私有成员
-
     }
 }

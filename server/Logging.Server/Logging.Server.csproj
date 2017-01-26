@@ -256,6 +256,7 @@
     <Compile Include="LogWriter\LogWriterManager.cs" />
     <Compile Include="LogWriter\MongoDbWriter.cs" />
     <Compile Include="MetricEntity.cs" />
+    <Compile Include="Metric\Config.cs" />
     <Compile Include="Metric\MetricProcessor\DefaulMetricProcessor.cs" />
     <Compile Include="Metric\MetricProcessor\IMetricProcessor.cs" />
     <Compile Include="Metric\MetricProcessor\MetricProcessorManager.cs" />
@@ -274,7 +275,6 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

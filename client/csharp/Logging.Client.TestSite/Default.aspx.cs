@@ -71,7 +71,7 @@ namespace Logging.Client.TestSite
             for (int i = 0; i < 1000; i++)
             {
 
-                  logger.Metric("csharp_test",100);
+                logger.Metric("csharp_test", 100, new Tags { { "tag1", "val1" } });
             }
 
         }

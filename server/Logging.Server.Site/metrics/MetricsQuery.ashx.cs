@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logging.Server.Metric;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,19 +11,26 @@ namespace Logging.Server.Site.metrics
     /// </summary>
     public class MetricsQuery : IHttpHandler
     {
-        string InfluxdbConnectionString = System.Configuration.ConfigurationManager.AppSettings["InfluxdbConnectionString"];
-        string MetricInfluxdbHost = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbHost"];
-        string MetricInfluxdbPort = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbPort"];
-        string MetricInfluxdbDBName = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbDBName"];
-        string MetricInfluxdbUser = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbUser"];
-        string MetricInfluxdbPwd = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbPwd"];
+        //string InfluxdbConnectionString = System.Configuration.ConfigurationManager.AppSettings["InfluxdbConnectionString"];
+        //string MetricInfluxdbHost = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbHost"];
+        //string MetricInfluxdbPort = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbPort"];
+        //string MetricInfluxdbDBName = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbDBName"];
+        //string MetricInfluxdbUser = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbUser"];
+        //string MetricInfluxdbPwd = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbPwd"];
+        //string MetricInfluxdbVer = System.Configuration.ConfigurationManager.AppSettings["MetricInfluxdbVer"];
 
 
         public void ProcessRequest(HttpContext context)
         {
-            InfluxdbConnectionString = $"http://{MetricInfluxdbHost}:{MetricInfluxdbPort}/db/{MetricInfluxdbDBName}/series?u={MetricInfluxdbUser}&p={MetricInfluxdbPwd}";
-
-         
+            string InfluxdbConnectionString = "";
+            if (Config.MetricInfluxdbVer == "0.8")
+            {
+                InfluxdbConnectionString = $"http://{Config.MetricInfluxdbHost}:{Config.MetricInfluxdbPort}/db/{Config.MetricInfluxdbDBName}/series?u={Config.MetricInfluxdbUser}&p={Config.MetricInfluxdbPwd}";
+            }
+            else
+            {
+                InfluxdbConnectionString = $"http://{Config.MetricInfluxdbHost}:{Config.MetricInfluxdbPort}/query?db={Config.MetricInfluxdbDBName}&u={Config.MetricInfluxdbUser}&p={Config.MetricInfluxdbPwd}";
+            }
             context.Response.ContentType = "text/plain";
 
             string queryCmd = context.Request["cmd"];

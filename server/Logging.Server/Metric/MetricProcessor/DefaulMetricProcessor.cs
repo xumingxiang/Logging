@@ -9,11 +9,11 @@ namespace Logging.Server.Metric.Processor
     /// </summary>
     public class DefaulMetricProcessor : IMetricProcessor
     {
-        private static string influxdbVer = ConfigurationManager.AppSettings["MetricInfluxdbVer"];
+       // private static string influxdbVer = ConfigurationManager.AppSettings["MetricInfluxdbVer"];
 
         public void Process(IList<MetricEntity> logs)
         {
-            if (influxdbVer == "0.8")
+            if (Config.MetricInfluxdbVer == "0.8")
             {
                 InfluxdbReport report = new InfluxdbReport();
                 report.WriteAsync(logs);

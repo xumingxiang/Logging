@@ -34,10 +34,10 @@
       <publishTime>04/11/2016 18:43:47</publishTime>
     </File>
     <File Include="bin/Logging.Server.dll">
-      <publishTime>11/28/2016 20:51:22</publishTime>
+      <publishTime>01/26/2017 14:15:45</publishTime>
     </File>
     <File Include="bin/Logging.Server.Site.dll">
-      <publishTime>11/28/2016 20:52:40</publishTime>
+      <publishTime>01/26/2017 14:15:46</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -264,6 +264,9 @@
     <File Include="Content/metrics.js">
       <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
+    <File Include="Content/metricsV2.js">
+      <publishTime>01/26/2017 13:31:50</publishTime>
+    </File>
     <File Include="Content/settings.js">
       <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
@@ -352,7 +355,7 @@
       <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="metrics/dashboard.html">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>01/26/2017 13:32:47</publishTime>
     </File>
     <File Include="metrics/echarts-master/.editorconfig">
       <publishTime>05/14/2016 18:03:09</publishTime>
@@ -2152,7 +2155,7 @@
       <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/28/2016 20:52:40</publishTime>
+      <publishTime>01/26/2017 13:33:08</publishTime>
     </File>
   </ItemGroup>
 </Project>

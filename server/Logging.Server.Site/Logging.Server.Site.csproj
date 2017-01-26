@@ -91,6 +91,7 @@
     <Content Include="Content\dashboard.css" />
     <Content Include="Content\echarts\echarts.min.js" />
     <Content Include="Content\logviewer.css" />
+    <Content Include="Content\metricsV2.js" />
     <Content Include="Content\metrics.css" />
     <Content Include="Content\metrics.js" />
     <Content Include="Content\settings.js" />

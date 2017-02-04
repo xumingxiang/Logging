@@ -82,7 +82,7 @@ namespace Logging.Server.Reciver
         {
             if (logPackage.MetricItems == null || logPackage.MetricItems.Count == 0) { return; }
             string appId = logPackage.AppId.ToString();
-            string ip = Utils.NumberToIP(logPackage.IP);
+            //string ip = Utils.NumberToIP(logPackage.IP);
             List<MetricEntity> metrics = new List<MetricEntity>();
             foreach (var item in logPackage.MetricItems)
             {

@@ -8,7 +8,7 @@ namespace Logging.Server.Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // MongoDataBase.GetCollection<LogEntity>().
+             
         }
 
         protected void btnCreateIndex_Click(object sender, EventArgs e)

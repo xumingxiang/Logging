@@ -1,12 +1,14 @@
 ﻿using Logging.Server.Metric.Json;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Net;
 
 namespace Logging.Server.Metric.Writer
 {
+    /// <summary>
+    /// influxdb 0.8.8 版本使用
+    /// </summary>
     public partial class InfluxdbReport
     {
         private readonly Uri influxdb;
@@ -16,11 +18,11 @@ namespace Logging.Server.Metric.Writer
             this.influxdb = influxdb;
         }
 
-        private static string host = ConfigurationManager.AppSettings["MetricInfluxdbHost"];
-        private static string port = ConfigurationManager.AppSettings["MetricInfluxdbPort"];
-        private static string database = ConfigurationManager.AppSettings["MetricInfluxdbDBName"];
-        private static string user = ConfigurationManager.AppSettings["MetricInfluxdbUser"];
-        private static string pass = ConfigurationManager.AppSettings["MetricInfluxdbPwd"];
+        private static string host = Config.MetricInfluxdbHost;// ConfigurationManager.AppSettings["MetricInfluxdbHost"];
+        private static string port = Config.MetricInfluxdbPort;// ConfigurationManager.AppSettings["MetricInfluxdbPort"];
+        private static string database = Config.MetricInfluxdbDBName;// ConfigurationManager.AppSettings["MetricInfluxdbDBName"];
+        private static string user = Config.MetricInfluxdbUser;// ConfigurationManager.AppSettings["MetricInfluxdbUser"];
+        private static string pass = Config.MetricInfluxdbPwd;// ConfigurationManager.AppSettings["MetricInfluxdbPwd"];
 
         public InfluxdbReport()
         {
@@ -42,7 +44,6 @@ namespace Logging.Server.Metric.Writer
 
             public JsonObject Json { get; private set; }
         }
-
 
         private string GetWriteJsonString(IList<MetricEntity> logs)
         {

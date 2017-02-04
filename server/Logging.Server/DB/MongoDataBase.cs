@@ -5,7 +5,7 @@ namespace Logging.Server.DB
     //server=127.0.0.1:27017,127.0.0.1:27017;SafeMode=false
     public class MongoDataBase
     {
-        public const string DatabaseName = "PLULog";
+        public static string DatabaseName = System.Configuration.ConfigurationManager.AppSettings["LogMongoDBName"] ?? "LogDB";
         //private static MongoServer _server;
 
         public static MongoClient _client;

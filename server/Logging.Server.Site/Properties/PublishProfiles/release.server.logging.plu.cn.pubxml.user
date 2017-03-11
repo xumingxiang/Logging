@@ -25,7 +25,7 @@
       <publishTime>10/29/2016 15:58:18</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>08/31/2015 10:02:27</publishTime>
+      <publishTime>02/22/2013 08:43:40</publishTime>
     </File>
     <File Include="bin/InfluxData.Net.Common.dll">
       <publishTime>04/11/2016 18:43:47</publishTime>
@@ -37,10 +37,10 @@
       <publishTime>04/11/2016 18:43:47</publishTime>
     </File>
     <File Include="bin/Logging.Server.dll">
-      <publishTime>02/04/2017 14:47:51</publishTime>
+      <publishTime>03/11/2017 19:15:51</publishTime>
     </File>
     <File Include="bin/Logging.Server.Site.dll">
-      <publishTime>02/04/2017 14:47:52</publishTime>
+      <publishTime>03/11/2017 19:53:17</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -50,6 +50,9 @@
     </File>
     <File Include="bin/Microsoft.AspNet.Web.Optimization.WebForms.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 02:06:24</publishTime>
     </File>
     <File Include="bin/Microsoft.ScriptManager.MSAjax.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -67,7 +70,7 @@
       <publishTime>04/11/2016 15:39:38</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>07/08/2013 15:15:08</publishTime>
+      <publishTime>04/23/2012 15:23:58</publishTime>
     </File>
     <File Include="bin/MongoDB.Bson.dll">
       <publishTime>09/21/2016 17:00:52</publishTime>
@@ -82,25 +85,88 @@
       <publishTime>09/16/2015 09:44:42</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>06/13/2016 23:06:14</publishTime>
+      <publishTime>08/03/2014 20:33:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/18/2015 20:19:46</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Extensions.dll">
       <publishTime>04/11/2016 15:39:42</publishTime>
     </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>01/28/2015 04:02:42</publishTime>
+    </File>
     <File Include="bin/System.Net.Http.Primitives.dll">
       <publishTime>04/11/2016 15:39:42</publishTime>
     </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>01/28/2015 04:02:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>01/28/2015 04:03:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/28/2015 04:02:18</publishTime>
+    </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>08/31/2015 10:02:27</publishTime>
+      <publishTime>02/11/2014 15:26:04</publishTime>
     </File>
     <File Include="bin/System.Web.Providers.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/28/2015 04:02:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/Vibrant.InfluxDB.Client.dll">
       <publishTime>10/09/2016 15:12:34</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>08/31/2015 10:02:27</publishTime>
+      <publishTime>09/10/2013 17:28:38</publishTime>
     </File>
     <File Include="bin/zh-Hans/Microsoft.AspNet.FriendlyUrls.resources.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -108,11 +174,38 @@
     <File Include="bin/zh-Hans/Microsoft.AspNet.Membership.OpenAuth.resources.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
+    <File Include="bin/zh-Hans/System.Net.Http.Formatting.resources.dll">
+      <publishTime>01/28/2015 04:02:44</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>01/28/2015 04:04:32</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Http.resources.dll">
+      <publishTime>01/28/2015 04:02:56</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Http.WebHost.resources.dll">
+      <publishTime>01/28/2015 04:03:48</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>01/28/2015 04:02:22</publishTime>
+    </File>
     <File Include="bin/zh-Hans/System.Web.Optimization.resources.dll">
-      <publishTime>08/31/2015 10:02:27</publishTime>
+      <publishTime>02/11/2014 15:28:40</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Web.Providers.resources.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>01/28/2015 04:02:34</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>01/28/2015 04:04:32</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>01/28/2015 04:04:32</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
+      <publishTime>01/28/2015 04:04:32</publishTime>
     </File>
     <File Include="bootstrap/css/bootstrap-theme.css">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -157,124 +250,124 @@
       <publishTime>08/31/2015 10:02:27</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.css">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.css.map">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.min.css">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.css">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.css.map">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.min.css">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.eot">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.svg">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.woff">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.woff2">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/bootstrap/js/bootstrap.js">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/bootstrap/js/bootstrap.min.js">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/bootstrap/js/npm.js">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/dashboard.css">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/echarts/echarts.min.js">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_flat_0_aaaaaa_40x100.png">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_flat_75_ffffff_40x100.png">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_55_fbf9ee_1x400.png">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_65_ffffff_1x400.png">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_75_dadada_1x400.png">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_75_e6e6e6_1x400.png">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_glass_95_fef1ec_1x400.png">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_222222_256x240.png">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_2e83ff_256x240.png">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_454545_256x240.png">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_888888_256x240.png">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/images/ui-icons_cd0a0a_256x240.png">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/jquery-ui-timepicker-addon.css">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/css/jquery-ui.min.css">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/jquery-ui-timepicker-addon.js">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/jquery-ui.js">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/jQuery/jquery.min.js">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/logviewer.css">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/logviewer.js">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/metrics.css">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/metrics.js">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/metricsV2.js">
-      <publishTime>01/26/2017 13:31:50</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="Content/settings.js">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 19:14:28</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>11/28/2016 20:33:09</publishTime>
@@ -358,7 +451,7 @@
       <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="LogViewer.html">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 17:04:40</publishTime>
     </File>
     <File Include="metrics/dashboard.html">
       <publishTime>01/26/2017 13:32:47</publishTime>
@@ -2134,7 +2227,7 @@
       <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>01/28/2017 13:05:35</publishTime>
+      <publishTime>03/11/2017 19:09:52</publishTime>
     </File>
     <File Include="Reciver.ashx">
       <publishTime>11/28/2016 20:33:09</publishTime>
@@ -2146,7 +2239,7 @@
       <publishTime>09/17/2015 18:02:20</publishTime>
     </File>
     <File Include="Settings.html">
-      <publishTime>11/28/2016 20:33:09</publishTime>
+      <publishTime>03/11/2017 17:05:01</publishTime>
     </File>
     <File Include="Sigins.aspx">
       <publishTime>11/28/2016 20:33:09</publishTime>
@@ -2161,7 +2254,7 @@
       <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/04/2017 14:47:53</publishTime>
+      <publishTime>03/11/2017 19:16:43</publishTime>
     </File>
   </ItemGroup>
 </Project>

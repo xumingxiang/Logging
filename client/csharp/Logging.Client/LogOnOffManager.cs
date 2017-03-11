@@ -12,7 +12,7 @@ namespace Logging.Client
 
         private readonly static int LogOnOffCacheTimeOut = 10;//单位:分钟
 
-        private readonly static string GetLogOnOffUrl = Settings.LoggingServerHost + "/GetLogOnOff.ashx?appId=" + Settings.AppId;
+        private readonly static string GetLogOnOffUrl = Settings.LoggingServerHost + "/api/GetLogOnOff?appId=" + Settings.AppId;
 
         private readonly static LogOnOff Default = new LogOnOff { Debug = 1, Error = 1, Info = 1, Warn = 1 };
 

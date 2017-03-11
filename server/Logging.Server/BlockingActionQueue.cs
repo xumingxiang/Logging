@@ -47,7 +47,7 @@ namespace Logging.Server
             for (int i = 0; i < taskNum; i++)
             {
                 int temp_i = i;
-                this.Tasks[temp_i] = Task.Factory.StartNew(this.DequeueProcess);
+                this.Tasks[temp_i] = Task.Factory.StartNew(this.DequeueProcess, TaskCreationOptions.LongRunning);
             }
         }
 
@@ -84,18 +84,17 @@ namespace Logging.Server
                     T item = s_Queue.Take();
 
                     this.Action(item);
-                    //  Console.WriteLine("again");
 
                 }
                 catch (ThreadAbortException tae)
                 {
                     Thread.ResetAbort();
-                    FileLogger.Log(tae);
+                     FileLogger.Log(tae);//此处写文件件会造成巨大文件
                     //do exception...
                 }
                 catch (Exception ex)
                 {
-                    FileLogger.Log(ex);
+                      FileLogger.Log(ex);//此处写文件件会造成巨大文件
                 }
             }
         }

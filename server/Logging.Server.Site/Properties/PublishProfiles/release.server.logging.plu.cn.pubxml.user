@@ -37,10 +37,10 @@
       <publishTime>04/11/2016 18:43:47</publishTime>
     </File>
     <File Include="bin/Logging.Server.dll">
-      <publishTime>03/11/2017 19:15:51</publishTime>
+      <publishTime>03/11/2017 22:34:06</publishTime>
     </File>
     <File Include="bin/Logging.Server.Site.dll">
-      <publishTime>03/11/2017 19:53:17</publishTime>
+      <publishTime>03/11/2017 22:34:10</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>08/31/2015 10:02:27</publishTime>
@@ -2254,7 +2254,7 @@
       <publishTime>11/28/2016 20:33:09</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/11/2017 19:16:43</publishTime>
+      <publishTime>03/11/2017 22:34:15</publishTime>
     </File>
   </ItemGroup>
 </Project>

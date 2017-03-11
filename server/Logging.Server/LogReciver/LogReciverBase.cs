@@ -28,9 +28,21 @@ namespace Logging.Server.Reciver
 
             queue = new BlockingActionQueue<TLogPackage>(processTaskNum, (logPackage) =>
             {
+                ProcessPackage(logPackage);
+            }, blockingQueueLength);
+        }
+
+        private static void ProcessPackage(TLogPackage logPackage)
+        {
+            try
+            {
                 ProcessLog(logPackage);
                 ProcessMetric(logPackage);
-            }, blockingQueueLength);
+            }
+            catch (Exception ex)
+            {
+                FileLogger.Log(ex);
+            }
         }
 
         private static void ProcessLog(TLogPackage logPackage)

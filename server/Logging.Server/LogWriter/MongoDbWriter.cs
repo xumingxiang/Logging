@@ -56,14 +56,14 @@ namespace Logging.Server.Writer
             {
                 int debug = grp.Count(x => x.Level == LogLevel.Debug);
                 int info = grp.Count(x => x.Level == LogLevel.Info);
-                int warm = grp.Count(x => x.Level == LogLevel.Warm);
+                int warn = grp.Count(x => x.Level == LogLevel.Warn);
                 int error = grp.Count(x => x.Level == LogLevel.Error);
 
                 LogStatistics ls = new LogStatistics();
                 ls.AppId = grp.Key;
                 ls.Debug = debug;
                 ls.Info = info;
-                ls.Warm = warm;
+                ls.Warn = warn;
                 ls.Error = error;
                 ls.Time = statisticsTime;
                 lss.Add(ls);

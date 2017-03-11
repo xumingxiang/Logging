@@ -10,7 +10,7 @@
                 .replace(/{appName}/g, onOffs[i].AppName)
                 .replace("{checked_debug}", onOffs[i].Debug == 1 ? "checked" : "")
                 .replace("{checked_info}", onOffs[i].Info == 1 ? "checked" : "")
-                .replace("{checked_warm}", onOffs[i].Warm == 1 ? "checked" : "")
+                .replace("{checked_warn}", onOffs[i].Warn == 1 ? "checked" : "")
                 .replace("{checked_error}", onOffs[i].Error == 1 ? "checked" : "");
                 $("#logonoffwarp").append(onOffHtml);
             }
@@ -21,7 +21,7 @@
         var levels = $(event).parent().prev().find(":checkbox");
         var debug = $(levels[0]).prop("checked") ? 1 : 0;
         var info = $(levels[1]).prop("checked") ? 1 : 0;
-        var warm = $(levels[2]).prop("checked") ? 1 : 0;
+        var warn = $(levels[2]).prop("checked") ? 1 : 0;
         var error = $(levels[3]).prop("checked") ? 1 : 0;
 
         $.post("SetLogOnOff.ashx", {
@@ -29,7 +29,7 @@
             appName: appName,
             debug: debug,
             info: info,
-            warm: warm,
+            warn: warn,
             error: error
         }, function () {
             alert("OK");
@@ -50,7 +50,7 @@
               .replace("{appName}", "<input type=\"text\" placeholder=\"AppName\" class=\"form-control\" style=\"width: 160px\"/>")
               .replace("{checked_debug}", "checked")
               .replace("{checked_info}", "checked")
-              .replace("{checked_warm}", "checked")
+              .replace("{checked_warn}", "checked")
               .replace("{checked_error}", "checked");
         var $onOffHtml = $(onOffHtml);
         //$onOffHtml.find("button").click(function () {

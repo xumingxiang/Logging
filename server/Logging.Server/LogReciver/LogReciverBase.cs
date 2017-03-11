@@ -46,7 +46,7 @@ namespace Logging.Server.Reciver
             {
                 if (item.Level == (int)LogLevel.Debug && log_on_off.Debug == 0) { continue; }
                 if (item.Level == (int)LogLevel.Info && log_on_off.Info == 0) { continue; }
-                if (item.Level == (int)LogLevel.Warm && log_on_off.Warm == 0) { continue; }
+                if (item.Level == (int)LogLevel.Warn && log_on_off.Warn == 0) { continue; }
                 if (item.Level == (int)LogLevel.Error && log_on_off.Error == 0) { continue; }
 
                 List<string> tags = new List<string>();

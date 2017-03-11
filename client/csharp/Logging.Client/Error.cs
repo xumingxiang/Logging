@@ -180,7 +180,7 @@ namespace Logging.Client
 
             for (int i = 0; i < nvc.Count; i++)
             {
-                result.AppendFormat("{0}:{1},", nvc.GetKey(i), nvc.Get(i));
+                result.AppendFormat("{0}={1}; ", nvc.GetKey(i), nvc.Get(i));
             }
             return result;
         }

@@ -20,7 +20,7 @@ namespace Logging.Server
 
         public int Info { get; set; }
 
-        public int Warm { get; set; }
+        public int Warn { get; set; }
 
         public int Error { get; set; }
 

@@ -236,17 +236,12 @@
     <Compile Include="Entitys\OptionKeys.cs" />
     <Compile Include="Entitys\Options.cs" />
     <Compile Include="FileLogger.cs" />
-    <Compile Include="LogOnOff.cs" />
     <Compile Include="LogOnOffManager.cs" />
     <Compile Include="LogReciver\HttpReciver.cs" />
     <Compile Include="LogProcessor\ILogProcessor.cs" />
-    <Compile Include="LogEntity.cs" />
-    <Compile Include="LogLevel.cs" />
     <Compile Include="LogProcessor\LogProcessorManager.cs" />
     <Compile Include="LogProcessor\DefaultLogProcessor.cs" />
     <Compile Include="LogReciver\LogReciverBase.cs" />
-    <Compile Include="LogStatistics.cs" />
-    <Compile Include="LogTag.cs" />
     <Compile Include="LogViewer\ILogView.cs" />
     <Compile Include="LogViewer\HBaseViewer.cs" />
     <Compile Include="LogViewer\LogViewerManager.cs" />
@@ -255,7 +250,6 @@
     <Compile Include="LogWriter\ILogWriter.cs" />
     <Compile Include="LogWriter\LogWriterManager.cs" />
     <Compile Include="LogWriter\MongoDbWriter.cs" />
-    <Compile Include="MetricEntity.cs" />
     <Compile Include="Metric\Config.cs" />
     <Compile Include="Metric\MetricProcessor\DefaulMetricProcessor.cs" />
     <Compile Include="Metric\MetricProcessor\IMetricProcessor.cs" />

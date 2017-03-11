@@ -21,7 +21,7 @@ namespace Logging.Server
         /// <summary>
         /// 默认开关常量
         /// </summary>
-        private readonly static LogOnOff Default = new LogOnOff { Debug = 1, Error = 1, Info = 1, Warm = 1 };
+        private readonly static LogOnOff Default = new LogOnOff { Debug = 1, Error = 1, Info = 1, Warn = 1 };
 
         private readonly static object lockthis = new object();
 

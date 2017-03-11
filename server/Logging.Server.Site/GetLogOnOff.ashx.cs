@@ -26,7 +26,7 @@ namespace Logging.Server.Site
             var on_off = LogViewerManager.GetLogViewer().GetLogOnOff(appId);
             if (on_off != null)
             {
-                resp += on_off.Debug + "," + on_off.Info + "," + on_off.Warm + "," + on_off.Error;
+                resp += on_off.Debug + "," + on_off.Info + "," + on_off.Warn + "," + on_off.Error;
             }
 
             #region 计数

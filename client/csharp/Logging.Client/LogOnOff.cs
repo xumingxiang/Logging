@@ -16,7 +16,7 @@ namespace Logging.Client
 
         public byte Info { get; set; }
 
-        public byte Warm { get; set; }
+        public byte Warn { get; set; }
 
         public byte Error { get; set; }
 

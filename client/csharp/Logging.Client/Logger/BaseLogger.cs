@@ -116,7 +116,7 @@ namespace Logging.Client
 
         public void Warn(string title, string message, Dictionary<string, string> tags)
         {
-            Log(title, message, tags, LogLevel.Warm);
+            Log(title, message, tags, LogLevel.Warn);
         }
 
         public void Error(string message)
@@ -246,7 +246,7 @@ namespace Logging.Client
 
             if (level == LogLevel.Debug && onOff.Debug != 1) { return; }
             if (level == LogLevel.Info && onOff.Info != 1) { return; }
-            if (level == LogLevel.Warm && onOff.Warm != 1) { return; }
+            if (level == LogLevel.Warn && onOff.Warn != 1) { return; }
             if (level == LogLevel.Error && onOff.Error != 1) { return; }
 
             LogEntity log = this.CreateLog(Source, title, message, tags, level);
@@ -375,7 +375,7 @@ namespace Logging.Client
             LogOnOff onOff = LogOnOffManager.GetLogOnOff();
             if (level == LogLevel.Debug && onOff.Debug != 1) { return false; }
             if (level == LogLevel.Info && onOff.Info != 1) { return false; }
-            if (level == LogLevel.Warm && onOff.Warm != 1) { return false; }
+            if (level == LogLevel.Warn && onOff.Warn != 1) { return false; }
             if (level == LogLevel.Error && onOff.Error != 1) { return false; }
             return true;
         }

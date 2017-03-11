@@ -14,7 +14,7 @@ namespace Logging.Client
 
         private readonly static string GetLogOnOffUrl = Settings.LoggingServerHost + "/GetLogOnOff.ashx?appId=" + Settings.AppId;
 
-        private readonly static LogOnOff Default = new LogOnOff { Debug = 1, Error = 1, Info = 1, Warm = 1 };
+        private readonly static LogOnOff Default = new LogOnOff { Debug = 1, Error = 1, Info = 1, Warn = 1 };
 
         private static DateTime LastUpdateTime;
 
@@ -50,7 +50,7 @@ namespace Logging.Client
                 string[] arr = resp.Split(',');
                 logOnOff.Debug = Convert.ToByte(arr[0]);
                 logOnOff.Info = Convert.ToByte(arr[1]);
-                logOnOff.Warm = Convert.ToByte(arr[2]);
+                logOnOff.Warn = Convert.ToByte(arr[2]);
                 logOnOff.Error = Convert.ToByte(arr[3]);
             }
             LastUpdateTime = DateTime.Now;

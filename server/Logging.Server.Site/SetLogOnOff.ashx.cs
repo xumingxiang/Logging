@@ -19,14 +19,14 @@ namespace Logging.Server.Site
             string appName = context.Request["appName"];
             int debug = Convert.ToInt32(context.Request["debug"]);
             int info = Convert.ToInt32(context.Request["info"]);
-            int warm = Convert.ToInt32(context.Request["warm"]);
+            int warn = Convert.ToInt32(context.Request["warn"]);
             int error = Convert.ToInt32(context.Request["error"]);
 
             LogOnOff on_off = new LogOnOff();
             on_off.AppId = appId;
             on_off.Debug = (byte)debug;
             on_off.Info = (byte)info;
-            on_off.Warm = (byte)warm;
+            on_off.Warn = (byte)warn;
             on_off.Error = (byte)error;
             on_off.AppName = appName;
 

@@ -187,7 +187,7 @@ $(function () {
 
                 var debug_num = s.Debug;
                 var info_num = s.Info;
-                var warm_num = s.Warm;
+                var warn_num = s.Warn;
                 var error_num = s.Error;
 
                 if (debug_num >= 100000) {
@@ -202,10 +202,10 @@ $(function () {
                     info_num = (Math.round(info_num / 10) / 100) + "k";
                 }
 
-                if (warm_num >= 100000) {
-                    warm_num = (Math.round(warm_num / 100) / 100) + "w";
-                } else if (warm_num >= 10000) {
-                    warm_num = (Math.round(warm_num / 10) / 100) + "k";
+                if (warn_num >= 100000) {
+                    warn_num = (Math.round(warn_num / 100) / 100) + "w";
+                } else if (warn_num >= 10000) {
+                    warn_num = (Math.round(warn_num / 10) / 100) + "k";
                 }
 
                 if (error_num >= 100000) {
@@ -219,7 +219,7 @@ $(function () {
               .replace("{appId}", s.AppId)
               .replace("{debug_num}", debug_num)
               .replace("{info_num}", info_num)
-              .replace("{warm_num}", warm_num)
+              .replace("{warn_num}", warn_num)
               .replace("{error_num}", error_num)
                 .replace("{statics_appName}",s.AppName);
 

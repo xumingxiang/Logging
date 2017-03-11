@@ -216,7 +216,7 @@ namespace Logging.Server.Viewer
                 item.AppId = _appId;
                 item.Debug = lst.Sum(x => x.Debug);
                 item.Info = lst.Sum(x => x.Info);
-                item.Warm = lst.Sum(x => x.Warm);
+                item.Warn = lst.Sum(x => x.Warn);
                 item.Error = lst.Sum(x => x.Error);
                 if (onOff != null)
                 {
@@ -227,7 +227,7 @@ namespace Logging.Server.Viewer
 
             return result
                  .OrderByDescending(x => x.Error)
-                 .ThenByDescending(x => x.Warm)
+                 .ThenByDescending(x => x.Warn)
                  .ThenByDescending(x => x.Info)
                  .ThenByDescending(x => x.Debug)
                  .ToList();

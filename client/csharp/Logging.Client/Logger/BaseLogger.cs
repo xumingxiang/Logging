@@ -367,5 +367,17 @@ namespace Logging.Client
         {
             block.Flush();
         }
+
+        public bool GetOnOff(LogLevel level)
+        {
+            if (!LoggingEnabled) { return false; }
+
+            LogOnOff onOff = LogOnOffManager.GetLogOnOff();
+            if (level == LogLevel.Debug && onOff.Debug != 1) { return false; }
+            if (level == LogLevel.Info && onOff.Info != 1) { return false; }
+            if (level == LogLevel.Warm && onOff.Warm != 1) { return false; }
+            if (level == LogLevel.Error && onOff.Error != 1) { return false; }
+            return true;
+        }
     }
 }

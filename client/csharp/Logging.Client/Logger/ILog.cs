@@ -94,5 +94,12 @@ namespace Logging.Client
         string GetLogs(long start, long end, int appId, int[] level = null, string title = "", string msg = "", string source = "", string ip = "", Dictionary<string, string> tags = null, int limit = 100);
 
         void Flush();
+
+        /// <summary>
+        /// 获取指定日志级别的开关
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
+        bool GetOnOff(LogLevel level);
     }
 }

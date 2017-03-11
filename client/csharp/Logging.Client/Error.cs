@@ -14,6 +14,8 @@ namespace Logging.Client
         private NameValueCollection _cookies;
         private NameValueCollection _requestHeaders;
 
+        private string _ua;
+
         internal const string CollectionErrorKey = "CollectionFetchError";
 
         /// <summary>
@@ -51,6 +53,7 @@ namespace Logging.Client
             if (httpException != null)
             {
                 StatusCode = httpException.GetHttpCode();
+
             }
             SetContextProperties(context);
         }
@@ -107,6 +110,9 @@ namespace Logging.Client
                 if (request.Headers[header] != null)
                     _requestHeaders[header] = request.Headers[header];
             }
+
+            _ua = request.UserAgent;
+
         }
         /// <summary>
         /// returns if the type of the exception is built into .Net core
@@ -181,8 +187,8 @@ namespace Logging.Client
 
         public override string ToString()
         {
-            return string.Format("Url:{0}\r\nMachineName:{1}\r\nSource:{2}\r\nDetail:{3}\r\nStatusCode:{4}\r\nHTTPMethod:{5}\r\nIPAddress:{6}\r\nRequestHeaders {7}\r\nCookies {8}",
-                AbsUrl, MachineName, Source, Detail, StatusCode.ToString(), HTTPMethod, IPAddress, GetPairs(_requestHeaders).ToString(), GetPairs(_cookies).ToString());
+            return string.Format("Url:{0}\r\nMachineName:{1}\r\nSource:{2}\r\nDetail:{3}\r\nStatusCode:{4}\r\nHTTPMethod:{5}\r\nIPAddress:{6}\r\nRequestHeaders: {7}\r\nCookies: {8} \r\nUserAgent:{9}",
+                AbsUrl, MachineName, Source, Detail, StatusCode.ToString(), HTTPMethod, IPAddress, GetPairs(_requestHeaders).ToString(), GetPairs(_cookies).ToString(),_ua);
         }
     }
 

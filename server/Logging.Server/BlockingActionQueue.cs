@@ -89,12 +89,12 @@ namespace Logging.Server
                 catch (ThreadAbortException tae)
                 {
                     Thread.ResetAbort();
-                     FileLogger.Log(tae);//此处写文件件会造成巨大文件
+                     FileLogger.Log(tae);//TODO:此处写文件件会造成巨大文件
                     //do exception...
                 }
                 catch (Exception ex)
                 {
-                      FileLogger.Log(ex);//此处写文件件会造成巨大文件
+                      FileLogger.Log(ex);//TODO:此处写文件件会造成巨大文件
                 }
             }
         }

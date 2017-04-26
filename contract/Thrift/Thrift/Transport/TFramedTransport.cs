@@ -16,12 +16,13 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
 using System;
 using System.IO;
 
 namespace Thrift.Transport
 {
-  public class TFramedTransport : TTransport, IDisposable
+    public class TFramedTransport : TTransport, IDisposable
     {
         protected TTransport transport = null;
         protected MemoryStream writeBuffer;
@@ -104,13 +105,13 @@ namespace Thrift.Transport
             byte[] buf = writeBuffer.GetBuffer();
             int len = (int)writeBuffer.Length;
             int data_len = len - header_size;
-            if ( data_len < 0 )
-                throw new System.InvalidOperationException (); // logic error actually
+            if (data_len < 0)
+                throw new System.InvalidOperationException(); // logic error actually
 
             InitWriteBuffer();
 
             // Inject message header into the reserved buffer space
-            EncodeFrameSize(data_len,ref buf);
+            EncodeFrameSize(data_len, ref buf);
 
             // Send the entire message at once
             transport.Write(buf, 0, len);
@@ -118,13 +119,13 @@ namespace Thrift.Transport
             transport.Flush();
         }
 
-        private void InitWriteBuffer ()
+        private void InitWriteBuffer()
         {
             // Create new buffer instance
             writeBuffer = new MemoryStream(1024);
 
             // Reserve space for message header to be put right before sending it out
-            writeBuffer.Write ( header_dummy, 0, header_size );
+            writeBuffer.Write(header_dummy, 0, header_size);
         }
 
         private static void EncodeFrameSize(int frameSize, ref byte[] buf)
@@ -140,12 +141,12 @@ namespace Thrift.Transport
             return
                 ((buf[0] & 0xff) << 24) |
                 ((buf[1] & 0xff) << 16) |
-                ((buf[2] & 0xff) <<  8) |
+                ((buf[2] & 0xff) << 8) |
                 ((buf[3] & 0xff));
         }
 
-
         #region " IDisposable Support "
+
         private bool _IsDisposed;
 
         // IDisposable
@@ -161,6 +162,7 @@ namespace Thrift.Transport
             }
             _IsDisposed = true;
         }
-        #endregion
+
+        #endregion " IDisposable Support "
     }
 }

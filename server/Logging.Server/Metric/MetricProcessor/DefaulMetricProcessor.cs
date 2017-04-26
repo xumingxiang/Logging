@@ -1,6 +1,5 @@
 ﻿using Logging.Server.Metric.Writer;
 using System.Collections.Generic;
-using System.Configuration;
 
 namespace Logging.Server.Metric.Processor
 {
@@ -9,8 +8,6 @@ namespace Logging.Server.Metric.Processor
     /// </summary>
     public class DefaulMetricProcessor : IMetricProcessor
     {
-       // private static string influxdbVer = ConfigurationManager.AppSettings["MetricInfluxdbVer"];
-
         public void Process(IList<MetricEntity> logs)
         {
             if (Config.MetricInfluxdbVer == "0.8")

@@ -21,10 +21,6 @@
  * details.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Thrift.Protocol
 {
     public struct TMessage
@@ -34,7 +30,7 @@ namespace Thrift.Protocol
         private int seqID;
 
         public TMessage(string name, TMessageType type, int seqid)
-            :this()
+            : this()
         {
             this.name = name;
             this.type = type;

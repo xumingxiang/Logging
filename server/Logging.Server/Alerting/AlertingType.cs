@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Logging.Server.Alerting
+﻿namespace Logging.Server.Alerting
 {
     /// <summary>
     /// 提醒类型
@@ -12,7 +6,7 @@ namespace Logging.Server.Alerting
     public enum AlertingType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AppError = 1
     }

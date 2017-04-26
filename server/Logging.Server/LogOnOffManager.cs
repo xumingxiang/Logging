@@ -1,10 +1,8 @@
 ﻿using Logging.Server.Viewer;
+using Logging.Server.Writer;
 using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Text;
 using System.Linq;
-using Logging.Server.Writer;
 
 namespace Logging.Server
 {
@@ -55,7 +53,6 @@ namespace Logging.Server
                     if (ALL_LOG_ONOFF == null || (DateTime.Now - LastUpdateTime).TotalMilliseconds > LogOnOffCacheTimeOut)
                     {
                         RefreshLogOnOff();
-                      
                     }
                 }
             }

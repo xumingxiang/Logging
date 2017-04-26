@@ -22,14 +22,11 @@
  */
 
 using System;
-using System.Text;
-using Thrift.Transport;
 using System.Collections.Generic;
 using System.IO;
 
 namespace Thrift.Protocol
 {
-
     /**
      * TMultiplexedProcessor is a TProcessor allowing a single TServer to provide multiple services.
      * To do so, you instantiate the processor and then register additional processors with it,
@@ -50,9 +47,10 @@ namespace Thrift.Protocol
      *
      *     server.serve();
      */
+
     public class TMultiplexedProcessor : TProcessor
     {
-        private Dictionary<String,TProcessor> ServiceProcessorMap = new Dictionary<String,TProcessor>();
+        private Dictionary<String, TProcessor> ServiceProcessorMap = new Dictionary<String, TProcessor>();
 
         /**
          * 'Register' a service with this TMultiplexedProcessor. This allows us to broker
@@ -64,24 +62,23 @@ namespace Thrift.Protocol
          * - processor      Implementation of a service, ususally referred to as "handlers",
          *                  e.g. WeatherReportHandler implementing WeatherReport.Iface.
          */
+
         public void RegisterProcessor(String serviceName, TProcessor processor)
         {
             ServiceProcessorMap.Add(serviceName, processor);
         }
 
-
-        private void Fail( TProtocol oprot, TMessage message, TApplicationException.ExceptionType extype, string etxt)
+        private void Fail(TProtocol oprot, TMessage message, TApplicationException.ExceptionType extype, string etxt)
         {
-            TApplicationException appex = new TApplicationException( extype, etxt);
+            TApplicationException appex = new TApplicationException(extype, etxt);
 
             TMessage newMessage = new TMessage(message.Name, TMessageType.Exception, message.SeqID);
 
             oprot.WriteMessageBegin(newMessage);
-            appex.Write( oprot);
+            appex.Write(oprot);
             oprot.WriteMessageEnd();
             oprot.Transport.Flush();
         }
-
 
         /**
          * This implementation of process performs the following steps:
@@ -97,6 +94,7 @@ namespace Thrift.Protocol
          * - the service name was not found in the message, or
          * - the service name has not been RegisterProcessor()ed.
          */
+
         public bool Process(TProtocol iprot, TProtocol oprot)
         {
             /*  Use the actual underlying protocol (e.g. TBinaryProtocol) to read the
@@ -146,13 +144,11 @@ namespace Thrift.Protocol
 
                 // Dispatch processing to the stored processor
                 return actualProcessor.Process(new StoredMessageProtocol(iprot, newMessage), oprot);
-
             }
             catch (IOException)
             {
                 return false;  // similar to all other processors
             }
-
         }
 
         /**
@@ -160,12 +156,13 @@ namespace Thrift.Protocol
          *  to allow them to call readMessageBegin() and get a TMessage in exactly
          *  the standard format, without the service name prepended to TMessage.name.
          */
+
         private class StoredMessageProtocol : TProtocolDecorator
         {
-            TMessage MsgBegin;
+            private TMessage MsgBegin;
 
             public StoredMessageProtocol(TProtocol protocol, TMessage messageBegin)
-                :base(protocol)
+                : base(protocol)
             {
                 this.MsgBegin = messageBegin;
             }
@@ -175,6 +172,5 @@ namespace Thrift.Protocol
                 return MsgBegin;
             }
         }
-
     }
 }

@@ -1,10 +1,10 @@
-﻿using Logging.Server.DB;
+﻿using Logging.Server.Alerting;
+using Logging.Server.DB;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Logging.Server.Alerting;
 
 namespace Logging.Server.Viewer
 {
@@ -25,14 +25,12 @@ namespace Logging.Server.Viewer
                 result = this.GetLogsNoTags(start, end, appId, level, title, msg, source, ip, limit);
             }
 
-
             if (result != null)
             {
                 result.Sort(new LogEntityComparer());
             }
             return result;
         }
-
 
         private List<LogEntity> GetLogsNoTags(long start, long end, int appId, int[] level, string title, string msg, string source, long ip, int limit = 100)
         {
@@ -77,7 +75,6 @@ namespace Logging.Server.Viewer
             {
                 var re = new BsonRegularExpression(".*" + title + ".*", "i");
                 filter = filter & filterBuilder.Regex("Title", re);
-
             }
 
             if (!string.IsNullOrWhiteSpace(msg))
@@ -92,10 +89,8 @@ namespace Logging.Server.Viewer
                 .ToListAsync<LogEntity>()
                 .Result;
 
-
             return result;
         }
-
 
         private List<LogEntity> GetLogsInTags(long start, long end, int appId, int[] level, string title, string msg, string source, long ip, List<string> tags, int limit = 100)
         {
@@ -105,7 +100,6 @@ namespace Logging.Server.Viewer
             foreach (var tag in tags)
             {
                 _tags.Add(Utils.BKDRHash(tag));
-
             }
 
             var tagFilterBuilder = Builders<LogTag>.Filter;
@@ -174,7 +168,6 @@ namespace Logging.Server.Viewer
                 filter = filter & filterBuilder.Regex("Message", re);
             }
 
-
             var collection = MongoDataBase.GetCollection<LogEntity>();
             var result = collection.Find(filter)
                 .SortByDescending(x => x.Time)
@@ -184,7 +177,6 @@ namespace Logging.Server.Viewer
 
             return result;
         }
-
 
         public List<LogStatistics> GetStatistics(long start, long end, int appId)
         {
@@ -253,7 +245,6 @@ namespace Logging.Server.Viewer
             return result;
         }
 
-
         public AlertingHistory GetLastAlertingHistory(int appId, AlertingType type)
         {
             var collection = MongoDataBase.GetCollection<AlertingHistory>();
@@ -278,6 +269,5 @@ namespace Logging.Server.Viewer
             var result = collection.Find(filter).ToListAsync().Result;
             return result;
         }
-
     }
 }

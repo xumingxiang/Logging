@@ -21,7 +21,6 @@
  * details.
  */
 
-using System;
 using Thrift.Protocol;
 
 namespace Thrift

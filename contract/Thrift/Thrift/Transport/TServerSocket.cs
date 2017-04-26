@@ -24,7 +24,6 @@
 using System;
 using System.Net.Sockets;
 
-
 namespace Thrift.Transport
 {
     public class TServerSocket : TServerTransport
@@ -52,14 +51,16 @@ namespace Thrift.Transport
         /**
          * Creates a server socket from underlying socket object
          */
+
         public TServerSocket(TcpListener listener)
-            :this(listener, 0)
+            : this(listener, 0)
         {
         }
 
         /**
          * Creates a server socket from underlying socket object
          */
+
         public TServerSocket(TcpListener listener, int clientTimeout)
         {
             this.server = listener;
@@ -69,6 +70,7 @@ namespace Thrift.Transport
         /**
          * Creates just a port listening server socket
          */
+
         public TServerSocket(int port)
             : this(port, 0)
         {
@@ -77,8 +79,9 @@ namespace Thrift.Transport
         /**
          * Creates just a port listening server socket
          */
+
         public TServerSocket(int port, int clientTimeout)
-            :this(port, clientTimeout, false)
+            : this(port, clientTimeout, false)
         {
         }
 

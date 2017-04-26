@@ -21,10 +21,6 @@
  * details.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Thrift.Protocol
 {
     public struct TList
@@ -33,7 +29,7 @@ namespace Thrift.Protocol
         private int count;
 
         public TList(TType elementType, int count)
-            :this()
+            : this()
         {
             this.elementType = elementType;
             this.count = count;

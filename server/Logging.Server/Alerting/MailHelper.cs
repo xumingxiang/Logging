@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Logging.Server.Alerting
 {
-    class MailHelper
+    internal class MailHelper
     {
         /// <summary>
         /// 发送邮件
@@ -45,7 +41,7 @@ namespace Logging.Server.Alerting
                 smtp.Credentials = new NetworkCredential(from, password);
                 smtp.Port = port;
                 smtp.Host = host;
-                smtp.EnableSsl = false; // 如果使用GMail，则需要设置为true 
+                smtp.EnableSsl = false; // 如果使用GMail，则需要设置为true
                 smtp.SendCompleted += new SendCompletedEventHandler(SendMailCompleted);
 
                 smtp.Send(mailMsg);
@@ -57,15 +53,11 @@ namespace Logging.Server.Alerting
             }
         }
 
-
-
-
-
-        static void SendMailCompleted(object sender, AsyncCompletedEventArgs e)
+        private static void SendMailCompleted(object sender, AsyncCompletedEventArgs e)
         {
             MailMessage mailMsg = (MailMessage)e.UserState;
             string subject = mailMsg.Subject;
-            if (e.Cancelled) // 邮件被取消 
+            if (e.Cancelled) // 邮件被取消
             {
                 //_logger.Error(subject + " 被取消。");
             }
@@ -74,6 +66,5 @@ namespace Logging.Server.Alerting
                 //_logger.Error("错误：" + e.Error.ToString());
             }
         }
-
     }
 }

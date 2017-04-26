@@ -1,9 +1,4 @@
 ﻿using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Logging.Server
 {
@@ -16,8 +11,5 @@ namespace Logging.Server
         public string Value { get; set; }
 
         public long UpdateTime { get; set; }
-
-
-    
     }
 }

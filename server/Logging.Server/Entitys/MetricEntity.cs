@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Logging.Server
 {
@@ -15,6 +11,5 @@ namespace Logging.Server
         public long Time { get; set; }
 
         public Dictionary<string, string> Tags { get; set; }
-
     }
 }

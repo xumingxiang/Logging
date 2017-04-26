@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Logging.Server.Alerting
+﻿namespace Logging.Server.Alerting
 {
     public abstract class BaseAlerting
     {
@@ -14,7 +8,6 @@ namespace Logging.Server.Alerting
         }
 
         public abstract void Alert();
-
 
         protected AlertingType AlertingType { get; set; }
     }

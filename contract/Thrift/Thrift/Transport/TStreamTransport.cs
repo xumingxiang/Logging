@@ -21,7 +21,6 @@
  * details.
  */
 
-using System;
 using System.IO;
 
 namespace Thrift.Transport
@@ -104,25 +103,26 @@ namespace Thrift.Transport
             outputStream.Flush();
         }
 
+        #region " IDisposable Support "
 
-    #region " IDisposable Support "
-    private bool _IsDisposed;
+        private bool _IsDisposed;
 
-    // IDisposable
-    protected override void Dispose(bool disposing)
-    {
-      if (!_IsDisposed)
-      {
-        if (disposing)
+        // IDisposable
+        protected override void Dispose(bool disposing)
         {
-          if (InputStream != null)
-            InputStream.Dispose();
-          if (OutputStream != null)
-            OutputStream.Dispose();
+            if (!_IsDisposed)
+            {
+                if (disposing)
+                {
+                    if (InputStream != null)
+                        InputStream.Dispose();
+                    if (OutputStream != null)
+                        OutputStream.Dispose();
+                }
+            }
+            _IsDisposed = true;
         }
-      }
-      _IsDisposed = true;
+
+        #endregion " IDisposable Support "
     }
-    #endregion
-  }
 }

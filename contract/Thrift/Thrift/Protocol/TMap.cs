@@ -21,10 +21,6 @@
  * details.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Thrift.Protocol
 {
     public struct TMap
@@ -34,7 +30,7 @@ namespace Thrift.Protocol
         private int count;
 
         public TMap(TType keyType, TType valueType, int count)
-            :this()
+            : this()
         {
             this.keyType = keyType;
             this.valueType = valueType;

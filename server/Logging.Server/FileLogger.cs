@@ -1,37 +1,34 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Logging.Server
 {
     internal static class FileLogger
     {
-        static ConcurrentQueue<string> _queue = new ConcurrentQueue<string>();
-        static DateTime _lastTime = DateTime.MinValue;
-        static TimeSpan _flushInterval = new TimeSpan(0, 1, 0);
+        private static ConcurrentQueue<string> _queue = new ConcurrentQueue<string>();
+        private static DateTime _lastTime = DateTime.MinValue;
+        private static TimeSpan _flushInterval = new TimeSpan(0, 1, 0);
 
-        const string log_path = "c:\\log\\Logging_Server\\";
+        private const string log_path = "c:\\log\\Logging_Server\\";
 
-        static string _getLogPath()
+        private static string _getLogPath()
         {
             return log_path;
         }
-        static string _getLogFileName()
+
+        private static string _getLogFileName()
         {
             return Path.Combine(log_path, DateTime.Now.ToString("yyyyMMdd") + ".txt");
         }
 
-        static string _logCurrentTime()
+        private static string _logCurrentTime()
         {
             return DateTime.Now.ToString("HH:mm:ss");
         }
 
-        static readonly object _lock = new object();
+        private static readonly object _lock = new object();
 
         public static void Log(Exception e)
         {

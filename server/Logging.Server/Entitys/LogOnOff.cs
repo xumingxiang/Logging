@@ -1,9 +1,4 @@
-﻿using Logging.Server.DB;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
+﻿using MongoDB.Bson;
 
 namespace Logging.Server
 {
@@ -25,8 +20,5 @@ namespace Logging.Server
         public byte Warn { get; set; }
 
         public byte Error { get; set; }
-
-
-     
     }
 }

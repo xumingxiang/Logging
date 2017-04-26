@@ -21,10 +21,6 @@
  * details.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Thrift.Protocol
 {
     public struct TField
@@ -34,7 +30,7 @@ namespace Thrift.Protocol
         private short id;
 
         public TField(string name, TType type, short id)
-            :this()
+            : this()
         {
             this.name = name;
             this.type = type;

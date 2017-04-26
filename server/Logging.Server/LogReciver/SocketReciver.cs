@@ -1,9 +1,5 @@
 ﻿using Logging.ThriftContract;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Thrift.Server;
 using Thrift.Transport;
 
@@ -23,7 +19,6 @@ namespace Logging.Server.Reciver
             }
             catch (Exception e)
             {
-                
             }
         }
     }

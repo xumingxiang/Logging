@@ -93,7 +93,6 @@ namespace Logging.Server.Alerting
             {
                 var appId = item.Key;
 
-
                 var lastAH = LogViewerManager.GetLogViewer().GetLastAlertingHistory(appId, AlertingType.AppError);
                 if (lastAH != null)
                 {

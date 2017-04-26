@@ -1,10 +1,6 @@
 ﻿using Logging.Server.Alerting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Logging.Server
 {
@@ -17,9 +13,8 @@ namespace Logging.Server
             t.Start();
         }
 
-        static void CheckAlerting()
+        private static void CheckAlerting()
         {
-         
             while (true)
             {
                 try
@@ -32,7 +27,7 @@ namespace Logging.Server
                     Thread.ResetAbort();
                     FileLogger.Log(tae);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     FileLogger.Log(ex);
                 }
@@ -42,6 +37,5 @@ namespace Logging.Server
                 }
             }
         }
-
     }
 }

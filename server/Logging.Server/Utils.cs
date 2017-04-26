@@ -6,7 +6,7 @@ namespace Logging.Server
 {
     public static class Utils
     {
-        readonly static DateTime START_TIME = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
+        private static readonly DateTime START_TIME = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
 
         /// <summary>
         /// DateTime时间格式转换为Unix时间戳格式。精确到17位,即100纳秒
@@ -20,7 +20,7 @@ namespace Logging.Server
 
         /// <summary>
         /// DateTime时间格式转换为Unix时间戳格式精确到10位。
-        /// 
+        ///
         /// </summary>
         /// <param name="time"></param>
         /// <returns></returns>
@@ -36,7 +36,7 @@ namespace Logging.Server
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="timestamp"></param>
         /// <returns></returns>
@@ -53,7 +53,6 @@ namespace Logging.Server
         /// <returns></returns>
         public static long IPToNumber(string strIPAddress)
         {
-
             //System.Net.IPAddress ipaddress = System.Net.IPAddress.Parse("216.20.222.72");
             //long dreamduip = ipaddress.;// 结果 1222513880
 
@@ -70,7 +69,6 @@ namespace Logging.Server
             return tmpIpNumber;
         }
 
-
         /// <summary>
         /// 将int型表示的IP还原成正常IPv4格式。
         /// </summary>
@@ -80,8 +78,8 @@ namespace Logging.Server
         {
             long tempIPAddress;
             //将目标整形数字intIPAddress转换为IP地址字符串
-            //-1062731518 192.168.1.2 
-            //-1062731517 192.168.1.3 
+            //-1062731518 192.168.1.2
+            //-1062731517 192.168.1.3
             if (intIPAddress >= 0)
             {
                 tempIPAddress = intIPAddress;
@@ -107,7 +105,8 @@ namespace Logging.Server
             return strIPAddress;
         }
 
-        const int BKDRHashSeed = 131;
+        private const int BKDRHashSeed = 131;
+
         // BKDR Hash Function
         public static long BKDRHash(string str)
         {
@@ -137,8 +136,6 @@ namespace Logging.Server
             return hash;
         }
 
-
-
         public static string HttpGet(string Url)
         {
             System.IO.Stream respStream = null;
@@ -154,7 +151,6 @@ namespace Logging.Server
                     return reader.ReadToEnd();
                 }
             }
-
             catch (WebException web_ex)
             {
                 if (web_ex.Response != null)

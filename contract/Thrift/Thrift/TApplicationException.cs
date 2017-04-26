@@ -73,6 +73,7 @@ namespace Thrift
                             TProtocolUtil.Skip(iprot, field.Type);
                         }
                         break;
+
                     case 2:
                         if (field.Type == TType.I32)
                         {
@@ -83,6 +84,7 @@ namespace Thrift
                             TProtocolUtil.Skip(iprot, field.Type);
                         }
                         break;
+
                     default:
                         TProtocolUtil.Skip(iprot, field.Type);
                         break;

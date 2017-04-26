@@ -4,345 +4,385 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
+
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using System.IO;
-using Thrift;
-using Thrift.Collections;
-using System.Runtime.Serialization;
 using Thrift.Protocol;
-using Thrift.Transport;
 
 namespace Logging.ThriftContract
 {
+#if !SILVERLIGHT
 
-  #if !SILVERLIGHT
-  [Serializable]
-  #endif
-  public partial class TLogEntity : TBase
-  {
-    private string _Title;
-    private string _Message;
-    private sbyte _Level;
-    private long _Time;
-    private string _Source;
-    private int _Thread;
-    private Dictionary<string, string> _Tags;
-
-    public string Title
-    {
-      get
-      {
-        return _Title;
-      }
-      set
-      {
-        __isset.Title = true;
-        this._Title = value;
-      }
-    }
-
-    public string Message
-    {
-      get
-      {
-        return _Message;
-      }
-      set
-      {
-        __isset.Message = true;
-        this._Message = value;
-      }
-    }
-
-    public sbyte Level
-    {
-      get
-      {
-        return _Level;
-      }
-      set
-      {
-        __isset.Level = true;
-        this._Level = value;
-      }
-    }
-
-    public long Time
-    {
-      get
-      {
-        return _Time;
-      }
-      set
-      {
-        __isset.Time = true;
-        this._Time = value;
-      }
-    }
-
-    public string Source
-    {
-      get
-      {
-        return _Source;
-      }
-      set
-      {
-        __isset.Source = true;
-        this._Source = value;
-      }
-    }
-
-    public int Thread
-    {
-      get
-      {
-        return _Thread;
-      }
-      set
-      {
-        __isset.Thread = true;
-        this._Thread = value;
-      }
-    }
-
-    public Dictionary<string, string> Tags
-    {
-      get
-      {
-        return _Tags;
-      }
-      set
-      {
-        __isset.Tags = true;
-        this._Tags = value;
-      }
-    }
-
-
-    public Isset __isset;
-    #if !SILVERLIGHT
     [Serializable]
-    #endif
-    public struct Isset {
-      public bool Title;
-      public bool Message;
-      public bool Level;
-      public bool Time;
-      public bool Source;
-      public bool Thread;
-      public bool Tags;
-    }
-
-    public TLogEntity() {
-    }
-
-    public void Read (TProtocol iprot)
+#endif
+    public partial class TLogEntity : TBase
     {
-      TField field;
-      iprot.ReadStructBegin();
-      while (true)
-      {
-        field = iprot.ReadFieldBegin();
-        if (field.Type == TType.Stop) { 
-          break;
-        }
-        switch (field.ID)
+        private string _Title;
+        private string _Message;
+        private sbyte _Level;
+        private long _Time;
+        private string _Source;
+        private int _Thread;
+        private Dictionary<string, string> _Tags;
+
+        public string Title
         {
-          case 1:
-            if (field.Type == TType.String) {
-              Title = iprot.ReadString();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
+            get
+            {
+                return _Title;
             }
-            break;
-          case 2:
-            if (field.Type == TType.String) {
-              Message = iprot.ReadString();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
+            set
+            {
+                __isset.Title = true;
+                this._Title = value;
             }
-            break;
-          case 3:
-            if (field.Type == TType.Byte) {
-              Level = iprot.ReadByte();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
+        }
+
+        public string Message
+        {
+            get
+            {
+                return _Message;
             }
-            break;
-          case 4:
-            if (field.Type == TType.I64) {
-              Time = iprot.ReadI64();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
+            set
+            {
+                __isset.Message = true;
+                this._Message = value;
             }
-            break;
-          case 5:
-            if (field.Type == TType.String) {
-              Source = iprot.ReadString();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
+        }
+
+        public sbyte Level
+        {
+            get
+            {
+                return _Level;
             }
-            break;
-          case 6:
-            if (field.Type == TType.I32) {
-              Thread = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
+            set
+            {
+                __isset.Level = true;
+                this._Level = value;
             }
-            break;
-          case 7:
-            if (field.Type == TType.Map) {
-              {
-                Tags = new Dictionary<string, string>();
-                TMap _map0 = iprot.ReadMapBegin();
-                for( int _i1 = 0; _i1 < _map0.Count; ++_i1)
+        }
+
+        public long Time
+        {
+            get
+            {
+                return _Time;
+            }
+            set
+            {
+                __isset.Time = true;
+                this._Time = value;
+            }
+        }
+
+        public string Source
+        {
+            get
+            {
+                return _Source;
+            }
+            set
+            {
+                __isset.Source = true;
+                this._Source = value;
+            }
+        }
+
+        public int Thread
+        {
+            get
+            {
+                return _Thread;
+            }
+            set
+            {
+                __isset.Thread = true;
+                this._Thread = value;
+            }
+        }
+
+        public Dictionary<string, string> Tags
+        {
+            get
+            {
+                return _Tags;
+            }
+            set
+            {
+                __isset.Tags = true;
+                this._Tags = value;
+            }
+        }
+
+        public Isset __isset;
+#if !SILVERLIGHT
+
+        [Serializable]
+#endif
+        public struct Isset
+        {
+            public bool Title;
+            public bool Message;
+            public bool Level;
+            public bool Time;
+            public bool Source;
+            public bool Thread;
+            public bool Tags;
+        }
+
+        public TLogEntity()
+        {
+        }
+
+        public void Read(TProtocol iprot)
+        {
+            TField field;
+            iprot.ReadStructBegin();
+            while (true)
+            {
+                field = iprot.ReadFieldBegin();
+                if (field.Type == TType.Stop)
                 {
-                  string _key2;
-                  string _val3;
-                  _key2 = iprot.ReadString();
-                  _val3 = iprot.ReadString();
-                  Tags[_key2] = _val3;
+                    break;
                 }
-                iprot.ReadMapEnd();
-              }
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
+                switch (field.ID)
+                {
+                    case 1:
+                        if (field.Type == TType.String)
+                        {
+                            Title = iprot.ReadString();
+                        }
+                        else
+                        {
+                            TProtocolUtil.Skip(iprot, field.Type);
+                        }
+                        break;
+
+                    case 2:
+                        if (field.Type == TType.String)
+                        {
+                            Message = iprot.ReadString();
+                        }
+                        else
+                        {
+                            TProtocolUtil.Skip(iprot, field.Type);
+                        }
+                        break;
+
+                    case 3:
+                        if (field.Type == TType.Byte)
+                        {
+                            Level = iprot.ReadByte();
+                        }
+                        else
+                        {
+                            TProtocolUtil.Skip(iprot, field.Type);
+                        }
+                        break;
+
+                    case 4:
+                        if (field.Type == TType.I64)
+                        {
+                            Time = iprot.ReadI64();
+                        }
+                        else
+                        {
+                            TProtocolUtil.Skip(iprot, field.Type);
+                        }
+                        break;
+
+                    case 5:
+                        if (field.Type == TType.String)
+                        {
+                            Source = iprot.ReadString();
+                        }
+                        else
+                        {
+                            TProtocolUtil.Skip(iprot, field.Type);
+                        }
+                        break;
+
+                    case 6:
+                        if (field.Type == TType.I32)
+                        {
+                            Thread = iprot.ReadI32();
+                        }
+                        else
+                        {
+                            TProtocolUtil.Skip(iprot, field.Type);
+                        }
+                        break;
+
+                    case 7:
+                        if (field.Type == TType.Map)
+                        {
+                            {
+                                Tags = new Dictionary<string, string>();
+                                TMap _map0 = iprot.ReadMapBegin();
+                                for (int _i1 = 0; _i1 < _map0.Count; ++_i1)
+                                {
+                                    string _key2;
+                                    string _val3;
+                                    _key2 = iprot.ReadString();
+                                    _val3 = iprot.ReadString();
+                                    Tags[_key2] = _val3;
+                                }
+                                iprot.ReadMapEnd();
+                            }
+                        }
+                        else
+                        {
+                            TProtocolUtil.Skip(iprot, field.Type);
+                        }
+                        break;
+
+                    default:
+                        TProtocolUtil.Skip(iprot, field.Type);
+                        break;
+                }
+                iprot.ReadFieldEnd();
             }
-            break;
-          default: 
-            TProtocolUtil.Skip(iprot, field.Type);
-            break;
+            iprot.ReadStructEnd();
         }
-        iprot.ReadFieldEnd();
-      }
-      iprot.ReadStructEnd();
-    }
 
-    public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("TLogEntity");
-      oprot.WriteStructBegin(struc);
-      TField field = new TField();
-      if (Title != null && __isset.Title) {
-        field.Name = "Title";
-        field.Type = TType.String;
-        field.ID = 1;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteString(Title);
-        oprot.WriteFieldEnd();
-      }
-      if (Message != null && __isset.Message) {
-        field.Name = "Message";
-        field.Type = TType.String;
-        field.ID = 2;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteString(Message);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.Level) {
-        field.Name = "Level";
-        field.Type = TType.Byte;
-        field.ID = 3;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteByte(Level);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.Time) {
-        field.Name = "Time";
-        field.Type = TType.I64;
-        field.ID = 4;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI64(Time);
-        oprot.WriteFieldEnd();
-      }
-      if (Source != null && __isset.Source) {
-        field.Name = "Source";
-        field.Type = TType.String;
-        field.ID = 5;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteString(Source);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.Thread) {
-        field.Name = "Thread";
-        field.Type = TType.I32;
-        field.ID = 6;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(Thread);
-        oprot.WriteFieldEnd();
-      }
-      if (Tags != null && __isset.Tags) {
-        field.Name = "Tags";
-        field.Type = TType.Map;
-        field.ID = 7;
-        oprot.WriteFieldBegin(field);
+        public void Write(TProtocol oprot)
         {
-          oprot.WriteMapBegin(new TMap(TType.String, TType.String, Tags.Count));
-          foreach (string _iter4 in Tags.Keys)
-          {
-            oprot.WriteString(_iter4);
-            oprot.WriteString(Tags[_iter4]);
-          }
-          oprot.WriteMapEnd();
+            TStruct struc = new TStruct("TLogEntity");
+            oprot.WriteStructBegin(struc);
+            TField field = new TField();
+            if (Title != null && __isset.Title)
+            {
+                field.Name = "Title";
+                field.Type = TType.String;
+                field.ID = 1;
+                oprot.WriteFieldBegin(field);
+                oprot.WriteString(Title);
+                oprot.WriteFieldEnd();
+            }
+            if (Message != null && __isset.Message)
+            {
+                field.Name = "Message";
+                field.Type = TType.String;
+                field.ID = 2;
+                oprot.WriteFieldBegin(field);
+                oprot.WriteString(Message);
+                oprot.WriteFieldEnd();
+            }
+            if (__isset.Level)
+            {
+                field.Name = "Level";
+                field.Type = TType.Byte;
+                field.ID = 3;
+                oprot.WriteFieldBegin(field);
+                oprot.WriteByte(Level);
+                oprot.WriteFieldEnd();
+            }
+            if (__isset.Time)
+            {
+                field.Name = "Time";
+                field.Type = TType.I64;
+                field.ID = 4;
+                oprot.WriteFieldBegin(field);
+                oprot.WriteI64(Time);
+                oprot.WriteFieldEnd();
+            }
+            if (Source != null && __isset.Source)
+            {
+                field.Name = "Source";
+                field.Type = TType.String;
+                field.ID = 5;
+                oprot.WriteFieldBegin(field);
+                oprot.WriteString(Source);
+                oprot.WriteFieldEnd();
+            }
+            if (__isset.Thread)
+            {
+                field.Name = "Thread";
+                field.Type = TType.I32;
+                field.ID = 6;
+                oprot.WriteFieldBegin(field);
+                oprot.WriteI32(Thread);
+                oprot.WriteFieldEnd();
+            }
+            if (Tags != null && __isset.Tags)
+            {
+                field.Name = "Tags";
+                field.Type = TType.Map;
+                field.ID = 7;
+                oprot.WriteFieldBegin(field);
+                {
+                    oprot.WriteMapBegin(new TMap(TType.String, TType.String, Tags.Count));
+                    foreach (string _iter4 in Tags.Keys)
+                    {
+                        oprot.WriteString(_iter4);
+                        oprot.WriteString(Tags[_iter4]);
+                    }
+                    oprot.WriteMapEnd();
+                }
+                oprot.WriteFieldEnd();
+            }
+            oprot.WriteFieldStop();
+            oprot.WriteStructEnd();
         }
-        oprot.WriteFieldEnd();
-      }
-      oprot.WriteFieldStop();
-      oprot.WriteStructEnd();
+
+        public override string ToString()
+        {
+            StringBuilder __sb = new StringBuilder("TLogEntity(");
+            bool __first = true;
+            if (Title != null && __isset.Title)
+            {
+                if (!__first) { __sb.Append(", "); }
+                __first = false;
+                __sb.Append("Title: ");
+                __sb.Append(Title);
+            }
+            if (Message != null && __isset.Message)
+            {
+                if (!__first) { __sb.Append(", "); }
+                __first = false;
+                __sb.Append("Message: ");
+                __sb.Append(Message);
+            }
+            if (__isset.Level)
+            {
+                if (!__first) { __sb.Append(", "); }
+                __first = false;
+                __sb.Append("Level: ");
+                __sb.Append(Level);
+            }
+            if (__isset.Time)
+            {
+                if (!__first) { __sb.Append(", "); }
+                __first = false;
+                __sb.Append("Time: ");
+                __sb.Append(Time);
+            }
+            if (Source != null && __isset.Source)
+            {
+                if (!__first) { __sb.Append(", "); }
+                __first = false;
+                __sb.Append("Source: ");
+                __sb.Append(Source);
+            }
+            if (__isset.Thread)
+            {
+                if (!__first) { __sb.Append(", "); }
+                __first = false;
+                __sb.Append("Thread: ");
+                __sb.Append(Thread);
+            }
+            if (Tags != null && __isset.Tags)
+            {
+                if (!__first) { __sb.Append(", "); }
+                __first = false;
+                __sb.Append("Tags: ");
+                __sb.Append(Tags);
+            }
+            __sb.Append(")");
+            return __sb.ToString();
+        }
     }
-
-    public override string ToString() {
-      StringBuilder __sb = new StringBuilder("TLogEntity(");
-      bool __first = true;
-      if (Title != null && __isset.Title) {
-        if(!__first) { __sb.Append(", "); }
-        __first = false;
-        __sb.Append("Title: ");
-        __sb.Append(Title);
-      }
-      if (Message != null && __isset.Message) {
-        if(!__first) { __sb.Append(", "); }
-        __first = false;
-        __sb.Append("Message: ");
-        __sb.Append(Message);
-      }
-      if (__isset.Level) {
-        if(!__first) { __sb.Append(", "); }
-        __first = false;
-        __sb.Append("Level: ");
-        __sb.Append(Level);
-      }
-      if (__isset.Time) {
-        if(!__first) { __sb.Append(", "); }
-        __first = false;
-        __sb.Append("Time: ");
-        __sb.Append(Time);
-      }
-      if (Source != null && __isset.Source) {
-        if(!__first) { __sb.Append(", "); }
-        __first = false;
-        __sb.Append("Source: ");
-        __sb.Append(Source);
-      }
-      if (__isset.Thread) {
-        if(!__first) { __sb.Append(", "); }
-        __first = false;
-        __sb.Append("Thread: ");
-        __sb.Append(Thread);
-      }
-      if (Tags != null && __isset.Tags) {
-        if(!__first) { __sb.Append(", "); }
-        __first = false;
-        __sb.Append("Tags: ");
-        __sb.Append(Tags);
-      }
-      __sb.Append(")");
-      return __sb.ToString();
-    }
-
-  }
-
 }

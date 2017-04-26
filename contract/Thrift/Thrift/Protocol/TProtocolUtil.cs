@@ -21,8 +21,6 @@
  * details.
  */
 
-using System;
-
 namespace Thrift.Protocol
 {
     public static class TProtocolUtil
@@ -34,25 +32,32 @@ namespace Thrift.Protocol
                 case TType.Bool:
                     prot.ReadBool();
                     break;
+
                 case TType.Byte:
                     prot.ReadByte();
                     break;
+
                 case TType.I16:
                     prot.ReadI16();
                     break;
+
                 case TType.I32:
                     prot.ReadI32();
                     break;
+
                 case TType.I64:
                     prot.ReadI64();
                     break;
+
                 case TType.Double:
                     prot.ReadDouble();
                     break;
+
                 case TType.String:
                     // Don't try to decode the string, just skip it.
                     prot.ReadBinary();
                     break;
+
                 case TType.Struct:
                     prot.ReadStructBegin();
                     while (true)
@@ -67,6 +72,7 @@ namespace Thrift.Protocol
                     }
                     prot.ReadStructEnd();
                     break;
+
                 case TType.Map:
                     TMap map = prot.ReadMapBegin();
                     for (int i = 0; i < map.Count; i++)
@@ -76,6 +82,7 @@ namespace Thrift.Protocol
                     }
                     prot.ReadMapEnd();
                     break;
+
                 case TType.Set:
                     TSet set = prot.ReadSetBegin();
                     for (int i = 0; i < set.Count; i++)
@@ -84,6 +91,7 @@ namespace Thrift.Protocol
                     }
                     prot.ReadSetEnd();
                     break;
+
                 case TType.List:
                     TList list = prot.ReadListBegin();
                     for (int i = 0; i < list.Count; i++)

@@ -2,7 +2,7 @@
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Linq;
+
 namespace Logging.Server
 {
     /// <summary>
@@ -11,7 +11,6 @@ namespace Logging.Server
     /// <typeparam name="T"></typeparam>
     internal class BlockingActionQueue<T>
     {
-
         ///// <summary>
         ///// 当前队列长度
         ///// </summary>
@@ -27,7 +26,6 @@ namespace Logging.Server
         /// 阻塞队列的最大长度
         /// </summary>
         private int QueueMaxLength { get; set; }
-
 
         /// <summary>
         /// 多线程消费队列
@@ -84,17 +82,16 @@ namespace Logging.Server
                     T item = s_Queue.Take();
 
                     this.Action(item);
-
                 }
                 catch (ThreadAbortException tae)
                 {
                     Thread.ResetAbort();
-                     FileLogger.Log(tae);//TODO:此处写文件件会造成巨大文件
+                    FileLogger.Log(tae);//TODO:此处写文件件会造成巨大文件
                     //do exception...
                 }
                 catch (Exception ex)
                 {
-                      FileLogger.Log(ex);//TODO:此处写文件件会造成巨大文件
+                    FileLogger.Log(ex);//TODO:此处写文件件会造成巨大文件
                 }
             }
         }

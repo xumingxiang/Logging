@@ -39,12 +39,12 @@ namespace Thrift.Transport
         /// <summary>
         /// 传输的数据大小.单位：字节(Byte)
         /// </summary>
-        public  long DataSize { get; protected set; }
+        public long DataSize { get; protected set; }
 
         /// <summary>
         /// 传输的数据大小上限，超过会抛出异常.单位：字节(Byte)
         /// </summary>
-        public long DataSizeLimit { get;  set; }
+        public long DataSizeLimit { get; set; }
 
         public bool Peek()
         {
@@ -63,9 +63,9 @@ namespace Thrift.Transport
                 if (bytes == 0)
                     return false;
             }
-            catch( IOException)
+            catch (IOException)
             {
-                return false;  
+                return false;
             }
 
             _hasPeekByte = true;
@@ -105,7 +105,7 @@ namespace Thrift.Transport
 
         public virtual void Write(byte[] buf)
         {
-            Write (buf, 0, buf.Length);
+            Write(buf, 0, buf.Length);
         }
 
         public abstract void Write(byte[] buf, int off, int len);
@@ -129,6 +129,7 @@ namespace Thrift.Transport
         }
 
         #region " IDisposable Support "
+
         // IDisposable
         protected abstract void Dispose(bool disposing);
 
@@ -138,6 +139,7 @@ namespace Thrift.Transport
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-        #endregion
+
+        #endregion " IDisposable Support "
     }
 }

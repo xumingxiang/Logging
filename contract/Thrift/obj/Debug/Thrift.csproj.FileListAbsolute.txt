@@ -6,3 +6,4 @@ D:\workstudio\Logging\contract\Thrift\bin\Debug\Thrift.dll
 D:\workstudio\Logging\contract\Thrift\bin\Debug\Thrift.pdb
 D:\workstudio\Logging\contract\Thrift\obj\Debug\Thrift.dll
 D:\workstudio\Logging\contract\Thrift\obj\Debug\Thrift.pdb
+D:\workstudio\Logging\contract\Thrift\obj\Debug\Thrift.csprojResolveAssemblyReference.cache

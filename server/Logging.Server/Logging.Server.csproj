@@ -226,6 +226,7 @@
     <Compile Include="Alerting\MailHelper.cs" />
     <Compile Include="BackgroundTask.cs" />
     <Compile Include="BlockingActionQueue.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="DB\MongoDataBase.cs" />
     <Compile Include="Entitys\LogEntity.cs" />
     <Compile Include="Entitys\LogLevel.cs" />

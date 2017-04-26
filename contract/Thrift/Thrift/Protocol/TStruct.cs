@@ -21,10 +21,6 @@
  * details.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Thrift.Protocol
 {
     public struct TStruct
@@ -32,7 +28,7 @@ namespace Thrift.Protocol
         private string name;
 
         public TStruct(string name)
-            :this()
+            : this()
         {
             this.name = name;
         }

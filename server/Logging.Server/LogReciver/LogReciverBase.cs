@@ -130,10 +130,9 @@ namespace Logging.Server.Reciver
         {
             int over_count = queue.Enqueue(logPackage);
 
-
-
             //sizeof(logPackage)
             //logPackage.
+
             #region 溢出处理
 
             if (over_count > 0)
@@ -203,7 +202,6 @@ namespace Logging.Server.Reciver
             catch (Exception) { str = string.Empty; }
             return str;
         }
-
 
         #endregion 私有成员
     }

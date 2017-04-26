@@ -1,10 +1,9 @@
-﻿using Logging.Server.DB;
+﻿using Logging.Server.Alerting;
+using Logging.Server.DB;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using Logging.Server.Alerting;
 
 namespace Logging.Server.Writer
 {
@@ -13,9 +12,11 @@ namespace Logging.Server.Writer
         public void Write(IList<LogEntity> logs)
         {
             #region 写日志主体
+
             var log_collection = MongoDataBase.GetCollection<LogEntity>();
             log_collection.InsertManyAsync(logs);
-            #endregion
+
+            #endregion 写日志主体
 
             #region 写Tag
 
@@ -46,8 +47,8 @@ namespace Logging.Server.Writer
                 //    var result = tag_collection.InsertOneAsync(item);
                 //}
             }
-            #endregion
 
+            #endregion 写Tag
 
             List<LogStatistics> lss = new List<LogStatistics>();
             var app_grp = from a in logs group a by a.AppId into g select g;
@@ -71,8 +72,6 @@ namespace Logging.Server.Writer
 
             var log_ls_collection = MongoDataBase.GetCollection<LogStatistics>();
             log_ls_collection.InsertManyAsync(lss);
-
-
         }
 
         public void SetLogOnOff(LogOnOff on_off)
@@ -85,7 +84,8 @@ namespace Logging.Server.Writer
             {
                 collection.InsertOneAsync(on_off);
             }
-            else {
+            else
+            {
                 on_off._id = old_on_off._id;
                 collection.ReplaceOneAsync(a => a.AppId == on_off.AppId, on_off);
             }

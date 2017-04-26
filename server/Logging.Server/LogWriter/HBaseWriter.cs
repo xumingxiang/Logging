@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Logging.Server.Alerting;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Logging.Server.Alerting;
 
 namespace Logging.Server.Writer
 {

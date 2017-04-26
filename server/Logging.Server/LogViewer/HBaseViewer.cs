@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Logging.Server.Alerting;
+using System;
 using System.Collections.Generic;
-using Logging.Server.Alerting;
 
 namespace Logging.Server.Viewer
 {
@@ -21,7 +21,7 @@ namespace Logging.Server.Viewer
             throw new NotImplementedException();
         }
 
-        public List<LogEntity> GetLogs(long start, long end, int appId, int[] level, string title, string msg, string source, long ip,List<string>tags, int limit = 100)
+        public List<LogEntity> GetLogs(long start, long end, int appId, int[] level, string title, string msg, string source, long ip, List<string> tags, int limit = 100)
         {
             return null;
         }
@@ -31,7 +31,7 @@ namespace Logging.Server.Viewer
             throw new NotImplementedException();
         }
 
-        public List<LogStatistics> GetStatistics(long start, long end,int appId)
+        public List<LogStatistics> GetStatistics(long start, long end, int appId)
         {
             throw new NotImplementedException();
         }

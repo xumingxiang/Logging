@@ -362,7 +362,8 @@ namespace Thrift.Transport
             }
         }
 
-        #region " IDisposable Support "
+#region " IDisposable Support "
+
         private bool _IsDisposed;
 
         // IDisposable
@@ -385,9 +386,9 @@ namespace Thrift.Transport
             }
             _IsDisposed = true;
         }
-        #endregion
+
+#endregion " IDisposable Support "
     }
 }
-
 
 #endif

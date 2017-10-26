@@ -18,9 +18,9 @@ namespace Logging.Server.Alerting
         {
             try
             {
-                // < item key = "feedback" from = "noreply@plu.cn" password = "PLUn0reply123!" host = "smtp.exmail.qq.com" port = "25" />
-                string from = "noreply@plu.cn";
-                string password = "PLUn0reply123!";
+               
+                string from = "aaa@xxx.cn";
+                string password = "abcd1234!";
                 string host = "smtp.exmail.qq.com";
                 int port = 25;
 
